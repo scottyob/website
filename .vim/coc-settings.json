@@ -1,0 +1,6 @@
+{
+  "css.lint.unknownProperties": "ignore",
+  "css.validate": false,
+  "html.validate.html": false,
+  "html.filetypes": ["handlebars"]
+}

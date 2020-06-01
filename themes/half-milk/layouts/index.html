@@ -1,0 +1,27 @@
+{{ define "main" }}
+{{ $paginator := .Paginate (where .Site.Pages "Type" "posts").ByDate }}
+
+{{ if $paginator.HasPrev }}
+<div class="navigation">
+  <div class="leftnav">« <a href="{{$paginator.Prev.URL}}">Later Posts</a></div>
+</div>
+{{ end }}
+
+{{ range $paginator.Pages }}
+  <div class="post">
+    <h2 class="post__title">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h2>
+    <div class="post__summary">
+      {{ .Summary }}
+    </div>
+  </div>
+{{ end }}
+
+{{ if $paginator.HasNext }}
+<div class="navigation">
+  <div class="rightnav"><a href="{{$paginator.Next.URL}}">Earlier Posts</a> »</div>
+</div>
+{{ end }}
+
+{{ end }}
