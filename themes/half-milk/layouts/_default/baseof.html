@@ -38,6 +38,7 @@
           <!-- Main Content -->
           {{- block "main" . }}
           {{end}}
+          {{- partial "footer.html" . -}}
         </div>
         <div id="sidebar" class="col-md-3 order-md-first d-none d-md-block">
           <!-- Side Navigation-->
@@ -49,7 +50,6 @@
           </ul>
         </div> <!-- /Nav -->
       </div> <!-- /body -->
-    </div>
-    {{- partial "footer.html" . -}}
+    </div> <!-- /container -->
   </body>
 </html>

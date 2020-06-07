@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <meta name="generator" content="Hugo 0.71.1" />
+
+  
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/code_tango.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.scottyob.com/apple-touch-icon.png">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.scottyob.com/favicon-32x32.png">
+
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.scottyob.com/favicon-16x16.png">
+
+  
+  <link rel="manifest" href="https://www.scottyob.com/site.webmanifest">
+
+  
+  <link rel="mask-icon" href="https://www.scottyob.com/safari-pinned-tab.svg" color="">
+
+  <meta name="msapplication-TileColor" content="">
+
+  <meta name="theme-color" content="">
+
+  
+  <link rel="stylesheet" href="https://www.scottyob.com/css/bootstrap.min.css" />
+
+  
+  <title>3. Setting up FileSystems and Snapshots (part 1) | Scott O&#39;Brien</title>
+  
+
+  <style>
+
+  @media (min-width: 992px){
+    .container{
+      max-width:850px;
+    }  
+  }
+
+  body {
+    background-color: #fff;
+    background-color: #fff;
+    color: #888;
+    font-size: .66em;
+    font-family: lucida grande,Verdana,Arial,Sans-Serif;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header {
+    margin: 4em 0;
+  }
+
+  @media (min-width: 768px) {
+    #sidebar {
+      text-align: right;
+    }
+  }
+
+  #sidebar {
+    text-transform: lowercase;
+  }
+
+  #sidebar h2 {
+    font-family: lucida grande, Verdana,Arial,Sans-Serif;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    margin: 0;
+    padding: .5em 0 .4em;
+  }
+
+  #sidebar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #sidebar li:before {
+    content: "\00BB  ";
+  }
+
+  a {
+    color: #ff7010;
+    text-decoration: none;
+  }
+
+  h1 {
+    font-size 3.2em;
+    line-height: 1em;
+  }
+
+  h2 {
+    font-size: 1.8em;
+
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+    font-weight: bold;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+  }
+
+  small {
+    font-size: 1em;
+    line-height: 1.5em;
+    background-color: inherit;
+    color: #888;
+  }
+
+  h2.pagetitle {
+    background-color: #f0f0f0;
+    color: inherit;
+    padding: 0.5em 0 0.4em 0.2em;
+    margin: 0 0 2em 0;
+  }
+
+  #content {
+    color: #484848;
+  }
+
+  .leftnav {
+    float: left;
+    margin: 0 1em 0;
+  }
+
+  .rightnav {
+    float: right;
+  }
+
+  .snap-to-fit {
+    clear: both;
+    visibility: hidden;
+  }
+
+  .navigation {
+    margin: 0 0 1.6em 0;
+    padding: 0 0 1px 0;
+    font-family: 'Lucida Grande', Arial, Verdana, Sans-Serif;
+    font-size: 1.2em;
+  }
+
+  .post {
+    margin: 0 0 3em;
+  }
+
+  .post+.post h2 {
+      padding: .2em 0 0;
+      border-top: 1px solid #888;
+  }
+
+  .entry {
+    width: 100%;
+    font-size: 1.2em;
+    margin: 1em 0 0;
+    overflow: auto;
+  }
+
+  #footer {
+    clear: both;
+    margin: 4em 0 1em;
+    padding: .2em 0 0;
+    border-top: 1px solid #888;
+    font-family: lucida grande,Arial,Verdana,Sans-Serif;
+  }
+
+
+</style>
+
+</head>
+
+<body><div id="navbar-top" class="d-md-none">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand" href="/">Posts</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+	  <div class="navbar-nav">
+            
+              <a class="nav-item nav-link" href=/page/paragliding/>Paragliding Logbook</a>
+            
+              <a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
+            
+              <a class="nav-item nav-link" href=/page/about/>About Me</a>
+            
+	  </div>
+	</div>
+      </nav>
+    </div>
+
+
+    <div class="container" id="container">
+      
+      <div class="row">
+        <div class="col-md-9 offset-md-3">
+          <div class="header">
+            <h1><a href="/">Scott O&#39;Brien</a></h1>
+            <small>Ramblings and resources of my online life</small>
+          </div>
+        </div> 
+      </div>
+
+      <div class="row">
+        
+        <div id="content" class="col-md-9">
+          
+
+<style>
+  .entry {
+    font-size: 1.2em;
+    margin: 1em 0 0 0;
+  }
+
+</style>
+
+<div class="navigation">
+  
+    <div class="leftnav">« <a href="/2011/03/24/3-setting-up-filesystems-and-snapshots-part-2/">3. Setting up FileSystems and Snapshots (part 2)</a></div>
+  
+  
+    <div class="rightnav"><a href="/2011/03/16/2-installing-the-operating-system/">2. Installing the Operating System</a> »</div>
+  
+  <div class="snap-to-fit"></div>
+  
+</div>
+
+<div class="post">
+  <h2>3. Setting up FileSystems and Snapshots (part 1)</h1>
+  <small>2011-03-18 12:10:36 &#43;0000 &#43;0000</small>
+
+  <div class="entry">
+    <p><strong><em>Note: This post is one in a series aimed to be a tutorial eventually, it’s not currently finalised and at the moment exists as a place for collating thought and collecting feedback</em></strong></p>
+<p>Setting up the FileSystems is a trivial task.  First, you can see that when we’ve created a storage pool ‘datastore’ it created a filesystem for us (also called datastore) that can act as a container for child file systems.  I’m going to go ahead and create a place to store my media and downloads now</p>
+<blockquote>
+<p>zfs create datastore/media</p>
+</blockquote>
+<p>for now I’ll also want a place to store my backups.  It’s worth noting that while my media filesystem will contain compressed MP3’s and the like, it’s kind of a waste of CPU power to compress it, but my backups will be a lot of PHP pages and what not, so lets go ahead and enable compression on this one</p>
+<blockquote>
+<p># zfs create datastore/backups</p>
+</blockquote>
+<blockquote>
+<p># zfs set compression=on datastore/backups</p>
+</blockquote>
+<p>As appalled as I am of my mums backup habits, one of the requirements of this server was to provide a medium for backing up her data without her having to do anything, so lets set up backup locations for my laptop (MacShell) and a place for mum (mum) assigning both of these 20GB quota’s (ok, MacShell gets 120GB)</p>
+<blockquote>
+<p># zfs create datastore/backups/MacShell</p>
+</blockquote>
+<blockquote>
+<p># zfs create datastore/backups/mum</p>
+</blockquote>
+<blockquote>
+<p># zfs set quota=120G datastore/backups/MacShell</p>
+</blockquote>
+<blockquote>
+<p># zfs set quota=20GB datastore/backups/mum</p>
+</blockquote>
+<blockquote>
+<p># zfs get datastore/backups/mum</p>
+</blockquote>
+<p>Now, the idea is that a cron job will run rsyncing over the files every hour, on the hour.  For many reasons (in case I get a virus and need to revert back, in case somebody hacks in and does bad stuff, etc, etc) I’m going to choose to <a href="http://docs.huihoo.com/opensolaris/solaris-zfs-administration-guide/html/ch06.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.huihoo.com']);">create Snapshots</a> so I can roll back to a previous version.</p>
+<p>The convention I want is hourly.HOUR, daily.DAY, weekly.WEEK for up to 7 days and 4 weeks.  This also means that once I delete a file, I won’t recover the space that it took (once a snapshot of the file has been created) in my data pool until the end of the 4 week period.  for instance, hourly.0 will be the last hours snapshot, hourly.1 will be the 2nd last hours snapshot, etc.</p>
+<p>the following bash script will take care of the desired snapshots.  It’s based on a concept I took from this <a href="http://blogs.sun.com/mmusante/entry/rolling_snapshots_made_easy" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.sun.com']);">rolling snapshots made easy</a> post but I like <a href="http://www.scottyob.com/wp-content/uploads/2011/03/snapshot.sh" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);">my scripted way of doing rotating snapshots</a> much better.</p>
+<blockquote>
+<p>#!/bin/bash</p>
+<p>#print out usage</p>
+</blockquote>
+<blockquote>
+<p>if [ $# -ne 2 ]</p>
+</blockquote>
+<blockquote>
+<p>then</p>
+</blockquote>
+<blockquote>
+<p>echo “Usage: snapshot.sh [snapName] [max]”</p>
+</blockquote>
+<blockquote>
+<p>echo ”  eg. snapshot.sh hour 24″</p>
+</blockquote>
+<blockquote>
+<p>fi</p>
+<p>#if the max snapshot already exists, just delete it</p>
+</blockquote>
+<blockquote>
+<p>if [ `zfs list -t snapshot | grep datastore@$1.$2 | wc -l` -eq 1 ]</p>
+</blockquote>
+<blockquote>
+<p>then</p>
+</blockquote>
+<blockquote>
+<p>zfs destroy -r datastore@$1.$2</p>
+</blockquote>
+<blockquote>
+<p>fi</p>
+<h1 id="heading"></h1>
+</blockquote>
+<blockquote>
+<p>for ((i=$2-1; i &gt;= 0; i–)); do</p>
+</blockquote>
+<blockquote>
+<p>if [ `zfs list -t snapshot | grep datastore@$1.$i | wc -l` -eq 1 ]</p>
+</blockquote>
+<blockquote>
+<p>then</p>
+</blockquote>
+<blockquote>
+<p>#this snapshot exists, so we want to move it up one</p>
+</blockquote>
+<blockquote>
+<p>zfs rename -r datastore@$1.$i @$1.$[$i+1]</p>
+</blockquote>
+<blockquote>
+<p>fi</p>
+</blockquote>
+<blockquote>
+<p>done</p>
+<p>zfs snapshot -r datastore@$1.0</p>
+</blockquote>
+<p>so with this snapshot beauty in place, lets say I had an existing file and structure in place</p>
+<blockquote>
+<p>root@thumper:/datastore/backups/MacShell# pwd</p>
+</blockquote>
+<blockquote>
+<p>/datastore/backups/MacShell</p>
+</blockquote>
+<blockquote>
+<p>root@thumper:/datastore/backups/MacShell# tree</p>
+</blockquote>
+<blockquote>
+<p>.</p>
+</blockquote>
+<blockquote>
+<p>|– hello_world.txt</p>
+</blockquote>
+<blockquote>
+<p>`– someDir</p>
+</blockquote>
+<blockquote>
+<p>`– someFile.dat</p>
+<p>1 directory, 2 files</p>
+</blockquote>
+<p>BUT, I had a snapshot in place</p>
+<blockquote>
+<p># /snapshot.sh hourly 24</p>
+</blockquote>
+<p>then I did something silly like delete my entire backup directory (Oh No!!)</p>
+<blockquote>
+<p># rm -R *</p>
+</blockquote>
+<blockquote>
+<p># ls -l</p>
+</blockquote>
+<blockquote>
+<p>total 0</p>
+</blockquote>
+<p>never fear! check the snapshots</p>
+<blockquote>
+<p>root@thumper:/datastore/backups/</p>
+</blockquote>
+<blockquote>
+<p>MacShell/.zfs/snapshot/hourly.0# tree</p>
+</blockquote>
+<blockquote>
+<p>.</p>
+</blockquote>
+<blockquote>
+<p>|– hello_world.txt</p>
+</blockquote>
+<blockquote>
+<p>`– someDir</p>
+</blockquote>
+<blockquote>
+<p>`– someFile.dat</p>
+</blockquote>
+<p>they’ll eventually roll off my snapshot cycle and be removed in 4 weeks with my plan, but hey, pretty good at this point 🙂</p>
+<p>See <a href="http://www.scottyob.com/?p=96" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);">Part 2</a> for a post on how to set up cron jobs to automatically call this script</p>
+<p>**Other posts to come in the series:</p>
+<p>** 1. Selecting the hardware</p>
+<ol start="2">
+<li>
+<p>Installing the Operating System</p>
+</li>
+<li>
+<p>Setting up File systems &amp; Snapshots</p>
+</li>
+<li>
+<p>Allowing access through NFS &amp; SAMBA</p>
+</li>
+<li>
+<p>Setting up encrypted off-site backups</p>
+</li>
+<li>
+<p>Configuring Windows &amp; Linux clients to dump backup info to the FileServer</p>
+</li>
+<li>
+<p>My router setup, configuring IP tables &amp; torrents on a low-powered server.</p>
+</li>
+</ol>
+
+  </div>
+</div>
+
+
+<div id="footer">
+  Made with <a href="https://gohugo.io/">Hugo</a>.  Theme half-milk inspired by <a href="http://thortz.com/skimmed-milk/">skimmed-milk</a>
+</div>
+</div>
+        <div id="sidebar" class="col-md-3 order-md-first d-none d-md-block">
+          
+          <h2>Other Pages</h2>
+          <ul>
+            
+              <li><a href=/page/paragliding/>Paragliding Logbook</a></li>
+            
+              <li><a href=/page/bucketlist/>The Bucket List</a></li>
+            
+              <li><a href=/page/about/>About Me</a></li>
+            
+          </ul>
+        </div> 
+      </div> 
+    </div> 
+  </body>
+</html>

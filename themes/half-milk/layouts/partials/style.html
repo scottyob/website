@@ -45,7 +45,7 @@
     padding: 0;
   }
 
-  li:before {
+  #sidebar li:before {
     content: "\00BB  ";
   }
 
@@ -92,6 +92,7 @@
 
   .leftnav {
     float: left;
+    margin: 0 1em 0;
   }
 
   .rightnav {
@@ -109,5 +110,30 @@
     font-family: 'Lucida Grande', Arial, Verdana, Sans-Serif;
     font-size: 1.2em;
   }
+
+  .post {
+    margin: 0 0 3em;
+  }
+
+  .post+.post h2 {
+      padding: .2em 0 0;
+      border-top: 1px solid #888;
+  }
+
+  .entry {
+    width: 100%;
+    font-size: 1.2em;
+    margin: 1em 0 0;
+    overflow: auto;
+  }
+
+  #footer {
+    clear: both;
+    margin: 4em 0 1em;
+    padding: .2em 0 0;
+    border-top: 1px solid #888;
+    font-family: lucida grande,Arial,Verdana,Sans-Serif;
+  }
+
 
 </style>

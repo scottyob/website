@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <meta name="generator" content="Hugo 0.71.1" />
+
+  
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/code_tango.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.scottyob.com/apple-touch-icon.png">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.scottyob.com/favicon-32x32.png">
+
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.scottyob.com/favicon-16x16.png">
+
+  
+  <link rel="manifest" href="https://www.scottyob.com/site.webmanifest">
+
+  
+  <link rel="mask-icon" href="https://www.scottyob.com/safari-pinned-tab.svg" color="">
+
+  <meta name="msapplication-TileColor" content="">
+
+  <meta name="theme-color" content="">
+
+  
+  <link rel="stylesheet" href="https://www.scottyob.com/css/bootstrap.min.css" />
+
+  
+  
+  
+  <title>Home | Scott O&#39;Brien</title>
+  
+
+  <style>
+
+  @media (min-width: 992px){
+    .container{
+      max-width:850px;
+    }  
+  }
+
+  body {
+    background-color: #fff;
+    background-color: #fff;
+    color: #888;
+    font-size: .66em;
+    font-family: lucida grande,Verdana,Arial,Sans-Serif;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header {
+    margin: 4em 0;
+  }
+
+  @media (min-width: 768px) {
+    #sidebar {
+      text-align: right;
+    }
+  }
+
+  #sidebar {
+    text-transform: lowercase;
+  }
+
+  #sidebar h2 {
+    font-family: lucida grande, Verdana,Arial,Sans-Serif;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    margin: 0;
+    padding: .5em 0 .4em;
+  }
+
+  #sidebar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #sidebar li:before {
+    content: "\00BB  ";
+  }
+
+  a {
+    color: #ff7010;
+    text-decoration: none;
+  }
+
+  h1 {
+    font-size 3.2em;
+    line-height: 1em;
+  }
+
+  h2 {
+    font-size: 1.8em;
+
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+    font-weight: bold;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+  }
+
+  small {
+    font-size: 1em;
+    line-height: 1.5em;
+    background-color: inherit;
+    color: #888;
+  }
+
+  h2.pagetitle {
+    background-color: #f0f0f0;
+    color: inherit;
+    padding: 0.5em 0 0.4em 0.2em;
+    margin: 0 0 2em 0;
+  }
+
+  #content {
+    color: #484848;
+  }
+
+  .leftnav {
+    float: left;
+    margin: 0 1em 0;
+  }
+
+  .rightnav {
+    float: right;
+  }
+
+  .snap-to-fit {
+    clear: both;
+    visibility: hidden;
+  }
+
+  .navigation {
+    margin: 0 0 1.6em 0;
+    padding: 0 0 1px 0;
+    font-family: 'Lucida Grande', Arial, Verdana, Sans-Serif;
+    font-size: 1.2em;
+  }
+
+  .post {
+    margin: 0 0 3em;
+  }
+
+  .post+.post h2 {
+      padding: .2em 0 0;
+      border-top: 1px solid #888;
+  }
+
+  .entry {
+    width: 100%;
+    font-size: 1.2em;
+    margin: 1em 0 0;
+    overflow: auto;
+  }
+
+  #footer {
+    clear: both;
+    margin: 4em 0 1em;
+    padding: .2em 0 0;
+    border-top: 1px solid #888;
+    font-family: lucida grande,Arial,Verdana,Sans-Serif;
+  }
+
+
+</style>
+
+</head>
+
+<body><div id="navbar-top" class="d-md-none">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand" href="/">Posts</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+	  <div class="navbar-nav">
+            
+              <a class="nav-item nav-link" href=/page/paragliding/>Paragliding Logbook</a>
+            
+              <a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
+            
+              <a class="nav-item nav-link" href=/page/about/>About Me</a>
+            
+	  </div>
+	</div>
+      </nav>
+    </div>
+
+
+    <div class="container" id="container">
+      
+      <div class="row">
+        <div class="col-md-9 offset-md-3">
+          <div class="header">
+            <h1><a href="/">Scott O&#39;Brien</a></h1>
+            <small>Ramblings and resources of my online life</small>
+          </div>
+        </div> 
+      </div>
+
+      <div class="row">
+        
+        <div id="content" class="col-md-9">
+          
+
+
+
+<div class="navigation">
+  <div class="leftnav">« <a href="/">Later Posts</a></div>
+  <div class="snap-to-fit"></div>
+</div>
+
+
+
+  <div class="post">
+    <h2 class="post__title">
+      <a href="https://www.scottyob.com/2014/02/24/finding-overlaps-in-address-space/">Finding overlaps in address space</a>
+    </h2>
+    <small>2014-02-24 06:05:36 &#43;0000 &#43;0000</small>
+    <div class="entry">
+      <p>We have an interesting problem at my workplace, we have an MPLS VPN design for separation of security zones (e.g., staff from students.) and we don’t have MPLS support on our edge. With a L3 to the edge design though this means that while every edge switch has its own address space (per VRF), it also has a /30 uplink (once again, per VRF) back to the PE device.</p>
+<p>While this (rightly or wrongly decided) slightly more complicated design in itself isn’t a problem, I’ve been working on programatically putting all of this data into an IPAM (IP Address Management) solution. Doing this from the devices themselves (as apposed to a spreadsheet where it was previously kept) has provided the best way moving forward, so good in fact, that my IPAM started throwing exceptions when duplicate IP addresses and overlapping spaces were attempted to be added in the system.</p>
+<p>The following Python script uses my <a href="https://github.com/scottyob/pyiosdevice" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://github.com']);">Cisco IOS python library</a> to be able to identify IP address overlaps from a bunch of my saved device configs.</p>
+<p>It works by the following:</p>
+<ol>
+<li>Adds all L3 interfaces addresses and secondary addresses to a list</li>
+<li>Sorts list such that larger subnets are at the front, smaller (/32’s and the such) are at the back of the list.</li>
+<li>Walks through each subnet, if the network addresses is not in the routing table, add it in, if it is, add it to a list of colliding subnets.</li>
+<li>With the list of colliding subnets (subnets that have been multiply defined, or are of overlapping size):
+<ol>
+<li>If they are /30’s and there are only two places of definition, skip</li>
+<li>if the subnet values are not equal OR an address appears twice in the subnet.  Print it out as a colliding address (space)</li>
+</ol>
+</li>
+</ol>
+<p>You can find the <a href="https://gist.github.com/scottyob/9182695" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://gist.github.com']);">script as a ghist here</a> (note:  This assumes the devices have been picked and loaded as a Picked list of IOSDevice’s)</p>
+
+    </div>
+  </div>
+
+  <div class="post">
+    <h2 class="post__title">
+      <a href="https://www.scottyob.com/2014/01/29/automating-vlan-changes-for-esxi-switchports-in-cisco-ios/">Automating VLAN changes for ESXi Switchports in Cisco IOS.</a>
+    </h2>
+    <small>2014-01-29 10:51:35 &#43;0000 &#43;0000</small>
+    <div class="entry">
+      <p><a href="http://www.scottyob.com/wp-content/uploads/2014/01/product_bulletin_cisco_catalyst_6509_enhanced_vertical_chassis-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="size-full wp-image-370 alignleft" alt="6500" src="http://www.scottyob.com/wp-content/uploads/2014/01/product_bulletin_cisco_catalyst_6509_enhanced_vertical_chassis-1.jpg" width="242" height="302" /></a></p>
+<p>At the organisation I’m currently working for, we recently experienced <a href="http://www.vspecialist.co.uk/do-my-esxi-hosts-have-the-same-vlans/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vspecialist.co.uk']);">what appears to be a common issue</a>, VLAN’s trunked down to ESXi nodes were inconsistent.</p>
+<p>In our DC, we’re still running the old school Cisco Catalyst switches.  If we were running a fabric, or Nexus switches <a href="http://blog.alwaysthenetwork.com/tutorials/nexus-port-profiles/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blog.alwaysthenetwork.com']);">we could put port profiles to action</a> or if we lucky enough to have some equipment running Junos &lt;3 we could be <a href="http://packetpushers.net/junos-configuration-groups/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://packetpushers.net']);">using apply-groups for this</a>.</p>
+<p>Being stuck with 6500’s in the DC as our L2 platform (and a VSS for the L3 MPLS PE) this is a quick little hack job to automate configuration changes across switchports in Cisco IOS based on dynamically finding ports that are matching an interface description.</p>
+<p>In our DC, we have a bunch of switches (defined at the top of this script) and all our switchports that go to ESXi switchports that should have this template applied are matched on the interface description containing ‘ESXHOST’</p>
+<p>This relies on the <a href="https://github.com/knipknap/exscript/wiki/Python-API-Tutorial" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://github.com']);">python EXScript module</a></p>
+<p><a href="http://scottyob.com/static/changeDCPorts.py" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://scottyob.com']);">Download my script here</a></p>
+<pre><code class="language-python"># This script is used for updating the VLANs that are trunked down to ESX boxes.
+#  It works by logging in to each switch in the DC then looking at the interfaces that have 'ESXHOST'
+#  in the description.  For each of those switchports, it will run the 'alter' commands
+
+from Exscript.Account import Account
+from Exscript.protocols import SSH2
+import argparse
+import getopt
+import getpass
+import sys
+
+#A list of the switches to interigate.  These are the switches that have ESXi hosts in them
+SWITCHES = [
+    '10.0.0.2',
+    '10.0.0.3',
+    '10.0.0.4',
+    '10.0.0.5',
+    '10.0.0.7'
+    ]
+
+#Commands to execute for every switchport
+vlan_commands = &quot;&quot;&quot;
+  switchport trunk allowed vlan add 5,10,15,20-25,30,40,50
+  switchport trunk allowed vlan add 60,69,70,100-1000
+&quot;&quot;&quot;
+
+def query_yes_no(question, default=&quot;yes&quot;):
+    &quot;&quot;&quot;Ask a yes/no question via raw_input() and return their answer.
+
+    &quot;question&quot; is a string that is presented to the user.
+    &quot;default&quot; is the presumed answer if the user just hits &amp;lt;Enter&amp;gt;.
+        It must be &quot;yes&quot; (the default), &quot;no&quot; or None (meaning
+        an answer is required of the user).
+
+    The &quot;answer&quot; return value is one of &quot;yes&quot; or &quot;no&quot;.
+    &quot;&quot;&quot;
+    valid = {&quot;yes&quot;:True,   &quot;y&quot;:True,  &quot;ye&quot;:True,
+             &quot;no&quot;:False,     &quot;n&quot;:False}
+    if default == None:
+        prompt = &quot; [y/n] &quot;
+    elif default == &quot;yes&quot;:
+        prompt = &quot; [Y/n] &quot;
+    elif default == &quot;no&quot;:
+        prompt = &quot; [y/N] &quot;
+    else:
+        raise ValueError(&quot;invalid default answer: '%s'&quot; % default)
+
+    while True:
+        sys.stdout.write(question + prompt)
+        choice = raw_input().lower()
+        if default is not None and choice == '':
+            return valid[default]
+        elif choice in valid:
+            return valid[choice]
+        else:
+            sys.stdout.write(&quot;Please respond with 'yes' or 'no' &quot;\
+                             &quot;(or 'y' or 'n').\n&quot;)
+
+def returnInterfacesFromShowDescription(text):
+    &quot;&quot;&quot;
+    Returns a LIST of interfaces from the output of 'show interface desc' from a cisco device
+    &quot;&quot;&quot;
+    return [ x.split()[0] for x in text.split(&quot;\n&quot;) ]
+
+def genUpdateConfigForInterfaces(config, interfaces):
+    &quot;&quot;&quot;
+    Takes in a configuration block to run, a list of interfaces and generates the appropriate int range commands with the
+    config block after
+    &quot;&quot;&quot;
+    updateConfig = &quot;&quot;
+    while len(interfaces) &amp;gt; 0:
+        updateConfig += &quot;int range &quot; + &quot;,&quot;.join(interfaces[:5])
+        interfaces = interfaces[5:]
+        updateConfig += &quot;\n  %s\n&quot; % config.strip()
+    return updateConfig
+
+def updateSwitchportsWithDescription(switch, description, username, password, commands):
+    &quot;&quot;&quot;
+    Function is used to log into a switch, find all switchports that CONTAINS the description
+    with each of the said switchports, it will then execute the given commands.
+
+    switch:  Device to log into
+    description:  Search string to try and find in the switchport description
+    username:  Username to log into the switch with
+    password:  The password to log into the switch with
+    commands:  A list of commands that should be executed
+    &quot;&quot;&quot;
+
+    print &quot;Working with switch: %s&quot; % switch
+
+    #establish a SSH connection to the host
+    conn = SSH2()
+    account = Account(username, password)
+    conn.connect(switch)
+    conn.login(account)
+
+    #Do some pre-setup
+    conn.execute('')
+
+    #Make sure we're in super user mode
+    conn.execute('enable')
+    conn.execute('terminal length 0')
+
+    #find all ports that have ESXHOST (or whatever is set in description) in the description
+    conn.execute('show int desc | i %s' % description)
+    ports = conn.response.strip()
+
+    print &quot;Ports are:&quot;
+    print ports
+    portsList = returnInterfacesFromShowDescription(ports)[1:-1]
+
+    #go into config mode and get ready to run the update commands
+    #Generate a list of the update commands that should be ran
+    updateCommands = genUpdateConfigForInterfaces(commands, portsList).split(&quot;\n&quot;)
+    conn.execute('conf t')
+    print conn.response.strip()
+    print &quot;! About to execute the following commands.&quot;
+    for line in updateCommands:
+        print &quot;! &quot; + line
+
+    if query_yes_no('Execute Commands?', default=&quot;no&quot;):
+        #Run the set of commands given
+        for command in updateCommands:
+            conn.execute(command)
+            print conn.response
+
+        #Exit out of config mode
+        conn.execute(&quot;exit&quot;)
+        conn.execute(&quot;exit&quot;)
+        print conn.response
+        print
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=&quot;DC ESX VLAN Utility&quot;)
+    parser.add_argument('--user', help='The username that should be used to log into the switches with')
+
+    args = parser.parse_args()
+    if args.user:
+        username = args.user
+    else:
+        username = getpass.getuser()
+
+    password = getpass.getpass()
+
+    # Generate a list of commands
+    for switch in SWITCHES:
+        updateSwitchportsWithDescription(switch, 'ESXHOST', username, password, vlan_commands)
+
+</code></pre>
+    </div>
+  </div>
+
+  <div class="post">
+    <h2 class="post__title">
+      <a href="https://www.scottyob.com/2013/12/18/throttling-guest-internet-on-apple-airport-extreme/">throttling guest internet on Apple Airport Extreme</a>
+    </h2>
+    <small>2013-12-18 13:09:03 &#43;0000 &#43;0000</small>
+    <div class="entry">
+      <p>I’ve been happily running my Apple Airport Extreme as m home router for the past few years (since my debian router died, and I’ve been too lazy to replace it).  One of the cool features was the ability to create a guest network (SSID) to access the internet without being able to access your trusted network.  One feature I wanted was the ability to throttle the speed guests can access the internet at.  While I couldn’t do this with the Airport Extreme alone, Add a Juniper SRX100 into the mix that the awesome <a href="http://cooperlees.com" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://cooperlees.com']);">Cooper Lees</a> gave me into the mix and problem solved.</p>
+<p><a href="http://www.scottyob.com/wp-content/uploads/2013/12/apple-airport-extreme-base-station_1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-362" alt="apple-airport-extreme-base-station_1" src="http://www.scottyob.com/wp-content/uploads/2013/12/apple-airport-extreme-base-station_1.jpg" width="600" height="450" /></a></p>
+<div id="attachment_357" style="width: 499px" class="wp-caption aligncenter">
+  <a href="http://www.scottyob.com/wp-content/uploads/2013/12/photo-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img aria-describedby="caption-attachment-357" class=" wp-image-357 " alt="SRX100, signed by the #1 Juniper Engineer" src="http://www.scottyob.com/wp-content/uploads/2013/12/photo-1.jpg" width="489" height="367" /></a>
+  <p id="caption-attachment-357" class="wp-caption-text">
+    SRX100, signed by the #1 Juniper Engineer
+  </p>
+</div>
+<p><a href="http://www.scottyob.com/wp-content/uploads/2013/12/AirPort-Utility1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-353" alt="AirPort Utility" src="http://www.scottyob.com/wp-content/uploads/2013/12/AirPort-Utility1.jpg" width="697" height="667" /></a></p>
+<p><a href="http://www.scottyob.com/wp-content/uploads/2013/12/AirPort-Utility-2.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-356" alt="AirPort Utility-2" src="http://www.scottyob.com/wp-content/uploads/2013/12/AirPort-Utility-2.jpg" width="580" height="581" /></a></p>
+<p>In not so many words, performing these actions will do a number of things.  The gig ethernet switch on the back of the airport will be bridged with the WAN port.  Any traffic from your normal SSID(s) and switchports will be sent out the WAN port <em>untagged.</em>  Traffic from your guest network will be sent .1q tagged with vlan 1003.</p>
+<p>I popped this into fe-0/0/1 on my SRX100 and the following config works the magic.</p>
+<pre><code class="language-[interfaces]">    fe-0/0/1 {
+        unit 0 {
+            family ethernet-switching {
+                port-mode trunk;
+                vlan {
+                    members vlan-guest;
+                }
+                native-vlan-id 3;
+            }
+        }
+    }
+
+    vlan {
+        unit 0 {
+            family inet {
+                address 10.0.1.1/24;
+            }
+        }
+        unit 1003 {
+            family inet {
+                filter {
+                    input limit_guest_upload;
+                    output limit_guest_download;
+                }
+                address 10.0.2.1/24;
+            }
+        }
+    }
+
+[system services]
+        dhcp {
+            pool 10.0.1.0/24 {
+                address-range low 10.0.1.2 high 10.0.1.199;
+                router {
+                    10.0.1.1;
+                }
+            }
+            pool 10.0.2.0/24 {
+                address-range low 10.0.2.2 high 10.0.2.254;
+                router {
+                    10.0.2.1;
+                }
+            }
+            propagate-settings fe-0/0/0.0;
+        }
+
+[security]
+    nat {
+        source {
+            rule-set private-to-internet {
+                from zone [ guest trust ];
+                to zone untrust;
+                rule source-nat-rule {
+                    match {
+                        source-address 0.0.0.0/0;
+                    }
+                    then {
+                        source-nat {
+                            interface;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    policies {
+        from-zone trust to-zone untrust {
+            policy trust-to-untrust {
+                match {
+                    source-address any;
+                    destination-address any;
+                    application any;
+                }
+                then {
+                    permit;
+                }
+            }
+        }
+        from-zone guest to-zone untrust {
+            policy guest-to-internet {
+                description &quot;Allows guest access to internet&quot;;
+                match {
+                    source-address any;
+                    destination-address any;
+                    application any;
+                }
+                then {
+                    permit;
+                }
+            }
+        }
+    }
+
+[security zones]
+        security-zone guest {
+            host-inbound-traffic {
+                system-services {
+                    dns;
+                    ping;
+                    traceroute;
+                }
+            }
+            interfaces {
+                vlan.1003;
+            }
+        }
+
+firewall {
+    policer guest-shaping {
+        if-exceeding {
+            bandwidth-limit 500k;
+            burst-size-limit 300k;
+        }
+        then discard;
+    }
+    filter limit_guest_download {
+        term guest-shaping {
+            then {
+                policer guest-shaping;
+                accept;
+            }
+        }
+    }
+    filter limit_guest_upload {
+        term guest-shaping {
+            then {
+                policer guest-shaping;
+                accept;
+            }
+        }
+    }
+}
+vlans {
+    vlan-guest {
+        vlan-id 1003;
+        l3-interface vlan.1003;
+    }
+    vlan-trust {
+        vlan-id 3;
+        l3-interface vlan.0;
+    }
+}
+
+</code></pre>
+<p>And there you have it! A really simple way of limiting the bandwidth of guest users on your network using the power of Junos with an Airport Extreme!</p>
+<p> </p>
+<p style="text-align: center;">
+  <a href="http://www.scottyob.com/wp-content/uploads/2013/12/photo-2.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter  wp-image-364" alt="Throttled Speed" src="http://www.scottyob.com/wp-content/uploads/2013/12/photo-2.png" width="384" height="576" /></a>
+</p>
+    </div>
+  </div>
+
+  <div class="post">
+    <h2 class="post__title">
+      <a href="https://www.scottyob.com/2013/04/09/what-is-anycast/">What is Anycast?</a>
+    </h2>
+    <small>2013-04-09 12:15:31 &#43;0000 &#43;0000</small>
+    <div class="entry">
+      <p>I’ve never found a really simple video on what exactly Anycast is with a basic examples when exploring the concepts.  I decided to lab it up and figured this might help some of you starting out with the concepts.  Any comments feel free to let me know!</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/YM_b_YmTRBA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>Config Attached for IOS lab <a title="HERE" href="http://www.scottyob.com/wp-content/uploads/2013/04/IOU_WEB_ANYCAST.zip" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.scottyob.com/wp-content/uploads/2013/04/IOU_WEB_ANYCAST.zip']);">HERE.</a></p>
+
+    </div>
+  </div>
+
+
+
+<div class="navigation">
+  <div class="rightnav"><a href="/page/3/">Earlier Posts</a> »</div>
+  <div class="snap-to-fit"></div>
+</div>
+
+
+<div id="footer">
+  Made with <a href="https://gohugo.io/">Hugo</a>.  Theme half-milk inspired by <a href="http://thortz.com/skimmed-milk/">skimmed-milk</a>
+</div>
+</div>
+        <div id="sidebar" class="col-md-3 order-md-first d-none d-md-block">
+          
+          <h2>Other Pages</h2>
+          <ul>
+            
+              <li><a href=/page/paragliding/>Paragliding Logbook</a></li>
+            
+              <li><a href=/page/bucketlist/>The Bucket List</a></li>
+            
+              <li><a href=/page/about/>About Me</a></li>
+            
+          </ul>
+        </div> 
+      </div> 
+    </div> 
+  </body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <meta name="generator" content="Hugo 0.71.1" />
+
+  
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/code_tango.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.scottyob.com/apple-touch-icon.png">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.scottyob.com/favicon-32x32.png">
+
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.scottyob.com/favicon-16x16.png">
+
+  
+  <link rel="manifest" href="https://www.scottyob.com/site.webmanifest">
+
+  
+  <link rel="mask-icon" href="https://www.scottyob.com/safari-pinned-tab.svg" color="">
+
+  <meta name="msapplication-TileColor" content="">
+
+  <meta name="theme-color" content="">
+
+  
+  <link rel="stylesheet" href="https://www.scottyob.com/css/bootstrap.min.css" />
+
+  
+  <title>2. Installing the Operating System | Scott O&#39;Brien</title>
+  
+
+  <style>
+
+  @media (min-width: 992px){
+    .container{
+      max-width:850px;
+    }  
+  }
+
+  body {
+    background-color: #fff;
+    background-color: #fff;
+    color: #888;
+    font-size: .66em;
+    font-family: lucida grande,Verdana,Arial,Sans-Serif;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header {
+    margin: 4em 0;
+  }
+
+  @media (min-width: 768px) {
+    #sidebar {
+      text-align: right;
+    }
+  }
+
+  #sidebar {
+    text-transform: lowercase;
+  }
+
+  #sidebar h2 {
+    font-family: lucida grande, Verdana,Arial,Sans-Serif;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    margin: 0;
+    padding: .5em 0 .4em;
+  }
+
+  #sidebar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #sidebar li:before {
+    content: "\00BB  ";
+  }
+
+  a {
+    color: #ff7010;
+    text-decoration: none;
+  }
+
+  h1 {
+    font-size 3.2em;
+    line-height: 1em;
+  }
+
+  h2 {
+    font-size: 1.8em;
+
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+    font-weight: bold;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+  }
+
+  small {
+    font-size: 1em;
+    line-height: 1.5em;
+    background-color: inherit;
+    color: #888;
+  }
+
+  h2.pagetitle {
+    background-color: #f0f0f0;
+    color: inherit;
+    padding: 0.5em 0 0.4em 0.2em;
+    margin: 0 0 2em 0;
+  }
+
+  #content {
+    color: #484848;
+  }
+
+  .leftnav {
+    float: left;
+    margin: 0 1em 0;
+  }
+
+  .rightnav {
+    float: right;
+  }
+
+  .snap-to-fit {
+    clear: both;
+    visibility: hidden;
+  }
+
+  .navigation {
+    margin: 0 0 1.6em 0;
+    padding: 0 0 1px 0;
+    font-family: 'Lucida Grande', Arial, Verdana, Sans-Serif;
+    font-size: 1.2em;
+  }
+
+  .post {
+    margin: 0 0 3em;
+  }
+
+  .post+.post h2 {
+      padding: .2em 0 0;
+      border-top: 1px solid #888;
+  }
+
+  .entry {
+    width: 100%;
+    font-size: 1.2em;
+    margin: 1em 0 0;
+    overflow: auto;
+  }
+
+  #footer {
+    clear: both;
+    margin: 4em 0 1em;
+    padding: .2em 0 0;
+    border-top: 1px solid #888;
+    font-family: lucida grande,Arial,Verdana,Sans-Serif;
+  }
+
+
+</style>
+
+</head>
+
+<body><div id="navbar-top" class="d-md-none">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand" href="/">Posts</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+	  <div class="navbar-nav">
+            
+              <a class="nav-item nav-link" href=/page/paragliding/>Paragliding Logbook</a>
+            
+              <a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
+            
+              <a class="nav-item nav-link" href=/page/about/>About Me</a>
+            
+	  </div>
+	</div>
+      </nav>
+    </div>
+
+
+    <div class="container" id="container">
+      
+      <div class="row">
+        <div class="col-md-9 offset-md-3">
+          <div class="header">
+            <h1><a href="/">Scott O&#39;Brien</a></h1>
+            <small>Ramblings and resources of my online life</small>
+          </div>
+        </div> 
+      </div>
+
+      <div class="row">
+        
+        <div id="content" class="col-md-9">
+          
+
+<style>
+  .entry {
+    font-size: 1.2em;
+    margin: 1em 0 0 0;
+  }
+
+</style>
+
+<div class="navigation">
+  
+    <div class="leftnav">« <a href="/2011/03/18/3-setting-up-filesystems-and-snapshots/">3. Setting up FileSystems and Snapshots (part 1)</a></div>
+  
+  
+    <div class="rightnav"><a href="/2011/01/24/downloading-http-in-off-peak/">Downloading HTTP in off-peak</a> »</div>
+  
+  <div class="snap-to-fit"></div>
+  
+</div>
+
+<div class="post">
+  <h2>2. Installing the Operating System</h1>
+  <small>2011-03-16 11:09:50 &#43;0000 &#43;0000</small>
+
+  <div class="entry">
+    <p><strong><em>Note: This post is one in a series aimed to be a tutorial eventually, it’s not currently finalised and at the moment exists as a place for collating thought and collecting feedback</em></strong></p>
+<h2 id="installing-os-and-setup-network">Installing OS and setup Network</h2>
+<p>For the following set of posts, I have chosen to use VirtualBox to run through how to use ZFS in building your FileSystem. The first step is downloading and installing OpenIndiana. Get the latest build from <a href="http://openindiana.org/download/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://openindiana.org']);"><a href="http://openindiana.org/download/">http://openindiana.org/download/</a></a> (at the time of writing, I’m using oi-dev-148-x86) and install it onto your system. In VirtualBox I chose to install onto a 64 bit Solaris setup.
+Make a hard disk when you’re setting up your VM image (I called mine OS_SSD1 because the HD is eventually going to be installed onto a solid state drive.)
+Now, the VM is booted, we can start having some fun (SSH into it and Away we go)
+Our first step is to setup the address for the box. I must admit, I’m pretty new to Solaris but from what I’ve found, we’ll run these commands to disable Auto Configuration via DHCP then enable our static config.</p>
+<pre><code>svcadm disable physical:nwam &lt;br /&gt;svcadm enable physical:default
+</code></pre>
+<p>My fileserver is currently not on a domain (I’ll change this later), so I’ve added the line into my /etc/hosts file</p>
+<pre><code>10.12.1.1 thumper.local thumper
+</code></pre>
+<p>Put your hostname that you want to use (‘thumper’ for me) in /etc/nodename
+Your default gateway (routers) address should go in /etc/defaultrouter
+The last thing to do is tell the host about what subnet it’s on, For me, I added (for my server subnet)</p>
+<pre><code>10.12.1.0 255.255.255.0
+</code></pre>
+<p>The next step is set up your nameserver for DNS (/etc/resolv.conf) mine looks like this</p>
+<pre><code>nameserver 10.12.1.254
+</code></pre>
+<p>Copy /etc/nsswitch.dns to /etc/nsswitch.conf – so dns is used.
+Now so the adaptor comes up on boot, find out the status of your network I/O by running</p>
+<pre><code>dladm show-link
+</code></pre>
+<p>(for me was e1000g0). Once you have this, you need to ‘plumbe” to set up the software in the kernel to set this interface on the TCP/IP stack.</p>
+<pre><code>ifconfig e100g0 plumb &lt;br /&gt;echo 10.12.1.1/24 &gt; /etc/hostname.e100g0
+</code></pre>
+<p>Last but not least for your network stack,</p>
+<pre><code>svcadm restart milestone/network
+</code></pre>
+<p>From this point on, that concludes the base setup with networking that I’m using for the FileServer. If this happened to be a critical server for you, perhaps you’d consider setting up <a href="http://darkstar-solaris.blogspot.com/2008/09/zfs-root-mirror.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://darkstar-solaris.blogspot.com']);">redundant bootable drives with ZFS</a>. It looks pretty cool.</p>
+<h2>
+Setting up the storage pool
+</h2>
+Now we can get into the fun part. The first thing I want to do with this server is be able to store my data on it, so lets set up our storage pool. In my VM I’m using to test this I’ve added the disks I want to include in my pool (1GB disks for this test)
+<a href="http://www.scottyob.com/wp-content/uploads/2011/03/image.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);" class="image-link"><img src="http://www.scottyob.com/wp-content/uploads/2011/03/image_thumb.png" height="377" width="487" style=" text-align: center; display: block; margin: 0 auto 10px;" /></a>Once we’ve booted out VM (first thing I always do is ‘sudo bash’ because I’m evil in these silly little test environments).
+I want to find out the device ID’s for these hard disks I just added
+```
+root@thumper:~# iostat -En | egrep Size\|Soft <br />c1t0d0 Soft Errors: 0 Hard Errors: 6 Transport Errors: 0 <br />Size: 0.00GB <0 bytes> <br />c1t1d0 Soft Errors: 0 Hard Errors: 0 Transport Errors: 0 <br />Size: 17.18GB <17179869184 bytes> <br />c1t2d0 Soft Errors: 0 Hard Errors: 0 Transport Errors: 0 <br />Size: 1.07GB <1073741824 bytes> <br />c1t3d0 Soft Errors: 0 Hard Errors: 0 Transport Errors: 0 <br />Size: 1.07GB <1073741824 bytes> <br />c1t4d0 Soft Errors: 0 Hard Errors: 0 Transport Errors: 0 <br />Size: 1.07GB <1073741824 bytes> <br />c1t5d0 Soft Errors: 0 Hard Errors: 0 Transport Errors: 0 <br />Size: 1.07GB <1073741824 bytes>
+```
+As we can see, c1t0d0 is my CD-ROM drive, c1t1d0 is my hard disk, so I’ll want to create a Raidz-2 (two redundant drive) storage pool with the drives c1t2d0 c1t3d0 c1t4d0 c1t5d0
+```
+root@thumper:~# <strong>zpool create datastore raidz2 c1t2d0 c1t3d0 c1t4d0 c1t5d0 <br /></strong>root@thumper:~# zpool list <br />NAME SIZE ALLOC FREE CAP DEDUP HEALTH ALTROOT <br /><strong>datastore 3.94G 256K 3.94G 0% 1.00x ONLINE</strong> &#8211; <br />rpool 15.9G 4.17G 11.7G 26% 1.00x ONLINE &#8211; <br />root@thumper:~# zfs list <br />NAME USED AVAIL REFER MOUNTPOINT <br /><strong>datastore 128K 1.93G 44.8K /datastore <br /></strong>rpool 4.52G 11.1G 45K /rpool <br />rpool/ROOT 3.61G 11.1G 31K legacy <br />rpool/ROOT/openindiana 3.61G 11.1G 3.58G / <br />rpool/dump 383M 11.1G 383M &#8211; <br />rpool/export 1002K 11.1G 32K /export <br />rpool/export/home 970K 11.1G 32K /export/home <br />rpool/export/home/scott 938K 11.1G 938K /export/home/scott <br />rpool/swap 544M 11.5G 187M &#8211;
+```
+We can see now we’ve created a pool of storage across our data (that’s zfs raided) that gives us double parity so we can loose two drives and still be running and we’ve got 2GB of usable space here (I’m using 1GB hard disks, in my real production box these will be 1TB disks).
+Other posts to come in the series: <br />1. Selecting the hardware <br />2. Installing the Operating System <br />3. Setting up File systems &#038; Snapshots <br />4. Allowing access through NFS &#038; SAMBA <br />5. Setting up encrypted off-site backups <br />6. Configuring Windows &#038; Linux clients to dump backup info to the FileServer <br />7. My router setup, configuring IP tables &#038; torrents on a low-powered server.
+<br class="final-break" style="clear: both" />
+
+  </div>
+</div>
+
+
+<div id="footer">
+  Made with <a href="https://gohugo.io/">Hugo</a>.  Theme half-milk inspired by <a href="http://thortz.com/skimmed-milk/">skimmed-milk</a>
+</div>
+</div>
+        <div id="sidebar" class="col-md-3 order-md-first d-none d-md-block">
+          
+          <h2>Other Pages</h2>
+          <ul>
+            
+              <li><a href=/page/paragliding/>Paragliding Logbook</a></li>
+            
+              <li><a href=/page/bucketlist/>The Bucket List</a></li>
+            
+              <li><a href=/page/about/>About Me</a></li>
+            
+          </ul>
+        </div> 
+      </div> 
+    </div> 
+  </body>
+</html>

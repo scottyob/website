@@ -1,9 +1,10 @@
 {{ define "main" }}
-{{ $paginator := .Paginate (where .Site.Pages "Type" "posts").ByDate }}
+{{ $paginator := .Paginate (where .Site.Pages "Type" "post").ByDate.Reverse }}
 
 {{ if $paginator.HasPrev }}
 <div class="navigation">
   <div class="leftnav">« <a href="{{$paginator.Prev.URL}}">Later Posts</a></div>
+  <div class="snap-to-fit"></div>
 </div>
 {{ end }}
 
@@ -12,8 +13,9 @@
     <h2 class="post__title">
       <a href="{{ .Permalink }}">{{ .Title }}</a>
     </h2>
-    <div class="post__summary">
-      {{ .Summary }}
+    <small>{{ .Date }}</small>
+    <div class="entry">
+      {{ .Content }}
     </div>
   </div>
 {{ end }}
@@ -21,6 +23,7 @@
 {{ if $paginator.HasNext }}
 <div class="navigation">
   <div class="rightnav"><a href="{{$paginator.Next.URL}}">Earlier Posts</a> »</div>
+  <div class="snap-to-fit"></div>
 </div>
 {{ end }}
 

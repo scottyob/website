@@ -1,0 +1,32 @@
+{{ define "main" }}
+
+<style>
+  .entry {
+    font-size: 1.2em;
+    margin: 1em 0 0 0;
+  }
+
+</style>
+
+<div class="navigation">
+  {{ if .NextInSection }}
+    <div class="leftnav">« <a href="{{.NextInSection.URL}}">{{.NextInSection.Title}}</a></div>
+  {{ end }}
+  {{ if .PrevInSection }}
+    <div class="rightnav"><a href="{{.PrevInSection.URL}}">{{.PrevInSection.Title}}</a> »</div>
+  {{ end }}
+  <div class="snap-to-fit"></div>
+  <!-- Naviation -->
+</div>
+
+<div class="post">
+  <h2>{{ .Title }}</h1>
+  <small>{{ .Date }}</small>
+
+  <div class="entry">
+    {{ .Content }}
+  </div>
+</div>
+
+
+{{ end }}

@@ -1,0 +1,21 @@
+---
+title: User Accounting with Netflow
+author: scottyob
+type: post
+date: 2014-07-08T05:54:52+00:00
+url: /2014/07/08/user-accounting-with-netflow/
+categories:
+  - nerd
+  - networking
+tags:
+  - Herbert
+  - Netflow
+
+---
+At UOW we had a challenge.  We wanted to allow proxy-free internet, but wanted to keep an eye on how much data was being consumed by what sort of users.  For this we built Project Herbert <a href="http://uowits.github.io/herbert-gui/docs.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://uowits.github.io']);">http://uowits.github.io/herbert-gui/docs.html</a>.
+
+It uses netflow from inside our network and some syslog monitoring scripts to match up our private RFC1918 address space to the users who have it at that time, process the flows in near-realtime so we can adjust throttling and firewall policy to be reactive with the environment.
+
+The idea was to build this as a distributed system and allow it to scale-out to deal with more load
+
+<a href="http://www.scottyob.com/wp-content/uploads/2014/07/f9b7b2fc.screenshot.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter wp-image-405" src="http://www.scottyob.com/wp-content/uploads/2014/07/f9b7b2fc.screenshot.jpg" alt="Project Herbert" width="600" height="406" /></a>
