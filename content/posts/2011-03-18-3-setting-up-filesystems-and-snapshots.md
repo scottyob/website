@@ -39,7 +39,7 @@ Now, the idea is that a cron job will run rsyncing over the files every hour, on
 
 The convention I want is hourly.HOUR, daily.DAY, weekly.WEEK for up to 7 days and 4 weeks.  This also means that once I delete a file, I won’t recover the space that it took (once a snapshot of the file has been created) in my data pool until the end of the 4 week period.  for instance, hourly.0 will be the last hours snapshot, hourly.1 will be the 2nd last hours snapshot, etc.
 
-the following bash script will take care of the desired snapshots.  It’s based on a concept I took from this <a href="http://blogs.sun.com/mmusante/entry/rolling_snapshots_made_easy" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.sun.com']);">rolling snapshots made easy</a> post but I like <a href="http://www.scottyob.com/wp-content/uploads/2011/03/snapshot.sh" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);">my scripted way of doing rotating snapshots</a> much better.
+the following bash script will take care of the desired snapshots.  It’s based on a concept I took from this <a href="http://blogs.sun.com/mmusante/entry/rolling_snapshots_made_easy" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.sun.com']);">rolling snapshots made easy</a> post but I like <a href="/img/old/2011/03/snapshot.sh" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);">my scripted way of doing rotating snapshots</a> much better.
 
 > #!/bin/bash
 > 

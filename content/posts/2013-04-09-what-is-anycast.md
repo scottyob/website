@@ -17,4 +17,4 @@ I&#8217;ve never found a really simple video on what exactly Anycast is with a b
 
 {{< youtube YM_b_YmTRBA >}}
 
-Config Attached for IOS lab <a title="HERE" href="http://www.scottyob.com/wp-content/uploads/2013/04/IOU_WEB_ANYCAST.zip" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.scottyob.com/wp-content/uploads/2013/04/IOU_WEB_ANYCAST.zip']);">HERE.</a>
+Config Attached for IOS lab <a title="HERE" href="/img/old/2013/04/IOU_WEB_ANYCAST.zip" onclick="javascript:_gaq.push(['_trackEvent','download','/img/old/2013/04/IOU_WEB_ANYCAST.zip']);">HERE.</a>

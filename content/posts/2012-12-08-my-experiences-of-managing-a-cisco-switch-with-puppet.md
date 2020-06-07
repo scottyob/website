@@ -27,7 +27,7 @@ We&#8217;ve got a pretty basic topology going on in our DC, it&#8217;s just a VS
 
 Introduced in Puppet 2.7 is <a href="http://puppetlabs.com/blog/puppet-network-device-management/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://puppetlabs.com']);">network device management</a>.  This more or less is an expect script to manage interfaces and vlans on IOS devices.  For this lab, we will be using cisco IOU with the following topology
 
-<a href="http://www.scottyob.com/wp-content/uploads/2012/12/IOU-Web-Interface-Laboratories.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-221" title="IOU Web Interface - Laboratories" alt="" src="http://www.scottyob.com/wp-content/uploads/2012/12/IOU-Web-Interface-Laboratories.jpg" width="507" height="319" /></a>
+<a href="/img/old/2012/12/IOU-Web-Interface-Laboratories.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-221" title="IOU Web Interface - Laboratories" alt="" src="/img/old/2012/12/IOU-Web-Interface-Laboratories.jpg" width="507" height="319" /></a>
 
 #### Setting up the Devices
 

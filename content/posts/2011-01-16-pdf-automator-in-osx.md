@@ -23,7 +23,7 @@ tags:
 </p>
 
 <p style="clear: both;">
-  <a class="image-link" href="http://www.scottyob.com/wp-content/uploads/2011/01/Merge_Duplex_PDFs.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="linked-to-original" style="text-align: center; display: block; margin: 0 auto 10px;" src="http://www.scottyob.com/wp-content/uploads/2011/01/Merge_Duplex_PDFs-thumb.jpg" alt="" width="380" height="314" /></a>Using a <a href="http://fredericiana.com/2010/03/01/pdftk-1-41-for-mac-os-x-10-6/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://fredericiana.com']);">pdftk binary for OSX</a> and the automator script above, all I need to do now is select my two pdf documents (Set A & B), right hand click, then select &#8216;Duplex Merge PDF&#8217;s&#8217;. After that, I&#8217;ll have a nice merged.pdf file on my desktop that&#8217;s the resulting page.
+  <a class="image-link" href="/img/old/2011/01/Merge_Duplex_PDFs.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="linked-to-original" style="text-align: center; display: block; margin: 0 auto 10px;" src="/img/old/2011/01/Merge_Duplex_PDFs-thumb.jpg" alt="" width="380" height="314" /></a>Using a <a href="http://fredericiana.com/2010/03/01/pdftk-1-41-for-mac-os-x-10-6/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://fredericiana.com']);">pdftk binary for OSX</a> and the automator script above, all I need to do now is select my two pdf documents (Set A & B), right hand click, then select &#8216;Duplex Merge PDF&#8217;s&#8217;. After that, I&#8217;ll have a nice merged.pdf file on my desktop that&#8217;s the resulting page.
 </p>
 
 <p style="clear: both;">
@@ -36,6 +36,6 @@ tags:
 
 **EDIT:
   
-** Please feel free to <a href="http://www.scottyob.com/wp-content/uploads/2011/01/osxDuplexAutomator.zip" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.scottyob.com/wp-content/uploads/2011/01/osxDuplexAutomator.zip']);">download my automator scripts here </a>
+** Please feel free to <a href="/img/old/2011/01/osxDuplexAutomator.zip" onclick="javascript:_gaq.push(['_trackEvent','download','/img/old/2011/01/osxDuplexAutomator.zip']);">download my automator scripts here </a>
 
 &nbsp;

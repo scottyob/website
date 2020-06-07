@@ -24,4 +24,4 @@ Then downloading your file at an off-peak time (4am for me) is as simple as
 
 > <font color="#484848">echo “wget –c <a href="http://ubuntu.virginmedia.com/releases//maverick/ubuntu-10.10-desktop-i386.iso" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://ubuntu.virginmedia.com']);">http://ubuntu.virginmedia.com/releases//maverick/ubuntu-10.10-desktop-i386.iso</a>” | at 04:00</font>
 
-Simple hey <img style="border-bottom-style: none; border-right-style: none; border-top-style: none; border-left-style: none" class="wlEmoticon wlEmoticon-smile" alt="Smile" src="http://www.scottyob.com/wp-content/uploads/2011/01/wlEmoticon-smile.png" />
+Simple hey <img style="border-bottom-style: none; border-right-style: none; border-top-style: none; border-left-style: none" class="wlEmoticon wlEmoticon-smile" alt="Smile" src="/img/old/2011/01/wlEmoticon-smile.png" />

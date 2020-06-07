@@ -18,4 +18,4 @@ It uses netflow from inside our network and some syslog monitoring scripts to ma
 
 The idea was to build this as a distributed system and allow it to scale-out to deal with more load
 
-<a href="http://www.scottyob.com/wp-content/uploads/2014/07/f9b7b2fc.screenshot.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter wp-image-405" src="http://www.scottyob.com/wp-content/uploads/2014/07/f9b7b2fc.screenshot.jpg" alt="Project Herbert" width="600" height="406" /></a>
+<a href="/img/old/2014/07/f9b7b2fc.screenshot.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter wp-image-405" src="/img/old/2014/07/f9b7b2fc.screenshot.jpg" alt="Project Herbert" width="600" height="406" /></a>

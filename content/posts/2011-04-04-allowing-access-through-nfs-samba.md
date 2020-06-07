@@ -65,7 +65,7 @@ and share it
 ```
 So there we have it, a media folder anyone can access, and a ‘scott’ share that I’ll need to authenticate with (HOME\scott user)
 
-<a href="http://www.scottyob.com/wp-content/uploads/2011/03/image1.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);" class="image-link"><img src="http://www.scottyob.com/wp-content/uploads/2011/03/image_thumb1.png" height="355" width="480" style=" text-align: center; display: block; margin: 0 auto 10px;" /></a>
+<a href="/img/old/2011/03/image1.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);" class="image-link"><img src="/img/old/2011/03/image_thumb1.png" height="355" width="480" style=" text-align: center; display: block; margin: 0 auto 10px;" /></a>
 <h2>
 NFS Shares
 </h2>

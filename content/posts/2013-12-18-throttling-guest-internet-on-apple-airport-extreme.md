@@ -10,21 +10,21 @@ categories:
 ---
 I&#8217;ve been happily running my Apple Airport Extreme as m home router for the past few years (since my debian router died, and I&#8217;ve been too lazy to replace it).  One of the cool features was the ability to create a guest network (SSID) to access the internet without being able to access your trusted network.  One feature I wanted was the ability to throttle the speed guests can access the internet at.  While I couldn&#8217;t do this with the Airport Extreme alone, Add a Juniper SRX100 into the mix that the awesome <a href="http://cooperlees.com" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://cooperlees.com']);">Cooper Lees</a> gave me into the mix and problem solved.
 
-<a href="http://www.scottyob.com/wp-content/uploads/2013/12/apple-airport-extreme-base-station_1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-362" alt="apple-airport-extreme-base-station_1" src="http://www.scottyob.com/wp-content/uploads/2013/12/apple-airport-extreme-base-station_1.jpg" width="600" height="450" /></a>
+<a href="/img/old/2013/12/apple-airport-extreme-base-station_1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-362" alt="apple-airport-extreme-base-station_1" src="/img/old/2013/12/apple-airport-extreme-base-station_1.jpg" width="600" height="450" /></a>
 
 <!--more-->
 
 <div id="attachment_357" style="width: 499px" class="wp-caption aligncenter">
-  <a href="http://www.scottyob.com/wp-content/uploads/2013/12/photo-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img aria-describedby="caption-attachment-357" class=" wp-image-357 " alt="SRX100, signed by the #1 Juniper Engineer" src="http://www.scottyob.com/wp-content/uploads/2013/12/photo-1.jpg" width="489" height="367" /></a>
+  <a href="/img/old/2013/12/photo-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img aria-describedby="caption-attachment-357" class=" wp-image-357 " alt="SRX100, signed by the #1 Juniper Engineer" src="/img/old/2013/12/photo-1.jpg" width="489" height="367" /></a>
   
   <p id="caption-attachment-357" class="wp-caption-text">
     SRX100, signed by the #1 Juniper Engineer
   </p>
 </div>
 
-<a href="http://www.scottyob.com/wp-content/uploads/2013/12/AirPort-Utility1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-353" alt="AirPort Utility" src="http://www.scottyob.com/wp-content/uploads/2013/12/AirPort-Utility1.jpg" width="697" height="667" /></a>
+<a href="/img/old/2013/12/AirPort-Utility1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-353" alt="AirPort Utility" src="/img/old/2013/12/AirPort-Utility1.jpg" width="697" height="667" /></a>
 
-<a href="http://www.scottyob.com/wp-content/uploads/2013/12/AirPort-Utility-2.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-356" alt="AirPort Utility-2" src="http://www.scottyob.com/wp-content/uploads/2013/12/AirPort-Utility-2.jpg" width="580" height="581" /></a>
+<a href="/img/old/2013/12/AirPort-Utility-2.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-356" alt="AirPort Utility-2" src="/img/old/2013/12/AirPort-Utility-2.jpg" width="580" height="581" /></a>
 
 In not so many words, performing these actions will do a number of things.  The gig ethernet switch on the back of the airport will be bridged with the WAN port.  Any traffic from your normal SSID(s) and switchports will be sent out the WAN port _untagged._  Traffic from your guest network will be sent .1q tagged with vlan 1003.
 
@@ -181,5 +181,5 @@ And there you have it! A really simple way of limiting the bandwidth of guest us
 &nbsp;
 
 <p style="text-align: center;">
-  <a href="http://www.scottyob.com/wp-content/uploads/2013/12/photo-2.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter  wp-image-364" alt="Throttled Speed" src="http://www.scottyob.com/wp-content/uploads/2013/12/photo-2.png" width="384" height="576" /></a>
+  <a href="/img/old/2013/12/photo-2.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter  wp-image-364" alt="Throttled Speed" src="/img/old/2013/12/photo-2.png" width="384" height="576" /></a>
 </p>

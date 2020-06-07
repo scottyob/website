@@ -48,11 +48,11 @@ If you’re reading this, I’m guessing your current network topology looks som
 
 mine used to.  You have a single internet connection, single router/firewall, single switch and a bunch of hosts hanging from that switch.  In the event of a system failure, your system administrator (me in this case) will have to hop in a cab and rush to the server room to fix the problem.
 
-<img class="size-full wp-image-136 aligncenter" title="Old Network-1" src="http://www.scottyob.com/wp-content/uploads/2012/04/Old-Network-1.jpg" alt="" width="241" height="445" />
+<img class="size-full wp-image-136 aligncenter" title="Old Network-1" src="/img/old/2012/04/Old-Network-1.jpg" alt="" width="241" height="445" />
 
 The goal with this tutorial is to attempt to help your administrators sleep at night.  We will eliminate every single point of failure such that in the event of a system outage/failure, the system can self recover with at most a minute of unscheduled down time.
 
-<a href="http://www.scottyob.com/wp-content/uploads/2012/04/New-Network.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-137" title="New Network" src="http://www.scottyob.com/wp-content/uploads/2012/04/New-Network.jpg" alt="" width="307" height="409" /></a>
+<a href="/img/old/2012/04/New-Network.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-137" title="New Network" src="/img/old/2012/04/New-Network.jpg" alt="" width="307" height="409" /></a>
 
 #### Physical Switches
 
@@ -123,13 +123,13 @@ The steps on configuring the vSwitch (virtual switch) are pretty simple. Virtual
 First, ensure that we have two NIC’s setup on our vSwitch.
 
 <p style="text-align: center;">
-  <img class="aligncenter  wp-image-150" title="vSwitch" src="http://www.scottyob.com/wp-content/uploads/2012/04/vSwitch.jpg" alt="" width="451" height="332" />
+  <img class="aligncenter  wp-image-150" title="vSwitch" src="/img/old/2012/04/vSwitch.jpg" alt="" width="451" height="332" />
 </p>
 
 Next, look at the following configuration properties I’ve made to the NIC teaming information.  This basic configuration will ensure that when the link on vmnic0 is available (our active switch), it’ll use it.  When the link becomes unavailable, it will fail over to vmnic1.
 
 <p style="text-align: center;">
-  <a href="http://www.scottyob.com/wp-content/uploads/2012/04/vSwitch-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter  wp-image-151" title="vSwitch-1" src="http://www.scottyob.com/wp-content/uploads/2012/04/vSwitch-1.jpg" alt="" width="451" height="565" /></a>
+  <a href="/img/old/2012/04/vSwitch-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter  wp-image-151" title="vSwitch-1" src="/img/old/2012/04/vSwitch-1.jpg" alt="" width="451" height="565" /></a>
 </p>
 
 ##### Setting up border firewall’s
@@ -141,7 +141,7 @@ In my role, I replaced an active/backup GNU based firewall solution (backup bein
 Let me give a bit more detail to our new example network topology here in this example so you can gain a better idea of how these settings work.
 
 <p style="text-align: center;">
-  <a href="http://www.scottyob.com/wp-content/uploads/2012/04/Network-Setup.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter  wp-image-153" title="Network Setup" src="http://www.scottyob.com/wp-content/uploads/2012/04/Network-Setup.jpg" alt="" width="441" height="438" /></a>
+  <a href="/img/old/2012/04/Network-Setup.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter  wp-image-153" title="Network Setup" src="/img/old/2012/04/Network-Setup.jpg" alt="" width="441" height="438" /></a>
 </p>
 
 For the internal gateway address to fail over to the other switch should your link off Firewall1 die, You’ll want to make the following configuration

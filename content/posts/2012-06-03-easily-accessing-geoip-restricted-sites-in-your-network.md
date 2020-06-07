@@ -12,7 +12,7 @@ We all know the problem, some sites are restricted to certain countries based on
 
 This solution will tunnel only the sites you want over a VPN connection to be NAT&#8217;d out the other end.
 
-<a href="http://www.scottyob.com/wp-content/uploads/2012/06/Network-Config.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-176" title="Network Config" src="http://www.scottyob.com/wp-content/uploads/2012/06/Network-Config.jpg" alt="" width="410" height="529" /></a>
+<a href="/img/old/2012/06/Network-Config.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-176" title="Network Config" src="/img/old/2012/06/Network-Config.jpg" alt="" width="410" height="529" /></a>
 
 First we want to set up OpenVPN on the remote host by issuing &#8220;openvpn &#8211;genkey &#8211;secret static.key&#8221; then creating a file in (/etc/openvpn/server.conf)
 

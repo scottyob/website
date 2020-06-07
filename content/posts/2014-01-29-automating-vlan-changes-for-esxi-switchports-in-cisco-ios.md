@@ -8,7 +8,7 @@ categories:
   - Uncategorized
 
 ---
-<a href="http://www.scottyob.com/wp-content/uploads/2014/01/product_bulletin_cisco_catalyst_6509_enhanced_vertical_chassis-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="size-full wp-image-370 alignleft" alt="6500" src="http://www.scottyob.com/wp-content/uploads/2014/01/product_bulletin_cisco_catalyst_6509_enhanced_vertical_chassis-1.jpg" width="242" height="302" /></a>
+<a href="/img/old/2014/01/product_bulletin_cisco_catalyst_6509_enhanced_vertical_chassis-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="size-full wp-image-370 alignleft" alt="6500" src="/img/old/2014/01/product_bulletin_cisco_catalyst_6509_enhanced_vertical_chassis-1.jpg" width="242" height="302" /></a>
 
 At the organisation I&#8217;m currently working for, we recently experienced <a href="http://www.vspecialist.co.uk/do-my-esxi-hosts-have-the-same-vlans/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vspecialist.co.uk']);">what appears to be a common issue</a>, VLAN&#8217;s trunked down to ESXi nodes were inconsistent.
 
