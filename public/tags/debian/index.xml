@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>debian on Scott O&#39;Brien</title>
+    <link>https://www.scottyob.com/tags/debian/</link>
+    <description>Recent content in debian on Scott O&#39;Brien</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Jan 2011 00:38:18 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.scottyob.com/tags/debian/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Downloading HTTP in off-peak</title>
+      <link>https://www.scottyob.com/2011/01/24/downloading-http-in-off-peak/</link>
+      <pubDate>Tue, 25 Jan 2011 00:38:18 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/2011/01/24/downloading-http-in-off-peak/</guid>
+      <description>I want to write a quick and dirty blog post to tell you a little solution on downloading HTTP files in your off-peak usage using linux.
+The tools I’ll be using for this is my old favourite wget and a new tool, “at”.
+The at daemon is required to be running first, so on debian or ubuntu
+ /etc/init.d/atd start
+ Then downloading your file at an off-peak time (4am for me) is as simple as</description>
+    </item>
+    
+  </channel>
+</rss>

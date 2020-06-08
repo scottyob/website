@@ -13,6 +13,10 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
+  
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
 
   
   <link rel="apple-touch-icon" sizes="180x180" href="https://www.scottyob.com/apple-touch-icon.png">
@@ -171,6 +175,12 @@
     overflow: auto;
   }
 
+  blockquote {
+    margin: 1.6em 2.8em 0 1.4em;
+    padding: 0 0 0 2em;
+    border-left: .6em solid #ddd;
+  }
+
   #footer {
     clear: both;
     margin: 4em 0 1em;
@@ -192,8 +202,6 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 	  <div class="navbar-nav">
-            
-              <a class="nav-item nav-link" href=/page/paragliding/>Paragliding Logbook</a>
             
               <a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
             
@@ -238,9 +246,29 @@
     <div class="entry">
       <p>We all know the problem, some sites are restricted to certain countries based on the IP address you’re using to view them.  When trying to access over-seas, some solutions are HTTP proxies, Socks proxies and the like.  The problem I have with all of these is that they’re annoying to set up whenever you want to to view the site and I don’t want to have to do that for all my devices (iPad, computer, etc).</p>
 <p>This solution will tunnel only the sites you want over a VPN connection to be NAT’d out the other end.</p>
-<p><a href="http://www.scottyob.com/wp-content/uploads/2012/06/Network-Config.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-176" title="Network Config" src="http://www.scottyob.com/wp-content/uploads/2012/06/Network-Config.jpg" alt="" width="410" height="529" /></a></p>
+<p><a href="/img/old/2012/06/Network-Config.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-176" title="Network Config" src="/img/old/2012/06/Network-Config.jpg" alt="" width="410" height="529" /></a></p>
 <p>First we want to set up OpenVPN on the remote host by issuing “openvpn –genkey –secret static.key” then creating a file in (/etc/openvpn/server.conf)</p>
-<pre><code class="language-#">port 1194
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">port 1194
 proto tcp-server
 dev tun
 ifconfig 10.0.6.1 10.0.6.2 
@@ -256,17 +284,41 @@ persist-tun
 
 # Logging
 status openvpn-status.log
-</code></pre>
-<p>One thing we need to do on the server is set up NAT on the outbound address (to make sure all traffic that passes our VPS destined for the internet looks like it’s from that US IP address)</p>
-<pre><code class="language-#"># Allow unlimited outbound traffic
+</code></pre></td></tr></table>
+</div>
+</div><p>One thing we need to do on the server is set up NAT on the outbound address (to make sure all traffic that passes our VPS destined for the internet looks like it’s from that US IP address)</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># Allow unlimited outbound traffic
 /sbin/iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 /sbin/iptables -A OUTPUT -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
 
 iptables -t nat -A POSTROUTING -s 10.0.6.0/24 -o eth0 -j MASQUERADE
 echo 1 &amp;gt; /proc/sys/net/ipv4/ip_forward
-</code></pre>
-<p>On the client side, things look very similar,</p>
-<pre><code class="language-remote">persist-key
+</code></pre></td></tr></table>
+</div>
+</div><p>On the client side, things look very similar,</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">persist-key
 comp-lzo no
 redirect-gateway def1
 nobind
@@ -274,10 +326,63 @@ persist-tun
 secret secret.key
 dev tun
 ifconfig 10.0.6.2. 10.0.6.1
-</code></pre>
-<p>On the client, I just also MASQUERADE’d data though (I know, double NAT’ing, easier then adjusting routing table on the VPS)</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>On the client, I just also MASQUERADE’d data though (I know, double NAT’ing, easier then adjusting routing table on the VPS)</p>
 <p>Now for the magic to happen. I just replaced the DNS server on my home router with a little Python script (&lt;3 Twisted framework) to proxy requests, adding a tunnel for IP&rsquo;s that get returned by sites in my list (in this case I&rsquo;ve chosen two fictious sites, HooLoo.com and pandoor.com</p>
-<pre><code class="language-#!/usr/bin/python">
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">
 from twisted.internet.protocol import Factory, Protocol
 from twisted.internet import reactor
 from twisted.names import dns
@@ -301,7 +406,7 @@ except OSError, e:
 
 
 def tunnel(address):
-       subprocess.call([&quot;route&quot;, &quot;add&quot;, address + &quot;/32&quot;, &quot;tun0&quot;])  
+       subprocess.call([&#34;route&#34;, &#34;add&#34;, address + &#34;/32&#34;, &#34;tun0&#34;])  
 
 class SpelDnsReolver(client.Resolver):
   def filterAnswers(self, message):
@@ -325,8 +430,9 @@ f.noisy = p.noisy = verbosity
 reactor.listenUDP(53, p)
 reactor.listenTCP(53, f)
 reactor.run()
-</code></pre>
-
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
   </div>
 
@@ -339,17 +445,17 @@ reactor.run()
       <h3 id="setting-up-the-software-stack">Setting up the Software Stack</h3>
 <p>This article is the second in a series (<a href="http://www.scottyob.com/2012/04/13/ha-network/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);">see part 1 here</a>).  Please see <a href="http://www.scottyob.com/2012/04/13/ha-network/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);">HA Network</a> for the first part in setting up the network topology to be highly available.</p>
 <p>It’s all good having a redundant network design, but putting web servers and the like on our hypervisors doesn’t make them redundant.  In the event where there’s a failure on one of our servers, all virtual machines on that server will die.  Looking at our previous network design, we can see a failure on a web server or database server would cause service outage.</p>
-<p><a href="http://www.scottyob.com/wp-content/uploads/2012/04/Old-Network-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-136" title="Old Network-1" src="http://www.scottyob.com/wp-content/uploads/2012/04/Old-Network-1.jpg" alt="" width="241" height="445" /></a></p>
+<p><a href="/img/old/2012/04/Old-Network-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-136" title="Old Network-1" src="/img/old/2012/04/Old-Network-1.jpg" alt="" width="241" height="445" /></a></p>
 <p>In this example, I’m going to talk about a few pretty cool pieces of software that you can use to make a highly available (HA) service stack for hosting Apache web sites from a MySQL data store.  This post isn’t going to be about all the in’s and out’s of how to accomplish, but hopefully it will answer some questions you might have when setting out to accomplish this task as well as point you to the appropriate articles to help you achieve what you’re after.</p>
 <h4 id="nginx-load-balancing-proxy">Nginx load balancing proxy</h4>
 <p>Lets look first at an example of a previous example.  Lets take a simple network where we have a web server with a client.  The A record for <a href="http://www.example.com">www.example.com</a> points to our web server at 192.168.0.10 (of course we’d use NAT on the firewalls in my example to expose it to the internet).</p>
-<p><a href="http://www.scottyob.com/wp-content/uploads/2012/04/skitched-3.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-158" title="Client Server" src="http://www.scottyob.com/wp-content/uploads/2012/04/skitched-3.jpg" alt="" width="337" height="101" /></a></p>
+<p><a href="/img/old/2012/04/skitched-3.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-158" title="Client Server" src="/img/old/2012/04/skitched-3.jpg" alt="" width="337" height="101" /></a></p>
 <p>From my previous post, we can tell that the network topology to reach our web server on 192.168.0.10 is highly redundant, if the server itself, or the physical machine it’s hosted on in the case of virtual machines does die, we can no longer serve web pages.</p>
 <p>To solve this problem, we’re going to create multiple web servers. The A record for <a href="http://www.example.com">www.example.com</a> is now no longer going to be pointing to the web server itself, but a proxy server (I recommend <a href="http://wiki.nginx.org/Configuration" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.nginx.org']);">Nginx</a>.) Now you can see that if either web server dies, our proxy server is able to start handing out requests through the other server. This method is also recommended because it mitigates load from a single server. If your web site got more popular, we can just start scaling out and adding more web servers into the mix to handle the load. Now, I know what you’re thinking, and yes, we have just moved the single point of failure from the web server to the proxy server, but please read on to find out how to protect that host from failure.</p>
-<p><a href="http://www.scottyob.com/wp-content/uploads/2012/04/Proxy-Server-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-159" title="Proxy Server-1" src="http://www.scottyob.com/wp-content/uploads/2012/04/Proxy-Server-1.jpg" alt="" width="484" height="272" /></a></p>
+<p><a href="/img/old/2012/04/Proxy-Server-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-159" title="Proxy Server-1" src="/img/old/2012/04/Proxy-Server-1.jpg" alt="" width="484" height="272" /></a></p>
 <h4 id="heartbeat-keep-your-servers-beating">Heartbeat, keep your servers beating</h4>
 <p>In the previous example, we had a server that was a single point of failure.  If the proxy server in this case died, then our web site would go down.  To plan against the failure of this machine, you can set up a tool such as <a href="http://www.howtoforge.com/high_availability_heartbeat_centos" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.howtoforge.com']);">Heartbeat</a>.  An example works like the following, your proxy server above is running the Nginx daemon handling your client’s requests, but it does so using a virtual network adaptor where it’s IP address 192.168.0.10 sits.  You put a second server in here in the mix with the same Nginx daemon and the same configuration, but it’s not running or serving anything, this is known as our slave server.  The slave server is sending heartbeat messages to the master server.  In the event that the master server stops responding to the slave’s heartbeat messages, it assumes the master is down and will create a virtual adaptor assuming the working IP address (192.168.0.10 in our example) and brings up the master services.</p>
-<p><a href="http://www.scottyob.com/wp-content/uploads/2012/04/Heartbeat-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-160" title="Heartbeat-1" src="http://www.scottyob.com/wp-content/uploads/2012/04/Heartbeat-1.jpg" alt="" width="453" height="406" /></a></p>
+<p><a href="/img/old/2012/04/Heartbeat-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-160" title="Heartbeat-1" src="/img/old/2012/04/Heartbeat-1.jpg" alt="" width="453" height="406" /></a></p>
 <p>I use heartbeat extensively through my HA configurations. Not only for allowing services to be taken up by a slave in the event of a master failure, but also where I have clusters (for example, a MySQL cluster). When the slave assumes the master’s IP address, it’s handy to write a little script/service here to stop any replication and assume the master’s role.</p>
 <p><strong>ProTip:</strong> Managing configuration across your servers when you start creating multiple instances for redundancy can start to get out of hand very quickly. Sometimes you can change a configuration on one server and forget to do it on another. I suggest using a tool like <a href="http://en.wikipedia.org/wiki/Puppet_(software)" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org']);">Puppet</a> to manage the configuration on your servers for you</p>
 <p><strong>ProTip:</strong> From experience, I’ve had situations in failover testing where the failure of a core switch will cause heartbeat to stop receiving heartbeats and fail the servers over, even though the physical and virtual machines themselves are fine. If you’re running the (non-rapid) Spanning Tree Protocol (STP) on your network, I suggest making the timeout for Heartbeat about 45 seconds. This should be enough time to allow for STP convergence before it assumes it’s partner is dead.</p>
@@ -393,15 +499,62 @@ reactor.run()
 <h3 id="part-1-physical-topology">Part 1, Physical Topology</h3>
 <p>If you’re reading this, I’m guessing your current network topology looks something like</p>
 <p>mine used to.  You have a single internet connection, single router/firewall, single switch and a bunch of hosts hanging from that switch.  In the event of a system failure, your system administrator (me in this case) will have to hop in a cab and rush to the server room to fix the problem.</p>
-<p><img class="size-full wp-image-136 aligncenter" title="Old Network-1" src="http://www.scottyob.com/wp-content/uploads/2012/04/Old-Network-1.jpg" alt="" width="241" height="445" /></p>
+<p><img class="size-full wp-image-136 aligncenter" title="Old Network-1" src="/img/old/2012/04/Old-Network-1.jpg" alt="" width="241" height="445" /></p>
 <p>The goal with this tutorial is to attempt to help your administrators sleep at night.  We will eliminate every single point of failure such that in the event of a system outage/failure, the system can self recover with at most a minute of unscheduled down time.</p>
-<p><a href="http://www.scottyob.com/wp-content/uploads/2012/04/New-Network.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-137" title="New Network" src="http://www.scottyob.com/wp-content/uploads/2012/04/New-Network.jpg" alt="" width="307" height="409" /></a></p>
+<p><a href="/img/old/2012/04/New-Network.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-137" title="New Network" src="/img/old/2012/04/New-Network.jpg" alt="" width="307" height="409" /></a></p>
 <h4 id="physical-switches">Physical Switches</h4>
 <p>We’ll be replacing the single switch (in my case, unmanaged old gigabit switch) with a pair of managed switches.  Because our bandwidth requirements in this site wasn’t terribly demanding (simple database server, few web, mail servers and the like), a single gigabit Ethernet link to all hosts was all that we required.  If you’re in the same boat I was, I can suggest a pair of Juniper EX2200’s.  If however, you’re going to be pumping some more bandwidth intensive applications through your network (thus require more then gigabit Ethernet connections to the hosts) or have the need for more then a single VLAN and intra-VLAN routing is required (that’s all outside the scope of this tutorial.)  I can strongly recommend you start looking at the EX4200 model switches (set up in a virtual chassis), which can do all your highly available layer 3 IP routing and support multi gigabit Ethernet to your hosts by spanning Ethernet channel across both physical switches.</p>
 <h4 id="activepassive-switch-design">Active/Passive Switch Design?</h4>
 <p>Ok, so this heading is a lie, but let me explain.  In my switch design with the EX2200’s, I’m using aggregate Ethernet 802.3ad Etherchannel between my two switches. I’ve opted to use 4 physical ports in my 24 port switches (ge-0/0/20 to ge-0/0/23) to give me a 4Gbit/s backbone between them. Obviously with gigabit Ethernet right through the network this isn’t much bandwidth, so the idea is to keep as little data traveling that link as possible (network broadcasts only hopefully!)</p>
 <p>First, the following configuration configures the aggregate Ethernet link between the switches:</p>
-<pre><code class="language-chassis">    aggregated-devices {
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    aggregated-devices {
         ethernet {
             device-count 1;
         }
@@ -444,29 +597,64 @@ reactor.run()
             }
         }
     }
-</code></pre>
-<p>The only thing you have to watch out for, is that on at least one switch, you set the lacp mode to be <strong>active</strong>.</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>The only thing you have to watch out for, is that on at least one switch, you set the lacp mode to be <strong>active</strong>.</p>
 <h4 id="setting-up-esxi-network">Setting up ESXi Network</h4>
 <p>In my environment, I’m using the free version of ESXi 4.1. I understand that you may wish to be connecting linux hosts directly. If you’re directly connecting linux hosts, I recommend you look at creating a <a href="http://wiki.centos.org/TipsAndTricks/BondingInterfaces" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.centos.org']);">Bonding Adaptor</a>.  Thought without the more expensive EX4200’s, we’re best sticking with an active-backup setup and should stick with mode=1.</p>
 <p>For the ESXi configuration, it’s pretty simple. We connect two NIC’s to the switches. A primary NIC to the primary switch, and a secondary NIC to the secondary switch.</p>
 <p>The steps on configuring the vSwitch (virtual switch) are pretty simple. Virtual machines on these ESXi hosts won’t have to do anything special once this setup has been done to take advantage on the physical machines, they’ll just take advantage of our HA network topology.</p>
 <p>First, ensure that we have two NIC’s setup on our vSwitch.</p>
 <p style="text-align: center;">
-  <img class="aligncenter  wp-image-150" title="vSwitch" src="http://www.scottyob.com/wp-content/uploads/2012/04/vSwitch.jpg" alt="" width="451" height="332" />
+  <img class="aligncenter  wp-image-150" title="vSwitch" src="/img/old/2012/04/vSwitch.jpg" alt="" width="451" height="332" />
 </p>
 <p>Next, look at the following configuration properties I’ve made to the NIC teaming information.  This basic configuration will ensure that when the link on vmnic0 is available (our active switch), it’ll use it.  When the link becomes unavailable, it will fail over to vmnic1.</p>
 <p style="text-align: center;">
-  <a href="http://www.scottyob.com/wp-content/uploads/2012/04/vSwitch-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter  wp-image-151" title="vSwitch-1" src="http://www.scottyob.com/wp-content/uploads/2012/04/vSwitch-1.jpg" alt="" width="451" height="565" /></a>
+  <a href="/img/old/2012/04/vSwitch-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter  wp-image-151" title="vSwitch-1" src="/img/old/2012/04/vSwitch-1.jpg" alt="" width="451" height="565" /></a>
 </p>
 <h5 id="setting-up-border-firewalls">Setting up border firewall’s</h5>
 <p>The last step we’ve got in our highly available infrastructure here is our border firewall’s. Please bare with me on this section, it is the most complicated and there are a few technologies introduced. If there is something I don’t explain completely, please feel free to leave a comment below and I’ll try and explain it better.  I expect you’ll have to jump back and forth between Wikipedia and this article to fully understand what it is we’re doing. Explaining the concepts behind BGP and autonomous systems is beyond the scope of this article.</p>
 <p>In my role, I replaced an active/backup GNU based firewall solution (backup being run down to the data center as fast as possible and swap the cables over) with two Juniper SRX100’s configured in an active/passive configuration under a chassis cluster (see SRX100 high availability deployment guide at <a href="http://kb.juniper.net/InfoCenter/index?page=content&id=KB15669" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.juniper.net']);"><a href="http://kb.juniper.net/InfoCenter/index?page=content&amp;id=KB15669">http://kb.juniper.net/InfoCenter/index?page=content&amp;id=KB15669</a></a>). We had get a second internet connection installed, then make sure that any one link (or firewall itself) can die and still have the system self recover. There are two major tasks that has to happen to make this gateway highly available. Firstly, our internal network hosts will be using one of these firewall’s as their default gateway. If the link to the primary switch, or the primary firewall itself should die, we still want the network hosts to be able to reach their gateway. We will achieve this with “redundant Ethernet” on the cluster. If you’ve come from the cisco networking world before, picture something like this to be like VRRP for the inside hosts. If the main link fails, the MAC and IP address will float over to the other physical port.</p>
 <p>Let me give a bit more detail to our new example network topology here in this example so you can gain a better idea of how these settings work.</p>
 <p style="text-align: center;">
-  <a href="http://www.scottyob.com/wp-content/uploads/2012/04/Network-Setup.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter  wp-image-153" title="Network Setup" src="http://www.scottyob.com/wp-content/uploads/2012/04/Network-Setup.jpg" alt="" width="441" height="438" /></a>
+  <a href="/img/old/2012/04/Network-Setup.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter  wp-image-153" title="Network Setup" src="/img/old/2012/04/Network-Setup.jpg" alt="" width="441" height="438" /></a>
 </p>
 <p>For the internal gateway address to fail over to the other switch should your link off Firewall1 die, You’ll want to make the following configuration</p>
-<pre><code class="language-chassis">    cluster {
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    cluster {
         reth-count 2;
         redundancy-group 0 {
             node 0 priority 100;
@@ -496,13 +684,67 @@ interfaces {
     }
 }
 
-</code></pre>
-<p>You can see redundancy-group 1 is monitoring the local interfaces going back to the switches.</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>You can see redundancy-group 1 is monitoring the local interfaces going back to the switches.</p>
 <p>For the dual WAN links, I won’t go into much detail, but you’ll want to ask your ISP for a second internet connection. Some providers offer a cheap link that they only charge you for once you start flowing data over it (sometimes called a Shadow link). This is perfect as you can flow all your traffic through your primary internet connection, then on failure of it, you’ll move your traffic through the secondary. If you wanted complete redundancy, you could apply for a domain independent subnet (has to be a class C to advertise on world BGP tables) and your own ASN. This will let you use two different internet service providers.</p>
 <p>In my case, I’m creating a redundant connection using the same ISP, so I’ve asked for a private ASN to be allocated (see <a href="http://en.wikipedia.org/wiki/Autonomous">http://en.wikipedia.org/wiki/Autonomous</a>_System_(Internet) ).</p>
 <p>For a small network such as ours (especially using the small base level SRX’s) you’ll want to ask your provider to advertise only the default route to you. In turn, you’ll advertise your network’s address space on both connections. On the event that a link dies, the BGP peer on the other end no longer receives updates from you and will no longer attempt to route to it.</p>
 <p>The following configuration extract shows how we’d configure out SRX firewall’s to peer with our ISP’s routers. Things of note is that our primary link (the one on the left) has a lower metric-out then the shadow link, meaning a lower MED attribute is sent to our ISP and thus inbound traffic will, by preference use the main connection. The preference values under neighbor will determine the preference we will send traffic under that connection for outbound traffic.</p>
-<pre><code class="language-routing-options">    autonomous-system 64512
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    autonomous-system 64512
 }
 
 protocols {
@@ -551,8 +793,9 @@ policy-options {
         }
     }
 }
-</code></pre>
-
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
   </div>
 
@@ -573,7 +816,28 @@ A real quick run down, we all know what DNS does yeah? It translates domains lik
 <p>What google doesn’t tell you is that it interferes with DNS servers that might try and give you a server that’s close to your home. I’ve been using Google DNS for months here at home, but only just have I decided against using it, and I’ll run through exactly what causes some performance issues.</p>
 <p>I was trying to watch a program on iView on TPG’s internet connection. Now, TPG don’t have the best international links on peak times, so I first started getting frustrated at them for not letting me watch my iView program with buffer lags on my 8Mbit plan. I checked my Signal to Noise ratio and dropped packets, etc.. it was fine. I checked the bandwith going out on my ppp interface on the router to see if I was maxing out the net connection at home, but nope, that was fine too, so the problem must have been with TPG.</p>
 <p>Looking at what was going on, I did a little traceroute to <a href="http://www.abc.net.au">www.abc.net.au</a></p>
-<pre><code>traceroute: Warning: www.abc.net.au has multiple addresses; using 125.252.224.73
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">traceroute: Warning: www.abc.net.au has multiple addresses; using 125.252.224.73
  traceroute to a1632.g.akamai.net (125.252.224.73), 64 hops max, 52 byte packets
  1 10.1.1.254 (10.1.1.254) 1.919 ms 1.260 ms 1.202 ms
  2 * * *
@@ -590,12 +854,33 @@ A real quick run down, we all know what DNS does yeah? It translates domains lik
  9 80.150.169.25 (80.150.169.25) 333.519 ms 306.138 ms 307.031 ms
  10 80.156.224.6 (80.156.224.6) 358.402 ms 320.029 ms 349.133 ms
  11 a125-252-224-73.deploy.akamaitechnologies.com (125.252.224.73) 332.188 ms 331.008 ms 314.833 ms
-</code></pre>
-<p>Looking at this traceroute, the first thing I thought was “Why on earth is ABC hosting it’s website in hongkong (or so the traffic has to go via hongkong.)? Immediately reject ABC would do this and I blame TPG’s stupid routing decisions.
+</code></pre></td></tr></table>
+</div>
+</div><p>Looking at this traceroute, the first thing I thought was “Why on earth is ABC hosting it’s website in hongkong (or so the traffic has to go via hongkong.)? Immediately reject ABC would do this and I blame TPG’s stupid routing decisions.
 Looking at the IP address further <a href="http://www.dnsstuff.com/tools/ipall/?tool_id=67&token=&toolhandler_redirect=0&ip=125.252.224.73" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.dnsstuff.com']);"><a href="http://www.dnsstuff.com/tools/ipall/?tool_id=67&amp;token=&amp;toolhandler_redirect=0&amp;ip=125.252.224.73">http://www.dnsstuff.com/tools/ipall/?tool_id=67&amp;token=&amp;toolhandler_redirect=0&amp;ip=125.252.224.73</a></a> It looks like it’s hosted in Singapore, and some googling shows akamaitechnologies is the web host for ABC.. ok, so what is going on here?</p>
 <p>then I did a little DIGging around on the ABC domain and check this out.</p>
 <p>Using Google DNS (8.8.8.8, hosted in America):</p>
-<pre><code>; &lt;&lt;&gt;&gt; DiG 9.6.0-APPLE-P2 &lt;&lt;&gt;&gt; www.abc.net.au @8.8.8.8
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">; &lt;&lt;&gt;&gt; DiG 9.6.0-APPLE-P2 &lt;&lt;&gt;&gt; www.abc.net.au @8.8.8.8
 ;; global options: +cmd
 ;; Got answer:
 ;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 16084
@@ -611,9 +896,30 @@ a1632.g.akamai.net. 2 IN A 63.150.131.33
 ;; SERVER: 8.8.8.8#53(8.8.8.8)
 ;; WHEN: Sun Jul 3 00:37:00 2011
 ;; MSG SIZE rcvd: 135
-</code></pre>
-<p>And using TPG’s DNS servers (203.12.160.35)</p>
-<pre><code>; &lt;&lt;&gt;&gt; DiG 9.6.0-APPLE-P2 &lt;&lt;&gt;&gt; www.abc.net.au @203.12.160.35
+</code></pre></td></tr></table>
+</div>
+</div><p>And using TPG’s DNS servers (203.12.160.35)</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">; &lt;&lt;&gt;&gt; DiG 9.6.0-APPLE-P2 &lt;&lt;&gt;&gt; www.abc.net.au @203.12.160.35
 ;; global options: +cmd
 ;; Got answer:
 ;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 11673
@@ -629,17 +935,30 @@ a1632.g.akamai.net. 10 IN A 202.7.177.83
 ;; SERVER: 203.12.160.35#53(203.12.160.35)
 ;; WHEN: Sun Jul  3 00:38:20 2011
 ;; MSG SIZE  rcvd: 135
-</code></pre>
-<p>So there we go, hosted in Sydney Australia.. So how does the traceroute compare?</p>
-<pre><code>macshell:~ scott$ traceroute www.abc.net.au
+</code></pre></td></tr></table>
+</div>
+</div><p>So there we go, hosted in Sydney Australia.. So how does the traceroute compare?</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">macshell:~ scott$ traceroute www.abc.net.au
 traceroute: Warning: www.abc.net.au has multiple addresses; using 202.7.177.83
 traceroute to a1632.g.akamai.net (202.7.177.83), 64 hops max, 52 byte packets
 1  10.1.1.254 (10.1.1.254)  1.711 ms  1.134 ms  1.100 ms
 2  * * *
 3  202.7.173.17 (202.7.173.17)  27.047 ms  26.072 ms  26.502 ms
 4  syd-sot-ken-ak2-83.tpgi.com.au (202.7.177.83)  26.540 ms  26.835 ms  26.540 ms
-</code></pre>
-<p>Different nameservers can be set up to resolve to different addresses based on geographic positioning, in more of a first in best dressed kind of effort.  So if you’re using Google DNS servers (8.8.8.8), it so happens that because this is in America (check out their IP address, CA), then I started getting update servers and the like on DNS that were closest in latency terms to America then Sydney Australia.
+</code></pre></td></tr></table>
+</div>
+</div><p>Different nameservers can be set up to resolve to different addresses based on geographic positioning, in more of a first in best dressed kind of effort.  So if you’re using Google DNS servers (8.8.8.8), it so happens that because this is in America (check out their IP address, CA), then I started getting update servers and the like on DNS that were closest in latency terms to America then Sydney Australia.
 Simply by changing from Google DNS servers to my ISP’s, I get healthier latency, and am no longer sending traffic over saturated overseas links.  So how does this compare with ABC iView?</p>
 
     </div>
@@ -661,8 +980,6 @@ Simply by changing from Google DNS servers to my ISP’s, I get healthier laten
           
           <h2>Other Pages</h2>
           <ul>
-            
-              <li><a href=/page/paragliding/>Paragliding Logbook</a></li>
             
               <li><a href=/page/bucketlist/>The Bucket List</a></li>
             

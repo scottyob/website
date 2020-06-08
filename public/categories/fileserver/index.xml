@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FileServer on Scott O&#39;Brien</title>
+    <link>https://www.scottyob.com/categories/fileserver/</link>
+    <description>Recent content in FileServer on Scott O&#39;Brien</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 31 Jul 2012 12:09:51 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.scottyob.com/categories/fileserver/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ZFS and Apple Time Machine, a perfect team</title>
+      <link>https://www.scottyob.com/2012/07/31/zfs-and-apple-time-machine-a-perfect-team/</link>
+      <pubDate>Tue, 31 Jul 2012 12:09:51 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/2012/07/31/zfs-and-apple-time-machine-a-perfect-team/</guid>
+      <description>So lately I’ve been thinking about my backup strategy on my Mac. From previous posts you might know I’ve build my OpenIndiana ZFS FileServer. Well, just created a volume and decided to put 300GB to good use to create a time machine on my mac. There is a brilliant guide on how to do it here and suggest you all take a look (Thanks for the awesome guide Marco).</description>
+    </item>
+    
+    <item>
+      <title>Allowing access through NFS &amp; SAMBA</title>
+      <link>https://www.scottyob.com/2011/04/04/allowing-access-through-nfs-samba/</link>
+      <pubDate>Mon, 04 Apr 2011 11:53:32 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/2011/04/04/allowing-access-through-nfs-samba/</guid>
+      <description>Cifs Share  CIFS (Common Internet File System), the protocol windows users for all it’s ‘windows file sharing’ is the method I’ll allow for my desktops and roaming computers to access files on the file server.
+Before we begin, Make sure we install the CIFS kernal modules
+1  # pkg install SUNWsmbs # pkg install SUNWsmbskr   next we issue this command to make sure it auto starts</description>
+    </item>
+    
+    <item>
+      <title>3. Setting up FileSystems and Snapshots (part 2)</title>
+      <link>https://www.scottyob.com/2011/03/24/3-setting-up-filesystems-and-snapshots-part-2/</link>
+      <pubDate>Thu, 24 Mar 2011 18:17:20 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/2011/03/24/3-setting-up-filesystems-and-snapshots-part-2/</guid>
+      <description>Note: This post is one in a series aimed to be a tutorial eventually, it’s not currently finalised and at the moment exists as a place for collating thought and collecting feedback
+In part 1 of this blog post, I showed you how I created a script that would, when run, rotate your snapshots on a ZFS filesystem. For this to be usable, we need to create a mechanism for having it be automatically ran.</description>
+    </item>
+    
+    <item>
+      <title>3. Setting up FileSystems and Snapshots (part 1)</title>
+      <link>https://www.scottyob.com/2011/03/18/3-setting-up-filesystems-and-snapshots/</link>
+      <pubDate>Fri, 18 Mar 2011 12:10:36 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/2011/03/18/3-setting-up-filesystems-and-snapshots/</guid>
+      <description>Note: This post is one in a series aimed to be a tutorial eventually, it’s not currently finalised and at the moment exists as a place for collating thought and collecting feedback
+Setting up the FileSystems is a trivial task. First, you can see that when we’ve created a storage pool ‘datastore’ it created a filesystem for us (also called datastore) that can act as a container for child file systems.</description>
+    </item>
+    
+    <item>
+      <title>2. Installing the Operating System</title>
+      <link>https://www.scottyob.com/2011/03/16/2-installing-the-operating-system/</link>
+      <pubDate>Wed, 16 Mar 2011 11:09:50 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/2011/03/16/2-installing-the-operating-system/</guid>
+      <description>Note: This post is one in a series aimed to be a tutorial eventually, it’s not currently finalised and at the moment exists as a place for collating thought and collecting feedback
+Installing OS and setup Network For the following set of posts, I have chosen to use VirtualBox to run through how to use ZFS in building your FileSystem. The first step is downloading and installing OpenIndiana. Get the latest build from http://openindiana.</description>
+    </item>
+    
+  </channel>
+</rss>

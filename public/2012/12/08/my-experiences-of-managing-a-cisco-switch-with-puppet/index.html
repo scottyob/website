@@ -13,6 +13,10 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
+  
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
 
   
   <link rel="apple-touch-icon" sizes="180x180" href="https://www.scottyob.com/apple-touch-icon.png">
@@ -169,6 +173,12 @@
     overflow: auto;
   }
 
+  blockquote {
+    margin: 1.6em 2.8em 0 1.4em;
+    padding: 0 0 0 2em;
+    border-left: .6em solid #ddd;
+  }
+
   #footer {
     clear: both;
     margin: 4em 0 1em;
@@ -190,8 +200,6 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 	  <div class="navbar-nav">
-            
-              <a class="nav-item nav-link" href=/page/paragliding/>Paragliding Logbook</a>
             
               <a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
             
@@ -244,16 +252,31 @@
 
   <div class="entry">
     <p>One recent pet gripe of mine has been having to add a new VLAN into our datacenter for our vSphere platform.  Not that I trust my DCs switches with puppet just yet, this is a proof of concept post about how we could be using puppet to centrally manage this configuration and push it out across our DC.</p>
-<p>**</p>
-<p>Before</p>
-<p>** We’ve got a pretty basic topology going on in our DC, it’s just a VSS with the other switches pretty much being nothing more but layer 2 for the most part.  The dot1q trunk back to the VSS carries all VLANs from our end of rack switches.  When we add a new vlan in the DC to trunk to the ESX machines, we would add the VLAN in all the DC switches (not running VTP) then add the vlan to the trunk port on each port patched to the ESX hosts.  (we’re not using any link aggregation to the ports connected to the same ESX host, the ESX hosts themselves have their own load balancing method.. If you know any for/against doing it like this please comment and let me know)</p>
+<h3 id="before">Before</h3>
+<p>We’ve got a pretty basic topology going on in our DC, it’s just a VSS with the other switches pretty much being nothing more but layer 2 for the most part.  The dot1q trunk back to the VSS carries all VLANs from our end of row switches.  When we add a new vlan in the DC to trunk to the ESX machines, we would add the VLAN in all the DC switches (not running VTP) then add the vlan to the trunk port on each port patched to the ESX hosts.  (we’re not using any link aggregation to the ports connected to the same ESX host, the ESX hosts themselves have their own load balancing method.. If you know any for/against doing it like this please comment and let me know)</p>
 <h3 id="heading"></h3>
 <h3 id="setting-up-the-puppet-lab"><strong>Setting up the Puppet lab</strong></h3>
-<p>****Introduced in Puppet 2.7 is <a href="http://puppetlabs.com/blog/puppet-network-device-management/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://puppetlabs.com']);">network device management</a>.  This more or less is an expect script to manage interfaces and vlans on IOS devices.  For this lab, we will be using cisco IOU with the following topology</p>
-<p><a href="http://www.scottyob.com/wp-content/uploads/2012/12/IOU-Web-Interface-Laboratories.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-221" title="IOU Web Interface - Laboratories" alt="" src="http://www.scottyob.com/wp-content/uploads/2012/12/IOU-Web-Interface-Laboratories.jpg" width="507" height="319" /></a></p>
+<p>Introduced in Puppet 2.7 is <a href="http://puppetlabs.com/blog/puppet-network-device-management/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://puppetlabs.com']);">network device management</a>.  This more or less is an expect script to manage interfaces and vlans on IOS devices.  For this lab, we will be using cisco IOU with the following topology</p>
+<p><a href="/img/old/2012/12/IOU-Web-Interface-Laboratories.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-221" title="IOU Web Interface - Laboratories" alt="" src="/img/old/2012/12/IOU-Web-Interface-Laboratories.jpg" width="507" height="319" /></a></p>
 <h4 id="setting-up-the-devices">Setting up the Devices</h4>
 <p>Ideally, you would have a few puppet nodes that manage a few devices each to spread out the load, for the purposes of this exercise, I created a single vm running Centos6 with both puppet-server and puppet installed.  For this machine to manage the switches, I added the following into the device.conf file</p>
-<pre><code class="language-[root@localhost">[dc_sw1]
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">[dc_sw1]
   type cisco
   url telnet://puppet:cisco@10.0.1.131/
 [dc_sw2]
@@ -265,100 +288,200 @@
 [dc_sw4]
   type cisco
   url telnet://puppet:cisco@10.0.1.134/
-</code></pre>
-<h3 id="signing-the-devices">Signing the devices</h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="signing-the-devices">Signing the devices</h3>
 <p>To update the devices, you have to run <strong>puppet device</strong>.  The first time you run it, a certificate will be created that needs to be signed on the puppet master.</p>
-<pre><code class="language-[root@localhost">info: starting applying configuration to dc_sw4 at telnet://puppet:cisco@10.0.1.134/
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">info: starting applying configuration to dc_sw4 at telnet://puppet:cisco@10.0.1.134/
 info: Creating a new SSL key for dc_sw4
-warning: peer certificate won't be verified in this SSL session
+warning: peer certificate won&#39;t be verified in this SSL session
 info: Caching certificate for ca
-warning: peer certificate won't be verified in this SSL session
-warning: peer certificate won't be verified in this SSL session
+warning: peer certificate won&#39;t be verified in this SSL session
+warning: peer certificate won&#39;t be verified in this SSL session
 info: Creating a new SSL certificate request for dc_sw4
 info: Certificate Request fingerprint (md5): E8:A6:35:9D:BF:CE:3D:BC:E0:E4:C2:5B:00:CE:9F:DB
-warning: peer certificate won't be verified in this SSL session
-warning: peer certificate won't be verified in this SSL session
-warning: peer certificate won't be verified in this SSL session
-</code></pre>
-<p>so we’ll need to sign our devices</p>
-<pre><code class="language-[root@localhost">notice: Signed certificate request for dc_sw4
-notice: Removing file Puppet::SSL::CertificateRequest dc_sw4 at '/var/lib/puppet/ssl/ca/requests/dc_sw4.pem'
-</code></pre>
-<h3 id="setting-up-the-switches-for-puppet">Setting up the switches for Puppet</h3>
+warning: peer certificate won&#39;t be verified in this SSL session
+warning: peer certificate won&#39;t be verified in this SSL session
+warning: peer certificate won&#39;t be verified in this SSL session
+</code></pre></td></tr></table>
+</div>
+</div><p>so we’ll need to sign our devices</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">notice: Signed certificate request for dc_sw4
+notice: Removing file Puppet::SSL::CertificateRequest dc_sw4 at &#39;/var/lib/puppet/ssl/ca/requests/dc_sw4.pem&#39;
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="setting-up-the-switches-for-puppet">Setting up the switches for Puppet</h3>
 <p>If you look up to the device configuration file, we need to create a local user for puppet to log into the switch (remember, it acts much like an expect script)</p>
-<pre><code class="language-username">line vty 0 4
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">line vty 0 4
  privilege level 15
  password cisco
  login local
  transport input all
 !
-</code></pre>
-<h3 id="the-configuration">The Configuration</h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="the-configuration">The Configuration</h3>
 <p>so with no more ado, we can easily simply abstract the behaviour of these ports using puppet syntax 🙂</p>
-<pre><code class="language-define">
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">
         interface {
-                &quot;${port}&quot;:
+                &#34;${port}&#34;:
                         mode =&amp;gt; trunk,
                         duplex =&amp;gt; full,
-                        description =&amp;gt; &quot;ESX Host&quot;,
-                        allowed_trunk_vlans =&amp;gt; &quot;3,4,5,8,9&quot;
+                        description =&amp;gt; &#34;ESX Host&#34;,
+                        allowed_trunk_vlans =&amp;gt; &#34;3,4,5,8,9&#34;
         }
 
 }
 
-node &quot;dc_sw1&quot; {
+node &#34;dc_sw1&#34; {
 
-        esxport { 'e0/2': port =&amp;gt; 'Ethernet0/2' }
-        esxport { 'e0/3': port =&amp;gt; 'Ethernet0/3' }
-
-}
-
-node &quot;dc_sw2&quot; {
-
-        esxport { 'e1/0': port =&amp;gt; 'Ethernet1/0' }
-        esxport { 'e1/1': port =&amp;gt; 'Ethernet1/1' }
-        esxport { 'e1/2': port =&amp;gt; 'Ethernet1/2' }
-        esxport { 'e1/3': port =&amp;gt; 'Ethernet1/3' }
+        esxport { &#39;e0/2&#39;: port =&amp;gt; &#39;Ethernet0/2&#39; }
+        esxport { &#39;e0/3&#39;: port =&amp;gt; &#39;Ethernet0/3&#39; }
 
 }
-</code></pre>
-<h4 id="the-ugly">The Ugly</h4>
+
+node &#34;dc_sw2&#34; {
+
+        esxport { &#39;e1/0&#39;: port =&amp;gt; &#39;Ethernet1/0&#39; }
+        esxport { &#39;e1/1&#39;: port =&amp;gt; &#39;Ethernet1/1&#39; }
+        esxport { &#39;e1/2&#39;: port =&amp;gt; &#39;Ethernet1/2&#39; }
+        esxport { &#39;e1/3&#39;: port =&amp;gt; &#39;Ethernet1/3&#39; }
+
+}
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="the-ugly">The Ugly</h4>
 <p>A lot of the states don’t yet seem to be supported by this module.  This means even the default trunk mode of dynamic desirable will cause issues when Puppet is pulling device information and you’ll have to manually specify “switchport trunk encapsulation dot1q” and “switchport mode access” before setting puppet free on the devices.</p>
 <h4 id="results">Results</h4>
-<pre><code class="language-[root@localhost">info: starting applying configuration to dc_sw4 at telnet://puppet:cisco@10.0.1.134/
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">info: starting applying configuration to dc_sw4 at telnet://puppet:cisco@10.0.1.134/
 info: Caching catalog for dc_sw4
-info: Applying configuration version '1355007108'
+info: Applying configuration version &#39;1355007108&#39;
 notice: Finished catalog run in 0.20 seconds
 info: starting applying configuration to dc_sw3 at telnet://puppet:cisco@10.0.1.133/
 info: Caching catalog for dc_sw3
-info: Applying configuration version '1355007108'
+info: Applying configuration version &#39;1355007108&#39;
 notice: Finished catalog run in 0.21 seconds
 info: starting applying configuration to dc_sw2 at telnet://puppet:cisco@10.0.1.132/
 info: Caching catalog for dc_sw2
-info: Applying configuration version '1355007108'
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/1]/Interface[Ethernet1/1]/description: defined 'description' as 'ESX Host'
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/1]/Interface[Ethernet1/1]/duplex: duplex changed 'auto' to 'full'
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/1]/Interface[Ethernet1/1]/mode: mode changed 'access' to 'trunk'
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/1]/Interface[Ethernet1/1]/allowed_trunk_vlans: defined 'allowed_trunk_vlans' as '3,4,5,8,9'
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/3]/Interface[Ethernet1/3]/description: defined 'description' as 'ESX Host'
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/3]/Interface[Ethernet1/3]/duplex: duplex changed 'auto' to 'full'
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/3]/Interface[Ethernet1/3]/mode: mode changed 'access' to 'trunk'
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/3]/Interface[Ethernet1/3]/allowed_trunk_vlans: defined 'allowed_trunk_vlans' as '3,4,5,8,9'
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/2]/Interface[Ethernet1/2]/description: defined 'description' as 'ESX Host'
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/2]/Interface[Ethernet1/2]/duplex: duplex changed 'auto' to 'full'
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/2]/Interface[Ethernet1/2]/mode: mode changed 'access' to 'trunk'
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/2]/Interface[Ethernet1/2]/allowed_trunk_vlans: defined 'allowed_trunk_vlans' as '3,4,5,8,9'
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/0]/Interface[Ethernet1/0]/description: defined 'description' as 'ESX Host'
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/0]/Interface[Ethernet1/0]/duplex: duplex changed 'auto' to 'full'
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/0]/Interface[Ethernet1/0]/mode: mode changed 'access' to 'trunk'
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/0]/Interface[Ethernet1/0]/allowed_trunk_vlans: defined 'allowed_trunk_vlans' as '3,4,5,8,9'
+info: Applying configuration version &#39;1355007108&#39;
+notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/1]/Interface[Ethernet1/1]/description: defined &#39;description&#39; as &#39;ESX Host&#39;
+notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/1]/Interface[Ethernet1/1]/duplex: duplex changed &#39;auto&#39; to &#39;full&#39;
+notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/1]/Interface[Ethernet1/1]/mode: mode changed &#39;access&#39; to &#39;trunk&#39;
+notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/1]/Interface[Ethernet1/1]/allowed_trunk_vlans: defined &#39;allowed_trunk_vlans&#39; as &#39;3,4,5,8,9&#39;
+notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/3]/Interface[Ethernet1/3]/description: defined &#39;description&#39; as &#39;ESX Host&#39;
+notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/3]/Interface[Ethernet1/3]/duplex: duplex changed &#39;auto&#39; to &#39;full&#39;
+notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/3]/Interface[Ethernet1/3]/mode: mode changed &#39;access&#39; to &#39;trunk&#39;
+notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/3]/Interface[Ethernet1/3]/allowed_trunk_vlans: defined &#39;allowed_trunk_vlans&#39; as &#39;3,4,5,8,9&#39;
+notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/2]/Interface[Ethernet1/2]/description: defined &#39;description&#39; as &#39;ESX Host&#39;
+notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/2]/Interface[Ethernet1/2]/duplex: duplex changed &#39;auto&#39; to &#39;full&#39;
+notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/2]/Interface[Ethernet1/2]/mode: mode changed &#39;access&#39; to &#39;trunk&#39;
+notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/2]/Interface[Ethernet1/2]/allowed_trunk_vlans: defined &#39;allowed_trunk_vlans&#39; as &#39;3,4,5,8,9&#39;
+notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/0]/Interface[Ethernet1/0]/description: defined &#39;description&#39; as &#39;ESX Host&#39;
+notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/0]/Interface[Ethernet1/0]/duplex: duplex changed &#39;auto&#39; to &#39;full&#39;
+notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/0]/Interface[Ethernet1/0]/mode: mode changed &#39;access&#39; to &#39;trunk&#39;
+notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/0]/Interface[Ethernet1/0]/allowed_trunk_vlans: defined &#39;allowed_trunk_vlans&#39; as &#39;3,4,5,8,9&#39;
 notice: Finished catalog run in 14.22 seconds
-</code></pre>
-<h3 id="my-002">my $0.02</h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="my-002">my $0.02</h3>
 <p>I must say, I’m very disappointed in this module so far.  It shows great promise and makes a once tedious task relatively effortless to manage, however with the time invested to find out what is and what is not supported, I think it’s far too early to invest in such a solution.  The idea of setting something like an expect script loose on my kit also worries me.  It’s much better to have an API or a promise that the input/output the expect script uses won’t change in a future release then do something unexpected (pun intended there.)</p>
 <p>I guess if we were using an OS like Junos we could have <a href="http://www.swarm-logic.com/content/quick-way-configure-interface-ranges-juniper-switches-junos-tips" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.swarm-logic.com']);">created apply-groups like this</a> to abstract the configuration in much the same manner, at least down to the switch level.  Very interesting for a new take on managing these things though</p>
 <h2 id="span-stylecolor-ff6600editspan"><span style="color: #ff6600;">EDIT:</span></h2>
 <p>I’ve been thinking about this a lot since I posted it.  I think I was too harsh on the tool.  It seems even Cisco’s own tools work by ssh’ing into the box to make their changes.. while not ideal, for these old IOS devices around, it seems to be the accepted thing to do.  It’s exciting times ahead in this space though, I can feel it!</p>
+
   </div>
 </div>
 
@@ -371,8 +494,6 @@ notice: Finished catalog run in 14.22 seconds
           
           <h2>Other Pages</h2>
           <ul>
-            
-              <li><a href=/page/paragliding/>Paragliding Logbook</a></li>
             
               <li><a href=/page/bucketlist/>The Bucket List</a></li>
             

@@ -13,6 +13,10 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
+  
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
 
   
   <link rel="apple-touch-icon" sizes="180x180" href="https://www.scottyob.com/apple-touch-icon.png">
@@ -169,6 +173,12 @@
     overflow: auto;
   }
 
+  blockquote {
+    margin: 1.6em 2.8em 0 1.4em;
+    padding: 0 0 0 2em;
+    border-left: .6em solid #ddd;
+  }
+
   #footer {
     clear: both;
     margin: 4em 0 1em;
@@ -190,8 +200,6 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 	  <div class="navbar-nav">
-            
-              <a class="nav-item nav-link" href=/page/paragliding/>Paragliding Logbook</a>
             
               <a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
             
@@ -254,7 +262,28 @@ A real quick run down, we all know what DNS does yeah? It translates domains lik
 <p>What google doesn’t tell you is that it interferes with DNS servers that might try and give you a server that’s close to your home. I’ve been using Google DNS for months here at home, but only just have I decided against using it, and I’ll run through exactly what causes some performance issues.</p>
 <p>I was trying to watch a program on iView on TPG’s internet connection. Now, TPG don’t have the best international links on peak times, so I first started getting frustrated at them for not letting me watch my iView program with buffer lags on my 8Mbit plan. I checked my Signal to Noise ratio and dropped packets, etc.. it was fine. I checked the bandwith going out on my ppp interface on the router to see if I was maxing out the net connection at home, but nope, that was fine too, so the problem must have been with TPG.</p>
 <p>Looking at what was going on, I did a little traceroute to <a href="http://www.abc.net.au">www.abc.net.au</a></p>
-<pre><code>traceroute: Warning: www.abc.net.au has multiple addresses; using 125.252.224.73
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">traceroute: Warning: www.abc.net.au has multiple addresses; using 125.252.224.73
  traceroute to a1632.g.akamai.net (125.252.224.73), 64 hops max, 52 byte packets
  1 10.1.1.254 (10.1.1.254) 1.919 ms 1.260 ms 1.202 ms
  2 * * *
@@ -271,12 +300,33 @@ A real quick run down, we all know what DNS does yeah? It translates domains lik
  9 80.150.169.25 (80.150.169.25) 333.519 ms 306.138 ms 307.031 ms
  10 80.156.224.6 (80.156.224.6) 358.402 ms 320.029 ms 349.133 ms
  11 a125-252-224-73.deploy.akamaitechnologies.com (125.252.224.73) 332.188 ms 331.008 ms 314.833 ms
-</code></pre>
-<p>Looking at this traceroute, the first thing I thought was “Why on earth is ABC hosting it’s website in hongkong (or so the traffic has to go via hongkong.)? Immediately reject ABC would do this and I blame TPG’s stupid routing decisions.
+</code></pre></td></tr></table>
+</div>
+</div><p>Looking at this traceroute, the first thing I thought was “Why on earth is ABC hosting it’s website in hongkong (or so the traffic has to go via hongkong.)? Immediately reject ABC would do this and I blame TPG’s stupid routing decisions.
 Looking at the IP address further <a href="http://www.dnsstuff.com/tools/ipall/?tool_id=67&token=&toolhandler_redirect=0&ip=125.252.224.73" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.dnsstuff.com']);"><a href="http://www.dnsstuff.com/tools/ipall/?tool_id=67&amp;token=&amp;toolhandler_redirect=0&amp;ip=125.252.224.73">http://www.dnsstuff.com/tools/ipall/?tool_id=67&amp;token=&amp;toolhandler_redirect=0&amp;ip=125.252.224.73</a></a> It looks like it’s hosted in Singapore, and some googling shows akamaitechnologies is the web host for ABC.. ok, so what is going on here?</p>
 <p>then I did a little DIGging around on the ABC domain and check this out.</p>
 <p>Using Google DNS (8.8.8.8, hosted in America):</p>
-<pre><code>; &lt;&lt;&gt;&gt; DiG 9.6.0-APPLE-P2 &lt;&lt;&gt;&gt; www.abc.net.au @8.8.8.8
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">; &lt;&lt;&gt;&gt; DiG 9.6.0-APPLE-P2 &lt;&lt;&gt;&gt; www.abc.net.au @8.8.8.8
 ;; global options: +cmd
 ;; Got answer:
 ;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 16084
@@ -292,9 +342,30 @@ a1632.g.akamai.net. 2 IN A 63.150.131.33
 ;; SERVER: 8.8.8.8#53(8.8.8.8)
 ;; WHEN: Sun Jul 3 00:37:00 2011
 ;; MSG SIZE rcvd: 135
-</code></pre>
-<p>And using TPG’s DNS servers (203.12.160.35)</p>
-<pre><code>; &lt;&lt;&gt;&gt; DiG 9.6.0-APPLE-P2 &lt;&lt;&gt;&gt; www.abc.net.au @203.12.160.35
+</code></pre></td></tr></table>
+</div>
+</div><p>And using TPG’s DNS servers (203.12.160.35)</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">; &lt;&lt;&gt;&gt; DiG 9.6.0-APPLE-P2 &lt;&lt;&gt;&gt; www.abc.net.au @203.12.160.35
 ;; global options: +cmd
 ;; Got answer:
 ;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 11673
@@ -310,17 +381,30 @@ a1632.g.akamai.net. 10 IN A 202.7.177.83
 ;; SERVER: 203.12.160.35#53(203.12.160.35)
 ;; WHEN: Sun Jul  3 00:38:20 2011
 ;; MSG SIZE  rcvd: 135
-</code></pre>
-<p>So there we go, hosted in Sydney Australia.. So how does the traceroute compare?</p>
-<pre><code>macshell:~ scott$ traceroute www.abc.net.au
+</code></pre></td></tr></table>
+</div>
+</div><p>So there we go, hosted in Sydney Australia.. So how does the traceroute compare?</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">macshell:~ scott$ traceroute www.abc.net.au
 traceroute: Warning: www.abc.net.au has multiple addresses; using 202.7.177.83
 traceroute to a1632.g.akamai.net (202.7.177.83), 64 hops max, 52 byte packets
 1  10.1.1.254 (10.1.1.254)  1.711 ms  1.134 ms  1.100 ms
 2  * * *
 3  202.7.173.17 (202.7.173.17)  27.047 ms  26.072 ms  26.502 ms
 4  syd-sot-ken-ak2-83.tpgi.com.au (202.7.177.83)  26.540 ms  26.835 ms  26.540 ms
-</code></pre>
-<p>Different nameservers can be set up to resolve to different addresses based on geographic positioning, in more of a first in best dressed kind of effort.  So if you’re using Google DNS servers (8.8.8.8), it so happens that because this is in America (check out their IP address, CA), then I started getting update servers and the like on DNS that were closest in latency terms to America then Sydney Australia.
+</code></pre></td></tr></table>
+</div>
+</div><p>Different nameservers can be set up to resolve to different addresses based on geographic positioning, in more of a first in best dressed kind of effort.  So if you’re using Google DNS servers (8.8.8.8), it so happens that because this is in America (check out their IP address, CA), then I started getting update servers and the like on DNS that were closest in latency terms to America then Sydney Australia.
 Simply by changing from Google DNS servers to my ISP’s, I get healthier latency, and am no longer sending traffic over saturated overseas links.  So how does this compare with ABC iView?</p>
 
   </div>
@@ -335,8 +419,6 @@ Simply by changing from Google DNS servers to my ISP’s, I get healthier laten
           
           <h2>Other Pages</h2>
           <ul>
-            
-              <li><a href=/page/paragliding/>Paragliding Logbook</a></li>
             
               <li><a href=/page/bucketlist/>The Bucket List</a></li>
             

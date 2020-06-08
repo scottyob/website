@@ -13,6 +13,10 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
+  
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
 
   
   <link rel="apple-touch-icon" sizes="180x180" href="https://www.scottyob.com/apple-touch-icon.png">
@@ -169,6 +173,12 @@
     overflow: auto;
   }
 
+  blockquote {
+    margin: 1.6em 2.8em 0 1.4em;
+    padding: 0 0 0 2em;
+    border-left: .6em solid #ddd;
+  }
+
   #footer {
     clear: both;
     margin: 4em 0 1em;
@@ -190,8 +200,6 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 	  <div class="navbar-nav">
-            
-              <a class="nav-item nav-link" href=/page/paragliding/>Paragliding Logbook</a>
             
               <a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
             
@@ -253,7 +261,7 @@
   To merge the two, I could open them both up in Adobe PDF, Preview and start clicking and dragging my time away, but that&#8217;s pointless. I&#8217;d like to introduce you to Automator in OSX.
 </p>
 <p style="clear: both;">
-  <a class="image-link" href="http://www.scottyob.com/wp-content/uploads/2011/01/Merge_Duplex_PDFs.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="linked-to-original" style="text-align: center; display: block; margin: 0 auto 10px;" src="http://www.scottyob.com/wp-content/uploads/2011/01/Merge_Duplex_PDFs-thumb.jpg" alt="" width="380" height="314" /></a>Using a <a href="http://fredericiana.com/2010/03/01/pdftk-1-41-for-mac-os-x-10-6/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://fredericiana.com']);">pdftk binary for OSX</a> and the automator script above, all I need to do now is select my two pdf documents (Set A & B), right hand click, then select &#8216;Duplex Merge PDF&#8217;s&#8217;. After that, I&#8217;ll have a nice merged.pdf file on my desktop that&#8217;s the resulting page.
+  <a class="image-link" href="/img/old/2011/01/Merge_Duplex_PDFs.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="linked-to-original" style="text-align: center; display: block; margin: 0 auto 10px;" src="/img/old/2011/01/Merge_Duplex_PDFs-thumb.jpg" alt="" width="380" height="314" /></a>Using a <a href="http://fredericiana.com/2010/03/01/pdftk-1-41-for-mac-os-x-10-6/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://fredericiana.com']);">pdftk binary for OSX</a> and the automator script above, all I need to do now is select my two pdf documents (Set A & B), right hand click, then select &#8216;Duplex Merge PDF&#8217;s&#8217;. After that, I&#8217;ll have a nice merged.pdf file on my desktop that&#8217;s the resulting page.
 </p>
 <p style="clear: both;">
   (the shell script uses pdftk to make a /tmp/2.pdf file that&#8217;s a set 2,4,6,8. Copies the Set A to /tmp/1.pdf and then pipes it through some pdf tools built into OSX to merge the sets into 1,2,3,4.. etc
@@ -262,7 +270,7 @@
   Who needs to spend lots of money on a duplex scanner hey?
 </p>
 <p>**EDIT:</p>
-<p>** Please feel free to <a href="http://www.scottyob.com/wp-content/uploads/2011/01/osxDuplexAutomator.zip" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.scottyob.com/wp-content/uploads/2011/01/osxDuplexAutomator.zip']);">download my automator scripts here </a></p>
+<p>** Please feel free to <a href="/img/old/2011/01/osxDuplexAutomator.zip" onclick="javascript:_gaq.push(['_trackEvent','download','/img/old/2011/01/osxDuplexAutomator.zip']);">download my automator scripts here </a></p>
 <p> </p>
 
   </div>
@@ -277,8 +285,6 @@
           
           <h2>Other Pages</h2>
           <ul>
-            
-              <li><a href=/page/paragliding/>Paragliding Logbook</a></li>
             
               <li><a href=/page/bucketlist/>The Bucket List</a></li>
             

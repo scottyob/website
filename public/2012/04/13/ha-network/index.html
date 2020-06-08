@@ -13,6 +13,10 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
+  
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
 
   
   <link rel="apple-touch-icon" sizes="180x180" href="https://www.scottyob.com/apple-touch-icon.png">
@@ -169,6 +173,12 @@
     overflow: auto;
   }
 
+  blockquote {
+    margin: 1.6em 2.8em 0 1.4em;
+    padding: 0 0 0 2em;
+    border-left: .6em solid #ddd;
+  }
+
   #footer {
     clear: both;
     margin: 4em 0 1em;
@@ -190,8 +200,6 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 	  <div class="navbar-nav">
-            
-              <a class="nav-item nav-link" href=/page/paragliding/>Paragliding Logbook</a>
             
               <a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
             
@@ -260,15 +268,62 @@
 <h3 id="part-1-physical-topology">Part 1, Physical Topology</h3>
 <p>If you’re reading this, I’m guessing your current network topology looks something like</p>
 <p>mine used to.  You have a single internet connection, single router/firewall, single switch and a bunch of hosts hanging from that switch.  In the event of a system failure, your system administrator (me in this case) will have to hop in a cab and rush to the server room to fix the problem.</p>
-<p><img class="size-full wp-image-136 aligncenter" title="Old Network-1" src="http://www.scottyob.com/wp-content/uploads/2012/04/Old-Network-1.jpg" alt="" width="241" height="445" /></p>
+<p><img class="size-full wp-image-136 aligncenter" title="Old Network-1" src="/img/old/2012/04/Old-Network-1.jpg" alt="" width="241" height="445" /></p>
 <p>The goal with this tutorial is to attempt to help your administrators sleep at night.  We will eliminate every single point of failure such that in the event of a system outage/failure, the system can self recover with at most a minute of unscheduled down time.</p>
-<p><a href="http://www.scottyob.com/wp-content/uploads/2012/04/New-Network.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-137" title="New Network" src="http://www.scottyob.com/wp-content/uploads/2012/04/New-Network.jpg" alt="" width="307" height="409" /></a></p>
+<p><a href="/img/old/2012/04/New-Network.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-137" title="New Network" src="/img/old/2012/04/New-Network.jpg" alt="" width="307" height="409" /></a></p>
 <h4 id="physical-switches">Physical Switches</h4>
 <p>We’ll be replacing the single switch (in my case, unmanaged old gigabit switch) with a pair of managed switches.  Because our bandwidth requirements in this site wasn’t terribly demanding (simple database server, few web, mail servers and the like), a single gigabit Ethernet link to all hosts was all that we required.  If you’re in the same boat I was, I can suggest a pair of Juniper EX2200’s.  If however, you’re going to be pumping some more bandwidth intensive applications through your network (thus require more then gigabit Ethernet connections to the hosts) or have the need for more then a single VLAN and intra-VLAN routing is required (that’s all outside the scope of this tutorial.)  I can strongly recommend you start looking at the EX4200 model switches (set up in a virtual chassis), which can do all your highly available layer 3 IP routing and support multi gigabit Ethernet to your hosts by spanning Ethernet channel across both physical switches.</p>
 <h4 id="activepassive-switch-design">Active/Passive Switch Design?</h4>
 <p>Ok, so this heading is a lie, but let me explain.  In my switch design with the EX2200’s, I’m using aggregate Ethernet 802.3ad Etherchannel between my two switches. I’ve opted to use 4 physical ports in my 24 port switches (ge-0/0/20 to ge-0/0/23) to give me a 4Gbit/s backbone between them. Obviously with gigabit Ethernet right through the network this isn’t much bandwidth, so the idea is to keep as little data traveling that link as possible (network broadcasts only hopefully!)</p>
 <p>First, the following configuration configures the aggregate Ethernet link between the switches:</p>
-<pre><code class="language-chassis">    aggregated-devices {
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    aggregated-devices {
         ethernet {
             device-count 1;
         }
@@ -311,29 +366,64 @@
             }
         }
     }
-</code></pre>
-<p>The only thing you have to watch out for, is that on at least one switch, you set the lacp mode to be <strong>active</strong>.</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>The only thing you have to watch out for, is that on at least one switch, you set the lacp mode to be <strong>active</strong>.</p>
 <h4 id="setting-up-esxi-network">Setting up ESXi Network</h4>
 <p>In my environment, I’m using the free version of ESXi 4.1. I understand that you may wish to be connecting linux hosts directly. If you’re directly connecting linux hosts, I recommend you look at creating a <a href="http://wiki.centos.org/TipsAndTricks/BondingInterfaces" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.centos.org']);">Bonding Adaptor</a>.  Thought without the more expensive EX4200’s, we’re best sticking with an active-backup setup and should stick with mode=1.</p>
 <p>For the ESXi configuration, it’s pretty simple. We connect two NIC’s to the switches. A primary NIC to the primary switch, and a secondary NIC to the secondary switch.</p>
 <p>The steps on configuring the vSwitch (virtual switch) are pretty simple. Virtual machines on these ESXi hosts won’t have to do anything special once this setup has been done to take advantage on the physical machines, they’ll just take advantage of our HA network topology.</p>
 <p>First, ensure that we have two NIC’s setup on our vSwitch.</p>
 <p style="text-align: center;">
-  <img class="aligncenter  wp-image-150" title="vSwitch" src="http://www.scottyob.com/wp-content/uploads/2012/04/vSwitch.jpg" alt="" width="451" height="332" />
+  <img class="aligncenter  wp-image-150" title="vSwitch" src="/img/old/2012/04/vSwitch.jpg" alt="" width="451" height="332" />
 </p>
 <p>Next, look at the following configuration properties I’ve made to the NIC teaming information.  This basic configuration will ensure that when the link on vmnic0 is available (our active switch), it’ll use it.  When the link becomes unavailable, it will fail over to vmnic1.</p>
 <p style="text-align: center;">
-  <a href="http://www.scottyob.com/wp-content/uploads/2012/04/vSwitch-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter  wp-image-151" title="vSwitch-1" src="http://www.scottyob.com/wp-content/uploads/2012/04/vSwitch-1.jpg" alt="" width="451" height="565" /></a>
+  <a href="/img/old/2012/04/vSwitch-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter  wp-image-151" title="vSwitch-1" src="/img/old/2012/04/vSwitch-1.jpg" alt="" width="451" height="565" /></a>
 </p>
 <h5 id="setting-up-border-firewalls">Setting up border firewall’s</h5>
 <p>The last step we’ve got in our highly available infrastructure here is our border firewall’s. Please bare with me on this section, it is the most complicated and there are a few technologies introduced. If there is something I don’t explain completely, please feel free to leave a comment below and I’ll try and explain it better.  I expect you’ll have to jump back and forth between Wikipedia and this article to fully understand what it is we’re doing. Explaining the concepts behind BGP and autonomous systems is beyond the scope of this article.</p>
 <p>In my role, I replaced an active/backup GNU based firewall solution (backup being run down to the data center as fast as possible and swap the cables over) with two Juniper SRX100’s configured in an active/passive configuration under a chassis cluster (see SRX100 high availability deployment guide at <a href="http://kb.juniper.net/InfoCenter/index?page=content&id=KB15669" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.juniper.net']);"><a href="http://kb.juniper.net/InfoCenter/index?page=content&amp;id=KB15669">http://kb.juniper.net/InfoCenter/index?page=content&amp;id=KB15669</a></a>). We had get a second internet connection installed, then make sure that any one link (or firewall itself) can die and still have the system self recover. There are two major tasks that has to happen to make this gateway highly available. Firstly, our internal network hosts will be using one of these firewall’s as their default gateway. If the link to the primary switch, or the primary firewall itself should die, we still want the network hosts to be able to reach their gateway. We will achieve this with “redundant Ethernet” on the cluster. If you’ve come from the cisco networking world before, picture something like this to be like VRRP for the inside hosts. If the main link fails, the MAC and IP address will float over to the other physical port.</p>
 <p>Let me give a bit more detail to our new example network topology here in this example so you can gain a better idea of how these settings work.</p>
 <p style="text-align: center;">
-  <a href="http://www.scottyob.com/wp-content/uploads/2012/04/Network-Setup.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter  wp-image-153" title="Network Setup" src="http://www.scottyob.com/wp-content/uploads/2012/04/Network-Setup.jpg" alt="" width="441" height="438" /></a>
+  <a href="/img/old/2012/04/Network-Setup.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter  wp-image-153" title="Network Setup" src="/img/old/2012/04/Network-Setup.jpg" alt="" width="441" height="438" /></a>
 </p>
 <p>For the internal gateway address to fail over to the other switch should your link off Firewall1 die, You’ll want to make the following configuration</p>
-<pre><code class="language-chassis">    cluster {
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    cluster {
         reth-count 2;
         redundancy-group 0 {
             node 0 priority 100;
@@ -363,13 +453,67 @@ interfaces {
     }
 }
 
-</code></pre>
-<p>You can see redundancy-group 1 is monitoring the local interfaces going back to the switches.</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>You can see redundancy-group 1 is monitoring the local interfaces going back to the switches.</p>
 <p>For the dual WAN links, I won’t go into much detail, but you’ll want to ask your ISP for a second internet connection. Some providers offer a cheap link that they only charge you for once you start flowing data over it (sometimes called a Shadow link). This is perfect as you can flow all your traffic through your primary internet connection, then on failure of it, you’ll move your traffic through the secondary. If you wanted complete redundancy, you could apply for a domain independent subnet (has to be a class C to advertise on world BGP tables) and your own ASN. This will let you use two different internet service providers.</p>
 <p>In my case, I’m creating a redundant connection using the same ISP, so I’ve asked for a private ASN to be allocated (see <a href="http://en.wikipedia.org/wiki/Autonomous">http://en.wikipedia.org/wiki/Autonomous</a>_System_(Internet) ).</p>
 <p>For a small network such as ours (especially using the small base level SRX’s) you’ll want to ask your provider to advertise only the default route to you. In turn, you’ll advertise your network’s address space on both connections. On the event that a link dies, the BGP peer on the other end no longer receives updates from you and will no longer attempt to route to it.</p>
 <p>The following configuration extract shows how we’d configure out SRX firewall’s to peer with our ISP’s routers. Things of note is that our primary link (the one on the left) has a lower metric-out then the shadow link, meaning a lower MED attribute is sent to our ISP and thus inbound traffic will, by preference use the main connection. The preference values under neighbor will determine the preference we will send traffic under that connection for outbound traffic.</p>
-<pre><code class="language-routing-options">    autonomous-system 64512
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    autonomous-system 64512
 }
 
 protocols {
@@ -418,8 +562,9 @@ policy-options {
         }
     }
 }
-</code></pre>
-
+</code></pre></td></tr></table>
+</div>
+</div>
   </div>
 </div>
 
@@ -432,8 +577,6 @@ policy-options {
           
           <h2>Other Pages</h2>
           <ul>
-            
-              <li><a href=/page/paragliding/>Paragliding Logbook</a></li>
             
               <li><a href=/page/bucketlist/>The Bucket List</a></li>
             

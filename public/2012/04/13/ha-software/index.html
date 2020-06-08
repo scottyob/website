@@ -13,6 +13,10 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
+  
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
 
   
   <link rel="apple-touch-icon" sizes="180x180" href="https://www.scottyob.com/apple-touch-icon.png">
@@ -169,6 +173,12 @@
     overflow: auto;
   }
 
+  blockquote {
+    margin: 1.6em 2.8em 0 1.4em;
+    padding: 0 0 0 2em;
+    border-left: .6em solid #ddd;
+  }
+
   #footer {
     clear: both;
     margin: 4em 0 1em;
@@ -190,8 +200,6 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 	  <div class="navbar-nav">
-            
-              <a class="nav-item nav-link" href=/page/paragliding/>Paragliding Logbook</a>
             
               <a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
             
@@ -246,17 +254,17 @@
     <h3 id="setting-up-the-software-stack">Setting up the Software Stack</h3>
 <p>This article is the second in a series (<a href="http://www.scottyob.com/2012/04/13/ha-network/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);">see part 1 here</a>).  Please see <a href="http://www.scottyob.com/2012/04/13/ha-network/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);">HA Network</a> for the first part in setting up the network topology to be highly available.</p>
 <p>It’s all good having a redundant network design, but putting web servers and the like on our hypervisors doesn’t make them redundant.  In the event where there’s a failure on one of our servers, all virtual machines on that server will die.  Looking at our previous network design, we can see a failure on a web server or database server would cause service outage.</p>
-<p><a href="http://www.scottyob.com/wp-content/uploads/2012/04/Old-Network-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-136" title="Old Network-1" src="http://www.scottyob.com/wp-content/uploads/2012/04/Old-Network-1.jpg" alt="" width="241" height="445" /></a></p>
+<p><a href="/img/old/2012/04/Old-Network-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-136" title="Old Network-1" src="/img/old/2012/04/Old-Network-1.jpg" alt="" width="241" height="445" /></a></p>
 <p>In this example, I’m going to talk about a few pretty cool pieces of software that you can use to make a highly available (HA) service stack for hosting Apache web sites from a MySQL data store.  This post isn’t going to be about all the in’s and out’s of how to accomplish, but hopefully it will answer some questions you might have when setting out to accomplish this task as well as point you to the appropriate articles to help you achieve what you’re after.</p>
 <h4 id="nginx-load-balancing-proxy">Nginx load balancing proxy</h4>
 <p>Lets look first at an example of a previous example.  Lets take a simple network where we have a web server with a client.  The A record for <a href="http://www.example.com">www.example.com</a> points to our web server at 192.168.0.10 (of course we’d use NAT on the firewalls in my example to expose it to the internet).</p>
-<p><a href="http://www.scottyob.com/wp-content/uploads/2012/04/skitched-3.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-158" title="Client Server" src="http://www.scottyob.com/wp-content/uploads/2012/04/skitched-3.jpg" alt="" width="337" height="101" /></a></p>
+<p><a href="/img/old/2012/04/skitched-3.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-158" title="Client Server" src="/img/old/2012/04/skitched-3.jpg" alt="" width="337" height="101" /></a></p>
 <p>From my previous post, we can tell that the network topology to reach our web server on 192.168.0.10 is highly redundant, if the server itself, or the physical machine it’s hosted on in the case of virtual machines does die, we can no longer serve web pages.</p>
 <p>To solve this problem, we’re going to create multiple web servers. The A record for <a href="http://www.example.com">www.example.com</a> is now no longer going to be pointing to the web server itself, but a proxy server (I recommend <a href="http://wiki.nginx.org/Configuration" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.nginx.org']);">Nginx</a>.) Now you can see that if either web server dies, our proxy server is able to start handing out requests through the other server. This method is also recommended because it mitigates load from a single server. If your web site got more popular, we can just start scaling out and adding more web servers into the mix to handle the load. Now, I know what you’re thinking, and yes, we have just moved the single point of failure from the web server to the proxy server, but please read on to find out how to protect that host from failure.</p>
-<p><a href="http://www.scottyob.com/wp-content/uploads/2012/04/Proxy-Server-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-159" title="Proxy Server-1" src="http://www.scottyob.com/wp-content/uploads/2012/04/Proxy-Server-1.jpg" alt="" width="484" height="272" /></a></p>
+<p><a href="/img/old/2012/04/Proxy-Server-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-159" title="Proxy Server-1" src="/img/old/2012/04/Proxy-Server-1.jpg" alt="" width="484" height="272" /></a></p>
 <h4 id="heartbeat-keep-your-servers-beating">Heartbeat, keep your servers beating</h4>
 <p>In the previous example, we had a server that was a single point of failure.  If the proxy server in this case died, then our web site would go down.  To plan against the failure of this machine, you can set up a tool such as <a href="http://www.howtoforge.com/high_availability_heartbeat_centos" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.howtoforge.com']);">Heartbeat</a>.  An example works like the following, your proxy server above is running the Nginx daemon handling your client’s requests, but it does so using a virtual network adaptor where it’s IP address 192.168.0.10 sits.  You put a second server in here in the mix with the same Nginx daemon and the same configuration, but it’s not running or serving anything, this is known as our slave server.  The slave server is sending heartbeat messages to the master server.  In the event that the master server stops responding to the slave’s heartbeat messages, it assumes the master is down and will create a virtual adaptor assuming the working IP address (192.168.0.10 in our example) and brings up the master services.</p>
-<p><a href="http://www.scottyob.com/wp-content/uploads/2012/04/Heartbeat-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-160" title="Heartbeat-1" src="http://www.scottyob.com/wp-content/uploads/2012/04/Heartbeat-1.jpg" alt="" width="453" height="406" /></a></p>
+<p><a href="/img/old/2012/04/Heartbeat-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-160" title="Heartbeat-1" src="/img/old/2012/04/Heartbeat-1.jpg" alt="" width="453" height="406" /></a></p>
 <p>I use heartbeat extensively through my HA configurations. Not only for allowing services to be taken up by a slave in the event of a master failure, but also where I have clusters (for example, a MySQL cluster). When the slave assumes the master’s IP address, it’s handy to write a little script/service here to stop any replication and assume the master’s role.</p>
 <p><strong>ProTip:</strong> Managing configuration across your servers when you start creating multiple instances for redundancy can start to get out of hand very quickly. Sometimes you can change a configuration on one server and forget to do it on another. I suggest using a tool like <a href="http://en.wikipedia.org/wiki/Puppet_(software)" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org']);">Puppet</a> to manage the configuration on your servers for you</p>
 <p><strong>ProTip:</strong> From experience, I’ve had situations in failover testing where the failure of a core switch will cause heartbeat to stop receiving heartbeats and fail the servers over, even though the physical and virtual machines themselves are fine. If you’re running the (non-rapid) Spanning Tree Protocol (STP) on your network, I suggest making the timeout for Heartbeat about 45 seconds. This should be enough time to allow for STP convergence before it assumes it’s partner is dead.</p>
@@ -286,8 +294,6 @@
           
           <h2>Other Pages</h2>
           <ul>
-            
-              <li><a href=/page/paragliding/>Paragliding Logbook</a></li>
             
               <li><a href=/page/bucketlist/>The Bucket List</a></li>
             

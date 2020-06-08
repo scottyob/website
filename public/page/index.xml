@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Pages on My New Hugo Site</title>
-    <link>http://example.org/page/</link>
-    <description>Recent content in Pages on My New Hugo Site</description>
+    <title>Pages on Scott O&#39;Brien</title>
+    <link>https://www.scottyob.com/page/</link>
+    <description>Recent content in Pages on Scott O&#39;Brien</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 26 May 2020 00:46:16 -0700</lastBuildDate>
     
-	<atom:link href="http://example.org/page/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.scottyob.com/page/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>BucketList</title>
-      <link>http://example.org/page/bucketlist/</link>
+      <title>About Me</title>
+      <link>https://www.scottyob.com/page/about/</link>
       <pubDate>Tue, 26 May 2020 00:46:16 -0700</pubDate>
       
-      <guid>http://example.org/page/bucketlist/</guid>
-      <description>I am a post.</description>
+      <guid>https://www.scottyob.com/page/about/</guid>
+      <description> svg { stroke: currentcolor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; margin: 1em; height: 3em; } a { }              </description>
+    </item>
+    
+    <item>
+      <title>The Bucket List</title>
+      <link>https://www.scottyob.com/page/bucketlist/</link>
+      <pubDate>Tue, 26 May 2020 00:46:16 -0700</pubDate>
+      
+      <guid>https://www.scottyob.com/page/bucketlist/</guid>
+      <description>Preface The bucket list started on my website back in February, 2013. The idea was start creating a list of all of the things that I&amp;rsquo;ve accomplished over the years, and keep track of the things that I really want to achieve and experience in my life.
+This list is public in the hope others will want to help or experience things with me and help make these happen. This list is ever growing and changing.</description>
     </item>
     
   </channel>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Scott O&#39;Brien</title>
+    <link>https://www.scottyob.com/tags/python/</link>
+    <description>Recent content in Python on Scott O&#39;Brien</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 24 Feb 2014 06:05:36 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.scottyob.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Finding overlaps in address space</title>
+      <link>https://www.scottyob.com/2014/02/24/finding-overlaps-in-address-space/</link>
+      <pubDate>Mon, 24 Feb 2014 06:05:36 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/2014/02/24/finding-overlaps-in-address-space/</guid>
+      <description>We have an interesting problem at my workplace, we have an MPLS VPN design for separation of security zones (e.g., staff from students.) and we don’t have MPLS support on our edge. With a L3 to the edge design though this means that while every edge switch has its own address space (per VRF), it also has a /30 uplink (once again, per VRF) back to the PE device.
+While this (rightly or wrongly decided) slightly more complicated design in itself isn’t a problem, I’ve been working on programatically putting all of this data into an IPAM (IP Address Management) solution.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -13,6 +13,10 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
+  
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
 
   
   <link rel="apple-touch-icon" sizes="180x180" href="https://www.scottyob.com/apple-touch-icon.png">
@@ -171,6 +175,12 @@
     overflow: auto;
   }
 
+  blockquote {
+    margin: 1.6em 2.8em 0 1.4em;
+    padding: 0 0 0 2em;
+    border-left: .6em solid #ddd;
+  }
+
   #footer {
     clear: both;
     margin: 4em 0 1em;
@@ -192,8 +202,6 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 	  <div class="navbar-nav">
-            
-              <a class="nav-item nav-link" href=/page/paragliding/>Paragliding Logbook</a>
             
               <a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
             
@@ -244,7 +252,7 @@
     The first step is to get my router set up. The router I&#8217;m using is a little &#8216;fit-pc&#8217; box with two ethernet cables. As you can see, it&#8217;s pretty tiny but <a href="http://www.fit-pc.com/fit-pc1/fit-pc-1-0-specifications.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.fit-pc.com']);" target="_blank">doesn&#8217;t pack much in terms of power</a>.
   </div>
   <p style="clear: both;">
-    <a class="image-link" href="http://www.scottyob.com/wp-content/uploads/2011/01/IMG_0121-full.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="linked-to-original" style="text-align: center; display: block; margin: 0 auto 10px;" src="http://www.scottyob.com/wp-content/uploads/2011/01/IMG_0121-thumb.jpg" alt="" width="380" height="300" /></a><br /> I&#8217;ve put my router in bridge mode (so it just acts as a layer two modem/bridge) and let my router then establish a pppoe session with my ISP and do all the routing with iptables (I&#8217;ve got to update my firewall script and services running on the box and post up the how-to&#8217;s later on for that.) Now the little crappy d-link thing doesn&#8217;t fall over and die when torrenting (the router will do all the routing and torrenting without hogging up entries in the NAT table is always a good thing)
+    <a class="image-link" href="/img/old/2011/01/IMG_0121-full.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="linked-to-original" style="text-align: center; display: block; margin: 0 auto 10px;" src="/img/old/2011/01/IMG_0121-thumb.jpg" alt="" width="380" height="300" /></a><br /> I&#8217;ve put my router in bridge mode (so it just acts as a layer two modem/bridge) and let my router then establish a pppoe session with my ISP and do all the routing with iptables (I&#8217;ve got to update my firewall script and services running on the box and post up the how-to&#8217;s later on for that.) Now the little crappy d-link thing doesn&#8217;t fall over and die when torrenting (the router will do all the routing and torrenting without hogging up entries in the NAT table is always a good thing)
   </p>
   <p style="clear: both;">
     One of my new years resolutions is to digitise everything (and make it reliable to do so) so I don&#8217;t have to worry about any paper floating around in my life (I HATE paperwork). To do this, I want to add a few more features in my home network, whilst improving security (especially after my VoIP was hacked a while ago)
@@ -279,13 +287,13 @@
     As I&#8217;ve already said, the way I&#8217;m lessening my fear of these security problems is by splitting my network into trusted and not so trusted zones.
   </p>
   <p style="clear: both;">
-    <a class="image-link" href="http://www.scottyob.com/wp-content/uploads/2011/01/Router_Config.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="linked-to-original" style="text-align: center; display: block; margin: 0 auto 10px;" src="http://www.scottyob.com/wp-content/uploads/2011/01/Router_Config-thumb1.jpg" alt="" width="380" height="285" /></a>
+    <a class="image-link" href="/img/old/2011/01/Router_Config.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="linked-to-original" style="text-align: center; display: block; margin: 0 auto 10px;" src="/img/old/2011/01/Router_Config-thumb1.jpg" alt="" width="380" height="285" /></a>
   </p>
   <p style="clear: both;">
-    <a class="image-link" href="http://www.scottyob.com/wp-content/uploads/2011/01/Network_Map.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="linked-to-original" style="text-align: center; display: block; margin: 0 auto 10px;" src="http://www.scottyob.com/wp-content/uploads/2011/01/Network_Map-thumb.jpg" alt="" width="380" height="442" /></a>User Isolation security means that the wireless clients won&#8217;t be able to see each other on the network. I&#8217;ll allow traffic too and from certain devices on the trusted network (the printer for instance.) but to gain access to any of my secure boxes (Fileserver, other workstations) then wireless clients will have to first connect through WEP, then establish a secured VPN connection into the trusted zone. With this setup, even if someone breaks into my WiFi, good on them, they get crippled net (I might cripple WiFi net bandwidth to the net, not decided yet) and access to.. well, my printer again *sigh*
+    <a class="image-link" href="/img/old/2011/01/Network_Map.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="linked-to-original" style="text-align: center; display: block; margin: 0 auto 10px;" src="/img/old/2011/01/Network_Map-thumb.jpg" alt="" width="380" height="442" /></a>User Isolation security means that the wireless clients won&#8217;t be able to see each other on the network. I&#8217;ll allow traffic too and from certain devices on the trusted network (the printer for instance.) but to gain access to any of my secure boxes (Fileserver, other workstations) then wireless clients will have to first connect through WEP, then establish a secured VPN connection into the trusted zone. With this setup, even if someone breaks into my WiFi, good on them, they get crippled net (I might cripple WiFi net bandwidth to the net, not decided yet) and access to.. well, my printer again *sigh*
   </p>
   <p style="clear: both;">
-    <a class="image-link" href="http://www.scottyob.com/wp-content/uploads/2011/01/Network_Stack.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="linked-to-original" style="text-align: center; display: block; margin: 0 auto 10px;" src="http://www.scottyob.com/wp-content/uploads/2011/01/Network_Stack-thumb.jpg" alt="" width="380" height="285" /></a>Network stack lol!
+    <a class="image-link" href="/img/old/2011/01/Network_Stack.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="linked-to-original" style="text-align: center; display: block; margin: 0 auto 10px;" src="/img/old/2011/01/Network_Stack-thumb.jpg" alt="" width="380" height="285" /></a>Network stack lol!
   </p>
   <p>
     <br class="final-break" style="clear: both;" />
@@ -379,8 +387,6 @@
           
           <h2>Other Pages</h2>
           <ul>
-            
-              <li><a href=/page/paragliding/>Paragliding Logbook</a></li>
             
               <li><a href=/page/bucketlist/>The Bucket List</a></li>
             

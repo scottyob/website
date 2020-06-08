@@ -13,6 +13,10 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
+  
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
 
   
   <link rel="apple-touch-icon" sizes="180x180" href="https://www.scottyob.com/apple-touch-icon.png">
@@ -169,6 +173,12 @@
     overflow: auto;
   }
 
+  blockquote {
+    margin: 1.6em 2.8em 0 1.4em;
+    padding: 0 0 0 2em;
+    border-left: .6em solid #ddd;
+  }
+
   #footer {
     clear: both;
     margin: 4em 0 1em;
@@ -190,8 +200,6 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 	  <div class="navbar-nav">
-            
-              <a class="nav-item nav-link" href=/page/paragliding/>Paragliding Logbook</a>
             
               <a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
             
@@ -273,7 +281,7 @@
 </blockquote>
 <p>Now, the idea is that a cron job will run rsyncing over the files every hour, on the hour.  For many reasons (in case I get a virus and need to revert back, in case somebody hacks in and does bad stuff, etc, etc) I’m going to choose to <a href="http://docs.huihoo.com/opensolaris/solaris-zfs-administration-guide/html/ch06.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.huihoo.com']);">create Snapshots</a> so I can roll back to a previous version.</p>
 <p>The convention I want is hourly.HOUR, daily.DAY, weekly.WEEK for up to 7 days and 4 weeks.  This also means that once I delete a file, I won’t recover the space that it took (once a snapshot of the file has been created) in my data pool until the end of the 4 week period.  for instance, hourly.0 will be the last hours snapshot, hourly.1 will be the 2nd last hours snapshot, etc.</p>
-<p>the following bash script will take care of the desired snapshots.  It’s based on a concept I took from this <a href="http://blogs.sun.com/mmusante/entry/rolling_snapshots_made_easy" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.sun.com']);">rolling snapshots made easy</a> post but I like <a href="http://www.scottyob.com/wp-content/uploads/2011/03/snapshot.sh" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);">my scripted way of doing rotating snapshots</a> much better.</p>
+<p>the following bash script will take care of the desired snapshots.  It’s based on a concept I took from this <a href="http://blogs.sun.com/mmusante/entry/rolling_snapshots_made_easy" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.sun.com']);">rolling snapshots made easy</a> post but I like <a href="/img/old/2011/03/snapshot.sh" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);">my scripted way of doing rotating snapshots</a> much better.</p>
 <blockquote>
 <p>#!/bin/bash</p>
 <p>#print out usage</p>
@@ -422,8 +430,6 @@
           
           <h2>Other Pages</h2>
           <ul>
-            
-              <li><a href=/page/paragliding/>Paragliding Logbook</a></li>
             
               <li><a href=/page/bucketlist/>The Bucket List</a></li>
             

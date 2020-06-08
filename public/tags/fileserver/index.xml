@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fileserver on Scott O&#39;Brien</title>
+    <link>https://www.scottyob.com/tags/fileserver/</link>
+    <description>Recent content in fileserver on Scott O&#39;Brien</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Mar 2011 18:17:20 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.scottyob.com/tags/fileserver/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>3. Setting up FileSystems and Snapshots (part 2)</title>
+      <link>https://www.scottyob.com/2011/03/24/3-setting-up-filesystems-and-snapshots-part-2/</link>
+      <pubDate>Thu, 24 Mar 2011 18:17:20 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/2011/03/24/3-setting-up-filesystems-and-snapshots-part-2/</guid>
+      <description>Note: This post is one in a series aimed to be a tutorial eventually, it’s not currently finalised and at the moment exists as a place for collating thought and collecting feedback
+In part 1 of this blog post, I showed you how I created a script that would, when run, rotate your snapshots on a ZFS filesystem. For this to be usable, we need to create a mechanism for having it be automatically ran.</description>
+    </item>
+    
+    <item>
+      <title>3. Setting up FileSystems and Snapshots (part 1)</title>
+      <link>https://www.scottyob.com/2011/03/18/3-setting-up-filesystems-and-snapshots/</link>
+      <pubDate>Fri, 18 Mar 2011 12:10:36 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/2011/03/18/3-setting-up-filesystems-and-snapshots/</guid>
+      <description>Note: This post is one in a series aimed to be a tutorial eventually, it’s not currently finalised and at the moment exists as a place for collating thought and collecting feedback
+Setting up the FileSystems is a trivial task. First, you can see that when we’ve created a storage pool ‘datastore’ it created a filesystem for us (also called datastore) that can act as a container for child file systems.</description>
+    </item>
+    
+    <item>
+      <title>2. Installing the Operating System</title>
+      <link>https://www.scottyob.com/2011/03/16/2-installing-the-operating-system/</link>
+      <pubDate>Wed, 16 Mar 2011 11:09:50 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/2011/03/16/2-installing-the-operating-system/</guid>
+      <description>Note: This post is one in a series aimed to be a tutorial eventually, it’s not currently finalised and at the moment exists as a place for collating thought and collecting feedback
+Installing OS and setup Network For the following set of posts, I have chosen to use VirtualBox to run through how to use ZFS in building your FileSystem. The first step is downloading and installing OpenIndiana. Get the latest build from http://openindiana.</description>
+    </item>
+    
+    <item>
+      <title>New Network</title>
+      <link>https://www.scottyob.com/2010/12/28/new-network/</link>
+      <pubDate>Wed, 29 Dec 2010 00:32:55 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/2010/12/28/new-network/</guid>
+      <description>so I&amp;#8217;ve moved back home with the family now. One thing I&amp;#8217;ve been meaning to do is to digitise my life and get set up on the cloud. I think it&amp;#8217;ll be really basic to start off with. VPN access in to my home network, firewall everything off, then create a few layers of the network. The issue is that I want to go paperless. I want to set up a ZFS Fileserver to store and snapshot all my data with remote encrypted backups of important documents and the like.</description>
+    </item>
+    
+  </channel>
+</rss>

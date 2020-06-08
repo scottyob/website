@@ -13,6 +13,10 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
+  
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
 
   
   <link rel="apple-touch-icon" sizes="180x180" href="https://www.scottyob.com/apple-touch-icon.png">
@@ -171,6 +175,12 @@
     overflow: auto;
   }
 
+  blockquote {
+    margin: 1.6em 2.8em 0 1.4em;
+    padding: 0 0 0 2em;
+    border-left: .6em solid #ddd;
+  }
+
   #footer {
     clear: both;
     margin: 4em 0 1em;
@@ -192,8 +202,6 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 	  <div class="navbar-nav">
-            
-              <a class="nav-item nav-link" href=/page/paragliding/>Paragliding Logbook</a>
             
               <a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
             
@@ -242,104 +250,172 @@ Cifs Share
 </h2>
 <p>CIFS (Common Internet File System), the protocol windows users for all it’s ‘windows file sharing’ is the method I’ll allow for my desktops and roaming computers to access files on the file server.</p>
 <p>Before we begin, Make sure we install the CIFS kernal modules</p>
-<pre><code>
-# pkg install SUNWsmbs # pkg install SUNWsmbskr
-
-</code></pre>
-<p>next we issue this command to make sure it auto starts</p>
-<pre><code>
-# svcadm enable -r smb/server
-
-</code></pre>
-<p>I’ve decided for every day use, I want a data store on the server, so..</p>
-<pre><code>
-# zfs create datastore/homes # zfs create datastore/homes/scott
-
-</code></pre>
-<p>now, set up compression on my home directory</p>
-<pre><code>
-# zfs set compression=on datastore/homes
-
-</code></pre>
-<p>Time to do some setup so we can log into this share, I’ll make the box join the workgroup ‘home</p>
-<pre><code>
-# smbadm join -w home
-
-</code></pre>
-<p>To start sharing with windows boxes, I need to change the pam.conf file to generate windows passwords too. Add the line below /etc/pam.conf</p>
-<pre><code>
-other password required pam_smb_passwd.so.1 nowarn
-
-</code></pre>
-<p>reset the password for my user scott, then I’ll be able to authenticate with him</p>
-<pre><code>
-# passwd scott
-
-</code></pre>
-<p>The next step is setting up guest access. You may remember we created a media share datastore/media. We want to share that with guests to the network (on the trusted subnet anyway). Before we go ahead and set that up, we want to map the windows Guest user to the unix user nobody.</p>
-<pre><code>
-# idmap add winname:Guest unixuser:nobody
-
-</code></pre>
-<p>then we’ll allow guest access to our media box</p>
-<pre><code>
-# zfs set sharesmb=name=media,guestok=true datastore/media
-
-</code></pre>
-<p>I also want to make my home directory only accessible by me, so I’m going to own the directory</p>
-<pre><code>
-chown scott /datastore/homes/scott chgrp staff /datastore/homes/scott chmod 700 /datastore/homes/scott
-
-</code></pre>
-<p>and share it</p>
-<pre><code>
-# zfs set sharesmb=name=scott datastore/homes/scott
-
-</code></pre>
-<p>So there we have it, a media folder anyone can access, and a ‘scott’ share that I’ll need to authenticate with (HOME\scott user)</p>
-<p><a href="http://www.scottyob.com/wp-content/uploads/2011/03/image1.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);" class="image-link"><img src="http://www.scottyob.com/wp-content/uploads/2011/03/image_thumb1.png" height="355" width="480" style=" text-align: center; display: block; margin: 0 auto 10px;" /></a></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># pkg install SUNWsmbs # pkg install SUNWsmbskr
+</code></pre></td></tr></table>
+</div>
+</div><p>next we issue this command to make sure it auto starts</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># svcadm enable -r smb/server
+</code></pre></td></tr></table>
+</div>
+</div><p>I’ve decided for every day use, I want a data store on the server, so..</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># zfs create datastore/homes # zfs create datastore/homes/scott
+</code></pre></td></tr></table>
+</div>
+</div><p>now, set up compression on my home directory</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># zfs set compression=on datastore/homes
+</code></pre></td></tr></table>
+</div>
+</div><p>Time to do some setup so we can log into this share, I’ll make the box join the workgroup ‘home</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># smbadm join -w home
+</code></pre></td></tr></table>
+</div>
+</div><p>To start sharing with windows boxes, I need to change the pam.conf file to generate windows passwords too. Add the line below /etc/pam.conf</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">other password required pam_smb_passwd.so.1 nowarn
+</code></pre></td></tr></table>
+</div>
+</div><p>reset the password for my user scott, then I’ll be able to authenticate with him</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># passwd scott
+</code></pre></td></tr></table>
+</div>
+</div><p>The next step is setting up guest access. You may remember we created a media share datastore/media. We want to share that with guests to the network (on the trusted subnet anyway). Before we go ahead and set that up, we want to map the windows Guest user to the unix user nobody.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># idmap add winname:Guest unixuser:nobody
+</code></pre></td></tr></table>
+</div>
+</div><p>then we’ll allow guest access to our media box</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># zfs set sharesmb=name=media,guestok=true datastore/media
+</code></pre></td></tr></table>
+</div>
+</div><p>I also want to make my home directory only accessible by me, so I’m going to own the directory</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">chown scott /datastore/homes/scott chgrp staff /datastore/homes/scott chmod 700 /datastore/homes/scott
+</code></pre></td></tr></table>
+</div>
+</div><p>and share it</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># zfs set sharesmb=name=scott datastore/homes/scott
+</code></pre></td></tr></table>
+</div>
+</div><p>So there we have it, a media folder anyone can access, and a ‘scott’ share that I’ll need to authenticate with (HOME\scott user)</p>
+<p><a href="/img/old/2011/03/image1.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);" class="image-link"><img src="/img/old/2011/03/image_thumb1.png" height="355" width="480" style=" text-align: center; display: block; margin: 0 auto 10px;" /></a></p>
 <h2>
 NFS Shares
 </h2>
 <p>Now we’ve got CIFS set up for our clients, I want to set up NFS shares for other Linux boxes on the network (at this point, only my router) to be able to access. The idea is that my router will have all the home directories on the FileServer (so it’ll get the advantages of snapshots, etc) we well as not being limited to the dying 60GB hard disk for torrenting and such things.</p>
 <p>As mentioned, I’m only interested in NFS shares with my router at this point, so we’ll make sure my routers IP address (10.12.1.254) is restricted in the shares.</p>
 <p>The first thing we want to try is setting up the nfs mount on our homes directory.</p>
-<pre><code>
-# zfs set &lt;a href=&quot;mailto:sharenfs=root=@10.12.1.254,rw=@10.12.1.254&quot;&gt;sharenfs=root=@10.12.1.254,rw=@10.12.1.254&lt;/a&gt; datastore/homes
-
-</code></pre>
-<p>Now, <strong>on my debian router box</strong> I want to see if I can mount this (assuming the directory /home2/scott exists on the client)</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># zfs set &lt;a href=&#34;mailto:sharenfs=root=@10.12.1.254,rw=@10.12.1.254&#34;&gt;sharenfs=root=@10.12.1.254,rw=@10.12.1.254&lt;/a&gt; datastore/homes
+</code></pre></td></tr></table>
+</div>
+</div><p>Now, <strong>on my debian router box</strong> I want to see if I can mount this (assuming the directory /home2/scott exists on the client)</p>
 <p>sudo mount -t nfs -o nfsvers=3 10.12.1.1:/datastore/homes/scott /home2/scott</p>
 <p>and Ta-Da! My home directory is mounted. What I want to do now is to set up auto-mounts. That is, when a directory is accessed for my users home directory, it’d mount it on the fly.</p>
 <p>First, install the autofs package</p>
-<pre><code>
-&lt;span style=&quot;color: #484848;&quot;&gt;apt-get install autofs&lt;/span&gt;
-
-</code></pre>
-<p>Add the following line into <strong>/etc/auto.master</strong></p>
-<pre><code>
-&lt;span style=&quot;color: #484848;&quot;&gt;/home2 /etc/auto.home -–timeout=60&lt;/span&gt;
-
-</code></pre>
-<p>and the following into the file <strong>/etc/auto.home</strong></p>
-<pre><code>
-* -fstype=nfs,rw,nosuid,soft,vers=3 server:/datastore/homes/&amp;#038;
-
-</code></pre>
-<p>the <strong>*</strong> and /datastore/homes/� do their magic by automatically mounting the required directory when needed (as long as the /etc/init.d/autofs is started)</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">apt-get install autofs
+</code></pre></td></tr></table>
+</div>
+</div><p>Add the following line into <strong>/etc/auto.master</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">/home2 /etc/auto.home -–timeout=60
+</code></pre></td></tr></table>
+</div>
+</div><p>and the following into the file <strong>/etc/auto.home</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">* -fstype=nfs,rw,nosuid,soft,vers=3 server:/datastore/homes/&amp;#038;
+</code></pre></td></tr></table>
+</div>
+</div><p>the <strong>*</strong> and /datastore/homes/� do their magic by automatically mounting the required directory when needed (as long as the /etc/init.d/autofs is started)</p>
 <p>Now lets add a place for our downloads</p>
-<pre><code>
-# zfs create datastore/media/downloads # zfs set sharenfs=root=router,rw=router datastore/media/downloads
-
-</code></pre>
-<p>I chose to just mount this using the automounter under the home2 directory, I added this to the <strong>/etc/auto.home</strong> file</p>
-<pre><code>
-downloads -fstype=nfs,rw,nosuid,soft,vers=3 10.12.1.1:/datastore/media/downloads
-
-</code></pre>
-<p>Pretty neat, now when you head to a directory that’s not mounted yet (like /home2/scott/) in the linux client, it will auto mount the required NFS volume and presto, we’ve got ourselves network storage.</p>
-<p><strong>Other posts to come in the series:</strong><br />1. Selecting the hardware<br />2. Installing the Operating System<br />3. Setting up File systems � Snapshots<br />4. Allowing access through NFS � SAMBA<br />5. Setting up encrypted off-site backups<br />6. Configuring Windows � Linux clients to dump backup info to the FileServer<br />7. My router setup, configuring IP tables � torrents on a low-powered server.</p>
-<p><br class="final-break" style="clear: both" /></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># zfs create datastore/media/downloads # zfs set sharenfs=root=router,rw=router datastore/media/downloads
+</code></pre></td></tr></table>
+</div>
+</div><p>I chose to just mount this using the automounter under the home2 directory, I added this to the <strong>/etc/auto.home</strong> file</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">downloads -fstype=nfs,rw,nosuid,soft,vers=3 10.12.1.1:/datastore/media/downloads
+</code></pre></td></tr></table>
+</div>
+</div><p>Pretty neat, now when you head to a directory that’s not mounted yet (like /home2/scott/) in the linux client, it will auto mount the required NFS volume and presto, we’ve got ourselves network storage.
+<strong>Other posts to come in the series:</strong><br />1. Selecting the hardware<br />2. Installing the Operating System<br />3. Setting up File systems � Snapshots<br />4. Allowing access through NFS � SAMBA<br />5. Setting up encrypted off-site backups<br />6. Configuring Windows � Linux clients to dump backup info to the FileServer<br />7. My router setup, configuring IP tables � torrents on a low-powered server.
+<br class="final-break" style="clear: both" /></p>
 
     </div>
   </div>
@@ -354,23 +430,47 @@ downloads -fstype=nfs,rw,nosuid,soft,vers=3 10.12.1.1:/datastore/media/downloads
 <p>In <a href="http://www.scottyob.com/?p=88" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);">part 1</a> of this blog post, I showed you how I created a script that would, when run, rotate your snapshots on a ZFS filesystem. For this to be usable, we need to create a mechanism for having it be automatically ran. We’ll do this with a cronjob.</p>
 <p>On Unix systems, the cron daemon is used to execute scheduled commands. Picture it much like windows task scheduler for all you windows kiddies.</p>
 <p>I saved the backup script we wrote yesterday to /FileStore/backups.sh. The first thing I want to get running is my hourly backups. To do this, we’ll start editing our cron file</p>
-<pre><code>  
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  
     sudo crontab -e
   
-</code></pre>
-<p>The crontab utility is a program used to edit the tables that drive the cron daemon.</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>The crontab utility is a program used to edit the tables that drive the cron daemon.</p>
 <p>On my OSX box, information about how to set up the cron file can be found in ‘man 5 crontab’</p>
 <p>Basically, cron examines cron entries once every minute. the fields that we’ve got to play with are (in this order)</p>
-<pre><code>  
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  
     field allowed values&lt;br /&gt; &amp;#8212;&amp;#8211; &amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8211;&lt;br /&gt; minute 0-59&lt;br /&gt; hour 0-23&lt;br /&gt; day of month 1-31&lt;br /&gt; month 1-12 (or names, see below)&lt;br /&gt; day of week 0-7 (0 or 7 is Sun, or use names)
   
-</code></pre>
-<p>Having said that, it’s time to think about when we want to create our snapshots. Because I intend machines to do their backups to the server on the hour, I’ll be creating my snapshots at half past the hour. My cron file now looks like this (for hourly snapshots with 24 rotations, daily snapshots with 7 rotations, Weekly snapshots with 4 rotations.</p>
-<pre><code>  
+</code></pre></td></tr></table>
+</div>
+</div><p>Having said that, it’s time to think about when we want to create our snapshots. Because I intend machines to do their backups to the server on the hour, I’ll be creating my snapshots at half past the hour. My cron file now looks like this (for hourly snapshots with 24 rotations, daily snapshots with 7 rotations, Weekly snapshots with 4 rotations.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  
     #**Snapshots for the Filesystem**&lt;br /&gt;30 * * * * /bin/bash /FileSystem/backups.sh hourly 24&lt;br /&gt;30 6 * * * /bin/bash /FileSystem/backups.sh daily 7&lt;br /&gt;30 6 * * sun /bin/bash /FileSystem/backups.sh weekly 4
   
-</code></pre>
-<p>Now that that concludes our section on setting up my rotating snapshots.</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>Now that that concludes our section on setting up my rotating snapshots.</p>
 <p><strong>Other posts to come in the series:<br /></strong>1. Selecting the hardware<br />2. Installing the Operating System<br />3. Setting up File systems � Snapshots<br />4. Allowing access through NFS � SAMBA<br />5. Setting up encrypted off-site backups<br />6. Configuring Windows � Linux clients to dump backup info to the FileServer<br />7. My router setup, configuring IP tables � torrents on a low-powered server.</p>
 <p><br class="final-break" style="clear: both" /></p>
 
@@ -413,7 +513,7 @@ downloads -fstype=nfs,rw,nosuid,soft,vers=3 10.12.1.1:/datastore/media/downloads
 </blockquote>
 <p>Now, the idea is that a cron job will run rsyncing over the files every hour, on the hour.  For many reasons (in case I get a virus and need to revert back, in case somebody hacks in and does bad stuff, etc, etc) I’m going to choose to <a href="http://docs.huihoo.com/opensolaris/solaris-zfs-administration-guide/html/ch06.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.huihoo.com']);">create Snapshots</a> so I can roll back to a previous version.</p>
 <p>The convention I want is hourly.HOUR, daily.DAY, weekly.WEEK for up to 7 days and 4 weeks.  This also means that once I delete a file, I won’t recover the space that it took (once a snapshot of the file has been created) in my data pool until the end of the 4 week period.  for instance, hourly.0 will be the last hours snapshot, hourly.1 will be the 2nd last hours snapshot, etc.</p>
-<p>the following bash script will take care of the desired snapshots.  It’s based on a concept I took from this <a href="http://blogs.sun.com/mmusante/entry/rolling_snapshots_made_easy" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.sun.com']);">rolling snapshots made easy</a> post but I like <a href="http://www.scottyob.com/wp-content/uploads/2011/03/snapshot.sh" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);">my scripted way of doing rotating snapshots</a> much better.</p>
+<p>the following bash script will take care of the desired snapshots.  It’s based on a concept I took from this <a href="http://blogs.sun.com/mmusante/entry/rolling_snapshots_made_easy" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.sun.com']);">rolling snapshots made easy</a> post but I like <a href="/img/old/2011/03/snapshot.sh" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);">my scripted way of doing rotating snapshots</a> much better.</p>
 <blockquote>
 <p>#!/bin/bash</p>
 <p>#print out usage</p>
@@ -565,35 +665,77 @@ downloads -fstype=nfs,rw,nosuid,soft,vers=3 10.12.1.1:/datastore/media/downloads
 Make a hard disk when you’re setting up your VM image (I called mine OS_SSD1 because the HD is eventually going to be installed onto a solid state drive.)
 Now, the VM is booted, we can start having some fun (SSH into it and Away we go)
 Our first step is to setup the address for the box. I must admit, I’m pretty new to Solaris but from what I’ve found, we’ll run these commands to disable Auto Configuration via DHCP then enable our static config.</p>
-<pre><code>svcadm disable physical:nwam &lt;br /&gt;svcadm enable physical:default
-</code></pre>
-<p>My fileserver is currently not on a domain (I’ll change this later), so I’ve added the line into my /etc/hosts file</p>
-<pre><code>10.12.1.1 thumper.local thumper
-</code></pre>
-<p>Put your hostname that you want to use (‘thumper’ for me) in /etc/nodename
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">svcadm disable physical:nwam &lt;br /&gt;svcadm enable physical:default
+</code></pre></td></tr></table>
+</div>
+</div><p>My fileserver is currently not on a domain (I’ll change this later), so I’ve added the line into my /etc/hosts file</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">10.12.1.1 thumper.local thumper
+</code></pre></td></tr></table>
+</div>
+</div><p>Put your hostname that you want to use (‘thumper’ for me) in /etc/nodename
 Your default gateway (routers) address should go in /etc/defaultrouter
 The last thing to do is tell the host about what subnet it’s on, For me, I added (for my server subnet)</p>
-<pre><code>10.12.1.0 255.255.255.0
-</code></pre>
-<p>The next step is set up your nameserver for DNS (/etc/resolv.conf) mine looks like this</p>
-<pre><code>nameserver 10.12.1.254
-</code></pre>
-<p>Copy /etc/nsswitch.dns to /etc/nsswitch.conf – so dns is used.
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">10.12.1.0 255.255.255.0
+</code></pre></td></tr></table>
+</div>
+</div><p>The next step is set up your nameserver for DNS (/etc/resolv.conf) mine looks like this</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">nameserver 10.12.1.254
+</code></pre></td></tr></table>
+</div>
+</div><p>Copy /etc/nsswitch.dns to /etc/nsswitch.conf – so dns is used.
 Now so the adaptor comes up on boot, find out the status of your network I/O by running</p>
-<pre><code>dladm show-link
-</code></pre>
-<p>(for me was e1000g0). Once you have this, you need to ‘plumbe” to set up the software in the kernel to set this interface on the TCP/IP stack.</p>
-<pre><code>ifconfig e100g0 plumb &lt;br /&gt;echo 10.12.1.1/24 &gt; /etc/hostname.e100g0
-</code></pre>
-<p>Last but not least for your network stack,</p>
-<pre><code>svcadm restart milestone/network
-</code></pre>
-<p>From this point on, that concludes the base setup with networking that I’m using for the FileServer. If this happened to be a critical server for you, perhaps you’d consider setting up <a href="http://darkstar-solaris.blogspot.com/2008/09/zfs-root-mirror.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://darkstar-solaris.blogspot.com']);">redundant bootable drives with ZFS</a>. It looks pretty cool.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">dladm show-link
+</code></pre></td></tr></table>
+</div>
+</div><p>(for me was e1000g0). Once you have this, you need to ‘plumbe” to set up the software in the kernel to set this interface on the TCP/IP stack.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ifconfig e100g0 plumb &lt;br /&gt;echo 10.12.1.1/24 &gt; /etc/hostname.e100g0
+</code></pre></td></tr></table>
+</div>
+</div><p>Last but not least for your network stack,</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">svcadm restart milestone/network
+</code></pre></td></tr></table>
+</div>
+</div><p>From this point on, that concludes the base setup with networking that I’m using for the FileServer. If this happened to be a critical server for you, perhaps you’d consider setting up <a href="http://darkstar-solaris.blogspot.com/2008/09/zfs-root-mirror.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://darkstar-solaris.blogspot.com']);">redundant bootable drives with ZFS</a>. It looks pretty cool.</p>
 <h2>
 Setting up the storage pool
 </h2>
 Now we can get into the fun part. The first thing I want to do with this server is be able to store my data on it, so lets set up our storage pool. In my VM I’m using to test this I’ve added the disks I want to include in my pool (1GB disks for this test)
-<a href="http://www.scottyob.com/wp-content/uploads/2011/03/image.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);" class="image-link"><img src="http://www.scottyob.com/wp-content/uploads/2011/03/image_thumb.png" height="377" width="487" style=" text-align: center; display: block; margin: 0 auto 10px;" /></a>Once we’ve booted out VM (first thing I always do is ‘sudo bash’ because I’m evil in these silly little test environments).
+<a href="/img/old/2011/03/image.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);" class="image-link"><img src="/img/old/2011/03/image_thumb.png" height="377" width="487" style=" text-align: center; display: block; margin: 0 auto 10px;" /></a>Once we’ve booted out VM (first thing I always do is ‘sudo bash’ because I’m evil in these silly little test environments).
 I want to find out the device ID’s for these hard disks I just added
 ```
 root@thumper:~# iostat -En | egrep Size\|Soft <br />c1t0d0 Soft Errors: 0 Hard Errors: 6 Transport Errors: 0 <br />Size: 0.00GB <0 bytes> <br />c1t1d0 Soft Errors: 0 Hard Errors: 0 Transport Errors: 0 <br />Size: 17.18GB <17179869184 bytes> <br />c1t2d0 Soft Errors: 0 Hard Errors: 0 Transport Errors: 0 <br />Size: 1.07GB <1073741824 bytes> <br />c1t3d0 Soft Errors: 0 Hard Errors: 0 Transport Errors: 0 <br />Size: 1.07GB <1073741824 bytes> <br />c1t4d0 Soft Errors: 0 Hard Errors: 0 Transport Errors: 0 <br />Size: 1.07GB <1073741824 bytes> <br />c1t5d0 Soft Errors: 0 Hard Errors: 0 Transport Errors: 0 <br />Size: 1.07GB <1073741824 bytes>
@@ -625,8 +767,6 @@ Other posts to come in the series: <br />1. Selecting the hardware <br />2. Inst
           
           <h2>Other Pages</h2>
           <ul>
-            
-              <li><a href=/page/paragliding/>Paragliding Logbook</a></li>
             
               <li><a href=/page/bucketlist/>The Bucket List</a></li>
             

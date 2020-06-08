@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nagios on Scott O&#39;Brien</title>
+    <link>https://www.scottyob.com/tags/nagios/</link>
+    <description>Recent content in Nagios on Scott O&#39;Brien</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 09 Jul 2012 04:44:35 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.scottyob.com/tags/nagios/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Monitoring SRX Chassis Cluster</title>
+      <link>https://www.scottyob.com/2012/07/09/monitoring-srx-chassis-cluster/</link>
+      <pubDate>Mon, 09 Jul 2012 04:44:35 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/2012/07/09/monitoring-srx-chassis-cluster/</guid>
+      <description>Just finishing off a few things at work this week. We’ve got a few sites around the place where we have HA internet powered by two Juniper SRX100’s. The Two SRX100’s operate in a Chassis Cluster and peer with our ISP using BGP across both active/passive devices.
+Below is a little Nagios check script that I wrote to hook into our in-house Nagios monitoring platform. It makes sure the chassis cluster has not failed over operating in a degraded state, and makes sure that there are two BGP peers connected.</description>
+    </item>
+    
+  </channel>
+</rss>

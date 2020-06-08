@@ -13,6 +13,10 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
+  
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
 
   
   <link rel="apple-touch-icon" sizes="180x180" href="https://www.scottyob.com/apple-touch-icon.png">
@@ -169,6 +173,12 @@
     overflow: auto;
   }
 
+  blockquote {
+    margin: 1.6em 2.8em 0 1.4em;
+    padding: 0 0 0 2em;
+    border-left: .6em solid #ddd;
+  }
+
   #footer {
     clear: both;
     margin: 4em 0 1em;
@@ -190,8 +200,6 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 	  <div class="navbar-nav">
-            
-              <a class="nav-item nav-link" href=/page/paragliding/>Paragliding Logbook</a>
             
               <a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
             
@@ -247,61 +255,157 @@
 <p>This tool is built for my grandmother; a lady who has <a href="http://www.mdfoundation.com.au" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.mdfoundation.com.au']);">macular degeneration</a> making her legally blind.  She doesn’t want to invest a great deal of money in this solution or have much of a learning curve, it took long enough to get her using the two button audio book solution on the iPod.  </p>
 <p>The basic idea is to purchase a direct inward dialing (DID) number and program it into her speed dial, this will connect to an Asterisk virtual machine that will launch the voice recognition to listen to who she wants to dial, look up the number in her address book then connect the call through, all at the rate of about $0.11 for a national call (actually saving her money!).</p>
 <p>I’m using the <a href="http://zaf.github.com/asterisk-speech-recog/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://zaf.github.com']);">Speech Recognition for Asterisk</a> module to convert the spoken recording to a string.  The problem with the method using this library for an address books is different words being returned that are pronounced very similar to the names in the book, for instance trying to find the name ‘elmer’ returned ‘Alma’.  With a bit of python scripting to use <a href="http://www.doughellmann.com/articles/how-tos/phonetic-hashing/index.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.doughellmann.com']);">fuzzy matching to search by sound with python</a> we can start to compare what our speech recognition engine returned with what we actually have in our address book. It must be noted that this method only works for a small set of different numbers in an address book, which although fits my grandmother fine, I plan to script the server so I can always make that magic button (DID speed dial) re-direct the call to anywhere I like.</p>
-<pre><code class="language-&gt;&gt;&gt;">&amp;gt;&amp;gt;&amp;gt; dmetaphone = fuzzy.DMetaphone(3)
-&amp;gt;&amp;gt;&amp;gt; dmetaphone('Alma')
-['ALM', None]
-&amp;gt;&amp;gt;&amp;gt; dmetaphone('Elmer')
-['ALM', None]
-&amp;gt;&amp;gt;&amp;gt; dmetaphone('Toss')
-['TS', None]
-&amp;gt;&amp;gt;&amp;gt; dmetaphone('Scott')
-['SKT', None]
-&amp;gt;&amp;gt;&amp;gt; dmetaphone('Troy')
-['TR', None]
-&amp;gt;&amp;gt;&amp;gt; dmetaphone('Sue')
-['S', None]
-&amp;gt;&amp;gt;&amp;gt; dmetaphone('Janet')
-['JNT', 'ANT']
-</code></pre>
-<p>So, to execute the plan, I’m using an account on <a href="https://www.mynetfone.com.au" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.mynetfone.com.au']);">Mynetfone</a>.  The extensions.conf has a script to answer the call on my purchased DID, prompt for who she wants to talk to, run it through speech recognition, then call the number in her address book through a python script.  The extensions.conf that makes this magic happen looks like this:</p>
-<pre><code class="language-[MyNetFone]">; Phone call is made to the service, welcome user and get their speech
-exten =&amp;gt; 0920xxxx,1,Answer()
-exten =&amp;gt; 0920xxxx,1,Wait(2)
-exten =&amp;gt; 0920xxxx,n,agi(googletts.agi, &quot;Hello Miss Duckworth&quot;, en)
-exten =&amp;gt; 0920xxxx,n,agi(googletts.agi, &quot;I am here to attempt to make your social life easier.&quot;, en)
-exten =&amp;gt; 0920xxxx,n(intro),agi(googletts.agi, &quot;Who would you like to talk to?&quot;, en)
-exten =&amp;gt; 0920xxxx,n,agi(speech-recog.agi, en-US)
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"> dmetaphone = fuzzy.DMetaphone(3)
+ dmetaphone(&#39;Alma&#39;)
+[&#39;ALM&#39;, None]
+ dmetaphone(&#39;Elmer&#39;)
+[&#39;ALM&#39;, None]
+ dmetaphone(&#39;Toss&#39;)
+[&#39;TS&#39;, None]
+ dmetaphone(&#39;Scott&#39;)
+[&#39;SKT&#39;, None]
+ dmetaphone(&#39;Troy&#39;)
+[&#39;TR&#39;, None]
+ dmetaphone(&#39;Sue&#39;)
+[&#39;S&#39;, None]
+ dmetaphone(&#39;Janet&#39;)
+[&#39;JNT&#39;, &#39;ANT&#39;]
+</code></pre></td></tr></table>
+</div>
+</div><p>So, to execute the plan, I’m using an account on <a href="https://www.mynetfone.com.au" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.mynetfone.com.au']);">Mynetfone</a>.  The extensions.conf has a script to answer the call on my purchased DID, prompt for who she wants to talk to, run it through speech recognition, then call the number in her address book through a python script.  The extensions.conf that makes this magic happen looks like this:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">; Phone call is made to the service, welcome user and get their speech
+exten = 0920xxxx,1,Answer()
+exten = 0920xxxx,1,Wait(2)
+exten = 0920xxxx,n,agi(googletts.agi, &#34;Hello Miss Duckworth&#34;, en)
+exten = 0920xxxx,n,agi(googletts.agi, &#34;I am here to attempt to make your social life easier.&#34;, en)
+exten = 0920xxxx,n(intro),agi(googletts.agi, &#34;Who would you like to talk to?&#34;, en)
+exten = 0920xxxx,n,agi(speech-recog.agi, en-US)
 
 ; Look up number in address book, write debug information then go to the required section
-exten =&amp;gt; 0920xxxx,n,agi(address-book.agi,${utterance})
-exten =&amp;gt; 0920xxxx,n,Verbose(1,The text you just said is: ${utterance})
-exten =&amp;gt; 0920xxxx,n,Verbose(1,The probability to be right is: ${confidence})
-exten =&amp;gt; 0920xxxx,n,Verbose(1, ${foundname})
-exten =&amp;gt; 0920xxxx,n,Verbose(1, ${todial})
-exten =&amp;gt; 0920xxxx,n,GotoIf($[&quot;${foundname}&quot; = &quot;1&quot;]?success:fail)
+exten = 0920xxxx,n,agi(address-book.agi,${utterance})
+exten = 0920xxxx,n,Verbose(1,The text you just said is: ${utterance})
+exten = 0920xxxx,n,Verbose(1,The probability to be right is: ${confidence})
+exten = 0920xxxx,n,Verbose(1, ${foundname})
+exten = 0920xxxx,n,Verbose(1, ${todial})
+exten = 0920xxxx,n,GotoIf($[&#34;${foundname}&#34; = &#34;1&#34;]?success:fail)
 
 ; Name not found in the address book
-exten =&amp;gt; 0920xxxx,n(fail),agi(googletts.agi,&quot;Sorry, I could not find the person ${utterance} in the address book&quot;, en)
-exten =&amp;gt; 0920xxxx,n,agi(googletts.agi, &quot;Please feel free to try again&quot;,en)
-exten =&amp;gt; 0920xxxx,n,Goto(intro)
+exten = 0920xxxx,n(fail),agi(googletts.agi,&#34;Sorry, I could not find the person ${utterance} in the address book&#34;, en)
+exten = 0920xxxx,n,agi(googletts.agi, &#34;Please feel free to try again&#34;,en)
+exten = 0920xxxx,n,Goto(intro)
 
 ; Connect the user through the MyNetFone service.
-exten =&amp;gt; 0920xxxx,n(success),agi(googletts.agi, &quot;Please hold while I connect you to&quot;, en)
-exten =&amp;gt; 0920xxxx,n,agi(googletts.agi, &quot;${utterance}&quot;, en)
-exten =&amp;gt; 0920xxxx,n,Dial(SIP/MyNetFone/${todial}, 30)
-exten =&amp;gt; 0920xxxx,n,Hangup()
-</code></pre>
-<p>and the python script address-book.agi file:</p>
-<pre><code class="language-#!/usr/bin/python">
+exten = 0920xxxx,n(success),agi(googletts.agi, &#34;Please hold while I connect you to&#34;, en)
+exten = 0920xxxx,n,agi(googletts.agi, &#34;${utterance}&#34;, en)
+exten = 0920xxxx,n,Dial(SIP/MyNetFone/${todial}, 30)
+exten = 0920xxxx,n,Hangup()
+</code></pre></td></tr></table>
+</div>
+</div><p>and the python script address-book.agi file:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">
 import sys
 import fuzzy
 
 # Read and ignore AGI environment (read until blank line)
 
 addressBook = {
-   'scott': '0415xxxxxx',
-   'susan': '98xxxxxx',
-   'support': '181'
+   &#39;scott&#39;: &#39;0415xxxxxx&#39;,
+   &#39;susan&#39;: &#39;98xxxxxx&#39;,
+   &#39;support&#39;: &#39;181&#39;
 }
 
 dmetaphone = fuzzy.DMetaphone(3)
@@ -312,28 +416,30 @@ tests = 0;
 while 1:
    line = sys.stdin.readline().strip()
 
-   if line == '':
+   if line == &#39;&#39;:
       break
-   key,data = line.split(':')
-   if key[:4] &amp;lt;&amp;gt; 'agi_':
-      #skip input that doesn't begin with agi_
-      sys.stderr.write(&quot;Did not work!\n&quot;);
+   key,data = line.split(&#39;:&#39;)
+   if key[:4] &amp;lt; &#39;agi_&#39;:
+      #skip input that doesn&#39;t begin with agi_
+      sys.stderr.write(&#34;Did not work!\n&#34;);
       sys.stderr.flush()
       continue
    key = key.strip()
    data = data.strip()
-   if key &amp;lt;&amp;gt; '':
+   if key &amp;lt; &#39;&#39;:
       env[key] = data
 
-spokenWord = dmetaphone(env['agi_arg_1'])
+spokenWord = dmetaphone(env[&#39;agi_arg_1&#39;])
 
 for name in addressBook:
    if dmetaphone(name) == spokenWord:
-      print 'SET VARIABLE todial &quot;%s&quot;' % addressBook[name]
-      print 'SET VARIABLE foundname &quot;1&quot;'
+      print &#39;SET VARIABLE todial &#34;%s&#34;&#39; % addressBook[name]
+      print &#39;SET VARIABLE foundname &#34;1&#34;&#39;
       sys.exit(0)
-print 'SET VARIABLE foundname &quot;0&quot;'
-</code></pre>
+print &#39;SET VARIABLE foundname &#34;0&#34;&#39;
+</code></pre></td></tr></table>
+</div>
+</div>
   </div>
 </div>
 
@@ -346,8 +452,6 @@ print 'SET VARIABLE foundname &quot;0&quot;'
           
           <h2>Other Pages</h2>
           <ul>
-            
-              <li><a href=/page/paragliding/>Paragliding Logbook</a></li>
             
               <li><a href=/page/bucketlist/>The Bucket List</a></li>
             

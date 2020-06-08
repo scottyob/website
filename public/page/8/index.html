@@ -13,6 +13,10 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
+  
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
 
   
   <link rel="apple-touch-icon" sizes="180x180" href="https://www.scottyob.com/apple-touch-icon.png">
@@ -171,6 +175,12 @@
     overflow: auto;
   }
 
+  blockquote {
+    margin: 1.6em 2.8em 0 1.4em;
+    padding: 0 0 0 2em;
+    border-left: .6em solid #ddd;
+  }
+
   #footer {
     clear: both;
     margin: 4em 0 1em;
@@ -192,8 +202,6 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 	  <div class="navbar-nav">
-            
-              <a class="nav-item nav-link" href=/page/paragliding/>Paragliding Logbook</a>
             
               <a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
             
@@ -253,154 +261,57 @@
     </h2>
     <small>2010-10-09 14:31:22 &#43;0000 &#43;0000</small>
     <div class="entry">
-      <p style="clear: both">
-  In my previous post I mentioned how I didn&#8217;t back up or migrate any of my data before we stopped paying the hosting company, so it&#8217;s all lost.
-</p>
-<p style="clear: both">
-  <p style="clear: both">
-    <p style="clear: both">
-      <p style="clear: both">
-        <div>
-          This has me thinking how much of a shame it would be if I build a wealth of information or a blog that I can use to identify myself and my work, only to have it go if the machine it&#8217;s hosted on dies. That would be bad, so this post is a short tutorial on how perform nightly backups of your website without you having to lift a finger.
-        </div>
-      </p>
-<pre><code>  &lt;p style=&quot;clear: both&quot;&gt;
-    &lt;p style=&quot;clear: both&quot;&gt;
-      &lt;p style=&quot;clear: both&quot;&gt;
-        &lt;p style=&quot;clear: both&quot;&gt;
-          &lt;p style=&quot;clear: both&quot;&gt;
-            &lt;p style=&quot;clear: both&quot;&gt;
-              &lt;p style=&quot;clear: both&quot;&gt;
-                &lt;div&gt;
-                  &lt;strong&gt;About&lt;/strong&gt;&lt;br /&gt;This method uses &lt;a href=&quot;http://en.wikipedia.org/wiki/Rsync&quot; onclick=&quot;javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org']);&quot; title=&quot;About Rsync&quot;&gt;rsync&lt;/a&gt; to transfer files (including a dump of the database) to another machine so you&amp;#8217;ve got a live backup should things turn pear shaped. In this short tutorial, we&amp;#8217;ll be transfering files from our &amp;#8216;&lt;em&gt;webhost&lt;/em&gt;&amp;#8216; server to our &lt;em&gt;backuphost &lt;/em&gt;server
-                &lt;/div&gt;
-              &lt;/p&gt;
-              
-              &lt;p style=&quot;clear: both&quot;&gt;
-                &lt;p style=&quot;clear: both&quot;&gt;
-                  &lt;p style=&quot;clear: both&quot;&gt;
-                    &lt;p style=&quot;clear: both&quot;&gt;
-                      &lt;p style=&quot;clear: both&quot;&gt;
-                        &lt;p style=&quot;clear: both&quot;&gt;
-                          &lt;p style=&quot;clear: both&quot;&gt;
-                            &lt;div&gt;
-                              &lt;strong&gt;Step 1. SSH RSA KEYS&lt;/strong&gt;&lt;br /&gt;We will be using ssh to transfer, securely, the data between our two hosts. Because this is a scripted and automated method, we can&amp;#8217;t be there to type in a password each time we wish to run the backups. So we&amp;#8217;ll be using a &lt;a href=&quot;http://en.wikipedia.org/wiki/RSA&quot; onclick=&quot;javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org']);&quot;&gt;RSA public/private&lt;/a&gt; key pair for secure authentication. This will allow us password-less authentication for ssh sessions, transferring files with scp, etc.&lt;br /&gt;First, log in to the &lt;em&gt;webhost&lt;/em&gt; where we can generate the local public and private keys.
-                            &lt;/div&gt;
-                          &lt;/p&gt;
-                          
-                          &lt;blockquote style=&quot;clear: both&quot;&gt;
-                            &lt;p&gt;
-                              $ ssh-keygen -t rsa
-                            &lt;/p&gt;
-                          &lt;/blockquote&gt;
-                          
-                          &lt;p style=&quot;clear: both&quot;&gt;
-                            This will prompt you for a location to save the key and a passphrase, you can just enter past those and accept all the defaults.
-                          &lt;/p&gt;
-                          
-                          &lt;p style=&quot;clear: both&quot;&gt;
-                            Our next step is to transfer the public key across to our backup server.
-                          &lt;/p&gt;
-                          
-                          &lt;blockquote style=&quot;clear: both&quot;&gt;
-                            &lt;p&gt;
-                              $ ssh-copy-id -i ~/.ssh/id_rsa.pub backupUser@backupserver.com
-                            &lt;/p&gt;
-                          &lt;/blockquote&gt;
-                          
-                          &lt;p style=&quot;clear: both&quot;&gt;
-                            Site Note on using OSX or disto where you don&amp;#8217;t have ssh-copy-id.. This will work just as well
-                          &lt;/p&gt;
-                          
-                          &lt;blockquote style=&quot;clear: both&quot;&gt;
-                            &lt;p&gt;
-                              cat ~/.ssh/id_rsa.pub | ssh backups@backupserver.com &amp;#8220;cat &amp;#8211; &gt;&gt; ~/.ssh/authorized_keys&amp;#8221;
-                            &lt;/p&gt;
-                          &lt;/blockquote&gt;
-                          
-                          &lt;p style=&quot;clear: both&quot;&gt;
-                            &lt;p style=&quot;clear: both&quot;&gt;
-                              This will prompt you for the login password for the host, then copy the &lt;br /&gt;keyfile for you, creating the correct directory and fixing the permissions as necessary.
-                            &lt;/p&gt;
-                            
-                            &lt;p style=&quot;clear: both&quot;&gt;
-                              Now test to make sure you can log into the &lt;em&gt;backupserver&lt;/em&gt; without requiring a password.
-                            &lt;/p&gt;
-                            
-                            &lt;p style=&quot;clear: both&quot;&gt;
-                              &lt;strong&gt;Step 2. Creating the backup script&lt;/strong&gt;&lt;br /&gt;I made a backup script (backup.sh, me sure to &amp;#8216;chmod u+x backup.sh&amp;#8217; once it&amp;#8217;s been created) to run through these few backup procedures. The first step is to do a dump of the database to file. You could very well host an SQL server on the other side and mirror the database to get things up and running faster, but that was overkill for my needs.. Besides, always remember there are many ways to skin a cat and this one seemed to work nice for all intents and purposes.
-                            &lt;/p&gt;
-                            
-                            &lt;p style=&quot;clear: both&quot;&gt;
-                              The backup script has two parts in it, basically do a dump of the database, then copy that over to the server as well as all the public_html or htdocs or where you put your public hosted files.
-                            &lt;/p&gt;
-                            
-                            &lt;blockquote name=&quot;code&quot; style=&quot;clear: both&quot;&gt;
-                              &lt;p&gt;
-                                echo &amp;#8220;Running backup script&amp;#8230;&amp;#8221;
-                              &lt;/p&gt;
-                              
-                              &lt;p&gt;
-                                echo &amp;#8220;Running a dump of the database..&amp;#8221;
-                              &lt;/p&gt;
-                              
-                              &lt;p&gt;
-                                mysqldump &amp;#8211;user=scottyob &amp;#8211;password=somePassword &amp;#8211;all-databases &gt; /var/www/scottyob.com/backup/database.dump #backup of database
-                              &lt;/p&gt;
-                              
-                              &lt;p&gt;
-                                echo &amp;#8220;Syncing the backup directory..&amp;#8221;
-                              &lt;/p&gt;
-                              
-                              &lt;p&gt;
-                                rsync -a -e ssh /var/www/scottyob.com/backup/ backups@backuphost.com:backups/&lt;br /&gt;rsync -a -e ssh /var/www/scottyob.com/htdocs/ backups@backuphost.com:htdocs/
-                              &lt;/p&gt;
-                              
-                              &lt;p&gt;
-                                echo &amp;#8220;Backup made on &amp;#8221; `date` &gt;&gt; /var/www/scottyob.com/backuplog.txt
-                              &lt;/p&gt;
-                            &lt;/blockquote&gt;
-                            
-                            &lt;p style=&quot;clear: both&quot;&gt;
-                              And there you have it, a script to backup your website to a user &amp;#8216;backups&amp;#8217; on the server &amp;#8216;backuphost.com&amp;#8217;
-                            &lt;/p&gt;
-                            
-                            &lt;p style=&quot;clear: both&quot;&gt;
-                              &lt;strong&gt;Step 3. Automated..ness&lt;/strong&gt;
-                            &lt;/p&gt;
-                            
-                            &lt;p style=&quot;clear: both&quot;&gt;
-                              This is no good for me unless it&amp;#8217;s automated. I just ran this script under a &lt;a href=&quot;http://www.unixgeeks.org/security/newbie/unix/cron-1.html&quot; onclick=&quot;javascript:_gaq.push(['_trackEvent','outbound-article','http://www.unixgeeks.org']);&quot;&gt;cron job&lt;/a&gt; to automate this procedure
-                            &lt;/p&gt;
-                            
-                            &lt;p style=&quot;clear: both&quot;&gt;
-                              Edit your cron file using
-                            &lt;/p&gt;
-                            
-                            &lt;blockquote style=&quot;clear: both&quot;&gt;
-                              &lt;p&gt;
-                                $ crontab -e
-                              &lt;/p&gt;
-                            &lt;/blockquote&gt;
-                            
-                            &lt;p style=&quot;clear: both&quot;&gt;
-                              Then I told it that at one minute past midnight, it should backup my website every day (add the following line)
-                            &lt;/p&gt;
-                            
-                            &lt;blockquote style=&quot;clear: both&quot;&gt;
-                              &lt;p&gt;
-                                1 0 * * * /var/www/scottyob.com/backup.sh
-                              &lt;/p&gt;
-                            &lt;/blockquote&gt;
-                            
-                            &lt;p style=&quot;clear: both&quot;&gt;
-                              And there we have it folks, my backup procedure now so my site will never have to be started from scratch again.
-                            &lt;/p&gt;
-                            
-                            &lt;p&gt;
-                              &lt;br class=&quot;final-break&quot; style=&quot;clear: both&quot; /&gt;
-                            &lt;/p&gt;
-</code></pre>
+      <p>In my previous post I mentioned how I didn’t back up or migrate any of my data before we stopped paying the hosting company, so it’s all lost.</p>
+<p>This has me thinking how much of a shame it would be if I build a wealth of information or a blog that I can use to identify myself and my work, only to have it go if the machine it’s hosted on dies. That would be bad, so this post is a short tutorial on how perform nightly backups of your website without you having to lift a finger.
+<strong>About</strong><br />This method uses <a href="http://en.wikipedia.org/wiki/Rsync" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org']);" title="About Rsync">rsync</a> to transfer files (including a dump of the database) to another machine so you’ve got a live backup should things turn pear shaped. In this short tutorial, we’ll be transfering files from our ‘<em>webhost</em>‘ server to our <em>backuphost </em>server
+<strong>Step 1. SSH RSA KEYS</strong><br />We will be using ssh to transfer, securely, the data between our two hosts. Because this is a scripted and automated method, we can’t be there to type in a password each time we wish to run the backups. So we’ll be using a <a href="http://en.wikipedia.org/wiki/RSA" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org']);">RSA public/private</a> key pair for secure authentication. This will allow us password-less authentication for ssh sessions, transferring files with scp, etc.<br />First, log in to the <em>webhost</em> where we can generate the local public and private keys.</p>
+<blockquote style="clear: both">
+<p>$ ssh-keygen -t rsa</p>
+</blockquote>
+<p>This will prompt you for a location to save the key and a passphrase, you can just enter past those and accept all the defaults.</p>
+<p>Our next step is to transfer the public key across to our backup server.</p>
+<blockquote style="clear: both">
+<p>$ ssh-copy-id -i ~/.ssh/id_rsa.pub <a href="mailto:backupUser@backupserver.com">backupUser@backupserver.com</a></p>
+</blockquote>
+<p>Site Note on using OSX or disto where you don’t have ssh-copy-id.. This will work just as well</p>
+<blockquote style="clear: both">
+<p>cat ~/.ssh/id_rsa.pub | ssh <a href="mailto:backups@backupserver.com">backups@backupserver.com</a> “cat – &raquo; ~/.ssh/authorized_keys”</p>
+</blockquote>
+<p>This will prompt you for the login password for the host, then copy the <br />keyfile for you, creating the correct directory and fixing the permissions as necessary.</p>
+<p>Now test to make sure you can log into the <em>backupserver</em> without requiring a password.</p>
+<p><strong>Step 2. Creating the backup script</strong><br />I made a backup script (backup.sh, me sure to ‘chmod u+x backup.sh’ once it’s been created) to run through these few backup procedures. The first step is to do a dump of the database to file. You could very well host an SQL server on the other side and mirror the database to get things up and running faster, but that was overkill for my needs.. Besides, always remember there are many ways to skin a cat and this one seemed to work nice for all intents and purposes.</p>
+<p>The backup script has two parts in it, basically do a dump of the database, then copy that over to the server as well as all the public_html or htdocs or where you put your public hosted files.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#a31515">&#34;Running backup script&#34;</span>
+echo <span style="color:#a31515">&#34;Running a dump of the database..&#34;</span>
+mysqldump user=scottyob password=somePassword all-databases &gt; /var/www/scottyob.com/backup/database.dump <span style="color:#008000">#backup of database</span>
+echo <span style="color:#a31515">&#34;Syncing the backup directory..&#34;</span>
+rsync -a -e ssh /var/www/scottyob.com/backup/ backups@backuphost.com:backups/&lt;br /&gt;rsync -a -e ssh /var/www/scottyob.com/htdocs/ backups@backuphost.com:htdocs/
+echo <span style="color:#a31515">&#34;Backup made on &#34;</span> <span style="color:#a31515">`</span>date<span style="color:#a31515">`</span> &gt;&gt; /var/www/scottyob.com/backuplog.txt
+</code></pre></td></tr></table>
+</div>
+</div><p>And there you have it, a script to backup your website to a user ‘backups’ on the server ‘backuphost.com’</p>
+<p><strong>Step 3. Automated..ness</strong></p>
+<p>This is no good for me unless it’s automated. I just ran this script under a <a href="http://www.unixgeeks.org/security/newbie/unix/cron-1.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.unixgeeks.org']);">cron job</a> to automate this procedure</p>
+<p>Edit your cron file using</p>
+<blockquote style="clear: both">
+<p>$ crontab -e</p>
+</blockquote>
+<p>Then I told it that at one minute past midnight, it should backup my website every day (add the following line)</p>
+<blockquote style="clear: both">
+<p>1 0 * * * /var/www/scottyob.com/backup.sh</p>
+</blockquote>
+<p>And there we have it folks, my backup procedure now so my site will never have to be started from scratch again.</p>
+<p><br class="final-break" style="clear: both" /></p>
 
     </div>
   </div>
@@ -433,8 +344,6 @@
           
           <h2>Other Pages</h2>
           <ul>
-            
-              <li><a href=/page/paragliding/>Paragliding Logbook</a></li>
             
               <li><a href=/page/bucketlist/>The Bucket List</a></li>
             

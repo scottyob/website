@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Heartbeat on Scott O&#39;Brien</title>
+    <link>https://www.scottyob.com/tags/heartbeat/</link>
+    <description>Recent content in Heartbeat on Scott O&#39;Brien</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 Apr 2012 08:16:30 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.scottyob.com/tags/heartbeat/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>High Availability WordPress LAMP Stack – Part 2</title>
+      <link>https://www.scottyob.com/2012/04/13/ha-software/</link>
+      <pubDate>Fri, 13 Apr 2012 08:16:30 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/2012/04/13/ha-software/</guid>
+      <description>Setting up the Software Stack This article is the second in a series (see part 1 here). Please see HA Network for the first part in setting up the network topology to be highly available.
+It’s all good having a redundant network design, but putting web servers and the like on our hypervisors doesn’t make them redundant. In the event where there’s a failure on one of our servers, all virtual machines on that server will die.</description>
+    </item>
+    
+  </channel>
+</rss>

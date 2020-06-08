@@ -13,6 +13,10 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
+  
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
 
   
   <link rel="apple-touch-icon" sizes="180x180" href="https://www.scottyob.com/apple-touch-icon.png">
@@ -169,6 +173,12 @@
     overflow: auto;
   }
 
+  blockquote {
+    margin: 1.6em 2.8em 0 1.4em;
+    padding: 0 0 0 2em;
+    border-left: .6em solid #ddd;
+  }
+
   #footer {
     clear: both;
     margin: 4em 0 1em;
@@ -190,8 +200,6 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 	  <div class="navbar-nav">
-            
-              <a class="nav-item nav-link" href=/page/paragliding/>Paragliding Logbook</a>
             
               <a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
             
@@ -247,23 +255,47 @@
 <p>In <a href="http://www.scottyob.com/?p=88" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);">part 1</a> of this blog post, I showed you how I created a script that would, when run, rotate your snapshots on a ZFS filesystem. For this to be usable, we need to create a mechanism for having it be automatically ran. We’ll do this with a cronjob.</p>
 <p>On Unix systems, the cron daemon is used to execute scheduled commands. Picture it much like windows task scheduler for all you windows kiddies.</p>
 <p>I saved the backup script we wrote yesterday to /FileStore/backups.sh. The first thing I want to get running is my hourly backups. To do this, we’ll start editing our cron file</p>
-<pre><code>  
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  
     sudo crontab -e
   
-</code></pre>
-<p>The crontab utility is a program used to edit the tables that drive the cron daemon.</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>The crontab utility is a program used to edit the tables that drive the cron daemon.</p>
 <p>On my OSX box, information about how to set up the cron file can be found in ‘man 5 crontab’</p>
 <p>Basically, cron examines cron entries once every minute. the fields that we’ve got to play with are (in this order)</p>
-<pre><code>  
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  
     field allowed values&lt;br /&gt; &amp;#8212;&amp;#8211; &amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8211;&lt;br /&gt; minute 0-59&lt;br /&gt; hour 0-23&lt;br /&gt; day of month 1-31&lt;br /&gt; month 1-12 (or names, see below)&lt;br /&gt; day of week 0-7 (0 or 7 is Sun, or use names)
   
-</code></pre>
-<p>Having said that, it’s time to think about when we want to create our snapshots. Because I intend machines to do their backups to the server on the hour, I’ll be creating my snapshots at half past the hour. My cron file now looks like this (for hourly snapshots with 24 rotations, daily snapshots with 7 rotations, Weekly snapshots with 4 rotations.</p>
-<pre><code>  
+</code></pre></td></tr></table>
+</div>
+</div><p>Having said that, it’s time to think about when we want to create our snapshots. Because I intend machines to do their backups to the server on the hour, I’ll be creating my snapshots at half past the hour. My cron file now looks like this (for hourly snapshots with 24 rotations, daily snapshots with 7 rotations, Weekly snapshots with 4 rotations.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  
     #**Snapshots for the Filesystem**&lt;br /&gt;30 * * * * /bin/bash /FileSystem/backups.sh hourly 24&lt;br /&gt;30 6 * * * /bin/bash /FileSystem/backups.sh daily 7&lt;br /&gt;30 6 * * sun /bin/bash /FileSystem/backups.sh weekly 4
   
-</code></pre>
-<p>Now that that concludes our section on setting up my rotating snapshots.</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>Now that that concludes our section on setting up my rotating snapshots.</p>
 <p><strong>Other posts to come in the series:<br /></strong>1. Selecting the hardware<br />2. Installing the Operating System<br />3. Setting up File systems � Snapshots<br />4. Allowing access through NFS � SAMBA<br />5. Setting up encrypted off-site backups<br />6. Configuring Windows � Linux clients to dump backup info to the FileServer<br />7. My router setup, configuring IP tables � torrents on a low-powered server.</p>
 <p><br class="final-break" style="clear: both" /></p>
 
@@ -279,8 +311,6 @@
           
           <h2>Other Pages</h2>
           <ul>
-            
-              <li><a href=/page/paragliding/>Paragliding Logbook</a></li>
             
               <li><a href=/page/bucketlist/>The Bucket List</a></li>
             
