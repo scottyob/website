@@ -1,0 +1,8 @@
+{{ $md5 := md5 .Inner }}
+{{ $classId := print "x" $md5 }}
+<a href="#{{ $classId}}" data-toggle="collapse">{{.Get 0 }}</a>
+<div id="{{ $classId }}" class="collapse">
+  <div class="card card-body">
+    {{ .Inner }}
+  </div>
+</div>
