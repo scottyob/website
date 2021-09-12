@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
-  <meta name="generator" content="Hugo 0.71.1" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   
 
@@ -278,7 +278,7 @@
 <p>This relies on the <a href="https://github.com/knipknap/exscript/wiki/Python-API-Tutorial" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://github.com']);">python EXScript module</a></p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
@@ -428,7 +428,7 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">148
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#008000"># This script is used for updating the VLANs that are trunked down to ESX boxes.</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#008000"># This script is used for updating the VLANs that are trunked down to ESX boxes.</span>
 <span style="color:#008000">#  It works by logging in to each switch in the DC then looking at the interfaces that have &#39;ESXHOST&#39;</span>
 <span style="color:#008000">#  in the description.  For each of those switchports, it will run the &#39;alter&#39; commands</span>
 
@@ -464,9 +464,9 @@ vlan_commands = <span style="color:#a31515">&#34;&#34;&#34;
 </span><span style="color:#a31515">
 </span><span style="color:#a31515">    The &#34;answer&#34; return value is one of &#34;yes&#34; or &#34;no&#34;.
 </span><span style="color:#a31515">    &#34;&#34;&#34;</span>
-    valid = {<span style="color:#a31515">&#34;yes&#34;</span>:True,   <span style="color:#a31515">&#34;y&#34;</span>:True,  <span style="color:#a31515">&#34;ye&#34;</span>:True,
-             <span style="color:#a31515">&#34;no&#34;</span>:False,     <span style="color:#a31515">&#34;n&#34;</span>:False}
-    <span style="color:#00f">if</span> default == None:
+    valid = {<span style="color:#a31515">&#34;yes&#34;</span>:<span style="color:#00f">True</span>,   <span style="color:#a31515">&#34;y&#34;</span>:<span style="color:#00f">True</span>,  <span style="color:#a31515">&#34;ye&#34;</span>:<span style="color:#00f">True</span>,
+             <span style="color:#a31515">&#34;no&#34;</span>:<span style="color:#00f">False</span>,     <span style="color:#a31515">&#34;n&#34;</span>:<span style="color:#00f">False</span>}
+    <span style="color:#00f">if</span> default == <span style="color:#00f">None</span>:
         prompt = <span style="color:#a31515">&#34; [y/n] &#34;</span>
     <span style="color:#00f">elif</span> default == <span style="color:#a31515">&#34;yes&#34;</span>:
         prompt = <span style="color:#a31515">&#34; [Y/n] &#34;</span>
@@ -475,10 +475,10 @@ vlan_commands = <span style="color:#a31515">&#34;&#34;&#34;
     <span style="color:#00f">else</span>:
         <span style="color:#00f">raise</span> ValueError(<span style="color:#a31515">&#34;invalid default answer: &#39;</span><span style="color:#a31515">%s</span><span style="color:#a31515">&#39;&#34;</span> % default)
 
-    <span style="color:#00f">while</span> True:
+    <span style="color:#00f">while</span> <span style="color:#00f">True</span>:
         sys.stdout.write(question + prompt)
         choice = raw_input().lower()
-        <span style="color:#00f">if</span> default <span style="color:#00f">is</span> <span style="color:#00f">not</span> None <span style="color:#00f">and</span> choice == <span style="color:#a31515">&#39;&#39;</span>:
+        <span style="color:#00f">if</span> default <span style="color:#00f">is</span> <span style="color:#00f">not</span> <span style="color:#00f">None</span> <span style="color:#00f">and</span> choice == <span style="color:#a31515">&#39;&#39;</span>:
             <span style="color:#00f">return</span> valid[default]
         <span style="color:#00f">elif</span> choice <span style="color:#00f">in</span> valid:
             <span style="color:#00f">return</span> valid[choice]
@@ -516,7 +516,7 @@ vlan_commands = <span style="color:#a31515">&#34;&#34;&#34;
 </span><span style="color:#a31515">    commands:  A list of commands that should be executed
 </span><span style="color:#a31515">    &#34;&#34;&#34;</span>
 
-    <span style="color:#00f">print</span> <span style="color:#a31515">&#34;Working with switch: </span><span style="color:#a31515">%s</span><span style="color:#a31515">&#34;</span> % switch
+    print <span style="color:#a31515">&#34;Working with switch: </span><span style="color:#a31515">%s</span><span style="color:#a31515">&#34;</span> % switch
 
     <span style="color:#008000">#establish a SSH connection to the host</span>
     conn = SSH2()
@@ -535,30 +535,30 @@ vlan_commands = <span style="color:#a31515">&#34;&#34;&#34;
     conn.execute(<span style="color:#a31515">&#39;show int desc | i </span><span style="color:#a31515">%s</span><span style="color:#a31515">&#39;</span> % description)
     ports = conn.response.strip()
 
-    <span style="color:#00f">print</span> <span style="color:#a31515">&#34;Ports are:&#34;</span>
-    <span style="color:#00f">print</span> ports
+    print <span style="color:#a31515">&#34;Ports are:&#34;</span>
+    print ports
     portsList = returnInterfacesFromShowDescription(ports)[1:-1]
 
     <span style="color:#008000">#go into config mode and get ready to run the update commands</span>
     <span style="color:#008000">#Generate a list of the update commands that should be ran</span>
     updateCommands = genUpdateConfigForInterfaces(commands, portsList).split(<span style="color:#a31515">&#34;</span><span style="color:#a31515">\n</span><span style="color:#a31515">&#34;</span>)
     conn.execute(<span style="color:#a31515">&#39;conf t&#39;</span>)
-    <span style="color:#00f">print</span> conn.response.strip()
-    <span style="color:#00f">print</span> <span style="color:#a31515">&#34;! About to execute the following commands.&#34;</span>
+    print conn.response.strip()
+    print <span style="color:#a31515">&#34;! About to execute the following commands.&#34;</span>
     <span style="color:#00f">for</span> line <span style="color:#00f">in</span> updateCommands:
-        <span style="color:#00f">print</span> <span style="color:#a31515">&#34;! &#34;</span> + line
+        print <span style="color:#a31515">&#34;! &#34;</span> + line
 
     <span style="color:#00f">if</span> query_yes_no(<span style="color:#a31515">&#39;Execute Commands?&#39;</span>, default=<span style="color:#a31515">&#34;no&#34;</span>):
         <span style="color:#008000">#Run the set of commands given</span>
         <span style="color:#00f">for</span> command <span style="color:#00f">in</span> updateCommands:
             conn.execute(command)
-            <span style="color:#00f">print</span> conn.response
+            print conn.response
 
         <span style="color:#008000">#Exit out of config mode</span>
         conn.execute(<span style="color:#a31515">&#34;exit&#34;</span>)
         conn.execute(<span style="color:#a31515">&#34;exit&#34;</span>)
-        <span style="color:#00f">print</span> conn.response
-        <span style="color:#00f">print</span>
+        print conn.response
+        print
 
 <span style="color:#00f">if</span> __name__ == <span style="color:#a31515">&#39;__main__&#39;</span>:
     parser = argparse.ArgumentParser(description=<span style="color:#a31515">&#34;DC ESX VLAN Utility&#34;</span>)
@@ -602,7 +602,7 @@ vlan_commands = <span style="color:#a31515">&#34;&#34;&#34;
 <p>I popped this into fe-0/0/1 on my SRX100 and the following config works the magic.</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
@@ -747,7 +747,7 @@ vlan_commands = <span style="color:#a31515">&#34;&#34;&#34;
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">143
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    fe-0/0/1 {
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    fe-0/0/1 {
         unit 0 {
             family ethernet-switching {
                 port-mode trunk;
