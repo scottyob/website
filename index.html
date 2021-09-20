@@ -47,7 +47,42 @@
 <div id=content class=col-md-9>
 <div class=post>
 <h2 class=post__title>
-<a href=https://www.scottyob.com/2021/09/11/recharge/>Recharge</a>
+<a href=https://www.scottyob.com/posts/2021-09-20-para-tasks/>Paragliding Tasks Checker</a>
+</h2>
+<small>2021-09-20 00:00:00 +0000 UTC</small>
+<div class=entry>
+<p>It&rsquo;s so easy to build react apps these days. Over two nights, I knocked up a quick website to be able to upload igc flight files, and an xctask files to locally compute if you managed to hit the targets.</p>
+<p>It&rsquo;s something to play with more later, but I&rsquo;m hoping to start putting these widgets into my logbook app to be able to log flights against tasks when they&rsquo;re done.</p>
+<p>App: <a href=https://scottyob.github.io/paragliding-task-checker/>https://scottyob.github.io/paragliding-task-checker/</a></p>
+<p>Source code: <a href=https://github.com/scottyob/paragliding-task-checker>https://github.com/scottyob/paragliding-task-checker</a></p>
+<p>I followed <a href=https://dev.to/yuribenjamin/how-to-deploy-react-app-in-github-pages-2a1f>this guide</a> to host on github pages. It basically entailed:</p>
+<ol>
+<li>Adding <strong>homepage</strong> in <strong>package.json</strong></li>
+<li>Adding in predeploy and deploy scripts <strong>package.json</strong>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>&#34;scripts&#34;: {
+//...
+&#34;predeploy&#34;: &#34;npm run build&#34;,
+&#34;deploy&#34;: &#34;gh-pages -d build&#34;
+}
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>running <code>yarn run deploy</code> to deploy it.</li>
+</ol>
+</div>
+</div>
+<div class=post>
+<h2 class=post__title>
+<a href=https://www.scottyob.com/2021/09/11/resuming/>resuming</a>
 </h2>
 <small>2021-09-11 00:00:00 +0000 UTC</small>
 <div class=entry>
@@ -98,18 +133,6 @@
 ...</code></pre></td></tr></table>
 </div>
 </div>
-</div>
-</div>
-<div class=post>
-<h2 class=post__title>
-<a href=https://www.scottyob.com/2014/07/08/user-accounting-with-netflow/>User Accounting with Netflow</a>
-</h2>
-<small>2014-07-08 05:54:52 +0000 UTC</small>
-<div class=entry>
-<p>At UOW we had a challenge.  We wanted to allow proxy-free internet, but wanted to keep an eye on how much data was being consumed by what sort of users.  For this we built Project Herbert <a href=http://uowits.github.io/herbert-gui/docs.html onclick="_gaq.push(['_trackEvent','outbound-article','http://uowits.github.io'])"><a href=http://uowits.github.io/herbert-gui/docs.html>http://uowits.github.io/herbert-gui/docs.html</a></a>.</p>
-<p>It uses netflow from inside our network and some syslog monitoring scripts to match up our private RFC1918 address space to the users who have it at that time, process the flows in near-realtime so we can adjust throttling and firewall policy to be reactive with the environment.</p>
-<p>The idea was to build this as a distributed system and allow it to scale-out to deal with more load</p>
-<p><a href=/img/old/2014/07/f9b7b2fc.screenshot.jpg onclick="_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com'])"><img class="aligncenter wp-image-405" src=/img/old/2014/07/f9b7b2fc.screenshot.jpg alt="Project Herbert" width=600 height=406></a></p>
 </div>
 </div>
 <div class=navigation>
