@@ -41,7 +41,7 @@
   <link rel="stylesheet" href="https://www.scottyob.com/css/bootstrap.min.css" />
 
   
-  <title>Very basic MPLS Tutorial | Scott O&#39;Brien</title>
+  <title>Paragliding Tasks Checker | Scott O&#39;Brien</title>
   
 
   <style>
@@ -237,26 +237,45 @@
 
 <div class="navigation">
   
-    <div class="leftnav">« <a href="/2021/09/11/resuming">resuming</a></div>
   
-  
-    <div class="rightnav"><a href="/2014/07/18/compliance-with-cisco-ios-devices-bulk-changes/">Compliance with Cisco IOS Devices &amp; Bulk Changes</a> »</div>
+    <div class="rightnav"><a href="/2021/09/11/resuming">resuming</a> »</div>
   
   <div class="snap-to-fit"></div>
   
 </div>
 
 <div class="post">
-  <h2>Very basic MPLS Tutorial</h1>
-  <small>2014-10-02 06:34:14 &#43;0000 &#43;0000</small>
+  <h2>Paragliding Tasks Checker</h1>
+  <small>2021-09-20 00:00:00 &#43;0000 UTC</small>
 
   <div class="entry">
-    <p>I made this video a while ago and some people on YouTube seem to like it, so here is my very basic MPLS tutorial. Towards the end of the video there’s a live demonstration showing the concepts with Wireshark</p>
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/4QGRLgIq8iA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+    <p>It&rsquo;s so easy to build react apps these days.  Over two nights, I knocked up a quick website to be able to upload igc flight files, and an xctask files to locally compute if you managed to hit the targets.</p>
+<p>It&rsquo;s something to play with more later, but I&rsquo;m hoping to start putting these widgets into my logbook app to be able to log flights against tasks when they&rsquo;re done.</p>
+<p>App:  <a href="https://scottyob.github.io/paragliding-task-checker/">https://scottyob.github.io/paragliding-task-checker/</a></p>
+<p>Source code:  <a href="https://github.com/scottyob/paragliding-task-checker">https://github.com/scottyob/paragliding-task-checker</a></p>
+<p>I followed <a href="https://dev.to/yuribenjamin/how-to-deploy-react-app-in-github-pages-2a1f">this guide</a> to host on github pages.  It basically entailed:</p>
+<ol>
+<li>Adding <strong>homepage</strong> in <strong>package.json</strong></li>
+<li>Adding in predeploy and deploy scripts <strong>package.json</strong>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&#34;scripts&#34;: {
+//...
+&#34;predeploy&#34;: &#34;npm run build&#34;,
+&#34;deploy&#34;: &#34;gh-pages -d build&#34;
+}
+</code></pre></td></tr></table>
 </div>
-
+</div></li>
+<li>running <code>yarn run deploy</code> to deploy it.</li>
+</ol>
 
   </div>
 </div>

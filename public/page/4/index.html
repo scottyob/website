@@ -240,6 +240,145 @@
 
   <div class="post">
     <h2 class="post__title">
+      <a href="https://www.scottyob.com/2012/07/31/zfs-and-apple-time-machine-a-perfect-team/">ZFS and Apple Time Machine, a perfect team</a>
+    </h2>
+    <small>2012-07-31 12:09:51 &#43;0000 &#43;0000</small>
+    <div class="entry">
+      <p>So lately I’ve been thinking about my backup strategy on my Mac. From previous posts you might know I’ve build my OpenIndiana ZFS FileServer. Well, just created a volume and decided to put 300GB to good use to create a time machine on my mac. There is a brilliant guide on how to do it <a href="http://marcoschuh.de/wp/?p=494" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://marcoschuh.de']);">here</a> and suggest you all take a look (Thanks for the awesome guide Marco).</p>
+
+    </div>
+  </div>
+
+  <div class="post">
+    <h2 class="post__title">
+      <a href="https://www.scottyob.com/2012/07/09/monitoring-srx-chassis-cluster/">Monitoring SRX Chassis Cluster</a>
+    </h2>
+    <small>2012-07-09 04:44:35 &#43;0000 &#43;0000</small>
+    <div class="entry">
+      <p>Just finishing off a few things at work this week.  We’ve got a few sites around the place where we have HA internet powered by two Juniper SRX100’s.  The Two SRX100’s operate in a Chassis Cluster and peer with our ISP using BGP across both active/passive devices.</p>
+<p>Below is a little Nagios check script that I wrote to hook into our in-house Nagios monitoring platform.  It makes sure the chassis cluster has not failed over operating in a degraded state, and makes sure that there are two BGP peers connected.</p>
+<p>NOTE:  I was aiming for simplicity in this setup, if you’ve got a bigger environment or require instant notifications you might wish to set up snmp traps to get instant notifications.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">
+# Bash script to check the status of a SRX cluster.
+#  Works by SSHing into cluster to check &#34;show chassis cluster status&#34; command and SNMP walking to make sure BGP peers
+#  are both in a connected state
+
+STATE_OK=0
+STATE_WARNING=1
+STATE_CRITICAL=2
+STATE_UNKNOWN=3
+
+clusterAddress=$1
+privateKey=$2
+clusterStatus=`ssh nagios@$clusterAddress -i $privateKey &#34;show chassis cluster status&#34;`
+
+declare -i primaryCount
+declare -i secondaryCount
+declare -i failoverCount
+declare -i activeBgpPeers
+
+activeBgpPeers=`snmpwalk -Os -c public -v 1 $clusterAddress .1.3.6.1.2.1.15.3.1.2 | grep &#34;INTEGER: 6&#34; | wc -l`
+primaryCount=`echo &#34;$clusterStatus&#34; | grep primary | wc -l`
+secondaryCount=`echo &#34;$clusterStatus&#34; | grep secondary | wc -l`
+failoverCount=`echo &#34;$clusterStatus&#34; | grep &#34;Failover count: 0&#34; | wc -l`
+
+if [ $primaryCount -ne 2 ]
+then
+        echo &#34;No two primary redundancy groups&#34;
+		echo &#34;$clusterStatus&#34;
+        exit $STATE_CRITICAL
+fi
+
+if [ $secondaryCount -ne 2 ]
+then
+        echo &#34;No two secondary redundancy groups&#34;
+		echo &#34;$clusterStatus&#34;
+        exit $STATE_CRITICAL
+fi
+
+if [ $failoverCount -ne 2 ]
+then
+        echo &#34;SRX has fallen over on a redundancy group&#34;
+		echo &#34;$clusterStatus&#34;
+        exit $STATE_WARNING
+fi
+
+if [ $activeBgpPeers -ne 2 ]
+then
+        echo &#34;NOT 2 Active BGP Peers&#34;
+        exit $STATE_CRITICAL
+fi
+
+echo &#34;OK, 2 peers.  OK: Chassis Cluster status OK&#34;
+echo &#34;$clusterStatus&#34;
+exit $STATE_OK
+</code></pre></td></tr></table>
+</div>
+</div><p> </p>
+
+    </div>
+  </div>
+
+  <div class="post">
+    <h2 class="post__title">
       <a href="https://www.scottyob.com/2012/06/03/easily-accessing-geoip-restricted-sites-in-your-network/">Easily accessing GeoIP restricted sites in your network.</a>
     </h2>
     <small>2012-06-03 11:05:05 &#43;0000 &#43;0000</small>
@@ -472,494 +611,6 @@ reactor.run()
 <p>If you’re doing backups as an afterthought, I can recommend setting up an OpenIndiana machine running ZFS on it. Setting it up <a href="http://www.scottyob.com/category/nerd/fileserver-nerd/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);">like I have</a> off site with rotating snapshots. At our work we do nightly backups and for us it’s as simple as doing a database dump, then rsync’ing everything over to this remote ZFS machine to get snapshotted, feeling safe I can access old data from 6 weeks ago (my nightly snapshot period.)</p>
 <h4 id="whats-to-come">What’s to come?</h4>
 <p>If you’ve got this far, Thanks for reading and I hope this post pointed you in the right direction to help build highly available services. I think more and more in today’s world people are expecting IT infrastructure to be always up and available. If you don’t have standby servers available, sooner or later, you’re bound to have unhappy customers. I’ve always wanted to build a disaster recovery site, with a highly active database so that in the event of an entire site failing over (think natural disaster, people errors and the like) a site can fail over to another physical disaster recovery (DR) location.</p>
-
-    </div>
-  </div>
-
-  <div class="post">
-    <h2 class="post__title">
-      <a href="https://www.scottyob.com/2012/04/13/ha-network/">High Availability WordPress LAMP Stack.</a>
-    </h2>
-    <small>2012-04-13 07:27:11 &#43;0000 &#43;0000</small>
-    <div class="entry">
-      <h3 id="introduction">Introduction</h3>
-<p>In one of my last little tasks at work, I was asked to eliminate single points of failure in the software and hardware stack without spending a fortune on hardware or software licenses. During the process of ensuring high availability (HA), I realized that many small companies might have similar need, but with more pressing tasks and limited man hours, without a post that talks about all the issues and solutions in one place, many companies and organisations tend to leave single points of failure living with the chance that they’re not going to fail any time soon.</p>
-<p>I’ve wanted to write this blog post for a while. After you’ve finished reading this blog post, you should have the knowledge to be able to eliminate the single point of failures in hosting a WordPress website. While I’ve chosen WordPress to be the demonstration of this post, the concepts will work with any apache/mysql LAMP stack software. During the course of this tutorial, I’ll run you through it in two parts. The first part is talking about setting up the physical hosts and topology (using Juniper EX2200 switches, SRX100 border firewall’s and ESXi (free) hypervisors for the software stack.) The second part is talking about setting up the software stack to deliver our LAMP stack in a highly redundant fashion.  However what I won’t be doing is providing complete configuration examples.  Instead, please consider this post as an overview to help enlighten you and link you to more specific information to help you set this up in your own environment.</p>
-<p>This blog post is split up in two parts, this first post in the series talks about setting up the network infrastructure, the second talks about setting up the software stack.</p>
-<p>Part 1 (physical topology)</p>
-<p>– Network overview</p>
-<p>– Setting up dual Switches</p>
-<p>– Setting up ESXi network cards.</p>
-<p>– Setting up SRX border firewall’s.</p>
-<p>Part 2 (software stack)</p>
-<p>– Nginx load balancing proxy</p>
-<p>– Web Servers.</p>
-<p>– NFS File Server</p>
-<p>– MySQL cluster.</p>
-<h3 id="part-1-physical-topology">Part 1, Physical Topology</h3>
-<p>If you’re reading this, I’m guessing your current network topology looks something like</p>
-<p>mine used to.  You have a single internet connection, single router/firewall, single switch and a bunch of hosts hanging from that switch.  In the event of a system failure, your system administrator (me in this case) will have to hop in a cab and rush to the server room to fix the problem.</p>
-<p><img class="size-full wp-image-136 aligncenter" title="Old Network-1" src="/img/old/2012/04/Old-Network-1.jpg" alt="" width="241" height="445" /></p>
-<p>The goal with this tutorial is to attempt to help your administrators sleep at night.  We will eliminate every single point of failure such that in the event of a system outage/failure, the system can self recover with at most a minute of unscheduled down time.</p>
-<p><a href="/img/old/2012/04/New-Network.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-137" title="New Network" src="/img/old/2012/04/New-Network.jpg" alt="" width="307" height="409" /></a></p>
-<h4 id="physical-switches">Physical Switches</h4>
-<p>We’ll be replacing the single switch (in my case, unmanaged old gigabit switch) with a pair of managed switches.  Because our bandwidth requirements in this site wasn’t terribly demanding (simple database server, few web, mail servers and the like), a single gigabit Ethernet link to all hosts was all that we required.  If you’re in the same boat I was, I can suggest a pair of Juniper EX2200’s.  If however, you’re going to be pumping some more bandwidth intensive applications through your network (thus require more then gigabit Ethernet connections to the hosts) or have the need for more then a single VLAN and intra-VLAN routing is required (that’s all outside the scope of this tutorial.)  I can strongly recommend you start looking at the EX4200 model switches (set up in a virtual chassis), which can do all your highly available layer 3 IP routing and support multi gigabit Ethernet to your hosts by spanning Ethernet channel across both physical switches.</p>
-<h4 id="activepassive-switch-design">Active/Passive Switch Design?</h4>
-<p>Ok, so this heading is a lie, but let me explain.  In my switch design with the EX2200’s, I’m using aggregate Ethernet 802.3ad Etherchannel between my two switches. I’ve opted to use 4 physical ports in my 24 port switches (ge-0/0/20 to ge-0/0/23) to give me a 4Gbit/s backbone between them. Obviously with gigabit Ethernet right through the network this isn’t much bandwidth, so the idea is to keep as little data traveling that link as possible (network broadcasts only hopefully!)</p>
-<p>First, the following configuration configures the aggregate Ethernet link between the switches:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    aggregated-devices {
-        ethernet {
-            device-count 1;
-        }
-    }
-}
-
-[interfaces]
-    ge-0/0/20 {
-        ether-options {
-            802.3ad ae0;
-        }
-    }
-    ge-0/0/21 {
-        ether-options {
-            802.3ad ae0;
-        }
-    }
-    ge-0/0/22 {
-        ether-options {
-            802.3ad ae0;
-        }
-    }
-    ge-0/0/23 {
-        ether-options {
-            802.3ad ae0;
-        }
-    }
-    ae0 {
-        aggregated-ether-options {
-            lacp {
-                passive;
-            }
-        }
-        unit 0 {
-            family ethernet-switching {
-                port-mode trunk;
-                vlan {
-                    members all;
-                }
-            }
-        }
-    }
-</code></pre></td></tr></table>
-</div>
-</div><p>The only thing you have to watch out for, is that on at least one switch, you set the lacp mode to be <strong>active</strong>.</p>
-<h4 id="setting-up-esxi-network">Setting up ESXi Network</h4>
-<p>In my environment, I’m using the free version of ESXi 4.1. I understand that you may wish to be connecting linux hosts directly. If you’re directly connecting linux hosts, I recommend you look at creating a <a href="http://wiki.centos.org/TipsAndTricks/BondingInterfaces" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.centos.org']);">Bonding Adaptor</a>.  Thought without the more expensive EX4200’s, we’re best sticking with an active-backup setup and should stick with mode=1.</p>
-<p>For the ESXi configuration, it’s pretty simple. We connect two NIC’s to the switches. A primary NIC to the primary switch, and a secondary NIC to the secondary switch.</p>
-<p>The steps on configuring the vSwitch (virtual switch) are pretty simple. Virtual machines on these ESXi hosts won’t have to do anything special once this setup has been done to take advantage on the physical machines, they’ll just take advantage of our HA network topology.</p>
-<p>First, ensure that we have two NIC’s setup on our vSwitch.</p>
-<p style="text-align: center;">
-  <img class="aligncenter  wp-image-150" title="vSwitch" src="/img/old/2012/04/vSwitch.jpg" alt="" width="451" height="332" />
-</p>
-<p>Next, look at the following configuration properties I’ve made to the NIC teaming information.  This basic configuration will ensure that when the link on vmnic0 is available (our active switch), it’ll use it.  When the link becomes unavailable, it will fail over to vmnic1.</p>
-<p style="text-align: center;">
-  <a href="/img/old/2012/04/vSwitch-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter  wp-image-151" title="vSwitch-1" src="/img/old/2012/04/vSwitch-1.jpg" alt="" width="451" height="565" /></a>
-</p>
-<h5 id="setting-up-border-firewalls">Setting up border firewall’s</h5>
-<p>The last step we’ve got in our highly available infrastructure here is our border firewall’s. Please bare with me on this section, it is the most complicated and there are a few technologies introduced. If there is something I don’t explain completely, please feel free to leave a comment below and I’ll try and explain it better.  I expect you’ll have to jump back and forth between Wikipedia and this article to fully understand what it is we’re doing. Explaining the concepts behind BGP and autonomous systems is beyond the scope of this article.</p>
-<p>In my role, I replaced an active/backup GNU based firewall solution (backup being run down to the data center as fast as possible and swap the cables over) with two Juniper SRX100’s configured in an active/passive configuration under a chassis cluster (see SRX100 high availability deployment guide at <a href="http://kb.juniper.net/InfoCenter/index?page=content&id=KB15669" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.juniper.net']);"><a href="http://kb.juniper.net/InfoCenter/index?page=content&amp;id=KB15669">http://kb.juniper.net/InfoCenter/index?page=content&amp;id=KB15669</a></a>). We had get a second internet connection installed, then make sure that any one link (or firewall itself) can die and still have the system self recover. There are two major tasks that has to happen to make this gateway highly available. Firstly, our internal network hosts will be using one of these firewall’s as their default gateway. If the link to the primary switch, or the primary firewall itself should die, we still want the network hosts to be able to reach their gateway. We will achieve this with “redundant Ethernet” on the cluster. If you’ve come from the cisco networking world before, picture something like this to be like VRRP for the inside hosts. If the main link fails, the MAC and IP address will float over to the other physical port.</p>
-<p>Let me give a bit more detail to our new example network topology here in this example so you can gain a better idea of how these settings work.</p>
-<p style="text-align: center;">
-  <a href="/img/old/2012/04/Network-Setup.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter  wp-image-153" title="Network Setup" src="/img/old/2012/04/Network-Setup.jpg" alt="" width="441" height="438" /></a>
-</p>
-<p>For the internal gateway address to fail over to the other switch should your link off Firewall1 die, You’ll want to make the following configuration</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    cluster {
-        reth-count 2;
-        redundancy-group 0 {
-            node 0 priority 100;
-            node 1 priority 1;
-        }
-        redundancy-group 1 {
-            node 0 priority 254;
-            node 1 priority 1;
-            preempt;
-            interface-monitor {
-                fe-0/0/1 weight 255;
-                fe-1/0/1 weight 255;
-            }
-        }
-    }
-}
-interfaces {
-    fe-0/0/1 {
-            fastether-options {
-                redundant-parent reth1;
-            }
-    }
-    fe-1/0/1 {
-            fastether-options {
-                redundant-parent reth1;
-            }
-    }
-}
-
-</code></pre></td></tr></table>
-</div>
-</div><p>You can see redundancy-group 1 is monitoring the local interfaces going back to the switches.</p>
-<p>For the dual WAN links, I won’t go into much detail, but you’ll want to ask your ISP for a second internet connection. Some providers offer a cheap link that they only charge you for once you start flowing data over it (sometimes called a Shadow link). This is perfect as you can flow all your traffic through your primary internet connection, then on failure of it, you’ll move your traffic through the secondary. If you wanted complete redundancy, you could apply for a domain independent subnet (has to be a class C to advertise on world BGP tables) and your own ASN. This will let you use two different internet service providers.</p>
-<p>In my case, I’m creating a redundant connection using the same ISP, so I’ve asked for a private ASN to be allocated (see <a href="http://en.wikipedia.org/wiki/Autonomous">http://en.wikipedia.org/wiki/Autonomous</a>_System_(Internet) ).</p>
-<p>For a small network such as ours (especially using the small base level SRX’s) you’ll want to ask your provider to advertise only the default route to you. In turn, you’ll advertise your network’s address space on both connections. On the event that a link dies, the BGP peer on the other end no longer receives updates from you and will no longer attempt to route to it.</p>
-<p>The following configuration extract shows how we’d configure out SRX firewall’s to peer with our ISP’s routers. Things of note is that our primary link (the one on the left) has a lower metric-out then the shadow link, meaning a lower MED attribute is sent to our ISP and thus inbound traffic will, by preference use the main connection. The preference values under neighbor will determine the preference we will send traffic under that connection for outbound traffic.</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    autonomous-system 64512
-}
-
-protocols {
-    bgp {
-        group ISP {
-            metric-out 50;
-            local-address 1.1.1.2;
-            import ISP-in;
-            export ISP-out;
-            neighbor 1.1.1.1 {
-                preference 170;
-                peer-as 123;
-            }
-        }
-        group ISP-shadow {
-            metric-out 100;
-            local-address 1.1.1.6;
-            import ISP-in;
-            export ISP-out;
-            neighbor 1.1.1.5 {
-                preference 180;
-                peer-as 123;
-            }
-        }
-    }
-}
-policy-options {
-    policy-statement ISP-in {
-        term default-in {
-            from {
-                route-filter 0.0.0.0/0 exact;
-            }
-            then accept;
-        }
-        term block {
-            then reject;
-        }
-    }
-    policy-statement ISP-out {
-        term tnziPublic {
-            from {
-                protocol direct;
-                route-filter 2.2.2.0/26 exact;
-            }
-            then accept;
-        }
-    }
-}
-</code></pre></td></tr></table>
-</div>
-</div>
-    </div>
-  </div>
-
-  <div class="post">
-    <h2 class="post__title">
-      <a href="https://www.scottyob.com/2011/07/02/whats-the-harm-in-google-dns-performance/">What’s the harm in Google DNS?Performance!</a>
-    </h2>
-    <small>2011-07-02 14:40:05 &#43;0000 &#43;0000</small>
-    <div class="entry">
-      <p><strong>EDIT:  </strong>It looks like Google has recently starting peering in more places in AU with an anycast solution that fixes these issues.</p>
-<p>On a little side note to the tutorial series I’ve been writing up lately for building a ZFS fileserver. This one is about Why Google DNS is bad for your performance (well, depending on where you live)
-A real quick run down, we all know what DNS does yeah? It translates domains like <a href="http://www.scottyob.com">www.scottyob.com</a> into IP addresses like 112.140.183.97. A DNS server has a job of translating these domain names to the IP addresses we can use.</p>
-<p>Now, when it comes to Google DNS, if you believe in the propaganda <a href="http://code.google.com/speed/public-dns/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://code.google.com']);"><a href="http://code.google.com/speed/public-dns/">http://code.google.com/speed/public-dns/</a></a> where Google DNS is said to</p>
-<ul>
-<li><a href="http://code.google.com/speed/public-dns/docs/performance.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://code.google.com']);">Speed up your browsing experience</a></li>
-<li><a href="http://code.google.com/speed/public-dns/docs/security.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://code.google.com']);">Improve your Security. </a></li>
-</ul>
-<p>What google doesn’t tell you is that it interferes with DNS servers that might try and give you a server that’s close to your home. I’ve been using Google DNS for months here at home, but only just have I decided against using it, and I’ll run through exactly what causes some performance issues.</p>
-<p>I was trying to watch a program on iView on TPG’s internet connection. Now, TPG don’t have the best international links on peak times, so I first started getting frustrated at them for not letting me watch my iView program with buffer lags on my 8Mbit plan. I checked my Signal to Noise ratio and dropped packets, etc.. it was fine. I checked the bandwith going out on my ppp interface on the router to see if I was maxing out the net connection at home, but nope, that was fine too, so the problem must have been with TPG.</p>
-<p>Looking at what was going on, I did a little traceroute to <a href="http://www.abc.net.au">www.abc.net.au</a></p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">traceroute: Warning: www.abc.net.au has multiple addresses; using 125.252.224.73
- traceroute to a1632.g.akamai.net (125.252.224.73), 64 hops max, 52 byte packets
- 1 10.1.1.254 (10.1.1.254) 1.919 ms 1.260 ms 1.202 ms
- 2 * * *
- 3 202.7.173.17 (202.7.173.17) 27.056 ms 26.317 ms 26.693 ms
- 4 syd-sot-ken-crt1-ge-5-1-0.tpgi.com.au (202.7.162.173) 26.283 ms 26.884 ms 26.100 ms
- 5 ix-11-1-0-507.tcore2.tv2-tokyo.as6453.net (116.0.88.21) 153.325 ms 135.736 ms 126.568 ms
- 6 if-14-0-0-1720.core1.tv2-tokyo.as6453.net (209.58.61.121) 1481.461 ms
- if-1-0-0-1715.core1.tv2-tokyo.as6453.net (209.58.61.125) 298.270 ms
- if-14-0-0-1720.core1.tv2-tokyo.as6453.net (209.58.61.121) 282.141 ms
- 7 if-10-0-0-981.core3.hk2-hongkong.as6453.net (116.0.82.85) 208.232 ms
- if-5-0-0.core3.hk2-hongkong.as6453.net (116.0.82.1) 199.170 ms
- if-10-0-0-981.core3.hk2-hongkong.as6453.net (116.0.82.85) 206.027 ms
- 8 vlan31.icore1.hk2-hongkong.as6453.net (116.0.82.18) 219.937 ms 204.963 ms 196.273 ms
- 9 80.150.169.25 (80.150.169.25) 333.519 ms 306.138 ms 307.031 ms
- 10 80.156.224.6 (80.156.224.6) 358.402 ms 320.029 ms 349.133 ms
- 11 a125-252-224-73.deploy.akamaitechnologies.com (125.252.224.73) 332.188 ms 331.008 ms 314.833 ms
-</code></pre></td></tr></table>
-</div>
-</div><p>Looking at this traceroute, the first thing I thought was “Why on earth is ABC hosting it’s website in hongkong (or so the traffic has to go via hongkong.)? Immediately reject ABC would do this and I blame TPG’s stupid routing decisions.
-Looking at the IP address further <a href="http://www.dnsstuff.com/tools/ipall/?tool_id=67&token=&toolhandler_redirect=0&ip=125.252.224.73" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.dnsstuff.com']);"><a href="http://www.dnsstuff.com/tools/ipall/?tool_id=67&amp;token=&amp;toolhandler_redirect=0&amp;ip=125.252.224.73">http://www.dnsstuff.com/tools/ipall/?tool_id=67&amp;token=&amp;toolhandler_redirect=0&amp;ip=125.252.224.73</a></a> It looks like it’s hosted in Singapore, and some googling shows akamaitechnologies is the web host for ABC.. ok, so what is going on here?</p>
-<p>then I did a little DIGging around on the ABC domain and check this out.</p>
-<p>Using Google DNS (8.8.8.8, hosted in America):</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">; &lt;&lt;&gt;&gt; DiG 9.6.0-APPLE-P2 &lt;&lt;&gt;&gt; www.abc.net.au @8.8.8.8
-;; global options: +cmd
-;; Got answer:
-;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 16084
-;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 0
-;; QUESTION SECTION:
-;www.abc.net.au. IN A
-;; ANSWER SECTION:
-www.abc.net.au. 882 IN CNAME www.abc.net.au.edgesuite.net.
-www.abc.net.au.edgesuite.net. 21581 IN CNAME a1632.g.akamai.net.
-a1632.g.akamai.net. 2 IN A 63.150.131.41
-a1632.g.akamai.net. 2 IN A 63.150.131.33
-;; Query time: 161 msec
-;; SERVER: 8.8.8.8#53(8.8.8.8)
-;; WHEN: Sun Jul 3 00:37:00 2011
-;; MSG SIZE rcvd: 135
-</code></pre></td></tr></table>
-</div>
-</div><p>And using TPG’s DNS servers (203.12.160.35)</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">; &lt;&lt;&gt;&gt; DiG 9.6.0-APPLE-P2 &lt;&lt;&gt;&gt; www.abc.net.au @203.12.160.35
-;; global options: +cmd
-;; Got answer:
-;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 11673
-;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 0
-;; QUESTION SECTION:
-;www.abc.net.au. IN A
-;; ANSWER SECTION:
-www.abc.net.au. 523 IN CNAME www.abc.net.au.edgesuite.net.
-www.abc.net.au.edgesuite.net. 12274 IN CNAME a1632.g.akamai.net.
-a1632.g.akamai.net. 10 IN A 202.7.177.66
-a1632.g.akamai.net. 10 IN A 202.7.177.83
-;; Query time: 29 msec
-;; SERVER: 203.12.160.35#53(203.12.160.35)
-;; WHEN: Sun Jul  3 00:38:20 2011
-;; MSG SIZE  rcvd: 135
-</code></pre></td></tr></table>
-</div>
-</div><p>So there we go, hosted in Sydney Australia.. So how does the traceroute compare?</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">macshell:~ scott$ traceroute www.abc.net.au
-traceroute: Warning: www.abc.net.au has multiple addresses; using 202.7.177.83
-traceroute to a1632.g.akamai.net (202.7.177.83), 64 hops max, 52 byte packets
-1  10.1.1.254 (10.1.1.254)  1.711 ms  1.134 ms  1.100 ms
-2  * * *
-3  202.7.173.17 (202.7.173.17)  27.047 ms  26.072 ms  26.502 ms
-4  syd-sot-ken-ak2-83.tpgi.com.au (202.7.177.83)  26.540 ms  26.835 ms  26.540 ms
-</code></pre></td></tr></table>
-</div>
-</div><p>Different nameservers can be set up to resolve to different addresses based on geographic positioning, in more of a first in best dressed kind of effort.  So if you’re using Google DNS servers (8.8.8.8), it so happens that because this is in America (check out their IP address, CA), then I started getting update servers and the like on DNS that were closest in latency terms to America then Sydney Australia.
-Simply by changing from Google DNS servers to my ISP’s, I get healthier latency, and am no longer sending traffic over saturated overseas links.  So how does this compare with ABC iView?</p>
 
     </div>
   </div>
