@@ -1,0 +1,51 @@
+{{ define "main" }}
+
+<style>
+    
+    .media-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .media-entry {
+        border: 1px solid #dfe1e1;
+        margin-right: 1rem;
+    }
+
+    .media-entry a {
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 1.25;;
+    }
+
+    .media-title {
+        padding: 10px;
+    }
+
+</style>
+  
+
+<div>
+    <h2>{{ .Title }}</h2>
+    <div class="media-container">
+        {{ range .Pages.ByPublishDate.Reverse }}
+        {{ $imageLoc := (printf "%s%s" .RelPermalink "img.jpg") }}
+        {{ $image := .Resources.GetMatch "img.jpg" }}
+        {{ $image := $image.Resize "300x" }}
+
+        <div class="media-entry">
+            <a href="{{ .RelPermalink }}">
+            <div>
+                <img src="{{ $image.RelPermalink }}" />
+            </div>
+            <div class="media-title">{{ .Title }}</div>
+            </a>
+        </div>
+
+        {{ end }}
+    </div>
+</div>
+
+
+{{ end }}
+
