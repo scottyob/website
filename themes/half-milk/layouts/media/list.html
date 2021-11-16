@@ -31,12 +31,15 @@
         {{ range .Pages.ByPublishDate.Reverse }}
         {{ $imageLoc := (printf "%s%s" .RelPermalink "img.jpg") }}
         {{ $image := .Resources.GetMatch "img.jpg" }}
-        {{ $image := $image.Resize "300x" }}
-
+        {{ if ne $image nil }}
+            {{ $image = $image.Resize "300x" }}
+        {{ end }}
         <div class="media-entry">
             <a href="{{ .RelPermalink }}">
             <div>
+                {{ if $image }}
                 <img src="{{ $image.RelPermalink }}" />
+                {{ end }}
             </div>
             <div class="media-title">{{ .Title }}</div>
             </a>
