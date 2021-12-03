@@ -13,7 +13,7 @@ categories:
 * 1 tablespoons olive oil
 * 1/2 cup milk or coconut milk
 * 1-2 cups chicken or vegetable stock
-* Light Sprinkes of Chili Flakes
+* Light sprinkle of Chili Flakes
 
 ## Method
 1. Preheat oven to 425
