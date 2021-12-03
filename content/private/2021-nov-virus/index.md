@@ -25,8 +25,19 @@ Wednesday 1st:
 - Believe I'm slowly on the mend.  Didn't sleep long stints because of congestion, snoring, and sore throat, which is a bit more inflamed than last night now
 - Things of concern is a feeling of "pressure" in my right inner ear, and right teeth.  Perhaps an early sign of infection in sinuses?  Something to keep an eye on.
 
-Questions:
+Thursday 2nd:
+- Scary day, didn't sleep much on the wednesday night, but the swelling has spread so much that it feels bruised all on the right hand side of my face.  There's more swelling in the mouth right up around my gums and teeth, and I'm unable to open my mouth very wide, talking is hard, and I need to keep a close eye on this in case the swelling continues
+- Amazing how much it went down with some ibuprofen
+- Started course of Antibiotics as suggested by doctor, if it's not going away on its own, we might as well give this a go.
 
+Friday 3rd:
+- Had a much better nights sleep, not much coughing or things to keep me up
+- Woke up with what I think is reduced swelling
+- It looks like the white areas around my tonsils are slowly going away.
+Drugs:
+- 8:30 both ibuprofen & antibiotics
+
+Questions:
 * Other than the usual sleep, there’s nothing I ca do to speed this recovery up?
 * Is it concerning to not get over it after the first few days assuming it’s all the same virus, but have this drag on for weeks in waves?  Should I be getting blood work and checking levels or something?
 

@@ -1,8 +1,9 @@
 ---
-Title: Butternet carrot soup
+Title: Butternut carrot soup
 categories:
  - recipe
 ---
+{{% img img Resize "300x" %}}
 
 ## Ingredients
 * 1 medium butternut squash sliced in half and seeds scooped out
@@ -19,6 +20,6 @@ categories:
 2. Put halves of squash face down with other vegetables (garlic in it's own foil).  Make for 50-60 minutes until tender
 3. Remove from oven, put into blender with remaining ingredients and Brrrrr.  Dinner is done :)
 
-### Notes
-Serves 2-4
-Adapted from https://whatsgabycooking.com/butternut-squash-carrot-soup/
+## Notes
+* Serves 2-4
+* Adapted from https://whatsgabycooking.com/butternut-squash-carrot-soup/
