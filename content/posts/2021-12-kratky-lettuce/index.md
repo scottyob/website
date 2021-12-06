@@ -2,8 +2,8 @@
 title: "Hydroponic Kratky Lettuce Attempts"
 date: 2021-12-05T11:01:04-08:00
 type: post
-# url: "/"
-# draft: true
+tags:
+ - gardening
 ---
 
 This year i've decided to start playing with Hydroponics as a hobby.  I've been interested in starting with the [Kratky Method](https://en.wikipedia.org/wiki/Kratky_method) of gardening.  The idea is to grow lettuce in mason jars and see how growing without soil does.  I've previously enjoyed growing my own alfalfa micro-greens, so this is the next obvious step.
@@ -26,3 +26,5 @@ I'm using [this guide](https://growguru.co.za/blogs/hydroponic/ph-ppm-ec-water-f
 - **EC**: 0.8-1.2
 
 {{< gallery match="attempt2/*" sortOrder="desc" rowHeight="200" margins="5" resizeOptions="600x600 q90 Lanczos" showExif=true embedPreview="true" >}}
+
+note:  Work in progress.  Will update once plants have had more of a chance to grow.
