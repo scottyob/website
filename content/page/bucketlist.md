@@ -40,6 +40,7 @@ this on the bucket list in hope of one day seeing it free-flowing up close.
 * Visit the Maldives
 * Bungee Jumping
 * maintain a bee hive.
+* Snow mobile
 
 ## Completed
 * Sky Diving (done twice) (Completed again 2012)
