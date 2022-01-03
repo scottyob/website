@@ -1,7 +1,7 @@
 <!doctype html><html><head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=generator content="Hugo 0.90.1">
+<meta name=generator content="Hugo 0.91.2">
 <link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css integrity=sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk crossorigin=anonymous>
 <link rel=stylesheet href=/css/code_tango.css>
 <script src=https://code.jquery.com/jquery-3.6.0.min.js integrity=sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK crossorigin=anonymous></script>
@@ -17,7 +17,7 @@
 <meta name=msapplication-TileColor content>
 <meta name=theme-color content>
 <title>Home | Scott O'Brien</title>
-<style>@media(min-width:992px){.container{max-width:1442px}}body{background-color:#fff;background-color:#fff;color:#888;font-size:.66em;font-family:lucida grande,Verdana,Arial,Sans-Serif;line-height:1.4;margin:0;padding:0}.header{margin:4em 0}@media(min-width:768px){#sidebar{text-align:right}}#sidebar{text-transform:lowercase}#sidebar h2{font-family:lucida grande,Verdana,Arial,Sans-Serif;font-size:1.2em;text-transform:uppercase;margin:0;padding:.5em 0 .4em}#sidebar ul{list-style-type:none;margin:0;padding:0}#sidebar li:before{content:"\00BB  "}a{color:#ff7010;text-decoration:none}h1{font-size 3.2em;line-height:1em}h2{font-size:1.4em;margin-top:10px}h1,h2,h3,h4,h5{font-family:trebuchet ms,lucida grande,Verdana,Arial,Sans-Serif;font-weight:700;line-height:normal}small{font-size:1em;line-height:1.5em;background-color:inherit;color:#888}h2.pagetitle{background-color:#f0f0f0;color:inherit;padding:.5em 0 .4em .2em;margin:0 0 2em}#content{color:#484848}.leftnav{float:left;margin:0 1em}.rightnav{float:right}.snap-to-fit{clear:both;visibility:hidden}.navigation{margin:0 0 1.6em;padding:0 0 1px;font-family:lucida grande,Arial,Verdana,Sans-Serif;font-size:1.2em}.post{margin:0 0 3em}.post+.post h2{padding:.2em 0 0;border-top:1px solid #888}.entry{width:100%;font-size:1.2em;margin:1em 0 0;overflow:auto}blockquote{margin:1.6em 2.8em 0 1.4em;padding:0 0 0 2em;border-left:.6em solid #ddd}#footer{clear:both;margin:4em 0 1em;padding:.2em 0 0;border-top:1px solid #888;font-family:lucida grande,Arial,Verdana,Sans-Serif}</style>
+<style>@media(min-width:992px){.container{max-width:1442px}}body{background-color:#fff;background-color:#fff;color:#888;font-size:.66em;font-family:lucida grande,Verdana,Arial,Sans-Serif;line-height:1.4;margin:0;padding:0}.header{margin:4em 0}@media(min-width:768px){#sidebar{text-align:right}}#sidebar{text-transform:lowercase}#sidebar h2{font-family:lucida grande,Verdana,Arial,Sans-Serif;font-size:1.2em;text-transform:uppercase;margin:0;padding:.5em 0 .4em}#sidebar ul{list-style-type:none;margin:0;padding:0}#sidebar li:before{content:"\00BB  "}a{color:#ff7010;text-decoration:none}h1{font-size 3.2em;line-height:1em}h2{font-size:1.4em;margin-top:10px}h1,h2,h3,h4,h5{font-family:trebuchet ms,lucida grande,Verdana,Arial,Sans-Serif;font-weight:700;line-height:normal}small{font-size:1em;line-height:1.5em;background-color:inherit;color:#888}h2.pagetitle{background-color:#f0f0f0;color:inherit;padding:.5em 0 .4em .2em;margin:0 0 2em}#content{color:#484848}.leftnav{float:left;margin:0 1em}.rightnav{float:right}.snap-to-fit{clear:both;visibility:hidden}.navigation{margin:0 0 1.6em;padding:0 0 1px;font-family:lucida grande,Arial,Verdana,Sans-Serif;font-size:1.2em}.post{margin:0 0 3em}.post+.post .post__title{padding:.2em 0 0;border-top:1px solid #888}.entry{width:100%;font-size:1.2em;margin:1em 0 0;overflow:auto}blockquote{margin:1.6em 2.8em 0 1.4em;padding:0 0 0 2em;border-left:.6em solid #ddd}#footer{clear:both;margin:4em 0 1em;padding:.2em 0 0;border-top:1px solid #888;font-family:lucida grande,Arial,Verdana,Sans-Serif}</style>
 </head>
 <body><div id=navbar-top class=d-md-none>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -48,6 +48,102 @@
 <div class=navigation>
 <div class=leftnav>« <a href=/page/6/>Later Posts</a></div>
 <div class=snap-to-fit></div>
+</div>
+<div class=post>
+<h2 class=post__title>
+<a href=https://www.scottyob.com/2011/03/16/2-installing-the-operating-system/>2. Installing the Operating System</a>
+</h2>
+<small>2011-03-16 11:09:50 +0000 UTC</small>
+<div class=entry>
+<p><strong><em>Note: This post is one in a series aimed to be a tutorial eventually, it’s not currently finalised and at the moment exists as a place for collating thought and collecting feedback</em></strong></p>
+<h2 id=installing-os-and-setup-network>Installing OS and setup Network</h2>
+<p>For the following set of posts, I have chosen to use VirtualBox to run through how to use ZFS in building your FileSystem. The first step is downloading and installing OpenIndiana. Get the latest build from <a href=http://openindiana.org/download/ onclick="_gaq.push(['_trackEvent','outbound-article','http://openindiana.org'])"><a href=http://openindiana.org/download/>http://openindiana.org/download/</a></a> (at the time of writing, I’m using oi-dev-148-x86) and install it onto your system. In VirtualBox I chose to install onto a 64 bit Solaris setup.
+Make a hard disk when you’re setting up your VM image (I called mine OS_SSD1 because the HD is eventually going to be installed onto a solid state drive.)
+Now, the VM is booted, we can start having some fun (SSH into it and Away we go)
+Our first step is to setup the address for the box. I must admit, I’m pretty new to Solaris but from what I’ve found, we’ll run these commands to disable Auto Configuration via DHCP then enable our static config.</p>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>svcadm disable physical:nwam &lt;br /&gt;svcadm enable physical:default
+</code></pre></td></tr></table>
+</div>
+</div><p>My fileserver is currently not on a domain (I’ll change this later), so I’ve added the line into my /etc/hosts file</p>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>10.12.1.1 thumper.local thumper
+</code></pre></td></tr></table>
+</div>
+</div><p>Put your hostname that you want to use (‘thumper’ for me) in /etc/nodename
+Your default gateway (routers) address should go in /etc/defaultrouter
+The last thing to do is tell the host about what subnet it’s on, For me, I added (for my server subnet)</p>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>10.12.1.0 255.255.255.0
+</code></pre></td></tr></table>
+</div>
+</div><p>The next step is set up your nameserver for DNS (/etc/resolv.conf) mine looks like this</p>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>nameserver 10.12.1.254
+</code></pre></td></tr></table>
+</div>
+</div><p>Copy /etc/nsswitch.dns to /etc/nsswitch.conf – so dns is used.
+Now so the adaptor comes up on boot, find out the status of your network I/O by running</p>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>dladm show-link
+</code></pre></td></tr></table>
+</div>
+</div><p>(for me was e1000g0). Once you have this, you need to ‘plumbe” to set up the software in the kernel to set this interface on the TCP/IP stack.</p>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>ifconfig e100g0 plumb &lt;br /&gt;echo 10.12.1.1/24 &gt; /etc/hostname.e100g0
+</code></pre></td></tr></table>
+</div>
+</div><p>Last but not least for your network stack,</p>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>svcadm restart milestone/network
+</code></pre></td></tr></table>
+</div>
+</div><p>From this point on, that concludes the base setup with networking that I’m using for the FileServer. If this happened to be a critical server for you, perhaps you’d consider setting up <a href=http://darkstar-solaris.blogspot.com/2008/09/zfs-root-mirror.html onclick="_gaq.push(['_trackEvent','outbound-article','http://darkstar-solaris.blogspot.com'])">redundant bootable drives with ZFS</a>. It looks pretty cool.</p>
+<h2>
+Setting up the storage pool
+</h2>
+Now we can get into the fun part. The first thing I want to do with this server is be able to store my data on it, so lets set up our storage pool. In my VM I’m using to test this I’ve added the disks I want to include in my pool (1GB disks for this test)
+<a href=/img/old/2011/03/image.png onclick="_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com'])" class=image-link><img src=/img/old/2011/03/image_thumb.png height=377 width=487 style="text-align:center;display:block;margin:0 auto 10px"></a>Once we’ve booted out VM (first thing I always do is ‘sudo bash’ because I’m evil in these silly little test environments).
+I want to find out the device ID’s for these hard disks I just added
+```
+root@thumper:~# iostat -En | egrep Size\|Soft <br>c1t0d0 Soft Errors: 0 Hard Errors: 6 Transport Errors: 0 <br>Size: 0.00GB <0 bytes> <br>c1t1d0 Soft Errors: 0 Hard Errors: 0 Transport Errors: 0 <br>Size: 17.18GB <17179869184 bytes> <br>c1t2d0 Soft Errors: 0 Hard Errors: 0 Transport Errors: 0 <br>Size: 1.07GB <1073741824 bytes> <br>c1t3d0 Soft Errors: 0 Hard Errors: 0 Transport Errors: 0 <br>Size: 1.07GB <1073741824 bytes> <br>c1t4d0 Soft Errors: 0 Hard Errors: 0 Transport Errors: 0 <br>Size: 1.07GB <1073741824 bytes> <br>c1t5d0 Soft Errors: 0 Hard Errors: 0 Transport Errors: 0 <br>Size: 1.07GB <1073741824 bytes>
+```
+As we can see, c1t0d0 is my CD-ROM drive, c1t1d0 is my hard disk, so I’ll want to create a Raidz-2 (two redundant drive) storage pool with the drives c1t2d0 c1t3d0 c1t4d0 c1t5d0
+```
+root@thumper:~# <strong>zpool create datastore raidz2 c1t2d0 c1t3d0 c1t4d0 c1t5d0 <br></strong>root@thumper:~# zpool list <br>NAME SIZE ALLOC FREE CAP DEDUP HEALTH ALTROOT <br><strong>datastore 3.94G 256K 3.94G 0% 1.00x ONLINE</strong> &#8211; <br>rpool 15.9G 4.17G 11.7G 26% 1.00x ONLINE &#8211; <br>root@thumper:~# zfs list <br>NAME USED AVAIL REFER MOUNTPOINT <br><strong>datastore 128K 1.93G 44.8K /datastore <br></strong>rpool 4.52G 11.1G 45K /rpool <br>rpool/ROOT 3.61G 11.1G 31K legacy <br>rpool/ROOT/openindiana 3.61G 11.1G 3.58G / <br>rpool/dump 383M 11.1G 383M &#8211; <br>rpool/export 1002K 11.1G 32K /export <br>rpool/export/home 970K 11.1G 32K /export/home <br>rpool/export/home/scott 938K 11.1G 938K /export/home/scott <br>rpool/swap 544M 11.5G 187M &#8211;
+```
+We can see now we’ve created a pool of storage across our data (that’s zfs raided) that gives us double parity so we can loose two drives and still be running and we’ve got 2GB of usable space here (I’m using 1GB hard disks, in my real production box these will be 1TB disks).
+Other posts to come in the series: <br>1. Selecting the hardware <br>2. Installing the Operating System <br>3. Setting up File systems & Snapshots <br>4. Allowing access through NFS & SAMBA <br>5. Setting up encrypted off-site backups <br>6. Configuring Windows & Linux clients to dump backup info to the FileServer <br>7. My router setup, configuring IP tables & torrents on a low-powered server.
+<br class=final-break style=clear:both>
+</div>
 </div>
 <div class=post>
 <h2 class=post__title>
@@ -109,43 +205,6 @@ Is your Apple Mac feeling slow?
 <p style=clear:both>
 <a href=/img/old/2011/01/1283164954128.jpg onclick="_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com'])" class=image-link><img class=linked-to-original src=/img/old/2011/01/1283164954128-thumb.jpg height=491 width=380 style="text-align:center;display:block;margin:0 auto 10px"></a>p.s. this is a joke, don&#8217;t actually do it
 </p>
-<br class=final-break style=clear:both>
-</div>
-</div>
-<div class=post>
-<h2 class=post__title>
-<a href=https://www.scottyob.com/2011/01/01/symfony-not-sortable-generate-admin-crud/>Symfony not sortable in CRUD</a>
-</h2>
-<small>2011-01-01 12:15:37 +0000 UTC</small>
-<div class=entry>
-<p style=clear:both>
-I&#8217;ve recently come up across some problems with the CRUD generator in Symfony, so in case anyone is googling for a solution out there, I&#8217;ll try and help you along (or at least bump up the page references to the articles that helped me 😉 )
-</p>
-<p style=clear:both>
-I had a problem today where I was trying to use Symfony&#8217;s (1.4) generate-admin <a href=http://en.wikipedia.org/wiki/Create,_read,_update_and_delete#User_interface onclick="_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org'])">CRUD</a> generator. The issue was that my titles were not sortable when adjusting the fields to display in the generator.yml file
-</p>
-<blockquote style=clear:both>
-<p>
-config:<br> actions: ~<br> fields: ~<br> list:<br> batch_actions: {}<br> object_actions: {}<br> display: [pin, <strong>firstName</strong>, <strong>lastName</strong>, location, institution]<br> filter:<br> display: [firstName, lastName]<br> form: ~<br> edit: {}<br> new: {}
-</p>
-</blockquote>
-<p style=clear:both>
-The issue with the firstName and lastName fields is that, if written like <strong>first_name</strong> and <strong>last_name</strong> it will fail to become sortable. I found a solution as to why in a <a href=http://oldforum.symfony-project.org/index.php/t/22636/ onclick="_gaq.push(['_trackEvent','outbound-article','http://oldforum.symfony-project.org'])">blog post</a> from a man with the same issue (Symfony 1.2)
-</p>
-<p style=clear:both>
-<strong>Foreign keys not Sortable:<br></strong>Another issue I had was where there is a foreign key in Symfony, the CRUD generator won&#8217;t know how to make this sortable. I solved this by moving to <a href=http://www.symfony-project.org/plugins/ahAdminGeneratorThemesPlugin onclick="_gaq.push(['_trackEvent','outbound-article','http://www.symfony-project.org'])" title>ahAdminGeneratorThemesPlugin</a> for the generate-admin modules.. Read the read-me in that guide and you&#8217;ll be sweet! 🙂
-</p>
-<p style=clear:both>
-<strong>Also See</strong>
-</p>
-<ul style=clear:both>
-<li>
-An interesting post on doing more with the admin generator <a href=http://blog.centresource.com/2010/01/13/code-that-saves-the-day-symfony-admin-generator/ onclick="_gaq.push(['_trackEvent','outbound-article','http://blog.centresource.com'])">http://blog.centresource.com/2010/01/13/code-that-saves-the-day-symfony-admin-generator/</a>
-</li>
-<li>
-Jobeet Backend Modules page (Very useful) <a href=http://www.symfony-project.org/jobeet/1_4/Doctrine/en/12 onclick="_gaq.push(['_trackEvent','outbound-article','http://www.symfony-project.org'])">http://www.symfony-project.org/jobeet/1_4/Doctrine/en/12</a>
-</li>
-</ul>
 <br class=final-break style=clear:both>
 </div>
 </div>
