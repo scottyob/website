@@ -1,7 +1,8 @@
 #!/bin/bash
 
 date="$(date +'%Y-%m-%d')"
-filename="content/posts/$date-$1.md"
+mkdir "content/posts/$date-$1"
+filename="content/posts/$date-$1/index.md"
 
 echo "---" > $filename
 echo "title: '$1'" >> $filename
