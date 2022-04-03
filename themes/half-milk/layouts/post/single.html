@@ -10,10 +10,10 @@
 
 <div class="navigation">
   {{ if .NextInSection }}
-    <div class="leftnav">« <a href="{{.NextInSection.URL}}">{{.NextInSection.Title}}</a></div>
+    <div class="leftnav">« <a href="{{.NextInSection.Permalink}}">{{.NextInSection.Title}}</a></div>
   {{ end }}
   {{ if .PrevInSection }}
-    <div class="rightnav"><a href="{{.PrevInSection.URL}}">{{.PrevInSection.Title}}</a> »</div>
+    <div class="rightnav"><a href="{{.PrevInSection.Permalink}}">{{.PrevInSection.Title}}</a> »</div>
   {{ end }}
   <div class="snap-to-fit"></div>
   <!-- Naviation -->
