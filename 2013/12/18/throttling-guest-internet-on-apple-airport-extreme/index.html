@@ -1,384 +1,293 @@
-<!doctype html><html><head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=generator content="Hugo 0.91.2">
-<link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css integrity=sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk crossorigin=anonymous>
-<link rel=stylesheet href=/css/code_tango.css>
-<script src=https://code.jquery.com/jquery-3.6.0.min.js integrity=sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK crossorigin=anonymous></script>
+<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=generator content="Hugo 0.96.0"><link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css integrity=sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk crossorigin=anonymous><link rel=stylesheet href=/css/code_tango.css><script src=https://code.jquery.com/jquery-3.6.0.min.js integrity=sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js integrity=sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo crossorigin=anonymous></script>
 <script src=https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js integrity=sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI crossorigin=anonymous></script>
-<link href=https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css rel=stylesheet>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js></script>
-<link rel=apple-touch-icon sizes=180x180 href=https://www.scottyob.com/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=https://www.scottyob.com/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=https://www.scottyob.com/favicon-16x16.png>
-<link rel=manifest href=https://www.scottyob.com/site.webmanifest>
-<link rel=mask-icon href=https://www.scottyob.com/safari-pinned-tab.svg color>
-<meta name=msapplication-TileColor content>
-<meta name=theme-color content>
-<title>throttling guest internet on Apple Airport Extreme | Scott O'Brien</title>
-<style>@media(min-width:992px){.container{max-width:1442px}}body{background-color:#fff;background-color:#fff;color:#888;font-size:.66em;font-family:lucida grande,Verdana,Arial,Sans-Serif;line-height:1.4;margin:0;padding:0}.header{margin:4em 0}@media(min-width:768px){#sidebar{text-align:right}}#sidebar{text-transform:lowercase}#sidebar h2{font-family:lucida grande,Verdana,Arial,Sans-Serif;font-size:1.2em;text-transform:uppercase;margin:0;padding:.5em 0 .4em}#sidebar ul{list-style-type:none;margin:0;padding:0}#sidebar li:before{content:"\00BB  "}a{color:#ff7010;text-decoration:none}h1{font-size 3.2em;line-height:1em}h2{font-size:1.4em;margin-top:10px}h1,h2,h3,h4,h5{font-family:trebuchet ms,lucida grande,Verdana,Arial,Sans-Serif;font-weight:700;line-height:normal}small{font-size:1em;line-height:1.5em;background-color:inherit;color:#888}h2.pagetitle{background-color:#f0f0f0;color:inherit;padding:.5em 0 .4em .2em;margin:0 0 2em}#content{color:#484848}.leftnav{float:left;margin:0 1em}.rightnav{float:right}.snap-to-fit{clear:both;visibility:hidden}.navigation{margin:0 0 1.6em;padding:0 0 1px;font-family:lucida grande,Arial,Verdana,Sans-Serif;font-size:1.2em}.post{margin:0 0 3em}.post+.post .post__title{padding:.2em 0 0;border-top:1px solid #888}.entry{width:100%;font-size:1.2em;margin:1em 0 0;overflow:auto}blockquote{margin:1.6em 2.8em 0 1.4em;padding:0 0 0 2em;border-left:.6em solid #ddd}#footer{clear:both;margin:4em 0 1em;padding:.2em 0 0;border-top:1px solid #888;font-family:lucida grande,Arial,Verdana,Sans-Serif}</style>
-</head>
-<body><div id=navbar-top class=d-md-none>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-<a class=navbar-brand href=/>Posts</a>
+<link href=https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css rel=stylesheet><script src=https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js></script>
+<link rel=apple-touch-icon sizes=180x180 href=https://www.scottyob.com/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://www.scottyob.com/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://www.scottyob.com/favicon-16x16.png><link rel=manifest href=https://www.scottyob.com/site.webmanifest><link rel=mask-icon href=https://www.scottyob.com/safari-pinned-tab.svg color><meta name=msapplication-TileColor content><meta name=theme-color content><title>throttling guest internet on Apple Airport Extreme | Scott O'Brien</title><style>@media(min-width:992px){.container{max-width:1442px}}body{background-color:#fff;background-color:#fff;color:#888;font-size:.66em;font-family:lucida grande,Verdana,Arial,Sans-Serif;line-height:1.4;margin:0;padding:0}.header{margin:4em 0}@media(min-width:768px){#sidebar{text-align:right}}#sidebar{text-transform:lowercase}#sidebar h2{font-family:lucida grande,Verdana,Arial,Sans-Serif;font-size:1.2em;text-transform:uppercase;margin:0;padding:.5em 0 .4em}#sidebar ul{list-style-type:none;margin:0;padding:0}#sidebar li:before{content:"\00BB  "}a{color:#ff7010;text-decoration:none}h1{font-size 3.2em;line-height:1em}h2{font-size:1.4em;margin-top:10px}h1,h2,h3,h4,h5{font-family:trebuchet ms,lucida grande,Verdana,Arial,Sans-Serif;font-weight:700;line-height:normal}small{font-size:1em;line-height:1.5em;background-color:inherit;color:#888}h2.pagetitle{background-color:#f0f0f0;color:inherit;padding:.5em 0 .4em .2em;margin:0 0 2em}#content{color:#484848}.leftnav{float:left;margin:0 1em}.rightnav{float:right}.snap-to-fit{clear:both;visibility:hidden}.navigation{margin:0 0 1.6em;padding:0 0 1px;font-family:lucida grande,Arial,Verdana,Sans-Serif;font-size:1.2em}.post{margin:0 0 3em}.post+.post .post__title{padding:.2em 0 0;border-top:1px solid #888}.entry{width:100%;font-size:1.2em;margin:1em 0 0;overflow:auto}blockquote{margin:1.6em 2.8em 0 1.4em;padding:0 0 0 2em;border-left:.6em solid #ddd}#footer{clear:both;margin:4em 0 1em;padding:.2em 0 0;border-top:1px solid #888;font-family:lucida grande,Arial,Verdana,Sans-Serif}</style></head><body><div id=navbar-top class=d-md-none><nav class="navbar navbar-expand-lg navbar-light bg-light"><a class=navbar-brand href=/>Posts</a>
 <button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarNavAltMarkup aria-controls=navbarNavAltMarkup aria-expanded=false aria-label="Toggle navigation">
-<span class=navbar-toggler-icon></span>
-</button>
-<div class="collapse navbar-collapse" id=navbarNavAltMarkup>
-<div class=navbar-nav>
-<a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarNavAltMarkup><div class=navbar-nav><a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
 <a class="nav-item nav-link" href=/page/about/>About Me</a>
-<a class="nav-item nav-link" href=/recipes/>Recipes</a>
-</div>
-</div>
-</nav>
-</div>
-<div class=container id=container>
-<div class=row>
-<div class="col-md-9 offset-md-3">
-<div class=header>
-<h1><a href=/>Scott O'Brien</a></h1>
-<small>Projects, Ramblings and Resources of my (online) life</small>
-</div>
-</div>
-</div>
-<div class=row>
-<div id=content class=col-md-9>
-<style>.entry{font-size:1.2em;margin:1em 0 0}</style>
-<div class=navigation>
-<div class=leftnav>« <a href=/2014/01/29/automating-vlan-changes-for-esxi-switchports-in-cisco-ios/>Automating VLAN changes for ESXi Switchports in Cisco IOS.</a></div>
-<div class=rightnav><a href=/2013/04/09/what-is-anycast/>What is Anycast?</a> »</div>
-<div class=snap-to-fit></div>
-</div>
-<div class=post>
-<h2>throttling guest internet on Apple Airport Extreme</h1>
-<small>2013-12-18 13:09:03 +0000 UTC</small>
-<div class=entry>
-<p>I’ve been happily running my Apple Airport Extreme as m home router for the past few years (since my debian router died, and I’ve been too lazy to replace it).  One of the cool features was the ability to create a guest network (SSID) to access the internet without being able to access your trusted network.  One feature I wanted was the ability to throttle the speed guests can access the internet at.  While I couldn’t do this with the Airport Extreme alone, Add a Juniper SRX100 into the mix that the awesome <a href=http://cooperlees.com onclick="_gaq.push(['_trackEvent','outbound-article','http://cooperlees.com'])">Cooper Lees</a> gave me into the mix and problem solved.</p>
-<p><a href=/img/old/2013/12/apple-airport-extreme-base-station_1.jpg onclick="_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com'])"><img class="aligncenter size-full wp-image-362" alt=apple-airport-extreme-base-station_1 src=/img/old/2013/12/apple-airport-extreme-base-station_1.jpg width=600 height=450></a></p>
-<div id=attachment_357 style=width:499px class="wp-caption aligncenter">
-<a href=/img/old/2013/12/photo-1.jpg onclick="_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com'])"><img aria-describedby=caption-attachment-357 class=wp-image-357 alt="SRX100, signed by the #1 Juniper Engineer" src=/img/old/2013/12/photo-1.jpg width=489 height=367></a>
-<p id=caption-attachment-357 class=wp-caption-text>
-SRX100, signed by the #1 Juniper Engineer
-</p>
-</div>
-<p><a href=/img/old/2013/12/AirPort-Utility1.jpg onclick="_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com'])"><img class="aligncenter size-full wp-image-353" alt="AirPort Utility" src=/img/old/2013/12/AirPort-Utility1.jpg width=697 height=667></a></p>
-<p><a href=/img/old/2013/12/AirPort-Utility-2.jpg onclick="_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com'])"><img class="aligncenter size-full wp-image-356" alt="AirPort Utility-2" src=/img/old/2013/12/AirPort-Utility-2.jpg width=580 height=581></a></p>
-<p>In not so many words, performing these actions will do a number of things.  The gig ethernet switch on the back of the airport will be bridged with the WAN port.  Any traffic from your normal SSID(s) and switchports will be sent out the WAN port <em>untagged.</em>  Traffic from your guest network will be sent .1q tagged with vlan 1003.</p>
-<p>I popped this into fe-0/0/1 on my SRX100 and the following config works the magic.</p>
-<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">  1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">  2
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">  3
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">  4
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">  5
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">  6
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">  7
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">  8
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">  9
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 10
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 11
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 12
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 13
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 14
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 15
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 16
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 17
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 18
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 19
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 20
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 21
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 22
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 23
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 24
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 25
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 26
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 27
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 28
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 29
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 30
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 31
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 32
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 33
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 34
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 35
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 36
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 37
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 38
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 39
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 40
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 41
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 42
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 43
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 44
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 45
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 46
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 47
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 48
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 49
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 50
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 51
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 52
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 53
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 54
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 55
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 56
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 57
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 58
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 59
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 60
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 61
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 62
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 63
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 64
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 65
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 66
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 67
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 68
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 69
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 70
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 71
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 72
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 73
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 74
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 75
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 76
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 77
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 78
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 79
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 80
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 81
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 82
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 83
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 84
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 85
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 86
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 87
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 88
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 89
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 90
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 91
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 92
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 93
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 94
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 95
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 96
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 97
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 98
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 99
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">100
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">101
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">102
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">103
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">104
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">105
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">106
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">107
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">108
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">109
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">110
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">111
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">112
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">113
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">114
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">115
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">116
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">117
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">118
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">119
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">120
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">121
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">122
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">123
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">124
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">125
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">126
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">127
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">128
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">129
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">130
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">131
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">132
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">133
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">134
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">135
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">136
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">137
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">138
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">139
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">140
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">141
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">142
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">143
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>    fe-0/0/1 {
-        unit 0 {
-            family ethernet-switching {
-                port-mode trunk;
-                vlan {
-                    members vlan-guest;
-                }
-                native-vlan-id 3;
-            }
-        }
-    }
-
-    vlan {
-        unit 0 {
-            family inet {
-                address 10.0.1.1/24;
-            }
-        }
-        unit 1003 {
-            family inet {
-                filter {
-                    input limit_guest_upload;
-                    output limit_guest_download;
-                }
-                address 10.0.2.1/24;
-            }
-        }
-    }
-
-[system services]
-        dhcp {
-            pool 10.0.1.0/24 {
-                address-range low 10.0.1.2 high 10.0.1.199;
-                router {
-                    10.0.1.1;
-                }
-            }
-            pool 10.0.2.0/24 {
-                address-range low 10.0.2.2 high 10.0.2.254;
-                router {
-                    10.0.2.1;
-                }
-            }
-            propagate-settings fe-0/0/0.0;
-        }
-
-[security]
-    nat {
-        source {
-            rule-set private-to-internet {
-                from zone [ guest trust ];
-                to zone untrust;
-                rule source-nat-rule {
-                    match {
-                        source-address 0.0.0.0/0;
-                    }
-                    then {
-                        source-nat {
-                            interface;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    policies {
-        from-zone trust to-zone untrust {
-            policy trust-to-untrust {
-                match {
-                    source-address any;
-                    destination-address any;
-                    application any;
-                }
-                then {
-                    permit;
-                }
-            }
-        }
-        from-zone guest to-zone untrust {
-            policy guest-to-internet {
-                description &#34;Allows guest access to internet&#34;;
-                match {
-                    source-address any;
-                    destination-address any;
-                    application any;
-                }
-                then {
-                    permit;
-                }
-            }
-        }
-    }
-
-[security zones]
-        security-zone guest {
-            host-inbound-traffic {
-                system-services {
-                    dns;
-                    ping;
-                    traceroute;
-                }
-            }
-            interfaces {
-                vlan.1003;
-            }
-        }
-
-firewall {
-    policer guest-shaping {
-        if-exceeding {
-            bandwidth-limit 500k;
-            burst-size-limit 300k;
-        }
-        then discard;
-    }
-    filter limit_guest_download {
-        term guest-shaping {
-            then {
-                policer guest-shaping;
-                accept;
-            }
-        }
-    }
-    filter limit_guest_upload {
-        term guest-shaping {
-            then {
-                policer guest-shaping;
-                accept;
-            }
-        }
-    }
-}
-vlans {
-    vlan-guest {
-        vlan-id 1003;
-        l3-interface vlan.1003;
-    }
-    vlan-trust {
-        vlan-id 3;
-        l3-interface vlan.0;
-    }
-}
-
-</code></pre></td></tr></table>
-</div>
-</div><p>And there you have it! A really simple way of limiting the bandwidth of guest users on your network using the power of Junos with an Airport Extreme!</p>
-<p> </p>
-<p style=text-align:center>
-<a href=/img/old/2013/12/photo-2.png onclick="_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com'])"><img class="aligncenter wp-image-364" alt="Throttled Speed" src=/img/old/2013/12/photo-2.png width=384 height=576></a>
-</p>
-</div>
-</div>
-<div id=footer>
-Made with <a href=https://gohugo.io/>Hugo</a>. Theme half-milk inspired by <a href=http://thortz.com/skimmed-milk/>skimmed-milk</a>
-</div>
-</div>
-<div id=sidebar class="col-md-3 order-md-first d-none d-md-block">
-<h2>Other Pages</h2>
-<ul>
-<li><a href=/page/bucketlist/>The Bucket List</a></li>
-<li><a href=/page/about/>About Me</a></li>
-<li><a href=/recipes/>Recipes</a></li>
-</ul>
-</div>
-</div>
-</div>
-</body>
-</html>
+<a class="nav-item nav-link" href=/recipes/>Recipes</a></div></div></nav></div><div class=container id=container><div class=row><div class="col-md-9 offset-md-3"><div class=header><h1><a href=/>Scott O'Brien</a></h1><small>Projects, Ramblings and Resources of my (online) life</small></div></div></div><div class=row><div id=content class=col-md-9><style>.entry{font-size:1.2em;margin:1em 0 0}</style><div class=navigation><div class=leftnav>« <a href=https://www.scottyob.com/2014/01/29/automating-vlan-changes-for-esxi-switchports-in-cisco-ios/>Automating VLAN changes for ESXi Switchports in Cisco IOS.</a></div><div class=rightnav><a href=https://www.scottyob.com/2013/04/09/what-is-anycast/>What is Anycast?</a> »</div><div class=snap-to-fit></div></div><div class=post><h2>throttling guest internet on Apple Airport Extreme</h1><small>2013-12-18 13:09:03 +0000 UTC</small><div class=entry><p>I’ve been happily running my Apple Airport Extreme as m home router for the past few years (since my debian router died, and I’ve been too lazy to replace it).  One of the cool features was the ability to create a guest network (SSID) to access the internet without being able to access your trusted network.  One feature I wanted was the ability to throttle the speed guests can access the internet at.  While I couldn’t do this with the Airport Extreme alone, Add a Juniper SRX100 into the mix that the awesome <a href=http://cooperlees.com onclick='_gaq.push(["_trackEvent","outbound-article","http://cooperlees.com"])'>Cooper Lees</a> gave me into the mix and problem solved.</p><p><a href=/img/old/2013/12/apple-airport-extreme-base-station_1.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img class="aligncenter size-full wp-image-362" alt=apple-airport-extreme-base-station_1 src=/img/old/2013/12/apple-airport-extreme-base-station_1.jpg width=600 height=450></a></p><div id=attachment_357 style=width:499px class="wp-caption aligncenter"><a href=/img/old/2013/12/photo-1.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img aria-describedby=caption-attachment-357 class=wp-image-357 alt="SRX100, signed by the #1 Juniper Engineer" src=/img/old/2013/12/photo-1.jpg width=489 height=367></a><p id=caption-attachment-357 class=wp-caption-text>SRX100, signed by the #1 Juniper Engineer</p></div><p><a href=/img/old/2013/12/AirPort-Utility1.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img class="aligncenter size-full wp-image-353" alt="AirPort Utility" src=/img/old/2013/12/AirPort-Utility1.jpg width=697 height=667></a></p><p><a href=/img/old/2013/12/AirPort-Utility-2.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img class="aligncenter size-full wp-image-356" alt="AirPort Utility-2" src=/img/old/2013/12/AirPort-Utility-2.jpg width=580 height=581></a></p><p>In not so many words, performing these actions will do a number of things.  The gig ethernet switch on the back of the airport will be bridged with the WAN port.  Any traffic from your normal SSID(s) and switchports will be sent out the WAN port <em>untagged.</em>  Traffic from your guest network will be sent .1q tagged with vlan 1003.</p><p>I popped this into fe-0/0/1 on my SRX100 and the following config works the magic.</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 15
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 16
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 17
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 18
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 19
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 20
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 21
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 22
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 23
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 24
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 25
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 26
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 27
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 28
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 29
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 30
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 31
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 32
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 33
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 34
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 35
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 36
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 37
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 38
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 39
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 40
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 41
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 42
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 43
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 44
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 45
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 46
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 47
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 48
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 49
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 50
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 51
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 52
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 53
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 54
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 55
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 56
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 57
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 58
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 59
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 60
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 61
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 62
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 63
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 64
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 65
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 66
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 67
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 68
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 69
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 70
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 71
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 72
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 73
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 74
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 75
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 76
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 77
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 78
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 79
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 80
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 81
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 82
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 83
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 84
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 85
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 86
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 87
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 88
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 89
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 90
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 91
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 92
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 93
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 94
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 95
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 96
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 97
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 98
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 99
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">100
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">101
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">102
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">103
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">104
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">105
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">106
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">107
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">108
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">109
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">110
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">111
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">112
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">113
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">114
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">115
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">116
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">117
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">118
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">119
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">120
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">121
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">122
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">123
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">124
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">125
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">126
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">127
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">128
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">129
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">130
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">131
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">132
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">133
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">134
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">135
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">136
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">137
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">138
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">139
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">140
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">141
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">142
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>    fe-0/0/1 {
+</span></span><span style=display:flex><span>        unit 0 {
+</span></span><span style=display:flex><span>            family ethernet-switching {
+</span></span><span style=display:flex><span>                port-mode trunk;
+</span></span><span style=display:flex><span>                vlan {
+</span></span><span style=display:flex><span>                    members vlan-guest;
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>                native-vlan-id 3;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    vlan {
+</span></span><span style=display:flex><span>        unit 0 {
+</span></span><span style=display:flex><span>            family inet {
+</span></span><span style=display:flex><span>                address 10.0.1.1/24;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        unit 1003 {
+</span></span><span style=display:flex><span>            family inet {
+</span></span><span style=display:flex><span>                filter {
+</span></span><span style=display:flex><span>                    input limit_guest_upload;
+</span></span><span style=display:flex><span>                    output limit_guest_download;
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>                address 10.0.2.1/24;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>[system services]
+</span></span><span style=display:flex><span>        dhcp {
+</span></span><span style=display:flex><span>            pool 10.0.1.0/24 {
+</span></span><span style=display:flex><span>                address-range low 10.0.1.2 high 10.0.1.199;
+</span></span><span style=display:flex><span>                router {
+</span></span><span style=display:flex><span>                    10.0.1.1;
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            pool 10.0.2.0/24 {
+</span></span><span style=display:flex><span>                address-range low 10.0.2.2 high 10.0.2.254;
+</span></span><span style=display:flex><span>                router {
+</span></span><span style=display:flex><span>                    10.0.2.1;
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            propagate-settings fe-0/0/0.0;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>[security]
+</span></span><span style=display:flex><span>    nat {
+</span></span><span style=display:flex><span>        source {
+</span></span><span style=display:flex><span>            rule-set private-to-internet {
+</span></span><span style=display:flex><span>                from zone [ guest trust ];
+</span></span><span style=display:flex><span>                to zone untrust;
+</span></span><span style=display:flex><span>                rule source-nat-rule {
+</span></span><span style=display:flex><span>                    match {
+</span></span><span style=display:flex><span>                        source-address 0.0.0.0/0;
+</span></span><span style=display:flex><span>                    }
+</span></span><span style=display:flex><span>                    then {
+</span></span><span style=display:flex><span>                        source-nat {
+</span></span><span style=display:flex><span>                            interface;
+</span></span><span style=display:flex><span>                        }
+</span></span><span style=display:flex><span>                    }
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    policies {
+</span></span><span style=display:flex><span>        from-zone trust to-zone untrust {
+</span></span><span style=display:flex><span>            policy trust-to-untrust {
+</span></span><span style=display:flex><span>                match {
+</span></span><span style=display:flex><span>                    source-address any;
+</span></span><span style=display:flex><span>                    destination-address any;
+</span></span><span style=display:flex><span>                    application any;
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>                then {
+</span></span><span style=display:flex><span>                    permit;
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        from-zone guest to-zone untrust {
+</span></span><span style=display:flex><span>            policy guest-to-internet {
+</span></span><span style=display:flex><span>                description &#34;Allows guest access to internet&#34;;
+</span></span><span style=display:flex><span>                match {
+</span></span><span style=display:flex><span>                    source-address any;
+</span></span><span style=display:flex><span>                    destination-address any;
+</span></span><span style=display:flex><span>                    application any;
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>                then {
+</span></span><span style=display:flex><span>                    permit;
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>[security zones]
+</span></span><span style=display:flex><span>        security-zone guest {
+</span></span><span style=display:flex><span>            host-inbound-traffic {
+</span></span><span style=display:flex><span>                system-services {
+</span></span><span style=display:flex><span>                    dns;
+</span></span><span style=display:flex><span>                    ping;
+</span></span><span style=display:flex><span>                    traceroute;
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            interfaces {
+</span></span><span style=display:flex><span>                vlan.1003;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>firewall {
+</span></span><span style=display:flex><span>    policer guest-shaping {
+</span></span><span style=display:flex><span>        if-exceeding {
+</span></span><span style=display:flex><span>            bandwidth-limit 500k;
+</span></span><span style=display:flex><span>            burst-size-limit 300k;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        then discard;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    filter limit_guest_download {
+</span></span><span style=display:flex><span>        term guest-shaping {
+</span></span><span style=display:flex><span>            then {
+</span></span><span style=display:flex><span>                policer guest-shaping;
+</span></span><span style=display:flex><span>                accept;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    filter limit_guest_upload {
+</span></span><span style=display:flex><span>        term guest-shaping {
+</span></span><span style=display:flex><span>            then {
+</span></span><span style=display:flex><span>                policer guest-shaping;
+</span></span><span style=display:flex><span>                accept;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>vlans {
+</span></span><span style=display:flex><span>    vlan-guest {
+</span></span><span style=display:flex><span>        vlan-id 1003;
+</span></span><span style=display:flex><span>        l3-interface vlan.1003;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    vlan-trust {
+</span></span><span style=display:flex><span>        vlan-id 3;
+</span></span><span style=display:flex><span>        l3-interface vlan.0;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></td></tr></table></div></div><p>And there you have it! A really simple way of limiting the bandwidth of guest users on your network using the power of Junos with an Airport Extreme!</p><p> </p><p style=text-align:center><a href=/img/old/2013/12/photo-2.png onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img class="aligncenter wp-image-364" alt="Throttled Speed" src=/img/old/2013/12/photo-2.png width=384 height=576></a></p></div></div><div id=footer>Made with <a href=https://gohugo.io/>Hugo</a>. Theme half-milk inspired by <a href=http://thortz.com/skimmed-milk/>skimmed-milk</a></div></div><div id=sidebar class="col-md-3 order-md-first d-none d-md-block"><h2>Other Pages</h2><ul><li><a href=/page/bucketlist/>The Bucket List</a></li><li><a href=/page/about/>About Me</a></li><li><a href=/recipes/>Recipes</a></li></ul></div></div></div></body></html>

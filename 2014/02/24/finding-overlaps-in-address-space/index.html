@@ -1,91 +1,9 @@
-<!doctype html><html><head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=generator content="Hugo 0.91.2">
-<link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css integrity=sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk crossorigin=anonymous>
-<link rel=stylesheet href=/css/code_tango.css>
-<script src=https://code.jquery.com/jquery-3.6.0.min.js integrity=sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK crossorigin=anonymous></script>
+<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=generator content="Hugo 0.96.0"><link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css integrity=sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk crossorigin=anonymous><link rel=stylesheet href=/css/code_tango.css><script src=https://code.jquery.com/jquery-3.6.0.min.js integrity=sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js integrity=sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo crossorigin=anonymous></script>
 <script src=https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js integrity=sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI crossorigin=anonymous></script>
-<link href=https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css rel=stylesheet>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js></script>
-<link rel=apple-touch-icon sizes=180x180 href=https://www.scottyob.com/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=https://www.scottyob.com/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=https://www.scottyob.com/favicon-16x16.png>
-<link rel=manifest href=https://www.scottyob.com/site.webmanifest>
-<link rel=mask-icon href=https://www.scottyob.com/safari-pinned-tab.svg color>
-<meta name=msapplication-TileColor content>
-<meta name=theme-color content>
-<title>Finding overlaps in address space | Scott O'Brien</title>
-<style>@media(min-width:992px){.container{max-width:1442px}}body{background-color:#fff;background-color:#fff;color:#888;font-size:.66em;font-family:lucida grande,Verdana,Arial,Sans-Serif;line-height:1.4;margin:0;padding:0}.header{margin:4em 0}@media(min-width:768px){#sidebar{text-align:right}}#sidebar{text-transform:lowercase}#sidebar h2{font-family:lucida grande,Verdana,Arial,Sans-Serif;font-size:1.2em;text-transform:uppercase;margin:0;padding:.5em 0 .4em}#sidebar ul{list-style-type:none;margin:0;padding:0}#sidebar li:before{content:"\00BB  "}a{color:#ff7010;text-decoration:none}h1{font-size 3.2em;line-height:1em}h2{font-size:1.4em;margin-top:10px}h1,h2,h3,h4,h5{font-family:trebuchet ms,lucida grande,Verdana,Arial,Sans-Serif;font-weight:700;line-height:normal}small{font-size:1em;line-height:1.5em;background-color:inherit;color:#888}h2.pagetitle{background-color:#f0f0f0;color:inherit;padding:.5em 0 .4em .2em;margin:0 0 2em}#content{color:#484848}.leftnav{float:left;margin:0 1em}.rightnav{float:right}.snap-to-fit{clear:both;visibility:hidden}.navigation{margin:0 0 1.6em;padding:0 0 1px;font-family:lucida grande,Arial,Verdana,Sans-Serif;font-size:1.2em}.post{margin:0 0 3em}.post+.post .post__title{padding:.2em 0 0;border-top:1px solid #888}.entry{width:100%;font-size:1.2em;margin:1em 0 0;overflow:auto}blockquote{margin:1.6em 2.8em 0 1.4em;padding:0 0 0 2em;border-left:.6em solid #ddd}#footer{clear:both;margin:4em 0 1em;padding:.2em 0 0;border-top:1px solid #888;font-family:lucida grande,Arial,Verdana,Sans-Serif}</style>
-</head>
-<body><div id=navbar-top class=d-md-none>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-<a class=navbar-brand href=/>Posts</a>
+<link href=https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css rel=stylesheet><script src=https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js></script>
+<link rel=apple-touch-icon sizes=180x180 href=https://www.scottyob.com/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://www.scottyob.com/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://www.scottyob.com/favicon-16x16.png><link rel=manifest href=https://www.scottyob.com/site.webmanifest><link rel=mask-icon href=https://www.scottyob.com/safari-pinned-tab.svg color><meta name=msapplication-TileColor content><meta name=theme-color content><title>Finding overlaps in address space | Scott O'Brien</title><style>@media(min-width:992px){.container{max-width:1442px}}body{background-color:#fff;background-color:#fff;color:#888;font-size:.66em;font-family:lucida grande,Verdana,Arial,Sans-Serif;line-height:1.4;margin:0;padding:0}.header{margin:4em 0}@media(min-width:768px){#sidebar{text-align:right}}#sidebar{text-transform:lowercase}#sidebar h2{font-family:lucida grande,Verdana,Arial,Sans-Serif;font-size:1.2em;text-transform:uppercase;margin:0;padding:.5em 0 .4em}#sidebar ul{list-style-type:none;margin:0;padding:0}#sidebar li:before{content:"\00BB  "}a{color:#ff7010;text-decoration:none}h1{font-size 3.2em;line-height:1em}h2{font-size:1.4em;margin-top:10px}h1,h2,h3,h4,h5{font-family:trebuchet ms,lucida grande,Verdana,Arial,Sans-Serif;font-weight:700;line-height:normal}small{font-size:1em;line-height:1.5em;background-color:inherit;color:#888}h2.pagetitle{background-color:#f0f0f0;color:inherit;padding:.5em 0 .4em .2em;margin:0 0 2em}#content{color:#484848}.leftnav{float:left;margin:0 1em}.rightnav{float:right}.snap-to-fit{clear:both;visibility:hidden}.navigation{margin:0 0 1.6em;padding:0 0 1px;font-family:lucida grande,Arial,Verdana,Sans-Serif;font-size:1.2em}.post{margin:0 0 3em}.post+.post .post__title{padding:.2em 0 0;border-top:1px solid #888}.entry{width:100%;font-size:1.2em;margin:1em 0 0;overflow:auto}blockquote{margin:1.6em 2.8em 0 1.4em;padding:0 0 0 2em;border-left:.6em solid #ddd}#footer{clear:both;margin:4em 0 1em;padding:.2em 0 0;border-top:1px solid #888;font-family:lucida grande,Arial,Verdana,Sans-Serif}</style></head><body><div id=navbar-top class=d-md-none><nav class="navbar navbar-expand-lg navbar-light bg-light"><a class=navbar-brand href=/>Posts</a>
 <button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarNavAltMarkup aria-controls=navbarNavAltMarkup aria-expanded=false aria-label="Toggle navigation">
-<span class=navbar-toggler-icon></span>
-</button>
-<div class="collapse navbar-collapse" id=navbarNavAltMarkup>
-<div class=navbar-nav>
-<a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarNavAltMarkup><div class=navbar-nav><a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
 <a class="nav-item nav-link" href=/page/about/>About Me</a>
-<a class="nav-item nav-link" href=/recipes/>Recipes</a>
-</div>
-</div>
-</nav>
-</div>
-<div class=container id=container>
-<div class=row>
-<div class="col-md-9 offset-md-3">
-<div class=header>
-<h1><a href=/>Scott O'Brien</a></h1>
-<small>Projects, Ramblings and Resources of my (online) life</small>
-</div>
-</div>
-</div>
-<div class=row>
-<div id=content class=col-md-9>
-<style>.entry{font-size:1.2em;margin:1em 0 0}</style>
-<div class=navigation>
-<div class=leftnav>« <a href=/2014/05/08/logging-nat-translations-on-the-cisco-asa/>Logging NAT Translations on the Cisco ASA</a></div>
-<div class=rightnav><a href=/2014/01/29/automating-vlan-changes-for-esxi-switchports-in-cisco-ios/>Automating VLAN changes for ESXi Switchports in Cisco IOS.</a> »</div>
-<div class=snap-to-fit></div>
-</div>
-<div class=post>
-<h2>Finding overlaps in address space</h1>
-<small>2014-02-24 06:05:36 +0000 UTC</small>
-<div class=entry>
-<p>We have an interesting problem at my workplace, we have an MPLS VPN design for separation of security zones (e.g., staff from students.) and we don’t have MPLS support on our edge. With a L3 to the edge design though this means that while every edge switch has its own address space (per VRF), it also has a /30 uplink (once again, per VRF) back to the PE device.</p>
-<p>While this (rightly or wrongly decided) slightly more complicated design in itself isn’t a problem, I’ve been working on programatically putting all of this data into an IPAM (IP Address Management) solution. Doing this from the devices themselves (as apposed to a spreadsheet where it was previously kept) has provided the best way moving forward, so good in fact, that my IPAM started throwing exceptions when duplicate IP addresses and overlapping spaces were attempted to be added in the system.</p>
-<p>The following Python script uses my <a href=https://github.com/scottyob/pyiosdevice onclick="_gaq.push(['_trackEvent','outbound-article','http://github.com'])">Cisco IOS python library</a> to be able to identify IP address overlaps from a bunch of my saved device configs.</p>
-<p>It works by the following:</p>
-<ol>
-<li>Adds all L3 interfaces addresses and secondary addresses to a list</li>
-<li>Sorts list such that larger subnets are at the front, smaller (/32’s and the such) are at the back of the list.</li>
-<li>Walks through each subnet, if the network addresses is not in the routing table, add it in, if it is, add it to a list of colliding subnets.</li>
-<li>With the list of colliding subnets (subnets that have been multiply defined, or are of overlapping size):
-<ol>
-<li>If they are /30’s and there are only two places of definition, skip</li>
-<li>if the subnet values are not equal OR an address appears twice in the subnet.  Print it out as a colliding address (space)</li>
-</ol>
-</li>
-</ol>
-<p>You can find the <a href=https://gist.github.com/scottyob/9182695 onclick="_gaq.push(['_trackEvent','outbound-article','http://gist.github.com'])">script as a ghist here</a> (note:  This assumes the devices have been picked and loaded as a Picked list of IOSDevice’s)</p>
-</div>
-</div>
-<div id=footer>
-Made with <a href=https://gohugo.io/>Hugo</a>. Theme half-milk inspired by <a href=http://thortz.com/skimmed-milk/>skimmed-milk</a>
-</div>
-</div>
-<div id=sidebar class="col-md-3 order-md-first d-none d-md-block">
-<h2>Other Pages</h2>
-<ul>
-<li><a href=/page/bucketlist/>The Bucket List</a></li>
-<li><a href=/page/about/>About Me</a></li>
-<li><a href=/recipes/>Recipes</a></li>
-</ul>
-</div>
-</div>
-</div>
-</body>
-</html>
+<a class="nav-item nav-link" href=/recipes/>Recipes</a></div></div></nav></div><div class=container id=container><div class=row><div class="col-md-9 offset-md-3"><div class=header><h1><a href=/>Scott O'Brien</a></h1><small>Projects, Ramblings and Resources of my (online) life</small></div></div></div><div class=row><div id=content class=col-md-9><style>.entry{font-size:1.2em;margin:1em 0 0}</style><div class=navigation><div class=leftnav>« <a href=https://www.scottyob.com/2014/05/08/logging-nat-translations-on-the-cisco-asa/>Logging NAT Translations on the Cisco ASA</a></div><div class=rightnav><a href=https://www.scottyob.com/2014/01/29/automating-vlan-changes-for-esxi-switchports-in-cisco-ios/>Automating VLAN changes for ESXi Switchports in Cisco IOS.</a> »</div><div class=snap-to-fit></div></div><div class=post><h2>Finding overlaps in address space</h1><small>2014-02-24 06:05:36 +0000 UTC</small><div class=entry><p>We have an interesting problem at my workplace, we have an MPLS VPN design for separation of security zones (e.g., staff from students.) and we don’t have MPLS support on our edge. With a L3 to the edge design though this means that while every edge switch has its own address space (per VRF), it also has a /30 uplink (once again, per VRF) back to the PE device.</p><p>While this (rightly or wrongly decided) slightly more complicated design in itself isn’t a problem, I’ve been working on programatically putting all of this data into an IPAM (IP Address Management) solution. Doing this from the devices themselves (as apposed to a spreadsheet where it was previously kept) has provided the best way moving forward, so good in fact, that my IPAM started throwing exceptions when duplicate IP addresses and overlapping spaces were attempted to be added in the system.</p><p>The following Python script uses my <a href=https://github.com/scottyob/pyiosdevice onclick='_gaq.push(["_trackEvent","outbound-article","http://github.com"])'>Cisco IOS python library</a> to be able to identify IP address overlaps from a bunch of my saved device configs.</p><p>It works by the following:</p><ol><li>Adds all L3 interfaces addresses and secondary addresses to a list</li><li>Sorts list such that larger subnets are at the front, smaller (/32’s and the such) are at the back of the list.</li><li>Walks through each subnet, if the network addresses is not in the routing table, add it in, if it is, add it to a list of colliding subnets.</li><li>With the list of colliding subnets (subnets that have been multiply defined, or are of overlapping size):<ol><li>If they are /30’s and there are only two places of definition, skip</li><li>if the subnet values are not equal OR an address appears twice in the subnet.  Print it out as a colliding address (space)</li></ol></li></ol><p>You can find the <a href=https://gist.github.com/scottyob/9182695 onclick='_gaq.push(["_trackEvent","outbound-article","http://gist.github.com"])'>script as a ghist here</a> (note:  This assumes the devices have been picked and loaded as a Picked list of IOSDevice’s)</p></div></div><div id=footer>Made with <a href=https://gohugo.io/>Hugo</a>. Theme half-milk inspired by <a href=http://thortz.com/skimmed-milk/>skimmed-milk</a></div></div><div id=sidebar class="col-md-3 order-md-first d-none d-md-block"><h2>Other Pages</h2><ul><li><a href=/page/bucketlist/>The Bucket List</a></li><li><a href=/page/about/>About Me</a></li><li><a href=/recipes/>Recipes</a></li></ul></div></div></div></body></html>
