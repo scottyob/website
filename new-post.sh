@@ -1,5 +1,19 @@
 #!/bin/bash
 
+Help()
+{
+    echo "Creates a new post given todays date"
+    echo
+    echo "Syntax: new-post.sh [postName]"
+    echo
+}
+
+if [[ "$#" -ne 1 ||  $1 = \-* ]]
+then
+    Help
+    exit 1
+fi
+
 date="$(date +'%Y-%m-%d')"
 mkdir "content/posts/$date-$1"
 filename="content/posts/$date-$1/index.md"
