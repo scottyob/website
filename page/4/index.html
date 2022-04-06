@@ -6,7 +6,301 @@
 <button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarNavAltMarkup aria-controls=navbarNavAltMarkup aria-expanded=false aria-label="Toggle navigation">
 <span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarNavAltMarkup><div class=navbar-nav><a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
 <a class="nav-item nav-link" href=/page/about/>About Me</a>
-<a class="nav-item nav-link" href=/recipes/>Recipes</a></div></div></nav></div><div class=container id=container><div class=row><div class="col-md-9 offset-md-3"><div class=header><h1><a href=/>Scott O'Brien</a></h1><small>Projects, Ramblings and Resources of my (online) life</small></div></div></div><div class=row><div id=content class=col-md-9><div class=navigation><div class=leftnav>« <a href=/page/3/>Later Posts</a></div><div class=snap-to-fit></div></div><div class=post><h2 class=post__title><a href=https://www.scottyob.com/2013/12/18/throttling-guest-internet-on-apple-airport-extreme/>throttling guest internet on Apple Airport Extreme</a></h2><small>2013-12-18 13:09:03 +0000 UTC</small><div class=entry><p>I’ve been happily running my Apple Airport Extreme as m home router for the past few years (since my debian router died, and I’ve been too lazy to replace it).  One of the cool features was the ability to create a guest network (SSID) to access the internet without being able to access your trusted network.  One feature I wanted was the ability to throttle the speed guests can access the internet at.  While I couldn’t do this with the Airport Extreme alone, Add a Juniper SRX100 into the mix that the awesome <a href=http://cooperlees.com onclick='_gaq.push(["_trackEvent","outbound-article","http://cooperlees.com"])'>Cooper Lees</a> gave me into the mix and problem solved.</p><p><a href=/img/old/2013/12/apple-airport-extreme-base-station_1.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img class="aligncenter size-full wp-image-362" alt=apple-airport-extreme-base-station_1 src=/img/old/2013/12/apple-airport-extreme-base-station_1.jpg width=600 height=450></a></p><div id=attachment_357 style=width:499px class="wp-caption aligncenter"><a href=/img/old/2013/12/photo-1.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img aria-describedby=caption-attachment-357 class=wp-image-357 alt="SRX100, signed by the #1 Juniper Engineer" src=/img/old/2013/12/photo-1.jpg width=489 height=367></a><p id=caption-attachment-357 class=wp-caption-text>SRX100, signed by the #1 Juniper Engineer</p></div><p><a href=/img/old/2013/12/AirPort-Utility1.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img class="aligncenter size-full wp-image-353" alt="AirPort Utility" src=/img/old/2013/12/AirPort-Utility1.jpg width=697 height=667></a></p><p><a href=/img/old/2013/12/AirPort-Utility-2.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img class="aligncenter size-full wp-image-356" alt="AirPort Utility-2" src=/img/old/2013/12/AirPort-Utility-2.jpg width=580 height=581></a></p><p>In not so many words, performing these actions will do a number of things.  The gig ethernet switch on the back of the airport will be bridged with the WAN port.  Any traffic from your normal SSID(s) and switchports will be sent out the WAN port <em>untagged.</em>  Traffic from your guest network will be sent .1q tagged with vlan 1003.</p><p>I popped this into fe-0/0/1 on my SRX100 and the following config works the magic.</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  1
+<a class="nav-item nav-link" href=/recipes/>Recipes</a></div></div></nav></div><div class=container id=container><div class=row><div class="col-md-9 offset-md-3"><div class=header><h1><a href=/>Scott O'Brien</a></h1><small>Projects, Ramblings and Resources of my (online) life</small></div></div></div><div class=row><div id=content class=col-md-9><div class=navigation><div class=leftnav>« <a href=/page/3/>Later Posts</a></div><div class=snap-to-fit></div></div><div class=post><h2 class=post__title><a href=https://www.scottyob.com/2014/01/29/automating-vlan-changes-for-esxi-switchports-in-cisco-ios/>Automating VLAN changes for ESXi Switchports in Cisco IOS.</a></h2><small>2014-01-29 10:51:35 +0000 UTC</small><div class=entry><p><a href=/img/old/2014/01/product_bulletin_cisco_catalyst_6509_enhanced_vertical_chassis-1.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img class="size-full wp-image-370 alignleft" alt=6500 src=/img/old/2014/01/product_bulletin_cisco_catalyst_6509_enhanced_vertical_chassis-1.jpg width=242 height=302></a></p><p>At the organisation I’m currently working for, we recently experienced <a href=http://www.vspecialist.co.uk/do-my-esxi-hosts-have-the-same-vlans/ onclick='_gaq.push(["_trackEvent","outbound-article","http://www.vspecialist.co.uk"])'>what appears to be a common issue</a>, VLAN’s trunked down to ESXi nodes were inconsistent.</p><p>In our DC, we’re still running the old school Cisco Catalyst switches.  If we were running a fabric, or Nexus switches <a href=http://blog.alwaysthenetwork.com/tutorials/nexus-port-profiles/ onclick='_gaq.push(["_trackEvent","outbound-article","http://blog.alwaysthenetwork.com"])'>we could put port profiles to action</a> or if we lucky enough to have some equipment running Junos &lt;3 we could be <a href=http://packetpushers.net/junos-configuration-groups/ onclick='_gaq.push(["_trackEvent","outbound-article","http://packetpushers.net"])'>using apply-groups for this</a>.</p><p>Being stuck with 6500’s in the DC as our L2 platform (and a VSS for the L3 MPLS PE) this is a quick little hack job to automate configuration changes across switchports in Cisco IOS based on dynamically finding ports that are matching an interface description.</p><p>In our DC, we have a bunch of switches (defined at the top of this script) and all our switchports that go to ESXi switchports that should have this template applied are matched on the interface description containing ‘ESXHOST’</p><p>This relies on the <a href=https://github.com/knipknap/exscript/wiki/Python-API-Tutorial onclick='_gaq.push(["_trackEvent","outbound-article","http://github.com"])'>python EXScript module</a></p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 15
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 16
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 17
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 18
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 19
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 20
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 21
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 22
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 23
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 24
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 25
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 26
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 27
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 28
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 29
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 30
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 31
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 32
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 33
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 34
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 35
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 36
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 37
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 38
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 39
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 40
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 41
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 42
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 43
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 44
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 45
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 46
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 47
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 48
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 49
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 50
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 51
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 52
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 53
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 54
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 55
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 56
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 57
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 58
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 59
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 60
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 61
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 62
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 63
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 64
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 65
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 66
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 67
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 68
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 69
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 70
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 71
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 72
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 73
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 74
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 75
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 76
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 77
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 78
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 79
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 80
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 81
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 82
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 83
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 84
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 85
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 86
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 87
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 88
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 89
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 90
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 91
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 92
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 93
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 94
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 95
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 96
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 97
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 98
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 99
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">100
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">101
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">102
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">103
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">104
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">105
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">106
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">107
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">108
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">109
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">110
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">111
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">112
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">113
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">114
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">115
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">116
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">117
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">118
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">119
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">120
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">121
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">122
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">123
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">124
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">125
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">126
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">127
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">128
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">129
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">130
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">131
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">132
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">133
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">134
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">135
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">136
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">137
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">138
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">139
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">140
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">141
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">142
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">143
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">144
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">145
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">146
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">147
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:green># This script is used for updating the VLANs that are trunked down to ESX boxes.</span>
+</span></span><span style=display:flex><span><span style=color:green>#  It works by logging in to each switch in the DC then looking at the interfaces that have &#39;ESXHOST&#39;</span>
+</span></span><span style=display:flex><span><span style=color:green>#  in the description.  For each of those switchports, it will run the &#39;alter&#39; commands</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#00f>from</span> Exscript.Account <span style=color:#00f>import</span> Account
+</span></span><span style=display:flex><span><span style=color:#00f>from</span> Exscript.protocols <span style=color:#00f>import</span> SSH2
+</span></span><span style=display:flex><span><span style=color:#00f>import</span> argparse
+</span></span><span style=display:flex><span><span style=color:#00f>import</span> getopt
+</span></span><span style=display:flex><span><span style=color:#00f>import</span> getpass
+</span></span><span style=display:flex><span><span style=color:#00f>import</span> sys
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:green>#A list of the switches to interigate.  These are the switches that have ESXi hosts in them</span>
+</span></span><span style=display:flex><span>SWITCHES = [
+</span></span><span style=display:flex><span>    <span style=color:#a31515>&#39;10.0.0.2&#39;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a31515>&#39;10.0.0.3&#39;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a31515>&#39;10.0.0.4&#39;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a31515>&#39;10.0.0.5&#39;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a31515>&#39;10.0.0.7&#39;</span>
+</span></span><span style=display:flex><span>    ]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:green>#Commands to execute for every switchport</span>
+</span></span><span style=display:flex><span>vlan_commands = <span style=color:#a31515>&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#a31515>  switchport trunk allowed vlan add 5,10,15,20-25,30,40,50
+</span></span></span><span style=display:flex><span><span style=color:#a31515>  switchport trunk allowed vlan add 60,69,70,100-1000
+</span></span></span><span style=display:flex><span><span style=color:#a31515>&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#00f>def</span> query_yes_no(question, default=<span style=color:#a31515>&#34;yes&#34;</span>):
+</span></span><span style=display:flex><span>    <span style=color:#a31515>&#34;&#34;&#34;Ask a yes/no question via raw_input() and return their answer.
+</span></span></span><span style=display:flex><span><span style=color:#a31515>
+</span></span></span><span style=display:flex><span><span style=color:#a31515>    &#34;question&#34; is a string that is presented to the user.
+</span></span></span><span style=display:flex><span><span style=color:#a31515>    &#34;default&#34; is the presumed answer if the user just hits &amp;lt;Enter&amp;gt;.
+</span></span></span><span style=display:flex><span><span style=color:#a31515>        It must be &#34;yes&#34; (the default), &#34;no&#34; or None (meaning
+</span></span></span><span style=display:flex><span><span style=color:#a31515>        an answer is required of the user).
+</span></span></span><span style=display:flex><span><span style=color:#a31515>
+</span></span></span><span style=display:flex><span><span style=color:#a31515>    The &#34;answer&#34; return value is one of &#34;yes&#34; or &#34;no&#34;.
+</span></span></span><span style=display:flex><span><span style=color:#a31515>    &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    valid = {<span style=color:#a31515>&#34;yes&#34;</span>:<span style=color:#00f>True</span>,   <span style=color:#a31515>&#34;y&#34;</span>:<span style=color:#00f>True</span>,  <span style=color:#a31515>&#34;ye&#34;</span>:<span style=color:#00f>True</span>,
+</span></span><span style=display:flex><span>             <span style=color:#a31515>&#34;no&#34;</span>:<span style=color:#00f>False</span>,     <span style=color:#a31515>&#34;n&#34;</span>:<span style=color:#00f>False</span>}
+</span></span><span style=display:flex><span>    <span style=color:#00f>if</span> default == <span style=color:#00f>None</span>:
+</span></span><span style=display:flex><span>        prompt = <span style=color:#a31515>&#34; [y/n] &#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#00f>elif</span> default == <span style=color:#a31515>&#34;yes&#34;</span>:
+</span></span><span style=display:flex><span>        prompt = <span style=color:#a31515>&#34; [Y/n] &#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#00f>elif</span> default == <span style=color:#a31515>&#34;no&#34;</span>:
+</span></span><span style=display:flex><span>        prompt = <span style=color:#a31515>&#34; [y/N] &#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#00f>else</span>:
+</span></span><span style=display:flex><span>        <span style=color:#00f>raise</span> ValueError(<span style=color:#a31515>&#34;invalid default answer: &#39;</span><span style=color:#a31515>%s</span><span style=color:#a31515>&#39;&#34;</span> % default)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#00f>while</span> <span style=color:#00f>True</span>:
+</span></span><span style=display:flex><span>        sys.stdout.write(question + prompt)
+</span></span><span style=display:flex><span>        choice = raw_input().lower()
+</span></span><span style=display:flex><span>        <span style=color:#00f>if</span> default <span style=color:#00f>is</span> <span style=color:#00f>not</span> <span style=color:#00f>None</span> <span style=color:#00f>and</span> choice == <span style=color:#a31515>&#39;&#39;</span>:
+</span></span><span style=display:flex><span>            <span style=color:#00f>return</span> valid[default]
+</span></span><span style=display:flex><span>        <span style=color:#00f>elif</span> choice <span style=color:#00f>in</span> valid:
+</span></span><span style=display:flex><span>            <span style=color:#00f>return</span> valid[choice]
+</span></span><span style=display:flex><span>        <span style=color:#00f>else</span>:
+</span></span><span style=display:flex><span>            sys.stdout.write(<span style=color:#a31515>&#34;Please respond with &#39;yes&#39; or &#39;no&#39; &#34;</span>\
+</span></span><span style=display:flex><span>                             <span style=color:#a31515>&#34;(or &#39;y&#39; or &#39;n&#39;).</span><span style=color:#a31515>\n</span><span style=color:#a31515>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#00f>def</span> returnInterfacesFromShowDescription(text):
+</span></span><span style=display:flex><span>    <span style=color:#a31515>&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#a31515>    Returns a LIST of interfaces from the output of &#39;show interface desc&#39; from a cisco device
+</span></span></span><span style=display:flex><span><span style=color:#a31515>    &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#00f>return</span> [ x.split()[0] <span style=color:#00f>for</span> x <span style=color:#00f>in</span> text.split(<span style=color:#a31515>&#34;</span><span style=color:#a31515>\n</span><span style=color:#a31515>&#34;</span>) ]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#00f>def</span> genUpdateConfigForInterfaces(config, interfaces):
+</span></span><span style=display:flex><span>    <span style=color:#a31515>&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#a31515>    Takes in a configuration block to run, a list of interfaces and generates the appropriate int range commands with the
+</span></span></span><span style=display:flex><span><span style=color:#a31515>    config block after
+</span></span></span><span style=display:flex><span><span style=color:#a31515>    &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    updateConfig = <span style=color:#a31515>&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#00f>while</span> len(interfaces) &amp;gt; 0:
+</span></span><span style=display:flex><span>        updateConfig += <span style=color:#a31515>&#34;int range &#34;</span> + <span style=color:#a31515>&#34;,&#34;</span>.join(interfaces[:5])
+</span></span><span style=display:flex><span>        interfaces = interfaces[5:]
+</span></span><span style=display:flex><span>        updateConfig += <span style=color:#a31515>&#34;</span><span style=color:#a31515>\n</span><span style=color:#a31515>  </span><span style=color:#a31515>%s</span><span style=color:#a31515>\n</span><span style=color:#a31515>&#34;</span> % config.strip()
+</span></span><span style=display:flex><span>    <span style=color:#00f>return</span> updateConfig
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#00f>def</span> updateSwitchportsWithDescription(switch, description, username, password, commands):
+</span></span><span style=display:flex><span>    <span style=color:#a31515>&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#a31515>    Function is used to log into a switch, find all switchports that CONTAINS the description
+</span></span></span><span style=display:flex><span><span style=color:#a31515>    with each of the said switchports, it will then execute the given commands.
+</span></span></span><span style=display:flex><span><span style=color:#a31515>
+</span></span></span><span style=display:flex><span><span style=color:#a31515>    switch:  Device to log into
+</span></span></span><span style=display:flex><span><span style=color:#a31515>    description:  Search string to try and find in the switchport description
+</span></span></span><span style=display:flex><span><span style=color:#a31515>    username:  Username to log into the switch with
+</span></span></span><span style=display:flex><span><span style=color:#a31515>    password:  The password to log into the switch with
+</span></span></span><span style=display:flex><span><span style=color:#a31515>    commands:  A list of commands that should be executed
+</span></span></span><span style=display:flex><span><span style=color:#a31515>    &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print <span style=color:#a31515>&#34;Working with switch: </span><span style=color:#a31515>%s</span><span style=color:#a31515>&#34;</span> % switch
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:green>#establish a SSH connection to the host</span>
+</span></span><span style=display:flex><span>    conn = SSH2()
+</span></span><span style=display:flex><span>    account = Account(username, password)
+</span></span><span style=display:flex><span>    conn.connect(switch)
+</span></span><span style=display:flex><span>    conn.login(account)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:green>#Do some pre-setup</span>
+</span></span><span style=display:flex><span>    conn.execute(<span style=color:#a31515>&#39;&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:green>#Make sure we&#39;re in super user mode</span>
+</span></span><span style=display:flex><span>    conn.execute(<span style=color:#a31515>&#39;enable&#39;</span>)
+</span></span><span style=display:flex><span>    conn.execute(<span style=color:#a31515>&#39;terminal length 0&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:green>#find all ports that have ESXHOST (or whatever is set in description) in the description</span>
+</span></span><span style=display:flex><span>    conn.execute(<span style=color:#a31515>&#39;show int desc | i </span><span style=color:#a31515>%s</span><span style=color:#a31515>&#39;</span> % description)
+</span></span><span style=display:flex><span>    ports = conn.response.strip()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print <span style=color:#a31515>&#34;Ports are:&#34;</span>
+</span></span><span style=display:flex><span>    print ports
+</span></span><span style=display:flex><span>    portsList = returnInterfacesFromShowDescription(ports)[1:-1]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:green>#go into config mode and get ready to run the update commands</span>
+</span></span><span style=display:flex><span>    <span style=color:green>#Generate a list of the update commands that should be ran</span>
+</span></span><span style=display:flex><span>    updateCommands = genUpdateConfigForInterfaces(commands, portsList).split(<span style=color:#a31515>&#34;</span><span style=color:#a31515>\n</span><span style=color:#a31515>&#34;</span>)
+</span></span><span style=display:flex><span>    conn.execute(<span style=color:#a31515>&#39;conf t&#39;</span>)
+</span></span><span style=display:flex><span>    print conn.response.strip()
+</span></span><span style=display:flex><span>    print <span style=color:#a31515>&#34;! About to execute the following commands.&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#00f>for</span> line <span style=color:#00f>in</span> updateCommands:
+</span></span><span style=display:flex><span>        print <span style=color:#a31515>&#34;! &#34;</span> + line
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#00f>if</span> query_yes_no(<span style=color:#a31515>&#39;Execute Commands?&#39;</span>, default=<span style=color:#a31515>&#34;no&#34;</span>):
+</span></span><span style=display:flex><span>        <span style=color:green>#Run the set of commands given</span>
+</span></span><span style=display:flex><span>        <span style=color:#00f>for</span> command <span style=color:#00f>in</span> updateCommands:
+</span></span><span style=display:flex><span>            conn.execute(command)
+</span></span><span style=display:flex><span>            print conn.response
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:green>#Exit out of config mode</span>
+</span></span><span style=display:flex><span>        conn.execute(<span style=color:#a31515>&#34;exit&#34;</span>)
+</span></span><span style=display:flex><span>        conn.execute(<span style=color:#a31515>&#34;exit&#34;</span>)
+</span></span><span style=display:flex><span>        print conn.response
+</span></span><span style=display:flex><span>        print
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#00f>if</span> __name__ == <span style=color:#a31515>&#39;__main__&#39;</span>:
+</span></span><span style=display:flex><span>    parser = argparse.ArgumentParser(description=<span style=color:#a31515>&#34;DC ESX VLAN Utility&#34;</span>)
+</span></span><span style=display:flex><span>    parser.add_argument(<span style=color:#a31515>&#39;--user&#39;</span>, help=<span style=color:#a31515>&#39;The username that should be used to log into the switches with&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    args = parser.parse_args()
+</span></span><span style=display:flex><span>    <span style=color:#00f>if</span> args.user:
+</span></span><span style=display:flex><span>        username = args.user
+</span></span><span style=display:flex><span>    <span style=color:#00f>else</span>:
+</span></span><span style=display:flex><span>        username = getpass.getuser()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    password = getpass.getpass()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:green># Generate a list of commands</span>
+</span></span><span style=display:flex><span>    <span style=color:#00f>for</span> switch <span style=color:#00f>in</span> SWITCHES:
+</span></span><span style=display:flex><span>        updateSwitchportsWithDescription(switch, <span style=color:#a31515>&#39;ESXHOST&#39;</span>, username, password, vlan_commands)
+</span></span></code></pre></td></tr></table></div></div></div></div><div class=post><h2 class=post__title><a href=https://www.scottyob.com/2013/12/18/throttling-guest-internet-on-apple-airport-extreme/>throttling guest internet on Apple Airport Extreme</a></h2><small>2013-12-18 13:09:03 +0000 UTC</small><div class=entry><p>I’ve been happily running my Apple Airport Extreme as m home router for the past few years (since my debian router died, and I’ve been too lazy to replace it).  One of the cool features was the ability to create a guest network (SSID) to access the internet without being able to access your trusted network.  One feature I wanted was the ability to throttle the speed guests can access the internet at.  While I couldn’t do this with the Airport Extreme alone, Add a Juniper SRX100 into the mix that the awesome <a href=http://cooperlees.com onclick='_gaq.push(["_trackEvent","outbound-article","http://cooperlees.com"])'>Cooper Lees</a> gave me into the mix and problem solved.</p><p><a href=/img/old/2013/12/apple-airport-extreme-base-station_1.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img class="aligncenter size-full wp-image-362" alt=apple-airport-extreme-base-station_1 src=/img/old/2013/12/apple-airport-extreme-base-station_1.jpg width=600 height=450></a></p><div id=attachment_357 style=width:499px class="wp-caption aligncenter"><a href=/img/old/2013/12/photo-1.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img aria-describedby=caption-attachment-357 class=wp-image-357 alt="SRX100, signed by the #1 Juniper Engineer" src=/img/old/2013/12/photo-1.jpg width=489 height=367></a><p id=caption-attachment-357 class=wp-caption-text>SRX100, signed by the #1 Juniper Engineer</p></div><p><a href=/img/old/2013/12/AirPort-Utility1.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img class="aligncenter size-full wp-image-353" alt="AirPort Utility" src=/img/old/2013/12/AirPort-Utility1.jpg width=697 height=667></a></p><p><a href=/img/old/2013/12/AirPort-Utility-2.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img class="aligncenter size-full wp-image-356" alt="AirPort Utility-2" src=/img/old/2013/12/AirPort-Utility-2.jpg width=580 height=581></a></p><p>In not so many words, performing these actions will do a number of things.  The gig ethernet switch on the back of the airport will be bridged with the WAN port.  Any traffic from your normal SSID(s) and switchports will be sent out the WAN port <em>untagged.</em>  Traffic from your guest network will be sent .1q tagged with vlan 1003.</p><p>I popped this into fe-0/0/1 on my SRX100 and the following config works the magic.</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  1
 </span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  2
 </span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  3
 </span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  4
@@ -460,168 +754,4 @@
 </span></span><span style=display:flex><span>notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/0]/Interface[Ethernet1/0]/mode: mode changed &#39;access&#39; to &#39;trunk&#39;
 </span></span><span style=display:flex><span>notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/0]/Interface[Ethernet1/0]/allowed_trunk_vlans: defined &#39;allowed_trunk_vlans&#39; as &#39;3,4,5,8,9&#39;
 </span></span><span style=display:flex><span>notice: Finished catalog run in 14.22 seconds
-</span></span></code></pre></td></tr></table></div></div><h3 id=my-002>my $0.02</h3><p>I must say, I’m very disappointed in this module so far.  It shows great promise and makes a once tedious task relatively effortless to manage, however with the time invested to find out what is and what is not supported, I think it’s far too early to invest in such a solution.  The idea of setting something like an expect script loose on my kit also worries me.  It’s much better to have an API or a promise that the input/output the expect script uses won’t change in a future release then do something unexpected (pun intended there.)</p><p>I guess if we were using an OS like Junos we could have <a href=http://www.swarm-logic.com/content/quick-way-configure-interface-ranges-juniper-switches-junos-tips onclick='_gaq.push(["_trackEvent","outbound-article","http://www.swarm-logic.com"])'>created apply-groups like this</a> to abstract the configuration in much the same manner, at least down to the switch level.  Very interesting for a new take on managing these things though</p><h2 id=span-stylecolor-ff6600editspan><span style=color:#f60>EDIT:</span></h2><p>I’ve been thinking about this a lot since I posted it.  I think I was too harsh on the tool.  It seems even Cisco’s own tools work by ssh’ing into the box to make their changes.. while not ideal, for these old IOS devices around, it seems to be the accepted thing to do.  It’s exciting times ahead in this space though, I can feel it!</p></div></div><div class=post><h2 class=post__title><a href=https://www.scottyob.com/2012/11/08/address-book-for-a-the-blind/>Address Book For the Blind</a></h2><small>2012-11-09 00:32:51 +0000 UTC</small><div class=entry><p>This article is about using the <a href=http://www.asterisk.org onclick='_gaq.push(["_trackEvent","outbound-article","http://www.asterisk.org"])'>Asterisk PBX</a> and exploiting <a href=http://www.google.com/insidesearch/features/voicesearch/index.html onclick='_gaq.push(["_trackEvent","outbound-article","http://www.google.com"])'>Google’s voice recognition </a>API built for voice search in Chrome to build an address book that technology inept people (my grandmother) can use to place cheap telephone calls over VoIP.</p><p>This tool is built for my grandmother; a lady who has <a href=http://www.mdfoundation.com.au onclick='_gaq.push(["_trackEvent","outbound-article","http://www.mdfoundation.com.au"])'>macular degeneration</a> making her legally blind.  She doesn’t want to invest a great deal of money in this solution or have much of a learning curve, it took long enough to get her using the two button audio book solution on the iPod.  </p><p>The basic idea is to purchase a direct inward dialing (DID) number and program it into her speed dial, this will connect to an Asterisk virtual machine that will launch the voice recognition to listen to who she wants to dial, look up the number in her address book then connect the call through, all at the rate of about $0.11 for a national call (actually saving her money!).</p><p>I’m using the <a href=http://zaf.github.com/asterisk-speech-recog/ onclick='_gaq.push(["_trackEvent","outbound-article","http://zaf.github.com"])'>Speech Recognition for Asterisk</a> module to convert the spoken recording to a string.  The problem with the method using this library for an address books is different words being returned that are pronounced very similar to the names in the book, for instance trying to find the name ‘elmer’ returned ‘Alma’.  With a bit of python scripting to use <a href=http://www.doughellmann.com/articles/how-tos/phonetic-hashing/index.html onclick='_gaq.push(["_trackEvent","outbound-article","http://www.doughellmann.com"])'>fuzzy matching to search by sound with python</a> we can start to compare what our speech recognition engine returned with what we actually have in our address book. It must be noted that this method only works for a small set of different numbers in an address book, which although fits my grandmother fine, I plan to script the server so I can always make that magic button (DID speed dial) re-direct the call to anywhere I like.</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span> dmetaphone = fuzzy.DMetaphone(3)
-</span></span><span style=display:flex><span> dmetaphone(&#39;Alma&#39;)
-</span></span><span style=display:flex><span>[&#39;ALM&#39;, None]
-</span></span><span style=display:flex><span> dmetaphone(&#39;Elmer&#39;)
-</span></span><span style=display:flex><span>[&#39;ALM&#39;, None]
-</span></span><span style=display:flex><span> dmetaphone(&#39;Toss&#39;)
-</span></span><span style=display:flex><span>[&#39;TS&#39;, None]
-</span></span><span style=display:flex><span> dmetaphone(&#39;Scott&#39;)
-</span></span><span style=display:flex><span>[&#39;SKT&#39;, None]
-</span></span><span style=display:flex><span> dmetaphone(&#39;Troy&#39;)
-</span></span><span style=display:flex><span>[&#39;TR&#39;, None]
-</span></span><span style=display:flex><span> dmetaphone(&#39;Sue&#39;)
-</span></span><span style=display:flex><span>[&#39;S&#39;, None]
-</span></span><span style=display:flex><span> dmetaphone(&#39;Janet&#39;)
-</span></span><span style=display:flex><span>[&#39;JNT&#39;, &#39;ANT&#39;]
-</span></span></code></pre></td></tr></table></div></div><p>So, to execute the plan, I’m using an account on <a href=https://www.mynetfone.com.au onclick='_gaq.push(["_trackEvent","outbound-article","http://www.mynetfone.com.au"])'>Mynetfone</a>.  The extensions.conf has a script to answer the call on my purchased DID, prompt for who she wants to talk to, run it through speech recognition, then call the number in her address book through a python script.  The extensions.conf that makes this magic happen looks like this:</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>; Phone call is made to the service, welcome user and get their speech
-</span></span><span style=display:flex><span>exten = 0920xxxx,1,Answer()
-</span></span><span style=display:flex><span>exten = 0920xxxx,1,Wait(2)
-</span></span><span style=display:flex><span>exten = 0920xxxx,n,agi(googletts.agi, &#34;Hello Miss Duckworth&#34;, en)
-</span></span><span style=display:flex><span>exten = 0920xxxx,n,agi(googletts.agi, &#34;I am here to attempt to make your social life easier.&#34;, en)
-</span></span><span style=display:flex><span>exten = 0920xxxx,n(intro),agi(googletts.agi, &#34;Who would you like to talk to?&#34;, en)
-</span></span><span style=display:flex><span>exten = 0920xxxx,n,agi(speech-recog.agi, en-US)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>; Look up number in address book, write debug information then go to the required section
-</span></span><span style=display:flex><span>exten = 0920xxxx,n,agi(address-book.agi,${utterance})
-</span></span><span style=display:flex><span>exten = 0920xxxx,n,Verbose(1,The text you just said is: ${utterance})
-</span></span><span style=display:flex><span>exten = 0920xxxx,n,Verbose(1,The probability to be right is: ${confidence})
-</span></span><span style=display:flex><span>exten = 0920xxxx,n,Verbose(1, ${foundname})
-</span></span><span style=display:flex><span>exten = 0920xxxx,n,Verbose(1, ${todial})
-</span></span><span style=display:flex><span>exten = 0920xxxx,n,GotoIf($[&#34;${foundname}&#34; = &#34;1&#34;]?success:fail)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>; Name not found in the address book
-</span></span><span style=display:flex><span>exten = 0920xxxx,n(fail),agi(googletts.agi,&#34;Sorry, I could not find the person ${utterance} in the address book&#34;, en)
-</span></span><span style=display:flex><span>exten = 0920xxxx,n,agi(googletts.agi, &#34;Please feel free to try again&#34;,en)
-</span></span><span style=display:flex><span>exten = 0920xxxx,n,Goto(intro)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>; Connect the user through the MyNetFone service.
-</span></span><span style=display:flex><span>exten = 0920xxxx,n(success),agi(googletts.agi, &#34;Please hold while I connect you to&#34;, en)
-</span></span><span style=display:flex><span>exten = 0920xxxx,n,agi(googletts.agi, &#34;${utterance}&#34;, en)
-</span></span><span style=display:flex><span>exten = 0920xxxx,n,Dial(SIP/MyNetFone/${todial}, 30)
-</span></span><span style=display:flex><span>exten = 0920xxxx,n,Hangup()
-</span></span></code></pre></td></tr></table></div></div><p>and the python script address-book.agi file:</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>
-</span></span><span style=display:flex><span>import sys
-</span></span><span style=display:flex><span>import fuzzy
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span># Read and ignore AGI environment (read until blank line)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>addressBook = {
-</span></span><span style=display:flex><span>   &#39;scott&#39;: &#39;0415xxxxxx&#39;,
-</span></span><span style=display:flex><span>   &#39;susan&#39;: &#39;98xxxxxx&#39;,
-</span></span><span style=display:flex><span>   &#39;support&#39;: &#39;181&#39;
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>dmetaphone = fuzzy.DMetaphone(3)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>env = {}
-</span></span><span style=display:flex><span>tests = 0;
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>while 1:
-</span></span><span style=display:flex><span>   line = sys.stdin.readline().strip()
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>   if line == &#39;&#39;:
-</span></span><span style=display:flex><span>      break
-</span></span><span style=display:flex><span>   key,data = line.split(&#39;:&#39;)
-</span></span><span style=display:flex><span>   if key[:4] &amp;lt; &#39;agi_&#39;:
-</span></span><span style=display:flex><span>      #skip input that doesn&#39;t begin with agi_
-</span></span><span style=display:flex><span>      sys.stderr.write(&#34;Did not work!\n&#34;);
-</span></span><span style=display:flex><span>      sys.stderr.flush()
-</span></span><span style=display:flex><span>      continue
-</span></span><span style=display:flex><span>   key = key.strip()
-</span></span><span style=display:flex><span>   data = data.strip()
-</span></span><span style=display:flex><span>   if key &amp;lt; &#39;&#39;:
-</span></span><span style=display:flex><span>      env[key] = data
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>spokenWord = dmetaphone(env[&#39;agi_arg_1&#39;])
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>for name in addressBook:
-</span></span><span style=display:flex><span>   if dmetaphone(name) == spokenWord:
-</span></span><span style=display:flex><span>      print &#39;SET VARIABLE todial &#34;%s&#34;&#39; % addressBook[name]
-</span></span><span style=display:flex><span>      print &#39;SET VARIABLE foundname &#34;1&#34;&#39;
-</span></span><span style=display:flex><span>      sys.exit(0)
-</span></span><span style=display:flex><span>print &#39;SET VARIABLE foundname &#34;0&#34;&#39;
-</span></span></code></pre></td></tr></table></div></div></div></div><div class=navigation><div class=rightnav><a href=/page/5/>Earlier Posts</a> »</div><div class=snap-to-fit></div></div><div id=footer>Made with <a href=https://gohugo.io/>Hugo</a>. Theme half-milk inspired by <a href=http://thortz.com/skimmed-milk/>skimmed-milk</a></div></div><div id=sidebar class="col-md-3 order-md-first d-none d-md-block"><h2>Other Pages</h2><ul><li><a href=/page/bucketlist/>The Bucket List</a></li><li><a href=/page/about/>About Me</a></li><li><a href=/recipes/>Recipes</a></li></ul></div></div></div></body></html>
+</span></span></code></pre></td></tr></table></div></div><h3 id=my-002>my $0.02</h3><p>I must say, I’m very disappointed in this module so far.  It shows great promise and makes a once tedious task relatively effortless to manage, however with the time invested to find out what is and what is not supported, I think it’s far too early to invest in such a solution.  The idea of setting something like an expect script loose on my kit also worries me.  It’s much better to have an API or a promise that the input/output the expect script uses won’t change in a future release then do something unexpected (pun intended there.)</p><p>I guess if we were using an OS like Junos we could have <a href=http://www.swarm-logic.com/content/quick-way-configure-interface-ranges-juniper-switches-junos-tips onclick='_gaq.push(["_trackEvent","outbound-article","http://www.swarm-logic.com"])'>created apply-groups like this</a> to abstract the configuration in much the same manner, at least down to the switch level.  Very interesting for a new take on managing these things though</p><h2 id=span-stylecolor-ff6600editspan><span style=color:#f60>EDIT:</span></h2><p>I’ve been thinking about this a lot since I posted it.  I think I was too harsh on the tool.  It seems even Cisco’s own tools work by ssh’ing into the box to make their changes.. while not ideal, for these old IOS devices around, it seems to be the accepted thing to do.  It’s exciting times ahead in this space though, I can feel it!</p></div></div><div class=navigation><div class=rightnav><a href=/page/5/>Earlier Posts</a> »</div><div class=snap-to-fit></div></div><div id=footer>Made with <a href=https://gohugo.io/>Hugo</a>. Theme half-milk inspired by <a href=http://thortz.com/skimmed-milk/>skimmed-milk</a></div></div><div id=sidebar class="col-md-3 order-md-first d-none d-md-block"><h2>Other Pages</h2><ul><li><a href=/page/bucketlist/>The Bucket List</a></li><li><a href=/page/about/>About Me</a></li><li><a href=/recipes/>Recipes</a></li></ul></div></div></div></body></html>
