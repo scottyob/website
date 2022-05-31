@@ -15,7 +15,7 @@ In Network Engineering at ~~Facebook~~ Meta, we've been going through an interes
 
 I've always said that I'm not overly a smart person (though am stubborn enough to solve most problems), and don't expect to be able to pick it up quickly, I decided to start learning by challenge tasks, do as much as I can in it, and document some here.
 
-For my challenges, I'm going to use Project Euler and compare my solutions in Python and Rust.  Python because it's my most comfortable language.
+For my challenges, I'm going to use both [Project Euler](https://projecteuler.net/) and compare my solutions in Python and Rust.  Python because it's my most comfortable language.
 
 ## Challenges
 ### Multiples of 3 or 5
@@ -35,19 +35,18 @@ fn main() {
 }
 ```
 
-### Question 2
-```
- a = 1
- b = 2
- total = 2
- while 1:
-     c = a + b
-     if c > 4000000:
-         break
-     if c % 2 == 0:
-         total += c
-     a = b
-     b = c
- print(total)
-```
+### Adjacent Nodes
+This one is worth writing out.  [This problem](https://edabit.com/challenge/3DAkZHv2LZjgqWbvW) effectively has a 2D array, and asks us to lookup if the value in a given position is a 0, or 1.  It should be super simple, but I spent many hours on learning about ways of going about doing this.  Some observations
 
+Python:
+- I'd probably solve it something like this https://trinket.io/python/36fdfff63b
+- It's interesting that I tend to let the IndexError bubble up to the main function
+
+Rust:
+This one got me very, very confused.  Some observations:
+- [This](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=3269e24bf506f00f069b9fd1303cf567) was my first attempt
+  - I couldn't figure out how to pass the arrays of variable size through to the is_adjacent function, so I instead used Vectors.  Not sure if this is accepted practice considering I probably don't need the overhead of ever adding/removing items in the constant matrix here
+  - The code did not use any errors, but avoided run-time bound checking panics by making good use of the get call.
+- [This](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=790b1afd24b37d4978f6eca40a1d1835) was my second attempt.
+  - This is interesting, that we have an Optional return type, and force the users to read the docs to know what the return behavior will be (I guess no different to returning errors and docs specifying what errors can be returned)
+  - Made use of the ```?``` operator to be able to filter errors right back up to a Null return type.
