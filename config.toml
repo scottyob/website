@@ -1,14 +1,13 @@
 baseURL = "https://www.scottyob.com/"
 languageCode = "en-us"
 title = "Scott O'Brien"
-theme = ["half-milk", "hugo-shortcode-gallery"]
-paginate = 4
+theme = ["arabica-scott", "hugo-shortcode-gallery"]
+# paginate = 4
 
 [params]
-  tagline = "Projects, Ramblings and Resources of my (online) life"
-  backgroundColor = "#fff"
-  linkColor = "#ff7010"
+  description = "Projects, Ramblings and Resources of my (online) life"
   galleryPreviewType = "none"
+  smallPictures = true
 
 
 [markup]

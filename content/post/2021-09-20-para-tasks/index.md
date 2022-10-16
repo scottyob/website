@@ -6,6 +6,7 @@ categories:
   - Software
   - React
 url: "/posts/paratasks"
+image: /posts/paratasks/demo.gif
 ---
 
 It's so easy to build react apps these days.  Over two nights, I knocked up a quick website to be able to upload igc flight files, and an xctask files to locally compute if you managed to hit the targets.

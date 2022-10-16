@@ -15,8 +15,8 @@ then
 fi
 
 date="$(date +'%Y-%m-%d')"
-mkdir "content/posts/$date-$1"
-filename="content/posts/$date-$1/index.md"
+mkdir "content/post/$date-$1"
+filename="content/post/$date-$1/index.md"
 
 echo "---" > $filename
 echo "title: '$1'" >> $filename

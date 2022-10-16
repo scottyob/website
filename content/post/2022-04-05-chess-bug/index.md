@@ -7,6 +7,7 @@ categories:
  - nerd
 tags:
  - chess
+image: /post/2022-04-05-chess-bug/logo.pnghugo 
 
 ---
 

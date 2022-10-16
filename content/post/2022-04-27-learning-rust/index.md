@@ -7,6 +7,7 @@ categories:
  - programming
 tags:
  - rust
+image: /post/2022-04-27-learning-rust/rustdocs.png
 
 ---
 
