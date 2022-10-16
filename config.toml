@@ -1,7 +1,7 @@
 baseURL = "https://www.scottyob.com/"
 languageCode = "en-us"
 title = "Scott O'Brien"
-theme = ["arabica-scott", "hugo-shortcode-gallery"]
+theme = ["arabica", "hugo-shortcode-gallery"]
 # paginate = 4
 
 [params]
