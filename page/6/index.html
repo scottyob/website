@@ -1,515 +1,593 @@
-<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=generator content="Hugo 0.104.3"><link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css integrity=sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk crossorigin=anonymous><link rel=stylesheet href=/css/code_tango.css><script src=https://code.jquery.com/jquery-3.6.0.min.js integrity=sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK crossorigin=anonymous></script>
-<script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js integrity=sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo crossorigin=anonymous></script>
-<script src=https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js integrity=sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI crossorigin=anonymous></script>
-<link href=https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css rel=stylesheet><script src=https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js></script>
-<link rel=apple-touch-icon sizes=180x180 href=https://www.scottyob.com/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://www.scottyob.com/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://www.scottyob.com/favicon-16x16.png><link rel=manifest href=https://www.scottyob.com/site.webmanifest><link rel=mask-icon href=https://www.scottyob.com/safari-pinned-tab.svg color><meta name=msapplication-TileColor content><meta name=theme-color content><title>Home | Scott O'Brien</title><style>@media(min-width:992px){.container{max-width:1442px}}body{background-color:#fff;background-color:#fff;color:#888;font-size:.66em;font-family:lucida grande,Verdana,Arial,Sans-Serif;line-height:1.4;margin:0;padding:0}.header{margin:4em 0}@media(min-width:768px){#sidebar{text-align:right}}#sidebar{text-transform:lowercase}#sidebar h2{font-family:lucida grande,Verdana,Arial,Sans-Serif;font-size:1.2em;text-transform:uppercase;margin:0;padding:.5em 0 .4em}#sidebar ul{list-style-type:none;margin:0;padding:0}#sidebar li:before{content:"\00BB  "}a{color:#ff7010;text-decoration:none}h1{font-size 3.2em;line-height:1em}h2{font-size:1.4em;margin-top:10px}h1,h2,h3,h4,h5{font-family:trebuchet ms,lucida grande,Verdana,Arial,Sans-Serif;font-weight:700;line-height:normal}small{font-size:1em;line-height:1.5em;background-color:inherit;color:#888}h2.pagetitle{background-color:#f0f0f0;color:inherit;padding:.5em 0 .4em .2em;margin:0 0 2em}#content{color:#484848}.leftnav{float:left;margin:0 1em}.rightnav{float:right}.snap-to-fit{clear:both;visibility:hidden}.navigation{margin:0 0 1.6em;padding:0 0 1px;font-family:lucida grande,Arial,Verdana,Sans-Serif;font-size:1.2em}.post{margin:0 0 3em}.post+.post .post__title{padding:.2em 0 0;border-top:1px solid #888}.entry{width:100%;font-size:1.2em;margin:1em 0 0;overflow:auto}blockquote{margin:1.6em 2.8em 0 1.4em;padding:0 0 0 2em;border-left:.6em solid #ddd}#footer{clear:both;margin:4em 0 1em;padding:.2em 0 0;border-top:1px solid #888;font-family:lucida grande,Arial,Verdana,Sans-Serif}</style></head><body><div id=navbar-top class=d-md-none><nav class="navbar navbar-expand-lg navbar-light bg-light"><a class=navbar-brand href=/>Posts</a>
-<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarNavAltMarkup aria-controls=navbarNavAltMarkup aria-expanded=false aria-label="Toggle navigation">
-<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarNavAltMarkup><div class=navbar-nav><a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
-<a class="nav-item nav-link" href=/page/about/>About Me</a>
-<a class="nav-item nav-link" href=/recipes/>Recipes</a></div></div></nav></div><div class=container id=container><div class=row><div class="col-md-9 offset-md-3"><div class=header><h1><a href=/>Scott O'Brien</a></h1><small>Projects, Ramblings and Resources of my (online) life</small></div></div></div><div class=row><div id=content class=col-md-9><div class=navigation><div class=leftnav>« <a href=/page/5/>Later Posts</a></div><div class=snap-to-fit></div></div><div class=post><h2 class=post__title><a href=https://www.scottyob.com/2012/07/09/monitoring-srx-chassis-cluster/>Monitoring SRX Chassis Cluster</a></h2><small>2012-07-09 04:44:35 +0000 UTC</small><div class=entry><p>Just finishing off a few things at work this week.  We’ve got a few sites around the place where we have HA internet powered by two Juniper SRX100’s.  The Two SRX100’s operate in a Chassis Cluster and peer with our ISP using BGP across both active/passive devices.</p><p>Below is a little Nagios check script that I wrote to hook into our in-house Nagios monitoring platform.  It makes sure the chassis cluster has not failed over operating in a degraded state, and makes sure that there are two BGP peers connected.</p><p>NOTE:  I was aiming for simplicity in this setup, if you’ve got a bigger environment or require instant notifications you might wish to set up snmp traps to get instant notifications.</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">42
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">43
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">44
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">45
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">46
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">47
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">48
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">49
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">50
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">51
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">52
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">53
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">54
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>
-</span></span><span style=display:flex><span># Bash script to check the status of a SRX cluster.
-</span></span><span style=display:flex><span>#  Works by SSHing into cluster to check &#34;show chassis cluster status&#34; command and SNMP walking to make sure BGP peers
-</span></span><span style=display:flex><span>#  are both in a connected state
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>STATE_OK=0
-</span></span><span style=display:flex><span>STATE_WARNING=1
-</span></span><span style=display:flex><span>STATE_CRITICAL=2
-</span></span><span style=display:flex><span>STATE_UNKNOWN=3
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>clusterAddress=$1
-</span></span><span style=display:flex><span>privateKey=$2
-</span></span><span style=display:flex><span>clusterStatus=`ssh nagios@$clusterAddress -i $privateKey &#34;show chassis cluster status&#34;`
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>declare -i primaryCount
-</span></span><span style=display:flex><span>declare -i secondaryCount
-</span></span><span style=display:flex><span>declare -i failoverCount
-</span></span><span style=display:flex><span>declare -i activeBgpPeers
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>activeBgpPeers=`snmpwalk -Os -c public -v 1 $clusterAddress .1.3.6.1.2.1.15.3.1.2 | grep &#34;INTEGER: 6&#34; | wc -l`
-</span></span><span style=display:flex><span>primaryCount=`echo &#34;$clusterStatus&#34; | grep primary | wc -l`
-</span></span><span style=display:flex><span>secondaryCount=`echo &#34;$clusterStatus&#34; | grep secondary | wc -l`
-</span></span><span style=display:flex><span>failoverCount=`echo &#34;$clusterStatus&#34; | grep &#34;Failover count: 0&#34; | wc -l`
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>if [ $primaryCount -ne 2 ]
-</span></span><span style=display:flex><span>then
-</span></span><span style=display:flex><span>        echo &#34;No two primary redundancy groups&#34;
-</span></span><span style=display:flex><span>		echo &#34;$clusterStatus&#34;
-</span></span><span style=display:flex><span>        exit $STATE_CRITICAL
-</span></span><span style=display:flex><span>fi
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>if [ $secondaryCount -ne 2 ]
-</span></span><span style=display:flex><span>then
-</span></span><span style=display:flex><span>        echo &#34;No two secondary redundancy groups&#34;
-</span></span><span style=display:flex><span>		echo &#34;$clusterStatus&#34;
-</span></span><span style=display:flex><span>        exit $STATE_CRITICAL
-</span></span><span style=display:flex><span>fi
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>if [ $failoverCount -ne 2 ]
-</span></span><span style=display:flex><span>then
-</span></span><span style=display:flex><span>        echo &#34;SRX has fallen over on a redundancy group&#34;
-</span></span><span style=display:flex><span>		echo &#34;$clusterStatus&#34;
-</span></span><span style=display:flex><span>        exit $STATE_WARNING
-</span></span><span style=display:flex><span>fi
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>if [ $activeBgpPeers -ne 2 ]
-</span></span><span style=display:flex><span>then
-</span></span><span style=display:flex><span>        echo &#34;NOT 2 Active BGP Peers&#34;
-</span></span><span style=display:flex><span>        exit $STATE_CRITICAL
-</span></span><span style=display:flex><span>fi
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>echo &#34;OK, 2 peers.  OK: Chassis Cluster status OK&#34;
-</span></span><span style=display:flex><span>echo &#34;$clusterStatus&#34;
-</span></span><span style=display:flex><span>exit $STATE_OK
-</span></span></code></pre></td></tr></table></div></div><p> </p></div></div><div class=post><h2 class=post__title><a href=https://www.scottyob.com/2012/06/03/easily-accessing-geoip-restricted-sites-in-your-network/>Easily accessing GeoIP restricted sites in your network.</a></h2><small>2012-06-03 11:05:05 +0000 UTC</small><div class=entry><p>We all know the problem, some sites are restricted to certain countries based on the IP address you’re using to view them.  When trying to access over-seas, some solutions are HTTP proxies, Socks proxies and the like.  The problem I have with all of these is that they’re annoying to set up whenever you want to to view the site and I don’t want to have to do that for all my devices (iPad, computer, etc).</p><p>This solution will tunnel only the sites you want over a VPN connection to be NAT’d out the other end.</p><p><a href=/img/old/2012/06/Network-Config.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img class="aligncenter size-full wp-image-176" title="Network Config" src=/img/old/2012/06/Network-Config.jpg alt width=410 height=529></a></p><p>First we want to set up OpenVPN on the remote host by issuing “openvpn –genkey –secret static.key” then creating a file in (/etc/openvpn/server.conf)</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>port 1194
-</span></span><span style=display:flex><span>proto tcp-server
-</span></span><span style=display:flex><span>dev tun
-</span></span><span style=display:flex><span>ifconfig 10.0.6.1 10.0.6.2 
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span># Crypto
-</span></span><span style=display:flex><span>secret /etc/openvpn/static.key
-</span></span><span style=display:flex><span>comp-lzo
-</span></span><span style=display:flex><span>keepalive 10 120
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span># Security
-</span></span><span style=display:flex><span>persist-key
-</span></span><span style=display:flex><span>persist-tun
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span># Logging
-</span></span><span style=display:flex><span>status openvpn-status.log
-</span></span></code></pre></td></tr></table></div></div><p>One thing we need to do on the server is set up NAT on the outbound address (to make sure all traffic that passes our VPS destined for the internet looks like it’s from that US IP address)</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span># Allow unlimited outbound traffic
-</span></span><span style=display:flex><span>/sbin/iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-</span></span><span style=display:flex><span>/sbin/iptables -A OUTPUT -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>iptables -t nat -A POSTROUTING -s 10.0.6.0/24 -o eth0 -j MASQUERADE
-</span></span><span style=display:flex><span>echo 1 &amp;gt; /proc/sys/net/ipv4/ip_forward
-</span></span></code></pre></td></tr></table></div></div><p>On the client side, things look very similar,</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>persist-key
-</span></span><span style=display:flex><span>comp-lzo no
-</span></span><span style=display:flex><span>redirect-gateway def1
-</span></span><span style=display:flex><span>nobind
-</span></span><span style=display:flex><span>persist-tun
-</span></span><span style=display:flex><span>secret secret.key
-</span></span><span style=display:flex><span>dev tun
-</span></span><span style=display:flex><span>ifconfig 10.0.6.2. 10.0.6.1
-</span></span></code></pre></td></tr></table></div></div><p>On the client, I just also MASQUERADE’d data though (I know, double NAT’ing, easier then adjusting routing table on the VPS)</p><p>Now for the magic to happen. I just replaced the DNS server on my home router with a little Python script (&lt;3 Twisted framework) to proxy requests, adding a tunnel for IP&rsquo;s that get returned by sites in my list (in this case I&rsquo;ve chosen two fictious sites, HooLoo.com and pandoor.com</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">42
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">43
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">44
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">45
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">46
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">47
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">48
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>
-</span></span><span style=display:flex><span>from twisted.internet.protocol import Factory, Protocol
-</span></span><span style=display:flex><span>from twisted.internet import reactor
-</span></span><span style=display:flex><span>from twisted.names import dns
-</span></span><span style=display:flex><span>from twisted.names import client, server
-</span></span><span style=display:flex><span>import subprocess
-</span></span><span style=display:flex><span>from sys import exit
-</span></span><span style=display:flex><span>from os import fork
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>tunnelDomains = [
-</span></span><span style=display:flex><span>  &amp;#8216;pandoor.com&amp;#8217;,
-</span></span><span style=display:flex><span>  &amp;#8216;hooloo.com&amp;#8217;
-</span></span><span style=display:flex><span>]
-</span></span><span style=display:flex><span>dnsServers = [(&amp;#8216;203.12.160.35&amp;#8217;, 53), (&amp;#8216;203.12.160.36&amp;#8217;, 53)]
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>try:
-</span></span><span style=display:flex><span>	pid = fork()
-</span></span><span style=display:flex><span>	if pid &amp;gt; 0:
-</span></span><span style=display:flex><span>		exit(0)
-</span></span><span style=display:flex><span>except OSError, e:
-</span></span><span style=display:flex><span>	exit(1)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>def tunnel(address):
-</span></span><span style=display:flex><span>       subprocess.call([&#34;route&#34;, &#34;add&#34;, address + &#34;/32&#34;, &#34;tun0&#34;])  
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>class SpelDnsReolver(client.Resolver):
-</span></span><span style=display:flex><span>  def filterAnswers(self, message):
-</span></span><span style=display:flex><span>    if message.trunc:
-</span></span><span style=display:flex><span>      return self.queryTCP(message.queries).addCallback(self.filterAnswers)
-</span></span><span style=display:flex><span>    else:
-</span></span><span style=display:flex><span>      for d in tunnelDomains:
-</span></span><span style=display:flex><span>        if str(message.queries[0].name).endswith(d):
-</span></span><span style=display:flex><span>          for answer in message.answers:
-</span></span><span style=display:flex><span>            if answer.type == 1: #A record
-</span></span><span style=display:flex><span>              tunnel(answer.payload.dottedQuad())
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    return (message.answers, message.authority, message.additional)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>verbosity = 0
-</span></span><span style=display:flex><span>resolver = SpelDnsReolver(servers=dnsServers)
-</span></span><span style=display:flex><span>f = server.DNSServerFactory(clients=[resolver], verbose=verbosity)
-</span></span><span style=display:flex><span>p = dns.DNSDatagramProtocol(f)
-</span></span><span style=display:flex><span>f.noisy = p.noisy = verbosity
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>reactor.listenUDP(53, p)
-</span></span><span style=display:flex><span>reactor.listenTCP(53, f)
-</span></span><span style=display:flex><span>reactor.run()
-</span></span></code></pre></td></tr></table></div></div></div></div><div class=post><h2 class=post__title><a href=https://www.scottyob.com/2012/04/13/ha-software/>High Availability WordPress LAMP Stack – Part 2</a></h2><small>2012-04-13 08:16:30 +0000 UTC</small><div class=entry><h3 id=setting-up-the-software-stack>Setting up the Software Stack</h3><p>This article is the second in a series (<a href=http://www.scottyob.com/2012/04/13/ha-network/ onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'>see part 1 here</a>).  Please see <a href=http://www.scottyob.com/2012/04/13/ha-network/ onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'>HA Network</a> for the first part in setting up the network topology to be highly available.</p><p>It’s all good having a redundant network design, but putting web servers and the like on our hypervisors doesn’t make them redundant.  In the event where there’s a failure on one of our servers, all virtual machines on that server will die.  Looking at our previous network design, we can see a failure on a web server or database server would cause service outage.</p><p><a href=/img/old/2012/04/Old-Network-1.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img class="aligncenter size-full wp-image-136" title="Old Network-1" src=/img/old/2012/04/Old-Network-1.jpg alt width=241 height=445></a></p><p>In this example, I’m going to talk about a few pretty cool pieces of software that you can use to make a highly available (HA) service stack for hosting Apache web sites from a MySQL data store.  This post isn’t going to be about all the in’s and out’s of how to accomplish, but hopefully it will answer some questions you might have when setting out to accomplish this task as well as point you to the appropriate articles to help you achieve what you’re after.</p><h4 id=nginx-load-balancing-proxy>Nginx load balancing proxy</h4><p>Lets look first at an example of a previous example.  Lets take a simple network where we have a web server with a client.  The A record for <a href=https://www.example.com>www.example.com</a> points to our web server at 192.168.0.10 (of course we’d use NAT on the firewalls in my example to expose it to the internet).</p><p><a href=/img/old/2012/04/skitched-3.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img class="aligncenter size-full wp-image-158" title="Client Server" src=/img/old/2012/04/skitched-3.jpg alt width=337 height=101></a></p><p>From my previous post, we can tell that the network topology to reach our web server on 192.168.0.10 is highly redundant, if the server itself, or the physical machine it’s hosted on in the case of virtual machines does die, we can no longer serve web pages.</p><p>To solve this problem, we’re going to create multiple web servers. The A record for <a href=https://www.example.com>www.example.com</a> is now no longer going to be pointing to the web server itself, but a proxy server (I recommend <a href=http://wiki.nginx.org/Configuration onclick='_gaq.push(["_trackEvent","outbound-article","http://wiki.nginx.org"])'>Nginx</a>.) Now you can see that if either web server dies, our proxy server is able to start handing out requests through the other server. This method is also recommended because it mitigates load from a single server. If your web site got more popular, we can just start scaling out and adding more web servers into the mix to handle the load. Now, I know what you’re thinking, and yes, we have just moved the single point of failure from the web server to the proxy server, but please read on to find out how to protect that host from failure.</p><p><a href=/img/old/2012/04/Proxy-Server-1.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img class="aligncenter size-full wp-image-159" title="Proxy Server-1" src=/img/old/2012/04/Proxy-Server-1.jpg alt width=484 height=272></a></p><h4 id=heartbeat-keep-your-servers-beating>Heartbeat, keep your servers beating</h4><p>In the previous example, we had a server that was a single point of failure.  If the proxy server in this case died, then our web site would go down.  To plan against the failure of this machine, you can set up a tool such as <a href=http://www.howtoforge.com/high_availability_heartbeat_centos onclick='_gaq.push(["_trackEvent","outbound-article","http://www.howtoforge.com"])'>Heartbeat</a>.  An example works like the following, your proxy server above is running the Nginx daemon handling your client’s requests, but it does so using a virtual network adaptor where it’s IP address 192.168.0.10 sits.  You put a second server in here in the mix with the same Nginx daemon and the same configuration, but it’s not running or serving anything, this is known as our slave server.  The slave server is sending heartbeat messages to the master server.  In the event that the master server stops responding to the slave’s heartbeat messages, it assumes the master is down and will create a virtual adaptor assuming the working IP address (192.168.0.10 in our example) and brings up the master services.</p><p><a href=/img/old/2012/04/Heartbeat-1.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img class="aligncenter size-full wp-image-160" title=Heartbeat-1 src=/img/old/2012/04/Heartbeat-1.jpg alt width=453 height=406></a></p><p>I use heartbeat extensively through my HA configurations. Not only for allowing services to be taken up by a slave in the event of a master failure, but also where I have clusters (for example, a MySQL cluster). When the slave assumes the master’s IP address, it’s handy to write a little script/service here to stop any replication and assume the master’s role.</p><p><strong>ProTip:</strong> Managing configuration across your servers when you start creating multiple instances for redundancy can start to get out of hand very quickly. Sometimes you can change a configuration on one server and forget to do it on another. I suggest using a tool like <a href=http://en.wikipedia.org/wiki/Puppet_(software) onclick='_gaq.push(["_trackEvent","outbound-article","http://en.wikipedia.org"])'>Puppet</a> to manage the configuration on your servers for you</p><p><strong>ProTip:</strong> From experience, I’ve had situations in failover testing where the failure of a core switch will cause heartbeat to stop receiving heartbeats and fail the servers over, even though the physical and virtual machines themselves are fine. If you’re running the (non-rapid) Spanning Tree Protocol (STP) on your network, I suggest making the timeout for Heartbeat about 45 seconds. This should be enough time to allow for STP convergence before it assumes it’s partner is dead.</p><h4 id=nfs-file-store>NFS File Store</h4><p>In the example above, we’ve got multiple web servers. As I’ve said, this setup could be used to host a HA WordPress site. The problem is that when content that sits on the file system (such as an image or theme uploaded, wordpress upgrade, etc) takes place, it will no longer be in sync with the other web servers. For us, hosting the wordpress installation from an NFS mount point worked fine, which begins a thought on how to make this NFS server highly available.</p><p>Just like the previous example, we’re going to use Heartbeat to make sure we’ve got a master and slave, and that when the master fails, the slave will start hosting the NFS services. There’s only one more added piece of complexity here. If the master fails, the slave has none of the data that was stored on the master. To get around this, I’m using a tool called DRBD. DRBD allows a block device to be created and synced across multiple hosts. When you write to this device, data is replicated on the slave too. That way when the master dies and the slave takes it’s roll, it will have all the data that existed previously on the master. A good tutorial to set this up can be found <a href=http://www.howtoforge.com/high_availability_nfs_drbd_heartbeat onclick='_gaq.push(["_trackEvent","outbound-article","http://www.howtoforge.com"])'>HERE</a></p><p><strong>ProTip:</strong> Once again from experience, when everything is not working as expected, having the slave be promoted is a horrible thing. If the data has not been replicating for some reason over the past few months and the slave gets promoted with data that’s a few months old, it can be a horrible, horrible thing. I suggest running a tool like Nagios on your stack to monitor EVERYTHING you can think of. A good way to check if your DRBD servers are in sync is to look for the term UpToDate/UpToDate in /proc/drbd.</p><h4 id=mysql-cluster>MySQL Cluster</h4><p>There are two ways of running your MySQL server in high redundancy. One simple method using tools you’ve already used is to have the MySQL data store running over DRBD and have Heartbeat keeping it in track. This is pretty simple to set up and I’m running it on one of my sites without a problem.</p><p>The problem with running MySQL in this sort of setup is scale. Putting your web servers behind a load balancing proxy is a good first step in allowing for you to slot more servers in your solution and starting to scale out. Once the bottleneck moves to your MySQL server, running a single active/passive pair over DRBD won’t scale out, only up (more expensive, faster hardware).</p><p>The second time I had to set this up, I chose to run my servers in a <a href=http://dev.mysql.com/doc/refman/5.1/en/replication.html onclick='_gaq.push(["_trackEvent","outbound-article","http://dev.mysql.com"])'>MySQL cluster</a>. This means that whenever a transaction is committed on the master, it is sent to the slave to commit as well. The advantage with this is that it allows you to spread out SELECT queries among your slaves instead of running everything on your one server.</p><h4 id=word-for-the-wise>Word for the wise</h4><p>Now we have a highly available network stack in place with highly available system services, we can sleep better knowing that if a system outage were to occur, we have our insurance policy in place knowing that in about 50 seconds, a network issue can converge and services can be automatically moved over to hot standby machines. This does not however give you an excuse to not have a backup strategy in place.</p><p>If you’re doing backups as an afterthought, I can recommend setting up an OpenIndiana machine running ZFS on it. Setting it up <a href=http://www.scottyob.com/category/nerd/fileserver-nerd/ onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'>like I have</a> off site with rotating snapshots. At our work we do nightly backups and for us it’s as simple as doing a database dump, then rsync’ing everything over to this remote ZFS machine to get snapshotted, feeling safe I can access old data from 6 weeks ago (my nightly snapshot period.)</p><h4 id=whats-to-come>What’s to come?</h4><p>If you’ve got this far, Thanks for reading and I hope this post pointed you in the right direction to help build highly available services. I think more and more in today’s world people are expecting IT infrastructure to be always up and available. If you don’t have standby servers available, sooner or later, you’re bound to have unhappy customers. I’ve always wanted to build a disaster recovery site, with a highly active database so that in the event of an entire site failing over (think natural disaster, people errors and the like) a site can fail over to another physical disaster recovery (DR) location.</p></div></div><div class=post><h2 class=post__title><a href=https://www.scottyob.com/2012/04/13/ha-network/>High Availability WordPress LAMP Stack.</a></h2><small>2012-04-13 07:27:11 +0000 UTC</small><div class=entry><h3 id=introduction>Introduction</h3><p>In one of my last little tasks at work, I was asked to eliminate single points of failure in the software and hardware stack without spending a fortune on hardware or software licenses. During the process of ensuring high availability (HA), I realized that many small companies might have similar need, but with more pressing tasks and limited man hours, without a post that talks about all the issues and solutions in one place, many companies and organisations tend to leave single points of failure living with the chance that they’re not going to fail any time soon.</p><p>I’ve wanted to write this blog post for a while. After you’ve finished reading this blog post, you should have the knowledge to be able to eliminate the single point of failures in hosting a WordPress website. While I’ve chosen WordPress to be the demonstration of this post, the concepts will work with any apache/mysql LAMP stack software. During the course of this tutorial, I’ll run you through it in two parts. The first part is talking about setting up the physical hosts and topology (using Juniper EX2200 switches, SRX100 border firewall’s and ESXi (free) hypervisors for the software stack.) The second part is talking about setting up the software stack to deliver our LAMP stack in a highly redundant fashion.  However what I won’t be doing is providing complete configuration examples.  Instead, please consider this post as an overview to help enlighten you and link you to more specific information to help you set this up in your own environment.</p><p>This blog post is split up in two parts, this first post in the series talks about setting up the network infrastructure, the second talks about setting up the software stack.</p><p>Part 1 (physical topology)</p><p>– Network overview</p><p>– Setting up dual Switches</p><p>– Setting up ESXi network cards.</p><p>– Setting up SRX border firewall’s.</p><p>Part 2 (software stack)</p><p>– Nginx load balancing proxy</p><p>– Web Servers.</p><p>– NFS File Server</p><p>– MySQL cluster.</p><h3 id=part-1-physical-topology>Part 1, Physical Topology</h3><p>If you’re reading this, I’m guessing your current network topology looks something like</p><p>mine used to.  You have a single internet connection, single router/firewall, single switch and a bunch of hosts hanging from that switch.  In the event of a system failure, your system administrator (me in this case) will have to hop in a cab and rush to the server room to fix the problem.</p><img class="size-full wp-image-136 aligncenter" title="Old Network-1" src=/img/old/2012/04/Old-Network-1.jpg alt width=241 height=445><p>The goal with this tutorial is to attempt to help your administrators sleep at night.  We will eliminate every single point of failure such that in the event of a system outage/failure, the system can self recover with at most a minute of unscheduled down time.</p><p><a href=/img/old/2012/04/New-Network.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img class="aligncenter size-full wp-image-137" title="New Network" src=/img/old/2012/04/New-Network.jpg alt width=307 height=409></a></p><h4 id=physical-switches>Physical Switches</h4><p>We’ll be replacing the single switch (in my case, unmanaged old gigabit switch) with a pair of managed switches.  Because our bandwidth requirements in this site wasn’t terribly demanding (simple database server, few web, mail servers and the like), a single gigabit Ethernet link to all hosts was all that we required.  If you’re in the same boat I was, I can suggest a pair of Juniper EX2200’s.  If however, you’re going to be pumping some more bandwidth intensive applications through your network (thus require more then gigabit Ethernet connections to the hosts) or have the need for more then a single VLAN and intra-VLAN routing is required (that’s all outside the scope of this tutorial.)  I can strongly recommend you start looking at the EX4200 model switches (set up in a virtual chassis), which can do all your highly available layer 3 IP routing and support multi gigabit Ethernet to your hosts by spanning Ethernet channel across both physical switches.</p><h4 id=activepassive-switch-design>Active/Passive Switch Design?</h4><p>Ok, so this heading is a lie, but let me explain.  In my switch design with the EX2200’s, I’m using aggregate Ethernet 802.3ad Etherchannel between my two switches. I’ve opted to use 4 physical ports in my 24 port switches (ge-0/0/20 to ge-0/0/23) to give me a 4Gbit/s backbone between them. Obviously with gigabit Ethernet right through the network this isn’t much bandwidth, so the idea is to keep as little data traveling that link as possible (network broadcasts only hopefully!)</p><p>First, the following configuration configures the aggregate Ethernet link between the switches:</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">42
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">43
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>    aggregated-devices {
-</span></span><span style=display:flex><span>        ethernet {
-</span></span><span style=display:flex><span>            device-count 1;
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>[interfaces]
-</span></span><span style=display:flex><span>    ge-0/0/20 {
-</span></span><span style=display:flex><span>        ether-options {
-</span></span><span style=display:flex><span>            802.3ad ae0;
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    ge-0/0/21 {
-</span></span><span style=display:flex><span>        ether-options {
-</span></span><span style=display:flex><span>            802.3ad ae0;
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    ge-0/0/22 {
-</span></span><span style=display:flex><span>        ether-options {
-</span></span><span style=display:flex><span>            802.3ad ae0;
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    ge-0/0/23 {
-</span></span><span style=display:flex><span>        ether-options {
-</span></span><span style=display:flex><span>            802.3ad ae0;
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    ae0 {
-</span></span><span style=display:flex><span>        aggregated-ether-options {
-</span></span><span style=display:flex><span>            lacp {
-</span></span><span style=display:flex><span>                passive;
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>        unit 0 {
-</span></span><span style=display:flex><span>            family ethernet-switching {
-</span></span><span style=display:flex><span>                port-mode trunk;
-</span></span><span style=display:flex><span>                vlan {
-</span></span><span style=display:flex><span>                    members all;
-</span></span><span style=display:flex><span>                }
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    }
-</span></span></code></pre></td></tr></table></div></div><p>The only thing you have to watch out for, is that on at least one switch, you set the lacp mode to be <strong>active</strong>.</p><h4 id=setting-up-esxi-network>Setting up ESXi Network</h4><p>In my environment, I’m using the free version of ESXi 4.1. I understand that you may wish to be connecting linux hosts directly. If you’re directly connecting linux hosts, I recommend you look at creating a <a href=http://wiki.centos.org/TipsAndTricks/BondingInterfaces onclick='_gaq.push(["_trackEvent","outbound-article","http://wiki.centos.org"])'>Bonding Adaptor</a>.  Thought without the more expensive EX4200’s, we’re best sticking with an active-backup setup and should stick with mode=1.</p><p>For the ESXi configuration, it’s pretty simple. We connect two NIC’s to the switches. A primary NIC to the primary switch, and a secondary NIC to the secondary switch.</p><p>The steps on configuring the vSwitch (virtual switch) are pretty simple. Virtual machines on these ESXi hosts won’t have to do anything special once this setup has been done to take advantage on the physical machines, they’ll just take advantage of our HA network topology.</p><p>First, ensure that we have two NIC’s setup on our vSwitch.</p><p style=text-align:center><img class="aligncenter wp-image-150" title=vSwitch src=/img/old/2012/04/vSwitch.jpg alt width=451 height=332></p><p>Next, look at the following configuration properties I’ve made to the NIC teaming information.  This basic configuration will ensure that when the link on vmnic0 is available (our active switch), it’ll use it.  When the link becomes unavailable, it will fail over to vmnic1.</p><p style=text-align:center><a href=/img/old/2012/04/vSwitch-1.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img class="aligncenter wp-image-151" title=vSwitch-1 src=/img/old/2012/04/vSwitch-1.jpg alt width=451 height=565></a></p><h5 id=setting-up-border-firewalls>Setting up border firewall’s</h5><p>The last step we’ve got in our highly available infrastructure here is our border firewall’s. Please bare with me on this section, it is the most complicated and there are a few technologies introduced. If there is something I don’t explain completely, please feel free to leave a comment below and I’ll try and explain it better.  I expect you’ll have to jump back and forth between Wikipedia and this article to fully understand what it is we’re doing. Explaining the concepts behind BGP and autonomous systems is beyond the scope of this article.</p><p>In my role, I replaced an active/backup GNU based firewall solution (backup being run down to the data center as fast as possible and swap the cables over) with two Juniper SRX100’s configured in an active/passive configuration under a chassis cluster (see SRX100 high availability deployment guide at <a href="http://kb.juniper.net/InfoCenter/index?page=content&id=KB15669" onclick='_gaq.push(["_trackEvent","outbound-article","http://kb.juniper.net"])'><a href="http://kb.juniper.net/InfoCenter/index?page=content&id=KB15669">http://kb.juniper.net/InfoCenter/index?page=content&id=KB15669</a></a>). We had get a second internet connection installed, then make sure that any one link (or firewall itself) can die and still have the system self recover. There are two major tasks that has to happen to make this gateway highly available. Firstly, our internal network hosts will be using one of these firewall’s as their default gateway. If the link to the primary switch, or the primary firewall itself should die, we still want the network hosts to be able to reach their gateway. We will achieve this with “redundant Ethernet” on the cluster. If you’ve come from the cisco networking world before, picture something like this to be like VRRP for the inside hosts. If the main link fails, the MAC and IP address will float over to the other physical port.</p><p>Let me give a bit more detail to our new example network topology here in this example so you can gain a better idea of how these settings work.</p><p style=text-align:center><a href=/img/old/2012/04/Network-Setup.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img class="aligncenter wp-image-153" title="Network Setup" src=/img/old/2012/04/Network-Setup.jpg alt width=441 height=438></a></p><p>For the internal gateway address to fail over to the other switch should your link off Firewall1 die, You’ll want to make the following configuration</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>    cluster {
-</span></span><span style=display:flex><span>        reth-count 2;
-</span></span><span style=display:flex><span>        redundancy-group 0 {
-</span></span><span style=display:flex><span>            node 0 priority 100;
-</span></span><span style=display:flex><span>            node 1 priority 1;
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>        redundancy-group 1 {
-</span></span><span style=display:flex><span>            node 0 priority 254;
-</span></span><span style=display:flex><span>            node 1 priority 1;
-</span></span><span style=display:flex><span>            preempt;
-</span></span><span style=display:flex><span>            interface-monitor {
-</span></span><span style=display:flex><span>                fe-0/0/1 weight 255;
-</span></span><span style=display:flex><span>                fe-1/0/1 weight 255;
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>interfaces {
-</span></span><span style=display:flex><span>    fe-0/0/1 {
-</span></span><span style=display:flex><span>            fastether-options {
-</span></span><span style=display:flex><span>                redundant-parent reth1;
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    fe-1/0/1 {
-</span></span><span style=display:flex><span>            fastether-options {
-</span></span><span style=display:flex><span>                redundant-parent reth1;
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></td></tr></table></div></div><p>You can see redundancy-group 1 is monitoring the local interfaces going back to the switches.</p><p>For the dual WAN links, I won’t go into much detail, but you’ll want to ask your ISP for a second internet connection. Some providers offer a cheap link that they only charge you for once you start flowing data over it (sometimes called a Shadow link). This is perfect as you can flow all your traffic through your primary internet connection, then on failure of it, you’ll move your traffic through the secondary. If you wanted complete redundancy, you could apply for a domain independent subnet (has to be a class C to advertise on world BGP tables) and your own ASN. This will let you use two different internet service providers.</p><p>In my case, I’m creating a redundant connection using the same ISP, so I’ve asked for a private ASN to be allocated (see <a href=http://en.wikipedia.org/wiki/Autonomous>http://en.wikipedia.org/wiki/Autonomous</a>_System_(Internet) ).</p><p>For a small network such as ours (especially using the small base level SRX’s) you’ll want to ask your provider to advertise only the default route to you. In turn, you’ll advertise your network’s address space on both connections. On the event that a link dies, the BGP peer on the other end no longer receives updates from you and will no longer attempt to route to it.</p><p>The following configuration extract shows how we’d configure out SRX firewall’s to peer with our ISP’s routers. Things of note is that our primary link (the one on the left) has a lower metric-out then the shadow link, meaning a lower MED attribute is sent to our ISP and thus inbound traffic will, by preference use the main connection. The preference values under neighbor will determine the preference we will send traffic under that connection for outbound traffic.</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">42
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">43
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">44
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">45
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">46
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">47
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">48
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">49
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>    autonomous-system 64512
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>protocols {
-</span></span><span style=display:flex><span>    bgp {
-</span></span><span style=display:flex><span>        group ISP {
-</span></span><span style=display:flex><span>            metric-out 50;
-</span></span><span style=display:flex><span>            local-address 1.1.1.2;
-</span></span><span style=display:flex><span>            import ISP-in;
-</span></span><span style=display:flex><span>            export ISP-out;
-</span></span><span style=display:flex><span>            neighbor 1.1.1.1 {
-</span></span><span style=display:flex><span>                preference 170;
-</span></span><span style=display:flex><span>                peer-as 123;
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>        group ISP-shadow {
-</span></span><span style=display:flex><span>            metric-out 100;
-</span></span><span style=display:flex><span>            local-address 1.1.1.6;
-</span></span><span style=display:flex><span>            import ISP-in;
-</span></span><span style=display:flex><span>            export ISP-out;
-</span></span><span style=display:flex><span>            neighbor 1.1.1.5 {
-</span></span><span style=display:flex><span>                preference 180;
-</span></span><span style=display:flex><span>                peer-as 123;
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>policy-options {
-</span></span><span style=display:flex><span>    policy-statement ISP-in {
-</span></span><span style=display:flex><span>        term default-in {
-</span></span><span style=display:flex><span>            from {
-</span></span><span style=display:flex><span>                route-filter 0.0.0.0/0 exact;
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>            then accept;
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>        term block {
-</span></span><span style=display:flex><span>            then reject;
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    policy-statement ISP-out {
-</span></span><span style=display:flex><span>        term tnziPublic {
-</span></span><span style=display:flex><span>            from {
-</span></span><span style=display:flex><span>                protocol direct;
-</span></span><span style=display:flex><span>                route-filter 2.2.2.0/26 exact;
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>            then accept;
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></td></tr></table></div></div></div></div><div class=navigation><div class=rightnav><a href=/page/7/>Earlier Posts</a> »</div><div class=snap-to-fit></div></div><div id=footer>Made with <a href=https://gohugo.io/>Hugo</a>. Theme half-milk inspired by <a href=http://thortz.com/skimmed-milk/>skimmed-milk</a></div></div><div id=sidebar class="col-md-3 order-md-first d-none d-md-block"><h2>Other Pages</h2><ul><li><a href=/page/bucketlist/>The Bucket List</a></li><li><a href=/page/about/>About Me</a></li><li><a href=/recipes/>Recipes</a></li></ul></div></div></div></body></html>
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <meta name="generator" content="Hugo 0.88.1" />
+
+  
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/code_tango.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+  
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.scottyob.com/apple-touch-icon.png">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.scottyob.com/favicon-32x32.png">
+
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.scottyob.com/favicon-16x16.png">
+
+  
+  <link rel="manifest" href="https://www.scottyob.com/site.webmanifest">
+
+  
+  <link rel="mask-icon" href="https://www.scottyob.com/safari-pinned-tab.svg" color="">
+
+  <meta name="msapplication-TileColor" content="">
+
+  <meta name="theme-color" content="">
+
+  
+  <link rel="stylesheet" href="https://www.scottyob.com/css/bootstrap.min.css" />
+
+  
+  
+  
+  <title>Home | Scott O&#39;Brien</title>
+  
+
+  <style>
+
+  @media (min-width: 992px){
+    .container{
+      max-width:850px;
+    }  
+  }
+
+  body {
+    background-color: #fff;
+    background-color: #fff;
+    color: #888;
+    font-size: .66em;
+    font-family: lucida grande,Verdana,Arial,Sans-Serif;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header {
+    margin: 4em 0;
+  }
+
+  @media (min-width: 768px) {
+    #sidebar {
+      text-align: right;
+    }
+  }
+
+  #sidebar {
+    text-transform: lowercase;
+  }
+
+  #sidebar h2 {
+    font-family: lucida grande, Verdana,Arial,Sans-Serif;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    margin: 0;
+    padding: .5em 0 .4em;
+  }
+
+  #sidebar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #sidebar li:before {
+    content: "\00BB  ";
+  }
+
+  a {
+    color: #ff7010;
+    text-decoration: none;
+  }
+
+  h1 {
+    font-size 3.2em;
+    line-height: 1em;
+  }
+
+  h2 {
+    font-size: 1.8em;
+
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+    font-weight: bold;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+  }
+
+  small {
+    font-size: 1em;
+    line-height: 1.5em;
+    background-color: inherit;
+    color: #888;
+  }
+
+  h2.pagetitle {
+    background-color: #f0f0f0;
+    color: inherit;
+    padding: 0.5em 0 0.4em 0.2em;
+    margin: 0 0 2em 0;
+  }
+
+  #content {
+    color: #484848;
+  }
+
+  .leftnav {
+    float: left;
+    margin: 0 1em 0;
+  }
+
+  .rightnav {
+    float: right;
+  }
+
+  .snap-to-fit {
+    clear: both;
+    visibility: hidden;
+  }
+
+  .navigation {
+    margin: 0 0 1.6em 0;
+    padding: 0 0 1px 0;
+    font-family: 'Lucida Grande', Arial, Verdana, Sans-Serif;
+    font-size: 1.2em;
+  }
+
+  .post {
+    margin: 0 0 3em;
+  }
+
+  .post+.post h2 {
+      padding: .2em 0 0;
+      border-top: 1px solid #888;
+  }
+
+  .entry {
+    width: 100%;
+    font-size: 1.2em;
+    margin: 1em 0 0;
+    overflow: auto;
+  }
+
+  blockquote {
+    margin: 1.6em 2.8em 0 1.4em;
+    padding: 0 0 0 2em;
+    border-left: .6em solid #ddd;
+  }
+
+  #footer {
+    clear: both;
+    margin: 4em 0 1em;
+    padding: .2em 0 0;
+    border-top: 1px solid #888;
+    font-family: lucida grande,Arial,Verdana,Sans-Serif;
+  }
+
+
+</style>
+
+</head>
+
+<body><div id="navbar-top" class="d-md-none">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand" href="/">Posts</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+	  <div class="navbar-nav">
+            
+              <a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
+            
+              <a class="nav-item nav-link" href=/page/about/>About Me</a>
+            
+	  </div>
+	</div>
+      </nav>
+    </div>
+
+
+    <div class="container" id="container">
+      
+      <div class="row">
+        <div class="col-md-9 offset-md-3">
+          <div class="header">
+            <h1><a href="/">Scott O&#39;Brien</a></h1>
+            <small>Ramblings and resources of my online life</small>
+          </div>
+        </div> 
+      </div>
+
+      <div class="row">
+        
+        <div id="content" class="col-md-9">
+          
+
+
+
+<div class="navigation">
+  <div class="leftnav">« <a href="/page/5/">Later Posts</a></div>
+  <div class="snap-to-fit"></div>
+</div>
+
+
+
+  <div class="post">
+    <h2 class="post__title">
+      <a href="https://www.scottyob.com/2011/03/18/3-setting-up-filesystems-and-snapshots/">3. Setting up FileSystems and Snapshots (part 1)</a>
+    </h2>
+    <small>2011-03-18 12:10:36 &#43;0000 &#43;0000</small>
+    <div class="entry">
+      <p><strong><em>Note: This post is one in a series aimed to be a tutorial eventually, it’s not currently finalised and at the moment exists as a place for collating thought and collecting feedback</em></strong></p>
+<p>Setting up the FileSystems is a trivial task.  First, you can see that when we’ve created a storage pool ‘datastore’ it created a filesystem for us (also called datastore) that can act as a container for child file systems.  I’m going to go ahead and create a place to store my media and downloads now</p>
+<blockquote>
+<p>zfs create datastore/media</p>
+</blockquote>
+<p>for now I’ll also want a place to store my backups.  It’s worth noting that while my media filesystem will contain compressed MP3’s and the like, it’s kind of a waste of CPU power to compress it, but my backups will be a lot of PHP pages and what not, so lets go ahead and enable compression on this one</p>
+<blockquote>
+<p># zfs create datastore/backups</p>
+</blockquote>
+<blockquote>
+<p># zfs set compression=on datastore/backups</p>
+</blockquote>
+<p>As appalled as I am of my mums backup habits, one of the requirements of this server was to provide a medium for backing up her data without her having to do anything, so lets set up backup locations for my laptop (MacShell) and a place for mum (mum) assigning both of these 20GB quota’s (ok, MacShell gets 120GB)</p>
+<blockquote>
+<p># zfs create datastore/backups/MacShell</p>
+</blockquote>
+<blockquote>
+<p># zfs create datastore/backups/mum</p>
+</blockquote>
+<blockquote>
+<p># zfs set quota=120G datastore/backups/MacShell</p>
+</blockquote>
+<blockquote>
+<p># zfs set quota=20GB datastore/backups/mum</p>
+</blockquote>
+<blockquote>
+<p># zfs get datastore/backups/mum</p>
+</blockquote>
+<p>Now, the idea is that a cron job will run rsyncing over the files every hour, on the hour.  For many reasons (in case I get a virus and need to revert back, in case somebody hacks in and does bad stuff, etc, etc) I’m going to choose to <a href="http://docs.huihoo.com/opensolaris/solaris-zfs-administration-guide/html/ch06.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.huihoo.com']);">create Snapshots</a> so I can roll back to a previous version.</p>
+<p>The convention I want is hourly.HOUR, daily.DAY, weekly.WEEK for up to 7 days and 4 weeks.  This also means that once I delete a file, I won’t recover the space that it took (once a snapshot of the file has been created) in my data pool until the end of the 4 week period.  for instance, hourly.0 will be the last hours snapshot, hourly.1 will be the 2nd last hours snapshot, etc.</p>
+<p>the following bash script will take care of the desired snapshots.  It’s based on a concept I took from this <a href="http://blogs.sun.com/mmusante/entry/rolling_snapshots_made_easy" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.sun.com']);">rolling snapshots made easy</a> post but I like <a href="/img/old/2011/03/snapshot.sh" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);">my scripted way of doing rotating snapshots</a> much better.</p>
+<blockquote>
+<p>#!/bin/bash</p>
+<p>#print out usage</p>
+</blockquote>
+<blockquote>
+<p>if [ $# -ne 2 ]</p>
+</blockquote>
+<blockquote>
+<p>then</p>
+</blockquote>
+<blockquote>
+<p>echo “Usage: snapshot.sh [snapName] [max]”</p>
+</blockquote>
+<blockquote>
+<p>echo ”  eg. snapshot.sh hour 24″</p>
+</blockquote>
+<blockquote>
+<p>fi</p>
+<p>#if the max snapshot already exists, just delete it</p>
+</blockquote>
+<blockquote>
+<p>if [ `zfs list -t snapshot | grep datastore@$1.$2 | wc -l` -eq 1 ]</p>
+</blockquote>
+<blockquote>
+<p>then</p>
+</blockquote>
+<blockquote>
+<p>zfs destroy -r datastore@$1.$2</p>
+</blockquote>
+<blockquote>
+<p>fi</p>
+<h1 id="heading"></h1>
+</blockquote>
+<blockquote>
+<p>for ((i=$2-1; i &gt;= 0; i–)); do</p>
+</blockquote>
+<blockquote>
+<p>if [ `zfs list -t snapshot | grep datastore@$1.$i | wc -l` -eq 1 ]</p>
+</blockquote>
+<blockquote>
+<p>then</p>
+</blockquote>
+<blockquote>
+<p>#this snapshot exists, so we want to move it up one</p>
+</blockquote>
+<blockquote>
+<p>zfs rename -r datastore@$1.$i @$1.$[$i+1]</p>
+</blockquote>
+<blockquote>
+<p>fi</p>
+</blockquote>
+<blockquote>
+<p>done</p>
+<p>zfs snapshot -r datastore@$1.0</p>
+</blockquote>
+<p>so with this snapshot beauty in place, lets say I had an existing file and structure in place</p>
+<blockquote>
+<p>root@thumper:/datastore/backups/MacShell# pwd</p>
+</blockquote>
+<blockquote>
+<p>/datastore/backups/MacShell</p>
+</blockquote>
+<blockquote>
+<p>root@thumper:/datastore/backups/MacShell# tree</p>
+</blockquote>
+<blockquote>
+<p>.</p>
+</blockquote>
+<blockquote>
+<p>|– hello_world.txt</p>
+</blockquote>
+<blockquote>
+<p>`– someDir</p>
+</blockquote>
+<blockquote>
+<p>`– someFile.dat</p>
+<p>1 directory, 2 files</p>
+</blockquote>
+<p>BUT, I had a snapshot in place</p>
+<blockquote>
+<p># /snapshot.sh hourly 24</p>
+</blockquote>
+<p>then I did something silly like delete my entire backup directory (Oh No!!)</p>
+<blockquote>
+<p># rm -R *</p>
+</blockquote>
+<blockquote>
+<p># ls -l</p>
+</blockquote>
+<blockquote>
+<p>total 0</p>
+</blockquote>
+<p>never fear! check the snapshots</p>
+<blockquote>
+<p>root@thumper:/datastore/backups/</p>
+</blockquote>
+<blockquote>
+<p>MacShell/.zfs/snapshot/hourly.0# tree</p>
+</blockquote>
+<blockquote>
+<p>.</p>
+</blockquote>
+<blockquote>
+<p>|– hello_world.txt</p>
+</blockquote>
+<blockquote>
+<p>`– someDir</p>
+</blockquote>
+<blockquote>
+<p>`– someFile.dat</p>
+</blockquote>
+<p>they’ll eventually roll off my snapshot cycle and be removed in 4 weeks with my plan, but hey, pretty good at this point 🙂</p>
+<p>See <a href="http://www.scottyob.com/?p=96" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);">Part 2</a> for a post on how to set up cron jobs to automatically call this script</p>
+<p>**Other posts to come in the series:</p>
+<p>** 1. Selecting the hardware</p>
+<ol start="2">
+<li>
+<p>Installing the Operating System</p>
+</li>
+<li>
+<p>Setting up File systems &amp; Snapshots</p>
+</li>
+<li>
+<p>Allowing access through NFS &amp; SAMBA</p>
+</li>
+<li>
+<p>Setting up encrypted off-site backups</p>
+</li>
+<li>
+<p>Configuring Windows &amp; Linux clients to dump backup info to the FileServer</p>
+</li>
+<li>
+<p>My router setup, configuring IP tables &amp; torrents on a low-powered server.</p>
+</li>
+</ol>
+
+    </div>
+  </div>
+
+  <div class="post">
+    <h2 class="post__title">
+      <a href="https://www.scottyob.com/2011/03/16/2-installing-the-operating-system/">2. Installing the Operating System</a>
+    </h2>
+    <small>2011-03-16 11:09:50 &#43;0000 &#43;0000</small>
+    <div class="entry">
+      <p><strong><em>Note: This post is one in a series aimed to be a tutorial eventually, it’s not currently finalised and at the moment exists as a place for collating thought and collecting feedback</em></strong></p>
+<h2 id="installing-os-and-setup-network">Installing OS and setup Network</h2>
+<p>For the following set of posts, I have chosen to use VirtualBox to run through how to use ZFS in building your FileSystem. The first step is downloading and installing OpenIndiana. Get the latest build from <a href="http://openindiana.org/download/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://openindiana.org']);"><a href="http://openindiana.org/download/">http://openindiana.org/download/</a></a> (at the time of writing, I’m using oi-dev-148-x86) and install it onto your system. In VirtualBox I chose to install onto a 64 bit Solaris setup.
+Make a hard disk when you’re setting up your VM image (I called mine OS_SSD1 because the HD is eventually going to be installed onto a solid state drive.)
+Now, the VM is booted, we can start having some fun (SSH into it and Away we go)
+Our first step is to setup the address for the box. I must admit, I’m pretty new to Solaris but from what I’ve found, we’ll run these commands to disable Auto Configuration via DHCP then enable our static config.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">svcadm disable physical:nwam &lt;br /&gt;svcadm enable physical:default
+</code></pre></td></tr></table>
+</div>
+</div><p>My fileserver is currently not on a domain (I’ll change this later), so I’ve added the line into my /etc/hosts file</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">10.12.1.1 thumper.local thumper
+</code></pre></td></tr></table>
+</div>
+</div><p>Put your hostname that you want to use (‘thumper’ for me) in /etc/nodename
+Your default gateway (routers) address should go in /etc/defaultrouter
+The last thing to do is tell the host about what subnet it’s on, For me, I added (for my server subnet)</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">10.12.1.0 255.255.255.0
+</code></pre></td></tr></table>
+</div>
+</div><p>The next step is set up your nameserver for DNS (/etc/resolv.conf) mine looks like this</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">nameserver 10.12.1.254
+</code></pre></td></tr></table>
+</div>
+</div><p>Copy /etc/nsswitch.dns to /etc/nsswitch.conf – so dns is used.
+Now so the adaptor comes up on boot, find out the status of your network I/O by running</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">dladm show-link
+</code></pre></td></tr></table>
+</div>
+</div><p>(for me was e1000g0). Once you have this, you need to ‘plumbe” to set up the software in the kernel to set this interface on the TCP/IP stack.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ifconfig e100g0 plumb &lt;br /&gt;echo 10.12.1.1/24 &gt; /etc/hostname.e100g0
+</code></pre></td></tr></table>
+</div>
+</div><p>Last but not least for your network stack,</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">svcadm restart milestone/network
+</code></pre></td></tr></table>
+</div>
+</div><p>From this point on, that concludes the base setup with networking that I’m using for the FileServer. If this happened to be a critical server for you, perhaps you’d consider setting up <a href="http://darkstar-solaris.blogspot.com/2008/09/zfs-root-mirror.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://darkstar-solaris.blogspot.com']);">redundant bootable drives with ZFS</a>. It looks pretty cool.</p>
+<h2>
+Setting up the storage pool
+</h2>
+Now we can get into the fun part. The first thing I want to do with this server is be able to store my data on it, so lets set up our storage pool. In my VM I’m using to test this I’ve added the disks I want to include in my pool (1GB disks for this test)
+<a href="/img/old/2011/03/image.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);" class="image-link"><img src="/img/old/2011/03/image_thumb.png" height="377" width="487" style=" text-align: center; display: block; margin: 0 auto 10px;" /></a>Once we’ve booted out VM (first thing I always do is ‘sudo bash’ because I’m evil in these silly little test environments).
+I want to find out the device ID’s for these hard disks I just added
+```
+root@thumper:~# iostat -En | egrep Size\|Soft <br />c1t0d0 Soft Errors: 0 Hard Errors: 6 Transport Errors: 0 <br />Size: 0.00GB <0 bytes> <br />c1t1d0 Soft Errors: 0 Hard Errors: 0 Transport Errors: 0 <br />Size: 17.18GB <17179869184 bytes> <br />c1t2d0 Soft Errors: 0 Hard Errors: 0 Transport Errors: 0 <br />Size: 1.07GB <1073741824 bytes> <br />c1t3d0 Soft Errors: 0 Hard Errors: 0 Transport Errors: 0 <br />Size: 1.07GB <1073741824 bytes> <br />c1t4d0 Soft Errors: 0 Hard Errors: 0 Transport Errors: 0 <br />Size: 1.07GB <1073741824 bytes> <br />c1t5d0 Soft Errors: 0 Hard Errors: 0 Transport Errors: 0 <br />Size: 1.07GB <1073741824 bytes>
+```
+As we can see, c1t0d0 is my CD-ROM drive, c1t1d0 is my hard disk, so I’ll want to create a Raidz-2 (two redundant drive) storage pool with the drives c1t2d0 c1t3d0 c1t4d0 c1t5d0
+```
+root@thumper:~# <strong>zpool create datastore raidz2 c1t2d0 c1t3d0 c1t4d0 c1t5d0 <br /></strong>root@thumper:~# zpool list <br />NAME SIZE ALLOC FREE CAP DEDUP HEALTH ALTROOT <br /><strong>datastore 3.94G 256K 3.94G 0% 1.00x ONLINE</strong> &#8211; <br />rpool 15.9G 4.17G 11.7G 26% 1.00x ONLINE &#8211; <br />root@thumper:~# zfs list <br />NAME USED AVAIL REFER MOUNTPOINT <br /><strong>datastore 128K 1.93G 44.8K /datastore <br /></strong>rpool 4.52G 11.1G 45K /rpool <br />rpool/ROOT 3.61G 11.1G 31K legacy <br />rpool/ROOT/openindiana 3.61G 11.1G 3.58G / <br />rpool/dump 383M 11.1G 383M &#8211; <br />rpool/export 1002K 11.1G 32K /export <br />rpool/export/home 970K 11.1G 32K /export/home <br />rpool/export/home/scott 938K 11.1G 938K /export/home/scott <br />rpool/swap 544M 11.5G 187M &#8211;
+```
+We can see now we’ve created a pool of storage across our data (that’s zfs raided) that gives us double parity so we can loose two drives and still be running and we’ve got 2GB of usable space here (I’m using 1GB hard disks, in my real production box these will be 1TB disks).
+Other posts to come in the series: <br />1. Selecting the hardware <br />2. Installing the Operating System <br />3. Setting up File systems &#038; Snapshots <br />4. Allowing access through NFS &#038; SAMBA <br />5. Setting up encrypted off-site backups <br />6. Configuring Windows &#038; Linux clients to dump backup info to the FileServer <br />7. My router setup, configuring IP tables &#038; torrents on a low-powered server.
+<br class="final-break" style="clear: both" />
+
+    </div>
+  </div>
+
+  <div class="post">
+    <h2 class="post__title">
+      <a href="https://www.scottyob.com/2011/01/24/downloading-http-in-off-peak/">Downloading HTTP in off-peak</a>
+    </h2>
+    <small>2011-01-25 00:38:18 &#43;0000 &#43;0000</small>
+    <div class="entry">
+      <p>I want to write a quick and dirty blog post to tell you a little solution on downloading HTTP files in your off-peak usage using linux.</p>
+<p>The tools I’ll be using for this is my old favourite <a href="http://www.gnu.org/software/wget/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.gnu.org']);">wget</a> and a new tool, <a href="http://linux.about.com/library/cmd/blcmdl1_at.htm" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://linux.about.com']);">“at”</a>.</p>
+<p>The at daemon is required to be running first, so on debian or ubuntu</p>
+<blockquote>
+<p><font color="#484848">/etc/init.d/atd start</font></p>
+</blockquote>
+<p>Then downloading your file at an off-peak time (4am for me) is as simple as</p>
+<blockquote>
+<p><font color="#484848">echo “wget –c <a href="http://ubuntu.virginmedia.com/releases//maverick/ubuntu-10.10-desktop-i386.iso" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://ubuntu.virginmedia.com']);"><a href="http://ubuntu.virginmedia.com/releases//maverick/ubuntu-10.10-desktop-i386.iso">http://ubuntu.virginmedia.com/releases//maverick/ubuntu-10.10-desktop-i386.iso</a></a>” | at 04:00</font></p>
+</blockquote>
+<p>Simple hey <img style="border-bottom-style: none; border-right-style: none; border-top-style: none; border-left-style: none" class="wlEmoticon wlEmoticon-smile" alt="Smile" src="/img/old/2011/01/wlEmoticon-smile.png" /></p>
+
+    </div>
+  </div>
+
+  <div class="post">
+    <h2 class="post__title">
+      <a href="https://www.scottyob.com/2011/01/16/pdf-automator-in-osx/">PDF Automator in OSX</a>
+    </h2>
+    <small>2011-01-17 00:09:46 &#43;0000 &#43;0000</small>
+    <div class="entry">
+      <p style="clear: both;">
+  As you may have been aware from my previous blog posts, I&#8217;ve been trying to make my life digital, that means any papers I get, I scan and file on a FileServer (with remote backups, etc, etc).
+</p>
+<p style="clear: both;">
+  My scanner at home has a document feeder on it. The problem is that it doesn&#8217;t do duplex, only a set of sides. So far, I can scan one side of the document, flip the paper of, then scan the back pages. This will result two PDF&#8217;s with two sets of pages<br /> Set A: 1,3,5,7<br /> SET B: 8,6,4,2
+</p>
+<p style="clear: both;">
+  To merge the two, I could open them both up in Adobe PDF, Preview and start clicking and dragging my time away, but that&#8217;s pointless. I&#8217;d like to introduce you to Automator in OSX.
+</p>
+<p style="clear: both;">
+  <a class="image-link" href="/img/old/2011/01/Merge_Duplex_PDFs.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="linked-to-original" style="text-align: center; display: block; margin: 0 auto 10px;" src="/img/old/2011/01/Merge_Duplex_PDFs-thumb.jpg" alt="" width="380" height="314" /></a>Using a <a href="http://fredericiana.com/2010/03/01/pdftk-1-41-for-mac-os-x-10-6/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://fredericiana.com']);">pdftk binary for OSX</a> and the automator script above, all I need to do now is select my two pdf documents (Set A & B), right hand click, then select &#8216;Duplex Merge PDF&#8217;s&#8217;. After that, I&#8217;ll have a nice merged.pdf file on my desktop that&#8217;s the resulting page.
+</p>
+<p style="clear: both;">
+  (the shell script uses pdftk to make a /tmp/2.pdf file that&#8217;s a set 2,4,6,8. Copies the Set A to /tmp/1.pdf and then pipes it through some pdf tools built into OSX to merge the sets into 1,2,3,4.. etc
+</p>
+<p style="clear: both;">
+  Who needs to spend lots of money on a duplex scanner hey?
+</p>
+<p>**EDIT:</p>
+<p>** Please feel free to <a href="/img/old/2011/01/osxDuplexAutomator.zip" onclick="javascript:_gaq.push(['_trackEvent','download','/img/old/2011/01/osxDuplexAutomator.zip']);">download my automator scripts here </a></p>
+<p> </p>
+
+    </div>
+  </div>
+
+
+
+<div class="navigation">
+  <div class="rightnav"><a href="/page/7/">Earlier Posts</a> »</div>
+  <div class="snap-to-fit"></div>
+</div>
+
+
+<div id="footer">
+  Made with <a href="https://gohugo.io/">Hugo</a>.  Theme half-milk inspired by <a href="http://thortz.com/skimmed-milk/">skimmed-milk</a>
+</div>
+</div>
+        <div id="sidebar" class="col-md-3 order-md-first d-none d-md-block">
+          
+          <h2>Other Pages</h2>
+          <ul>
+            
+              <li><a href=/page/bucketlist/>The Bucket List</a></li>
+            
+              <li><a href=/page/about/>About Me</a></li>
+            
+          </ul>
+        </div> 
+      </div> 
+    </div> 
+  </body>
+</html>

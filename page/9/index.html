@@ -1,9 +1,279 @@
-<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=generator content="Hugo 0.104.3"><link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css integrity=sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk crossorigin=anonymous><link rel=stylesheet href=/css/code_tango.css><script src=https://code.jquery.com/jquery-3.6.0.min.js integrity=sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK crossorigin=anonymous></script>
-<script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js integrity=sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo crossorigin=anonymous></script>
-<script src=https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js integrity=sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI crossorigin=anonymous></script>
-<link href=https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css rel=stylesheet><script src=https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js></script>
-<link rel=apple-touch-icon sizes=180x180 href=https://www.scottyob.com/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://www.scottyob.com/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://www.scottyob.com/favicon-16x16.png><link rel=manifest href=https://www.scottyob.com/site.webmanifest><link rel=mask-icon href=https://www.scottyob.com/safari-pinned-tab.svg color><meta name=msapplication-TileColor content><meta name=theme-color content><title>Home | Scott O'Brien</title><style>@media(min-width:992px){.container{max-width:1442px}}body{background-color:#fff;background-color:#fff;color:#888;font-size:.66em;font-family:lucida grande,Verdana,Arial,Sans-Serif;line-height:1.4;margin:0;padding:0}.header{margin:4em 0}@media(min-width:768px){#sidebar{text-align:right}}#sidebar{text-transform:lowercase}#sidebar h2{font-family:lucida grande,Verdana,Arial,Sans-Serif;font-size:1.2em;text-transform:uppercase;margin:0;padding:.5em 0 .4em}#sidebar ul{list-style-type:none;margin:0;padding:0}#sidebar li:before{content:"\00BB  "}a{color:#ff7010;text-decoration:none}h1{font-size 3.2em;line-height:1em}h2{font-size:1.4em;margin-top:10px}h1,h2,h3,h4,h5{font-family:trebuchet ms,lucida grande,Verdana,Arial,Sans-Serif;font-weight:700;line-height:normal}small{font-size:1em;line-height:1.5em;background-color:inherit;color:#888}h2.pagetitle{background-color:#f0f0f0;color:inherit;padding:.5em 0 .4em .2em;margin:0 0 2em}#content{color:#484848}.leftnav{float:left;margin:0 1em}.rightnav{float:right}.snap-to-fit{clear:both;visibility:hidden}.navigation{margin:0 0 1.6em;padding:0 0 1px;font-family:lucida grande,Arial,Verdana,Sans-Serif;font-size:1.2em}.post{margin:0 0 3em}.post+.post .post__title{padding:.2em 0 0;border-top:1px solid #888}.entry{width:100%;font-size:1.2em;margin:1em 0 0;overflow:auto}blockquote{margin:1.6em 2.8em 0 1.4em;padding:0 0 0 2em;border-left:.6em solid #ddd}#footer{clear:both;margin:4em 0 1em;padding:.2em 0 0;border-top:1px solid #888;font-family:lucida grande,Arial,Verdana,Sans-Serif}</style></head><body><div id=navbar-top class=d-md-none><nav class="navbar navbar-expand-lg navbar-light bg-light"><a class=navbar-brand href=/>Posts</a>
-<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarNavAltMarkup aria-controls=navbarNavAltMarkup aria-expanded=false aria-label="Toggle navigation">
-<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarNavAltMarkup><div class=navbar-nav><a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
-<a class="nav-item nav-link" href=/page/about/>About Me</a>
-<a class="nav-item nav-link" href=/recipes/>Recipes</a></div></div></nav></div><div class=container id=container><div class=row><div class="col-md-9 offset-md-3"><div class=header><h1><a href=/>Scott O'Brien</a></h1><small>Projects, Ramblings and Resources of my (online) life</small></div></div></div><div class=row><div id=content class=col-md-9><div class=navigation><div class=leftnav>« <a href=/page/8/>Later Posts</a></div><div class=snap-to-fit></div></div><div class=post><h2 class=post__title><a href=https://www.scottyob.com/2011/01/01/symfony-not-sortable-generate-admin-crud/>Symfony not sortable in CRUD</a></h2><small>2011-01-01 12:15:37 +0000 UTC</small><div class=entry><p style=clear:both>I&#8217;ve recently come up across some problems with the CRUD generator in Symfony, so in case anyone is googling for a solution out there, I&#8217;ll try and help you along (or at least bump up the page references to the articles that helped me 😉 )</p><p style=clear:both>I had a problem today where I was trying to use Symfony&#8217;s (1.4) generate-admin <a href=http://en.wikipedia.org/wiki/Create,_read,_update_and_delete#User_interface onclick='_gaq.push(["_trackEvent","outbound-article","http://en.wikipedia.org"])'>CRUD</a> generator. The issue was that my titles were not sortable when adjusting the fields to display in the generator.yml file</p><blockquote style=clear:both><p>config:<br>actions: ~<br>fields: ~<br>list:<br>batch_actions: {}<br>object_actions: {}<br>display: [pin, <strong>firstName</strong>, <strong>lastName</strong>, location, institution]<br>filter:<br>display: [firstName, lastName]<br>form: ~<br>edit: {}<br>new: {}</p></blockquote><p style=clear:both>The issue with the firstName and lastName fields is that, if written like <strong>first_name</strong> and <strong>last_name</strong> it will fail to become sortable. I found a solution as to why in a <a href=http://oldforum.symfony-project.org/index.php/t/22636/ onclick='_gaq.push(["_trackEvent","outbound-article","http://oldforum.symfony-project.org"])'>blog post</a> from a man with the same issue (Symfony 1.2)</p><p style=clear:both><strong>Foreign keys not Sortable:<br></strong>Another issue I had was where there is a foreign key in Symfony, the CRUD generator won&#8217;t know how to make this sortable. I solved this by moving to <a href=http://www.symfony-project.org/plugins/ahAdminGeneratorThemesPlugin onclick='_gaq.push(["_trackEvent","outbound-article","http://www.symfony-project.org"])' title>ahAdminGeneratorThemesPlugin</a> for the generate-admin modules.. Read the read-me in that guide and you&#8217;ll be sweet! 🙂</p><p style=clear:both><strong>Also See</strong></p><ul style=clear:both><li>An interesting post on doing more with the admin generator <a href=http://blog.centresource.com/2010/01/13/code-that-saves-the-day-symfony-admin-generator/ onclick='_gaq.push(["_trackEvent","outbound-article","http://blog.centresource.com"])'>http://blog.centresource.com/2010/01/13/code-that-saves-the-day-symfony-admin-generator/</a></li><li>Jobeet Backend Modules page (Very useful) <a href=http://www.symfony-project.org/jobeet/1_4/Doctrine/en/12 onclick='_gaq.push(["_trackEvent","outbound-article","http://www.symfony-project.org"])'>http://www.symfony-project.org/jobeet/1_4/Doctrine/en/12</a></li></ul><br class=final-break style=clear:both></div></div><div class=post><h2 class=post__title><a href=https://www.scottyob.com/2011/01/01/happy-new-year-resolution-1-network-data/>Happy New Year – Resolution #1, Network & Data</a></h2><small>2011-01-01 12:02:53 +0000 UTC</small><div class=entry><p style=clear:both>It&#8217;s a new year and time to start getting new years resolutions into action. I&#8217;ve moved into my new area in the study so I&#8217;ve started setting it up how I like.</p><p style=clear:both><div>The first step is to get my router set up. The router I&#8217;m using is a little &#8216;fit-pc&#8217; box with two ethernet cables. As you can see, it&#8217;s pretty tiny but <a href=http://www.fit-pc.com/fit-pc1/fit-pc-1-0-specifications.html onclick='_gaq.push(["_trackEvent","outbound-article","http://www.fit-pc.com"])' target=_blank>doesn&#8217;t pack much in terms of power</a>.</div><p style=clear:both><a class=image-link href=/img/old/2011/01/IMG_0121-full.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img class=linked-to-original style="text-align:center;display:block;margin:0 auto 10px" src=/img/old/2011/01/IMG_0121-thumb.jpg alt width=380 height=300></a><br>I&#8217;ve put my router in bridge mode (so it just acts as a layer two modem/bridge) and let my router then establish a pppoe session with my ISP and do all the routing with iptables (I&#8217;ve got to update my firewall script and services running on the box and post up the how-to&#8217;s later on for that.) Now the little crappy d-link thing doesn&#8217;t fall over and die when torrenting (the router will do all the routing and torrenting without hogging up entries in the NAT table is always a good thing)</p><p style=clear:both>One of my new years resolutions is to digitise everything (and make it reliable to do so) so I don&#8217;t have to worry about any paper floating around in my life (I HATE paperwork). To do this, I want to add a few more features in my home network, whilst improving security (especially after my VoIP was hacked a while ago)</p><p style=clear:both>I&#8217;m splitting my network into &#8216;trusted&#8217; and &#8216;not so trusted&#8217; zones. The beauty is because my router now has two nicks, putting a small 8 port switch into the equation will allow me to route traffic between these zones in a nice firewalled way.</p><p style=clear:both>I&#8217;d generally be lazy and put WPA-PSK security on the access point.</p><p style=clear:both>I feel safe doing this, from <a href=http://www.zdnet.com/blog/ou/wireless-lan-security-myths-that-wont-die/454 onclick='_gaq.push(["_trackEvent","outbound-article","http://www.zdnet.com"])' target=_blank>a zdnet article</a><span style=text-decoration:underline><br></span></p><blockquote style=clear:both><p>All you need to do is use WPA-PSK security with a random alpha-numeric pass-phrase that has a minimum of 10 characters. I estimated that a truly random alpha-numeric 10-character pass-phrase using modern single-core computers will take one thousand PCs working in parallel 500 years to crack</p></blockquote><p style=clear:both>I lol&#8217;d a bit where it says &#8220;.. you could run WEP (104 bit AKA 128) security, which might take a semi-skilled script kiddy using two PCs in an active attack configuration 10 minutes to break.</p><p style=clear:both>At the moment, my wireless is secured by only a 64 bit WEP key (shock horror!) Why? Because I&#8217;ve got damn devices like the Nintendo DS sitting on here which I&#8217;ve been wasting a bit of time on lately that don&#8217;t support WPA.</p><p style=clear:both>I could hide my SSID, do MAC filtering and not run DHCP, all that jazz, but the end of the story is that this can all be hacked by people who know what they&#8217;re doing (Mac addresses can be spoofed, if you&#8217;re using your wireless network then you&#8217;re still broadcasting stuff.)</p><p style=clear:both>I&#8217;m not terribly worried at the moment if someone hacks in, they can steal some of my crappy 1.5Mbit internet, they can print to my printer (have fun). My workstations themselves are to some degree protected, but what about when I build my file server and start storing bank statements, tax file numbers? all that stuff? The more layers of security the better! (I learnt this the hard way, trust me)</p><p style=clear:both>As I&#8217;ve already said, the way I&#8217;m lessening my fear of these security problems is by splitting my network into trusted and not so trusted zones.</p><p style=clear:both><a class=image-link href=/img/old/2011/01/Router_Config.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img class=linked-to-original style="text-align:center;display:block;margin:0 auto 10px" src=/img/old/2011/01/Router_Config-thumb1.jpg alt width=380 height=285></a></p><p style=clear:both><a class=image-link href=/img/old/2011/01/Network_Map.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img class=linked-to-original style="text-align:center;display:block;margin:0 auto 10px" src=/img/old/2011/01/Network_Map-thumb.jpg alt width=380 height=442></a>User Isolation security means that the wireless clients won&#8217;t be able to see each other on the network. I&#8217;ll allow traffic too and from certain devices on the trusted network (the printer for instance.) but to gain access to any of my secure boxes (Fileserver, other workstations) then wireless clients will have to first connect through WEP, then establish a secured VPN connection into the trusted zone. With this setup, even if someone breaks into my WiFi, good on them, they get crippled net (I might cripple WiFi net bandwidth to the net, not decided yet) and access to.. well, my printer again *sigh*</p><p style=clear:both><a class=image-link href=/img/old/2011/01/Network_Stack.jpg onclick='_gaq.push(["_trackEvent","outbound-article","http://www.scottyob.com"])'><img class=linked-to-original style="text-align:center;display:block;margin:0 auto 10px" src=/img/old/2011/01/Network_Stack-thumb.jpg alt width=380 height=285></a>Network stack lol!</p><p><br class=final-break style=clear:both></p></div></div><div class=post><h2 class=post__title><a href=https://www.scottyob.com/2010/12/28/new-network/>New Network</a></h2><small>2010-12-29 00:32:55 +0000 UTC</small><div class=entry><p style=clear:both>so I&#8217;ve moved back home with the family now. One thing I&#8217;ve been meaning to do is to digitise my life and get set up on the cloud. I think it&#8217;ll be really basic to start off with. VPN access in to my home network, firewall everything off, then create a few layers of the network.</p><p style=clear:both>The issue is that I want to go paperless. I want to set up a ZFS Fileserver to store and snapshot all my data with remote encrypted backups of important documents and the like. I want to make sure hackers can&#8217;t get in and take any of this data of gain access to the network. The problem is my DS still needs access with WEP to go on the net. I&#8217;m thinking of splitting my network into two subnets. One for wireless and one for wired devices and just add things like the printer and ssh access to the fileserver through the firewall to access the LAN subnet..</p><p style=clear:both>I&#8217;ll be blogging the setup of my new computer, my fileserver and home network setup. Before I can really dig into this though, I need to get my study set up.</p><br class=final-break style=clear:both></div></div><div class=post><h2 class=post__title><a href=https://www.scottyob.com/2010/11/21/new-upgdate/>New upgdate</a></h2><small>2010-11-21 08:02:09 +0000 UTC</small><div class=entry><p style=clear:both>So.. my router/firewall is due for an upgrade (from Lenny to Squeze)</p><p style=clear:both>Big upgrade&#8230;</p><p style=clear:both>The following packages will be REMOVED: libdatrie0 libept0 libtorrent10 libxcb-xlib0 mysql-server mysql-server-5.0The following NEW packages will be installed: apache2.2-bin apt-xapian-index autopoint cpp-4.4 dash dbconfig-common diffutils dmsetup firmware-linux-free g++-4.4 gcc-4.4 gcc-4.4-base gconf2 gconf2-common geoip-database gnupg-curl grub-pc insserv install-info isc-dhcp-client isc-dhcp-common iso-codes javascript-common libalgorithm-diff-perl libalgorithm-diff-xs-perl libalgorithm-merge-perl libaprutil1-dbd-sqlite3 libaprutil1-ldap libasound2 libavahi-client3 libavahi-common-data libavahi-common3 libbind9-60 libboost-iostreams1.42.0 libbsd0 libc-bin libc-dev-bin libc6-i686 libcanberra-gtk-module libcanberra-gtk0 libcanberra0 libcroco3 libdatrie1 libdb4.7 libdb4.8 libdbus-glib-1-2 libdns66 libdpkg-perl libdrm-intel1 libdrm-radeon1 libdrm2 libept1 liberror-perl libevent-1.4-2 libfile-copy-recursive-perl libfont-freetype-perl libgconf2-4 libgeoip1 libgl1-mesa-dri libgl1-mesa-glx libgpgme11 libgssapi-krb5-2 libice6 libidl0 libisc60 libisccc60 libisccfg60 libjasper1 libjs-mootools libk5crypto3 libkrb5-3 libkrb5support0 libltdl7 liblwres60 liblzma2 libmpfr4 libmysqlclient16 libnfnetlink0 libnotify1 libogg0 libonig2 liborbit2 libpth20 libqdbm14 libreadline6 libsasl2-modules libsm6 libstartup-notification0 libstdc++6-4.4-dev libtdb1 libtest-pod-perl.. <em><strong>it goes on and on like this</strong></em><br>351 upgraded, 139 newly installed, 6 to remove and 1 not upgraded.<br>Need to get 270MB of archives.<br>After this operation, 261MB of additional disk space will be used.</p><br class=final-break style=clear:both></div></div><div class=navigation><div class=rightnav><a href=/page/10/>Earlier Posts</a> »</div><div class=snap-to-fit></div></div><div id=footer>Made with <a href=https://gohugo.io/>Hugo</a>. Theme half-milk inspired by <a href=http://thortz.com/skimmed-milk/>skimmed-milk</a></div></div><div id=sidebar class="col-md-3 order-md-first d-none d-md-block"><h2>Other Pages</h2><ul><li><a href=/page/bucketlist/>The Bucket List</a></li><li><a href=/page/about/>About Me</a></li><li><a href=/recipes/>Recipes</a></li></ul></div></div></div></body></html>
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <meta name="generator" content="Hugo 0.88.1" />
+
+  
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/code_tango.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+  
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.scottyob.com/apple-touch-icon.png">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.scottyob.com/favicon-32x32.png">
+
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.scottyob.com/favicon-16x16.png">
+
+  
+  <link rel="manifest" href="https://www.scottyob.com/site.webmanifest">
+
+  
+  <link rel="mask-icon" href="https://www.scottyob.com/safari-pinned-tab.svg" color="">
+
+  <meta name="msapplication-TileColor" content="">
+
+  <meta name="theme-color" content="">
+
+  
+  <link rel="stylesheet" href="https://www.scottyob.com/css/bootstrap.min.css" />
+
+  
+  
+  
+  <title>Home | Scott O&#39;Brien</title>
+  
+
+  <style>
+
+  @media (min-width: 992px){
+    .container{
+      max-width:850px;
+    }  
+  }
+
+  body {
+    background-color: #fff;
+    background-color: #fff;
+    color: #888;
+    font-size: .66em;
+    font-family: lucida grande,Verdana,Arial,Sans-Serif;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header {
+    margin: 4em 0;
+  }
+
+  @media (min-width: 768px) {
+    #sidebar {
+      text-align: right;
+    }
+  }
+
+  #sidebar {
+    text-transform: lowercase;
+  }
+
+  #sidebar h2 {
+    font-family: lucida grande, Verdana,Arial,Sans-Serif;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    margin: 0;
+    padding: .5em 0 .4em;
+  }
+
+  #sidebar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #sidebar li:before {
+    content: "\00BB  ";
+  }
+
+  a {
+    color: #ff7010;
+    text-decoration: none;
+  }
+
+  h1 {
+    font-size 3.2em;
+    line-height: 1em;
+  }
+
+  h2 {
+    font-size: 1.8em;
+
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+    font-weight: bold;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+  }
+
+  small {
+    font-size: 1em;
+    line-height: 1.5em;
+    background-color: inherit;
+    color: #888;
+  }
+
+  h2.pagetitle {
+    background-color: #f0f0f0;
+    color: inherit;
+    padding: 0.5em 0 0.4em 0.2em;
+    margin: 0 0 2em 0;
+  }
+
+  #content {
+    color: #484848;
+  }
+
+  .leftnav {
+    float: left;
+    margin: 0 1em 0;
+  }
+
+  .rightnav {
+    float: right;
+  }
+
+  .snap-to-fit {
+    clear: both;
+    visibility: hidden;
+  }
+
+  .navigation {
+    margin: 0 0 1.6em 0;
+    padding: 0 0 1px 0;
+    font-family: 'Lucida Grande', Arial, Verdana, Sans-Serif;
+    font-size: 1.2em;
+  }
+
+  .post {
+    margin: 0 0 3em;
+  }
+
+  .post+.post h2 {
+      padding: .2em 0 0;
+      border-top: 1px solid #888;
+  }
+
+  .entry {
+    width: 100%;
+    font-size: 1.2em;
+    margin: 1em 0 0;
+    overflow: auto;
+  }
+
+  blockquote {
+    margin: 1.6em 2.8em 0 1.4em;
+    padding: 0 0 0 2em;
+    border-left: .6em solid #ddd;
+  }
+
+  #footer {
+    clear: both;
+    margin: 4em 0 1em;
+    padding: .2em 0 0;
+    border-top: 1px solid #888;
+    font-family: lucida grande,Arial,Verdana,Sans-Serif;
+  }
+
+
+</style>
+
+</head>
+
+<body><div id="navbar-top" class="d-md-none">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand" href="/">Posts</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+	  <div class="navbar-nav">
+            
+              <a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
+            
+              <a class="nav-item nav-link" href=/page/about/>About Me</a>
+            
+	  </div>
+	</div>
+      </nav>
+    </div>
+
+
+    <div class="container" id="container">
+      
+      <div class="row">
+        <div class="col-md-9 offset-md-3">
+          <div class="header">
+            <h1><a href="/">Scott O&#39;Brien</a></h1>
+            <small>Ramblings and resources of my online life</small>
+          </div>
+        </div> 
+      </div>
+
+      <div class="row">
+        
+        <div id="content" class="col-md-9">
+          
+
+
+
+<div class="navigation">
+  <div class="leftnav">« <a href="/page/8/">Later Posts</a></div>
+  <div class="snap-to-fit"></div>
+</div>
+
+
+
+  <div class="post">
+    <h2 class="post__title">
+      <a href="https://www.scottyob.com/2010/10/09/a-new-blog/">A new blog</a>
+    </h2>
+    <small>2010-10-09 01:30:57 &#43;0000 &#43;0000</small>
+    <div class="entry">
+      <p style="clear: both">
+  Hello everyone. Ok, so this is a brand new blog. What happened to all my old content? I&#8217;d like to say I just wanted to start fresh, but truth is, I was lazy and didn&#8217;t back up any data from my hosting company before my term ended with them.. so I lost my database and content. I&#8217;ll re-post the good stuff, hopefully more in-depth on this site though. Stay tuned.
+</p>
+<p style="clear: both">
+  This blog is going to be a lot more personal then my last. It&#8217;s going to have technical and personal posts where I&#8217;ll post about anything and everything that takes my fancy. Good times 🙂
+</p>
+<p><br class="final-break" style="clear: both" /></p>
+
+    </div>
+  </div>
+
+
+
+
+<div id="footer">
+  Made with <a href="https://gohugo.io/">Hugo</a>.  Theme half-milk inspired by <a href="http://thortz.com/skimmed-milk/">skimmed-milk</a>
+</div>
+</div>
+        <div id="sidebar" class="col-md-3 order-md-first d-none d-md-block">
+          
+          <h2>Other Pages</h2>
+          <ul>
+            
+              <li><a href=/page/bucketlist/>The Bucket List</a></li>
+            
+              <li><a href=/page/about/>About Me</a></li>
+            
+          </ul>
+        </div> 
+      </div> 
+    </div> 
+  </body>
+</html>
