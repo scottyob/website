@@ -1,0 +1,87 @@
+{{ define "main" }}
+
+{{ $flight := index $.Site.Data.flightlog (sub (int .File.TranslationBaseName) 1)  }}
+
+
+<style>
+    table {
+        min-width: 250px;
+        width: auto;
+        margin: 0;
+        flex-grow: 1;
+    }
+
+    td:first-child {
+        font-weight: bolder;
+    }
+
+    h3 {
+        padding: 10px;
+    }
+
+    #comments {
+        margin-top: 10px;
+    }
+</style>
+
+<script>
+$(window).on('load', function() {
+    $(".time-format").contents().each((_, e) => {
+      e.data = new Date(parseInt(e.data) * 1000).toISOString().substr(11, 8);
+    })
+});
+</script>
+
+<main class="content" role="main">
+    <article class="post page">
+      <header class="post-header">
+        <h3 class="post-title">Flight #{{ $flight.flightNumber  }}</h3>
+      </header>
+      <section class="post-content">
+        {{ .Content }}
+
+        <div style="display: flex; flex-wrap: wrap; flex-direction: row;">
+            <table border="0" cellspacing="0">
+                <tr>
+                    <td>Flight Number:</td><td>{{$flight.flightNumber}}</td>
+                </tr>
+                <tr>
+                    <td>Location:</td><td>{{$flight.location}}</td>
+                </tr>
+                <tr>
+                    <td>Date:</td><td>{{$flight.date}}</td>
+                </tr>
+                <tr>
+                    <td>Duration:</td><td class="time-format">{{$flight.durationSeconds}}</td>
+                </tr>
+                <tr>
+                    <td>Launch:</td><td>{{$flight.launchName}}</td>
+                </tr>
+            </table>
+            <table border="0" cellspacing="0">
+                <tr>
+                    <td>Max Distance:</td><td>{{math.Round (float $flight.maxDistanceMeters)}}m</td>
+                </tr>
+                <tr>
+                    <td>Max Altitude:</td><td>{{$flight.maxAltitudeMeters}}m</td>
+                </tr>
+                <tr>
+                    <td>Track Length:</td><td>{{math.Round (float $flight.trackLengthMeters)}}m</td>
+                </tr>
+                <tr>
+                    <td>Wing:</td><td>{{$flight.wing}}</td>
+                </tr>
+                <tr>
+                    <td>IGC File:</td><td><a href="/flying/tracklogs/{{$flight.fileName}}">Download</a></td>
+                </tr>
+            </table>
+        </div>
+        <div id="comments"><strong>Comments:</strong>{{$flight.comments}}</div>
+        
+
+        
+      </section>
+    </article>
+  </main>
+
+{{ end }}

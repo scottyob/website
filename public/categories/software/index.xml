@@ -6,13 +6,17 @@
     <description>Recent content in Software on Scott O&#39;Brien</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.scottyob.com/categories/software/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Sep 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.scottyob.com/categories/software/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Paragliding Tasks Checker</title>
-      <link>https://www.scottyob.com/posts/2021-09-20-para-tasks/</link>
+      <link>https://www.scottyob.com/posts/paratasks/</link>
       <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://www.scottyob.com/posts/2021-09-20-para-tasks/</guid>
+      <guid>https://www.scottyob.com/posts/paratasks/</guid>
       <description>It&amp;rsquo;s so easy to build react apps these days. Over two nights, I knocked up a quick website to be able to upload igc flight files, and an xctask files to locally compute if you managed to hit the targets.
 It&amp;rsquo;s something to play with more later, but I&amp;rsquo;m hoping to start putting these widgets into my logbook app to be able to log flights against tasks when they&amp;rsquo;re done.</description>
     </item>

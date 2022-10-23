@@ -1,1040 +1,333 @@
+
+
 <!DOCTYPE html>
-<html><head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-  <meta name="generator" content="Hugo 0.88.1" />
+<html>
+    <head>
+	<meta name="generator" content="Hugo 0.68.3" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  
+    
+    <title>
+      
+      Scott O&#39;Brien
+      
+		</title>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <link rel="stylesheet" href="/css/code_tango.css">
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="alternate" type="application/rss&#43;xml" href="https://www.scottyob.com/index.xml">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/icons.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Lato:100,100i,300,300i,400,400i,700,700i|Source+Code+Pro:300,400,500,700" rel="stylesheet">
+    
 
-  
-  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
-
-
-  
-  <link rel="apple-touch-icon" sizes="180x180" href="https://www.scottyob.com/apple-touch-icon.png">
-
-  
-  <link rel="icon" type="image/png" sizes="32x32" href="https://www.scottyob.com/favicon-32x32.png">
-
-  
-  <link rel="icon" type="image/png" sizes="16x16" href="https://www.scottyob.com/favicon-16x16.png">
-
-  
-  <link rel="manifest" href="https://www.scottyob.com/site.webmanifest">
-
-  
-  <link rel="mask-icon" href="https://www.scottyob.com/safari-pinned-tab.svg" color="">
-
-  <meta name="msapplication-TileColor" content="">
-
-  <meta name="theme-color" content="">
-
-  
-  <link rel="stylesheet" href="https://www.scottyob.com/css/bootstrap.min.css" />
-
-  
-  
-  
-  <title>Home | Scott O&#39;Brien</title>
-  
-
-  <style>
-
-  @media (min-width: 992px){
-    .container{
-      max-width:850px;
-    }  
-  }
-
-  body {
-    background-color: #fff;
-    background-color: #fff;
-    color: #888;
-    font-size: .66em;
-    font-family: lucida grande,Verdana,Arial,Sans-Serif;
-    line-height: 1.4;
-    margin: 0;
-    padding: 0;
-  }
-
-  .header {
-    margin: 4em 0;
-  }
-
-  @media (min-width: 768px) {
-    #sidebar {
-      text-align: right;
-    }
-  }
-
-  #sidebar {
-    text-transform: lowercase;
-  }
-
-  #sidebar h2 {
-    font-family: lucida grande, Verdana,Arial,Sans-Serif;
-    font-size: 1.2em;
-    text-transform: uppercase;
-    margin: 0;
-    padding: .5em 0 .4em;
-  }
-
-  #sidebar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  #sidebar li:before {
-    content: "\00BB  ";
-  }
-
-  a {
-    color: #ff7010;
-    text-decoration: none;
-  }
-
-  h1 {
-    font-size 3.2em;
-    line-height: 1em;
-  }
-
-  h2 {
-    font-size: 1.8em;
-
-  }
-
-  h1, h2, h3, h4, h5 {
-    font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
-    font-weight: bold;
-    line-height: normal;
-    margin: 0;
-    padding: 0;
-  }
-
-  small {
-    font-size: 1em;
-    line-height: 1.5em;
-    background-color: inherit;
-    color: #888;
-  }
-
-  h2.pagetitle {
-    background-color: #f0f0f0;
-    color: inherit;
-    padding: 0.5em 0 0.4em 0.2em;
-    margin: 0 0 2em 0;
-  }
-
-  #content {
-    color: #484848;
-  }
-
-  .leftnav {
-    float: left;
-    margin: 0 1em 0;
-  }
-
-  .rightnav {
-    float: right;
-  }
-
-  .snap-to-fit {
-    clear: both;
-    visibility: hidden;
-  }
-
-  .navigation {
-    margin: 0 0 1.6em 0;
-    padding: 0 0 1px 0;
-    font-family: 'Lucida Grande', Arial, Verdana, Sans-Serif;
-    font-size: 1.2em;
-  }
-
-  .post {
-    margin: 0 0 3em;
-  }
-
-  .post+.post h2 {
-      padding: .2em 0 0;
-      border-top: 1px solid #888;
-  }
-
-  .entry {
-    width: 100%;
-    font-size: 1.2em;
-    margin: 1em 0 0;
-    overflow: auto;
-  }
-
-  blockquote {
-    margin: 1.6em 2.8em 0 1.4em;
-    padding: 0 0 0 2em;
-    border-left: .6em solid #ddd;
-  }
-
-  #footer {
-    clear: both;
-    margin: 4em 0 1em;
-    padding: .2em 0 0;
-    border-top: 1px solid #888;
-    font-family: lucida grande,Arial,Verdana,Sans-Serif;
-  }
-
-
-</style>
-
+    
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/bigfoot/dist/bigfoot.js"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/bigfoot/dist/bigfoot-number.css" />
+    <script type="text/javascript">
+        $.bigfoot();
+    </script>
+    
+    
 </head>
 
-<body><div id="navbar-top" class="d-md-none">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a class="navbar-brand" href="/">Posts</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-	  <span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-	  <div class="navbar-nav">
-            
-              <a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
-            
-              <a class="nav-item nav-link" href=/page/about/>About Me</a>
-            
-	  </div>
+    <body class="standard">
+        <header class="main-header">
+	<div class="main-header-content">
+		<h1 class="blog-title">
+			<a href="/">
+				
+           Scott O&#39;Brien
+				
+			</a>
+		</h1>
+		<h2 class="blog-description">Projects, Ramblings and Resources of my (online) life</h2>
 	</div>
-      </nav>
-    </div>
 
+	<div class="nav">
+    
+		
+      <a class="nav- " role="presentation" href="/page/bucketlist/">The Bucket List</a>
+		
+      <a class="nav- " role="presentation" href="/page/about/">About Me</a>
+		
+      <a class="nav- " role="presentation" href="/recipes/">Recipes</a>
+		
+      <a class="nav- " role="presentation" href="/flying/">Flying</a>
+		
+	</div>
+</header>
 
-    <div class="container" id="container">
-      
-      <div class="row">
-        <div class="col-md-9 offset-md-3">
-          <div class="header">
-            <h1><a href="/">Scott O&#39;Brien</a></h1>
-            <small>Ramblings and resources of my online life</small>
-          </div>
-        </div> 
-      </div>
-
-      <div class="row">
         
-        <div id="content" class="col-md-9">
-          
+	<main class="content" role="main">
+    
+    
+      
+    
+    
+    <div class="extra-pagination">
+      
 
-
-
-<div class="navigation">
-  <div class="leftnav">« <a href="/page/2/">Later Posts</a></div>
-  <div class="snap-to-fit"></div>
-</div>
-
-
-
-  <div class="post">
-    <h2 class="post__title">
-      <a href="https://www.scottyob.com/2013/12/18/throttling-guest-internet-on-apple-airport-extreme/">throttling guest internet on Apple Airport Extreme</a>
-    </h2>
-    <small>2013-12-18 13:09:03 &#43;0000 &#43;0000</small>
-    <div class="entry">
-      <p>I’ve been happily running my Apple Airport Extreme as m home router for the past few years (since my debian router died, and I’ve been too lazy to replace it).  One of the cool features was the ability to create a guest network (SSID) to access the internet without being able to access your trusted network.  One feature I wanted was the ability to throttle the speed guests can access the internet at.  While I couldn’t do this with the Airport Extreme alone, Add a Juniper SRX100 into the mix that the awesome <a href="http://cooperlees.com" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://cooperlees.com']);">Cooper Lees</a> gave me into the mix and problem solved.</p>
-<p><a href="/img/old/2013/12/apple-airport-extreme-base-station_1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-362" alt="apple-airport-extreme-base-station_1" src="/img/old/2013/12/apple-airport-extreme-base-station_1.jpg" width="600" height="450" /></a></p>
-<div id="attachment_357" style="width: 499px" class="wp-caption aligncenter">
-  <a href="/img/old/2013/12/photo-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img aria-describedby="caption-attachment-357" class=" wp-image-357 " alt="SRX100, signed by the #1 Juniper Engineer" src="/img/old/2013/12/photo-1.jpg" width="489" height="367" /></a>
-  <p id="caption-attachment-357" class="wp-caption-text">
-    SRX100, signed by the #1 Juniper Engineer
-  </p>
-</div>
-<p><a href="/img/old/2013/12/AirPort-Utility1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-353" alt="AirPort Utility" src="/img/old/2013/12/AirPort-Utility1.jpg" width="697" height="667" /></a></p>
-<p><a href="/img/old/2013/12/AirPort-Utility-2.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-356" alt="AirPort Utility-2" src="/img/old/2013/12/AirPort-Utility-2.jpg" width="580" height="581" /></a></p>
-<p>In not so many words, performing these actions will do a number of things.  The gig ethernet switch on the back of the airport will be bridged with the WAN port.  Any traffic from your normal SSID(s) and switchports will be sent out the WAN port <em>untagged.</em>  Traffic from your guest network will be sent .1q tagged with vlan 1003.</p>
-<p>I popped this into fe-0/0/1 on my SRX100 and the following config works the magic.</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">123
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">124
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">125
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">126
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">127
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">128
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">129
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">130
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">131
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">132
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">133
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">134
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">135
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">136
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">137
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">138
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">139
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">140
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">141
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">142
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">143
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    fe-0/0/1 {
-        unit 0 {
-            family ethernet-switching {
-                port-mode trunk;
-                vlan {
-                    members vlan-guest;
-                }
-                native-vlan-id 3;
-            }
-        }
-    }
-
-    vlan {
-        unit 0 {
-            family inet {
-                address 10.0.1.1/24;
-            }
-        }
-        unit 1003 {
-            family inet {
-                filter {
-                    input limit_guest_upload;
-                    output limit_guest_download;
-                }
-                address 10.0.2.1/24;
-            }
-        }
-    }
-
-[system services]
-        dhcp {
-            pool 10.0.1.0/24 {
-                address-range low 10.0.1.2 high 10.0.1.199;
-                router {
-                    10.0.1.1;
-                }
-            }
-            pool 10.0.2.0/24 {
-                address-range low 10.0.2.2 high 10.0.2.254;
-                router {
-                    10.0.2.1;
-                }
-            }
-            propagate-settings fe-0/0/0.0;
-        }
-
-[security]
-    nat {
-        source {
-            rule-set private-to-internet {
-                from zone [ guest trust ];
-                to zone untrust;
-                rule source-nat-rule {
-                    match {
-                        source-address 0.0.0.0/0;
-                    }
-                    then {
-                        source-nat {
-                            interface;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    policies {
-        from-zone trust to-zone untrust {
-            policy trust-to-untrust {
-                match {
-                    source-address any;
-                    destination-address any;
-                    application any;
-                }
-                then {
-                    permit;
-                }
-            }
-        }
-        from-zone guest to-zone untrust {
-            policy guest-to-internet {
-                description &#34;Allows guest access to internet&#34;;
-                match {
-                    source-address any;
-                    destination-address any;
-                    application any;
-                }
-                then {
-                    permit;
-                }
-            }
-        }
-    }
-
-[security zones]
-        security-zone guest {
-            host-inbound-traffic {
-                system-services {
-                    dns;
-                    ping;
-                    traceroute;
-                }
-            }
-            interfaces {
-                vlan.1003;
-            }
-        }
-
-firewall {
-    policer guest-shaping {
-        if-exceeding {
-            bandwidth-limit 500k;
-            burst-size-limit 300k;
-        }
-        then discard;
-    }
-    filter limit_guest_download {
-        term guest-shaping {
-            then {
-                policer guest-shaping;
-                accept;
-            }
-        }
-    }
-    filter limit_guest_upload {
-        term guest-shaping {
-            then {
-                policer guest-shaping;
-                accept;
-            }
-        }
-    }
-}
-vlans {
-    vlan-guest {
-        vlan-id 1003;
-        l3-interface vlan.1003;
-    }
-    vlan-trust {
-        vlan-id 3;
-        l3-interface vlan.0;
-    }
-}
-
-</code></pre></td></tr></table>
-</div>
-</div><p>And there you have it! A really simple way of limiting the bandwidth of guest users on your network using the power of Junos with an Airport Extreme!</p>
-<p> </p>
-<p style="text-align: center;">
-  <a href="/img/old/2013/12/photo-2.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter  wp-image-364" alt="Throttled Speed" src="/img/old/2013/12/photo-2.png" width="384" height="576" /></a>
-</p>
-    </div>
-  </div>
-
-  <div class="post">
-    <h2 class="post__title">
-      <a href="https://www.scottyob.com/2013/04/09/what-is-anycast/">What is Anycast?</a>
-    </h2>
-    <small>2013-04-09 12:15:31 &#43;0000 &#43;0000</small>
-    <div class="entry">
-      <p>I’ve never found a really simple video on what exactly Anycast is with a basic examples when exploring the concepts.  I decided to lab it up and figured this might help some of you starting out with the concepts.  Any comments feel free to let me know!</p>
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/YM_b_YmTRBA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
-
-<p>Config Attached for IOS lab <a title="HERE" href="/img/old/2013/04/IOU_WEB_ANYCAST.zip" onclick="javascript:_gaq.push(['_trackEvent','download','/img/old/2013/04/IOU_WEB_ANYCAST.zip']);">HERE.</a></p>
+<nav class="pagination" role="navigation">
+    
+        <a class="newer-posts" href="/page/2/">&larr; Newer Posts</a>
+    
+    <span class="page-number">Page 3 of 5</span>
+    
+        <a class="older-posts" href="/page/4/">Older Posts &rarr;</a>
+    
+</nav>
 
     </div>
-  </div>
+    
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/2012/07/31/zfs-and-apple-time-machine-a-perfect-team/">ZFS and Apple Time Machine, a perfect team</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      So lately I’ve been thinking about my backup strategy on my Mac. From previous posts you might know I’ve build my OpenIndiana ZFS FileServer. Well, just created a volume and decided to put 300GB to good use to create a time machine on my mac. There is a brilliant guide on how to do it here and suggest you all take a look (Thanks for the awesome guide Marco). &hellip; <a class="read-more" href="/2012/07/31/zfs-and-apple-time-machine-a-perfect-team/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">July 31, 2012</time>
+	</footer>
+</article>
 
-  <div class="post">
-    <h2 class="post__title">
-      <a href="https://www.scottyob.com/2012/12/08/my-experiences-of-managing-a-cisco-switch-with-puppet/">My experiences of managing a Cisco switch with Puppet</a>
-    </h2>
-    <small>2012-12-08 12:19:41 &#43;0000 &#43;0000</small>
-    <div class="entry">
-      <p>One recent pet gripe of mine has been having to add a new VLAN into our datacenter for our vSphere platform.  Not that I trust my DCs switches with puppet just yet, this is a proof of concept post about how we could be using puppet to centrally manage this configuration and push it out across our DC.</p>
-<h3 id="before">Before</h3>
-<p>We’ve got a pretty basic topology going on in our DC, it’s just a VSS with the other switches pretty much being nothing more but layer 2 for the most part.  The dot1q trunk back to the VSS carries all VLANs from our end of row switches.  When we add a new vlan in the DC to trunk to the ESX machines, we would add the VLAN in all the DC switches (not running VTP) then add the vlan to the trunk port on each port patched to the ESX hosts.  (we’re not using any link aggregation to the ports connected to the same ESX host, the ESX hosts themselves have their own load balancing method.. If you know any for/against doing it like this please comment and let me know)</p>
-<h3 id="heading"></h3>
-<h3 id="setting-up-the-puppet-lab"><strong>Setting up the Puppet lab</strong></h3>
-<p>Introduced in Puppet 2.7 is <a href="http://puppetlabs.com/blog/puppet-network-device-management/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://puppetlabs.com']);">network device management</a>.  This more or less is an expect script to manage interfaces and vlans on IOS devices.  For this lab, we will be using cisco IOU with the following topology</p>
-<p><a href="/img/old/2012/12/IOU-Web-Interface-Laboratories.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-221" title="IOU Web Interface - Laboratories" alt="" src="/img/old/2012/12/IOU-Web-Interface-Laboratories.jpg" width="507" height="319" /></a></p>
-<h4 id="setting-up-the-devices">Setting up the Devices</h4>
-<p>Ideally, you would have a few puppet nodes that manage a few devices each to spread out the load, for the purposes of this exercise, I created a single vm running Centos6 with both puppet-server and puppet installed.  For this machine to manage the switches, I added the following into the device.conf file</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">[dc_sw1]
-  type cisco
-  url telnet://puppet:cisco@10.0.1.131/
-[dc_sw2]
-  type cisco
-  url telnet://puppet:cisco@10.0.1.132/
-[dc_sw3]
-  type cisco
-  url telnet://puppet:cisco@10.0.1.133/
-[dc_sw4]
-  type cisco
-  url telnet://puppet:cisco@10.0.1.134/
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="signing-the-devices">Signing the devices</h3>
-<p>To update the devices, you have to run <strong>puppet device</strong>.  The first time you run it, a certificate will be created that needs to be signed on the puppet master.</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">info: starting applying configuration to dc_sw4 at telnet://puppet:cisco@10.0.1.134/
-info: Creating a new SSL key for dc_sw4
-warning: peer certificate won&#39;t be verified in this SSL session
-info: Caching certificate for ca
-warning: peer certificate won&#39;t be verified in this SSL session
-warning: peer certificate won&#39;t be verified in this SSL session
-info: Creating a new SSL certificate request for dc_sw4
-info: Certificate Request fingerprint (md5): E8:A6:35:9D:BF:CE:3D:BC:E0:E4:C2:5B:00:CE:9F:DB
-warning: peer certificate won&#39;t be verified in this SSL session
-warning: peer certificate won&#39;t be verified in this SSL session
-warning: peer certificate won&#39;t be verified in this SSL session
-</code></pre></td></tr></table>
-</div>
-</div><p>so we’ll need to sign our devices</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">notice: Signed certificate request for dc_sw4
-notice: Removing file Puppet::SSL::CertificateRequest dc_sw4 at &#39;/var/lib/puppet/ssl/ca/requests/dc_sw4.pem&#39;
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="setting-up-the-switches-for-puppet">Setting up the switches for Puppet</h3>
-<p>If you look up to the device configuration file, we need to create a local user for puppet to log into the switch (remember, it acts much like an expect script)</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">line vty 0 4
- privilege level 15
- password cisco
- login local
- transport input all
-!
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="the-configuration">The Configuration</h3>
-<p>so with no more ado, we can easily simply abstract the behaviour of these ports using puppet syntax 🙂</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">
-        interface {
-                &#34;${port}&#34;:
-                        mode =&amp;gt; trunk,
-                        duplex =&amp;gt; full,
-                        description =&amp;gt; &#34;ESX Host&#34;,
-                        allowed_trunk_vlans =&amp;gt; &#34;3,4,5,8,9&#34;
-        }
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/2012/07/09/monitoring-srx-chassis-cluster/">Monitoring SRX Chassis Cluster</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      Just finishing off a few things at work this week. We’ve got a few sites around the place where we have HA internet powered by two Juniper SRX100’s. The Two SRX100’s operate in a Chassis Cluster and peer with our ISP using BGP across both active/passive devices.
+Below is a little Nagios check script that I wrote to hook into our in-house Nagios monitoring platform. It makes sure the chassis cluster has not failed over operating in a degraded state, and makes sure that there are two BGP peers connected. &hellip; <a class="read-more" href="/2012/07/09/monitoring-srx-chassis-cluster/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">July 09, 2012</time>
+	</footer>
+</article>
 
-}
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/2012/06/03/easily-accessing-geoip-restricted-sites-in-your-network/">Easily accessing GeoIP restricted sites in your network.</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      We all know the problem, some sites are restricted to certain countries based on the IP address you’re using to view them. When trying to access over-seas, some solutions are HTTP proxies, Socks proxies and the like. The problem I have with all of these is that they’re annoying to set up whenever you want to to view the site and I don’t want to have to do that for all my devices (iPad, computer, etc). &hellip; <a class="read-more" href="/2012/06/03/easily-accessing-geoip-restricted-sites-in-your-network/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">June 03, 2012</time>
+	</footer>
+</article>
 
-node &#34;dc_sw1&#34; {
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/2012/04/13/ha-software/">High Availability WordPress LAMP Stack – Part 2</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      Setting up the Software Stack This article is the second in a series (see part 1 here). Please see HA Network for the first part in setting up the network topology to be highly available.
+It’s all good having a redundant network design, but putting web servers and the like on our hypervisors doesn’t make them redundant. In the event where there’s a failure on one of our servers, all virtual machines on that server will die. &hellip; <a class="read-more" href="/2012/04/13/ha-software/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">April 13, 2012</time>
+	</footer>
+</article>
 
-        esxport { &#39;e0/2&#39;: port =&amp;gt; &#39;Ethernet0/2&#39; }
-        esxport { &#39;e0/3&#39;: port =&amp;gt; &#39;Ethernet0/3&#39; }
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/2012/04/13/ha-network/">High Availability WordPress LAMP Stack.</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      Introduction In one of my last little tasks at work, I was asked to eliminate single points of failure in the software and hardware stack without spending a fortune on hardware or software licenses. During the process of ensuring high availability (HA), I realized that many small companies might have similar need, but with more pressing tasks and limited man hours, without a post that talks about all the issues and solutions in one place, many companies and organisations tend to leave single points of failure living with the chance that they’re not going to fail any time soon. &hellip; <a class="read-more" href="/2012/04/13/ha-network/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">April 13, 2012</time>
+	</footer>
+</article>
 
-}
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/2011/07/02/whats-the-harm-in-google-dns-performance/">What’s the harm in Google DNS?Performance!</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      EDIT: It looks like Google has recently starting peering in more places in AU with an anycast solution that fixes these issues.
+On a little side note to the tutorial series I’ve been writing up lately for building a ZFS fileserver. This one is about Why Google DNS is bad for your performance (well, depending on where you live) A real quick run down, we all know what DNS does yeah? &hellip; <a class="read-more" href="/2011/07/02/whats-the-harm-in-google-dns-performance/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">July 02, 2011</time>
+	</footer>
+</article>
 
-node &#34;dc_sw2&#34; {
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/2011/04/04/allowing-access-through-nfs-samba/">Allowing access through NFS &amp; SAMBA</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      Cifs Share  CIFS (Common Internet File System), the protocol windows users for all it’s ‘windows file sharing’ is the method I’ll allow for my desktops and roaming computers to access files on the file server.
+Before we begin, Make sure we install the CIFS kernal modules
+1  # pkg install SUNWsmbs # pkg install SUNWsmbskr   next we issue this command to make sure it auto starts &hellip; <a class="read-more" href="/2011/04/04/allowing-access-through-nfs-samba/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">April 04, 2011</time>
+	</footer>
+</article>
 
-        esxport { &#39;e1/0&#39;: port =&amp;gt; &#39;Ethernet1/0&#39; }
-        esxport { &#39;e1/1&#39;: port =&amp;gt; &#39;Ethernet1/1&#39; }
-        esxport { &#39;e1/2&#39;: port =&amp;gt; &#39;Ethernet1/2&#39; }
-        esxport { &#39;e1/3&#39;: port =&amp;gt; &#39;Ethernet1/3&#39; }
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/2011/03/24/3-setting-up-filesystems-and-snapshots-part-2/">3. Setting up FileSystems and Snapshots (part 2)</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      Note: This post is one in a series aimed to be a tutorial eventually, it’s not currently finalised and at the moment exists as a place for collating thought and collecting feedback
+In part 1 of this blog post, I showed you how I created a script that would, when run, rotate your snapshots on a ZFS filesystem. For this to be usable, we need to create a mechanism for having it be automatically ran. &hellip; <a class="read-more" href="/2011/03/24/3-setting-up-filesystems-and-snapshots-part-2/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">March 24, 2011</time>
+	</footer>
+</article>
 
-}
-</code></pre></td></tr></table>
-</div>
-</div><h4 id="the-ugly">The Ugly</h4>
-<p>A lot of the states don’t yet seem to be supported by this module.  This means even the default trunk mode of dynamic desirable will cause issues when Puppet is pulling device information and you’ll have to manually specify “switchport trunk encapsulation dot1q” and “switchport mode access” before setting puppet free on the devices.</p>
-<h4 id="results">Results</h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">info: starting applying configuration to dc_sw4 at telnet://puppet:cisco@10.0.1.134/
-info: Caching catalog for dc_sw4
-info: Applying configuration version &#39;1355007108&#39;
-notice: Finished catalog run in 0.20 seconds
-info: starting applying configuration to dc_sw3 at telnet://puppet:cisco@10.0.1.133/
-info: Caching catalog for dc_sw3
-info: Applying configuration version &#39;1355007108&#39;
-notice: Finished catalog run in 0.21 seconds
-info: starting applying configuration to dc_sw2 at telnet://puppet:cisco@10.0.1.132/
-info: Caching catalog for dc_sw2
-info: Applying configuration version &#39;1355007108&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/1]/Interface[Ethernet1/1]/description: defined &#39;description&#39; as &#39;ESX Host&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/1]/Interface[Ethernet1/1]/duplex: duplex changed &#39;auto&#39; to &#39;full&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/1]/Interface[Ethernet1/1]/mode: mode changed &#39;access&#39; to &#39;trunk&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/1]/Interface[Ethernet1/1]/allowed_trunk_vlans: defined &#39;allowed_trunk_vlans&#39; as &#39;3,4,5,8,9&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/3]/Interface[Ethernet1/3]/description: defined &#39;description&#39; as &#39;ESX Host&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/3]/Interface[Ethernet1/3]/duplex: duplex changed &#39;auto&#39; to &#39;full&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/3]/Interface[Ethernet1/3]/mode: mode changed &#39;access&#39; to &#39;trunk&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/3]/Interface[Ethernet1/3]/allowed_trunk_vlans: defined &#39;allowed_trunk_vlans&#39; as &#39;3,4,5,8,9&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/2]/Interface[Ethernet1/2]/description: defined &#39;description&#39; as &#39;ESX Host&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/2]/Interface[Ethernet1/2]/duplex: duplex changed &#39;auto&#39; to &#39;full&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/2]/Interface[Ethernet1/2]/mode: mode changed &#39;access&#39; to &#39;trunk&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/2]/Interface[Ethernet1/2]/allowed_trunk_vlans: defined &#39;allowed_trunk_vlans&#39; as &#39;3,4,5,8,9&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/0]/Interface[Ethernet1/0]/description: defined &#39;description&#39; as &#39;ESX Host&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/0]/Interface[Ethernet1/0]/duplex: duplex changed &#39;auto&#39; to &#39;full&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/0]/Interface[Ethernet1/0]/mode: mode changed &#39;access&#39; to &#39;trunk&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/0]/Interface[Ethernet1/0]/allowed_trunk_vlans: defined &#39;allowed_trunk_vlans&#39; as &#39;3,4,5,8,9&#39;
-notice: Finished catalog run in 14.22 seconds
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="my-002">my $0.02</h3>
-<p>I must say, I’m very disappointed in this module so far.  It shows great promise and makes a once tedious task relatively effortless to manage, however with the time invested to find out what is and what is not supported, I think it’s far too early to invest in such a solution.  The idea of setting something like an expect script loose on my kit also worries me.  It’s much better to have an API or a promise that the input/output the expect script uses won’t change in a future release then do something unexpected (pun intended there.)</p>
-<p>I guess if we were using an OS like Junos we could have <a href="http://www.swarm-logic.com/content/quick-way-configure-interface-ranges-juniper-switches-junos-tips" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.swarm-logic.com']);">created apply-groups like this</a> to abstract the configuration in much the same manner, at least down to the switch level.  Very interesting for a new take on managing these things though</p>
-<h2 id="span-stylecolor-ff6600editspan"><span style="color: #ff6600;">EDIT:</span></h2>
-<p>I’ve been thinking about this a lot since I posted it.  I think I was too harsh on the tool.  It seems even Cisco’s own tools work by ssh’ing into the box to make their changes.. while not ideal, for these old IOS devices around, it seems to be the accepted thing to do.  It’s exciting times ahead in this space though, I can feel it!</p>
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/2011/03/18/3-setting-up-filesystems-and-snapshots/">3. Setting up FileSystems and Snapshots (part 1)</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      Note: This post is one in a series aimed to be a tutorial eventually, it’s not currently finalised and at the moment exists as a place for collating thought and collecting feedback
+Setting up the FileSystems is a trivial task. First, you can see that when we’ve created a storage pool ‘datastore’ it created a filesystem for us (also called datastore) that can act as a container for child file systems. &hellip; <a class="read-more" href="/2011/03/18/3-setting-up-filesystems-and-snapshots/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">March 18, 2011</time>
+	</footer>
+</article>
 
-    </div>
-  </div>
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/2011/03/16/2-installing-the-operating-system/">2. Installing the Operating System</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      Note: This post is one in a series aimed to be a tutorial eventually, it’s not currently finalised and at the moment exists as a place for collating thought and collecting feedback
+Installing OS and setup Network For the following set of posts, I have chosen to use VirtualBox to run through how to use ZFS in building your FileSystem. The first step is downloading and installing OpenIndiana. Get the latest build from http://openindiana. &hellip; <a class="read-more" href="/2011/03/16/2-installing-the-operating-system/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">March 16, 2011</time>
+	</footer>
+</article>
 
-  <div class="post">
-    <h2 class="post__title">
-      <a href="https://www.scottyob.com/2012/11/08/address-book-for-a-the-blind/">Address Book For the Blind</a>
-    </h2>
-    <small>2012-11-09 00:32:51 &#43;0000 &#43;0000</small>
-    <div class="entry">
-      <p>This article is about using the <a href="http://www.asterisk.org" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.asterisk.org']);">Asterisk PBX</a> and exploiting <a href="http://www.google.com/insidesearch/features/voicesearch/index.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.google.com']);">Google’s voice recognition </a>API built for voice search in Chrome to build an address book that technology inept people (my grandmother) can use to place cheap telephone calls over VoIP.</p>
-<p>This tool is built for my grandmother; a lady who has <a href="http://www.mdfoundation.com.au" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.mdfoundation.com.au']);">macular degeneration</a> making her legally blind.  She doesn’t want to invest a great deal of money in this solution or have much of a learning curve, it took long enough to get her using the two button audio book solution on the iPod.  </p>
-<p>The basic idea is to purchase a direct inward dialing (DID) number and program it into her speed dial, this will connect to an Asterisk virtual machine that will launch the voice recognition to listen to who she wants to dial, look up the number in her address book then connect the call through, all at the rate of about $0.11 for a national call (actually saving her money!).</p>
-<p>I’m using the <a href="http://zaf.github.com/asterisk-speech-recog/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://zaf.github.com']);">Speech Recognition for Asterisk</a> module to convert the spoken recording to a string.  The problem with the method using this library for an address books is different words being returned that are pronounced very similar to the names in the book, for instance trying to find the name ‘elmer’ returned ‘Alma’.  With a bit of python scripting to use <a href="http://www.doughellmann.com/articles/how-tos/phonetic-hashing/index.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.doughellmann.com']);">fuzzy matching to search by sound with python</a> we can start to compare what our speech recognition engine returned with what we actually have in our address book. It must be noted that this method only works for a small set of different numbers in an address book, which although fits my grandmother fine, I plan to script the server so I can always make that magic button (DID speed dial) re-direct the call to anywhere I like.</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"> dmetaphone = fuzzy.DMetaphone(3)
- dmetaphone(&#39;Alma&#39;)
-[&#39;ALM&#39;, None]
- dmetaphone(&#39;Elmer&#39;)
-[&#39;ALM&#39;, None]
- dmetaphone(&#39;Toss&#39;)
-[&#39;TS&#39;, None]
- dmetaphone(&#39;Scott&#39;)
-[&#39;SKT&#39;, None]
- dmetaphone(&#39;Troy&#39;)
-[&#39;TR&#39;, None]
- dmetaphone(&#39;Sue&#39;)
-[&#39;S&#39;, None]
- dmetaphone(&#39;Janet&#39;)
-[&#39;JNT&#39;, &#39;ANT&#39;]
-</code></pre></td></tr></table>
-</div>
-</div><p>So, to execute the plan, I’m using an account on <a href="https://www.mynetfone.com.au" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.mynetfone.com.au']);">Mynetfone</a>.  The extensions.conf has a script to answer the call on my purchased DID, prompt for who she wants to talk to, run it through speech recognition, then call the number in her address book through a python script.  The extensions.conf that makes this magic happen looks like this:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">; Phone call is made to the service, welcome user and get their speech
-exten = 0920xxxx,1,Answer()
-exten = 0920xxxx,1,Wait(2)
-exten = 0920xxxx,n,agi(googletts.agi, &#34;Hello Miss Duckworth&#34;, en)
-exten = 0920xxxx,n,agi(googletts.agi, &#34;I am here to attempt to make your social life easier.&#34;, en)
-exten = 0920xxxx,n(intro),agi(googletts.agi, &#34;Who would you like to talk to?&#34;, en)
-exten = 0920xxxx,n,agi(speech-recog.agi, en-US)
+        
+      
+    
+    
 
-; Look up number in address book, write debug information then go to the required section
-exten = 0920xxxx,n,agi(address-book.agi,${utterance})
-exten = 0920xxxx,n,Verbose(1,The text you just said is: ${utterance})
-exten = 0920xxxx,n,Verbose(1,The probability to be right is: ${confidence})
-exten = 0920xxxx,n,Verbose(1, ${foundname})
-exten = 0920xxxx,n,Verbose(1, ${todial})
-exten = 0920xxxx,n,GotoIf($[&#34;${foundname}&#34; = &#34;1&#34;]?success:fail)
+<nav class="pagination" role="navigation">
+    
+        <a class="newer-posts" href="/page/2/">&larr; Newer Posts</a>
+    
+    <span class="page-number">Page 3 of 5</span>
+    
+        <a class="older-posts" href="/page/4/">Older Posts &rarr;</a>
+    
+</nav>
 
-; Name not found in the address book
-exten = 0920xxxx,n(fail),agi(googletts.agi,&#34;Sorry, I could not find the person ${utterance} in the address book&#34;, en)
-exten = 0920xxxx,n,agi(googletts.agi, &#34;Please feel free to try again&#34;,en)
-exten = 0920xxxx,n,Goto(intro)
+	</main>
 
-; Connect the user through the MyNetFone service.
-exten = 0920xxxx,n(success),agi(googletts.agi, &#34;Please hold while I connect you to&#34;, en)
-exten = 0920xxxx,n,agi(googletts.agi, &#34;${utterance}&#34;, en)
-exten = 0920xxxx,n,Dial(SIP/MyNetFone/${todial}, 30)
-exten = 0920xxxx,n,Hangup()
-</code></pre></td></tr></table>
-</div>
-</div><p>and the python script address-book.agi file:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">
-import sys
-import fuzzy
-
-# Read and ignore AGI environment (read until blank line)
-
-addressBook = {
-   &#39;scott&#39;: &#39;0415xxxxxx&#39;,
-   &#39;susan&#39;: &#39;98xxxxxx&#39;,
-   &#39;support&#39;: &#39;181&#39;
-}
-
-dmetaphone = fuzzy.DMetaphone(3)
-
-env = {}
-tests = 0;
-
-while 1:
-   line = sys.stdin.readline().strip()
-
-   if line == &#39;&#39;:
-      break
-   key,data = line.split(&#39;:&#39;)
-   if key[:4] &amp;lt; &#39;agi_&#39;:
-      #skip input that doesn&#39;t begin with agi_
-      sys.stderr.write(&#34;Did not work!\n&#34;);
-      sys.stderr.flush()
-      continue
-   key = key.strip()
-   data = data.strip()
-   if key &amp;lt; &#39;&#39;:
-      env[key] = data
-
-spokenWord = dmetaphone(env[&#39;agi_arg_1&#39;])
-
-for name in addressBook:
-   if dmetaphone(name) == spokenWord:
-      print &#39;SET VARIABLE todial &#34;%s&#34;&#39; % addressBook[name]
-      print &#39;SET VARIABLE foundname &#34;1&#34;&#39;
-      sys.exit(0)
-print &#39;SET VARIABLE foundname &#34;0&#34;&#39;
-</code></pre></td></tr></table>
-</div>
-</div>
-    </div>
-  </div>
+        <footer class="site-footer">
+  <section class="rss"><a class="subscribe-button icon-feed" href="/index.xml"></a></section>
+  
+  
+  <section class="copyright">&copy; 2022 Scott O&#39;Brien</section>
+  <section class="poweredby"><a href="https://github.com/nirocfz/arabica">Arabica</a> theme by Sean Lunsford. Published with <a href="https://gohugo.io">Hugo</a>.</section>
+</footer>
 
 
 
-<div class="navigation">
-  <div class="rightnav"><a href="/page/4/">Earlier Posts</a> »</div>
-  <div class="snap-to-fit"></div>
-</div>
-
-
-<div id="footer">
-  Made with <a href="https://gohugo.io/">Hugo</a>.  Theme half-milk inspired by <a href="http://thortz.com/skimmed-milk/">skimmed-milk</a>
-</div>
-</div>
-        <div id="sidebar" class="col-md-3 order-md-first d-none d-md-block">
-          
-          <h2>Other Pages</h2>
-          <ul>
-            
-              <li><a href=/page/bucketlist/>The Bucket List</a></li>
-            
-              <li><a href=/page/about/>About Me</a></li>
-            
-          </ul>
-        </div> 
-      </div> 
-    </div> 
-  </body>
+    </body>
 </html>

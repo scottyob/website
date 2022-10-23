@@ -1,659 +1,336 @@
+
+
 <!DOCTYPE html>
-<html><head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-  <meta name="generator" content="Hugo 0.88.1" />
+<html>
+    <head>
+	<meta name="generator" content="Hugo 0.68.3" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  
+    
+    <title>
+      
+      Scott O&#39;Brien
+      
+		</title>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <link rel="stylesheet" href="/css/code_tango.css">
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="alternate" type="application/rss&#43;xml" href="https://www.scottyob.com/index.xml">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/icons.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Lato:100,100i,300,300i,400,400i,700,700i|Source+Code+Pro:300,400,500,700" rel="stylesheet">
+    
 
-  
-  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
-
-
-  
-  <link rel="apple-touch-icon" sizes="180x180" href="https://www.scottyob.com/apple-touch-icon.png">
-
-  
-  <link rel="icon" type="image/png" sizes="32x32" href="https://www.scottyob.com/favicon-32x32.png">
-
-  
-  <link rel="icon" type="image/png" sizes="16x16" href="https://www.scottyob.com/favicon-16x16.png">
-
-  
-  <link rel="manifest" href="https://www.scottyob.com/site.webmanifest">
-
-  
-  <link rel="mask-icon" href="https://www.scottyob.com/safari-pinned-tab.svg" color="">
-
-  <meta name="msapplication-TileColor" content="">
-
-  <meta name="theme-color" content="">
-
-  
-  <link rel="stylesheet" href="https://www.scottyob.com/css/bootstrap.min.css" />
-
-  
-  
-  
-  <title>Home | Scott O&#39;Brien</title>
-  
-
-  <style>
-
-  @media (min-width: 992px){
-    .container{
-      max-width:850px;
-    }  
-  }
-
-  body {
-    background-color: #fff;
-    background-color: #fff;
-    color: #888;
-    font-size: .66em;
-    font-family: lucida grande,Verdana,Arial,Sans-Serif;
-    line-height: 1.4;
-    margin: 0;
-    padding: 0;
-  }
-
-  .header {
-    margin: 4em 0;
-  }
-
-  @media (min-width: 768px) {
-    #sidebar {
-      text-align: right;
-    }
-  }
-
-  #sidebar {
-    text-transform: lowercase;
-  }
-
-  #sidebar h2 {
-    font-family: lucida grande, Verdana,Arial,Sans-Serif;
-    font-size: 1.2em;
-    text-transform: uppercase;
-    margin: 0;
-    padding: .5em 0 .4em;
-  }
-
-  #sidebar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  #sidebar li:before {
-    content: "\00BB  ";
-  }
-
-  a {
-    color: #ff7010;
-    text-decoration: none;
-  }
-
-  h1 {
-    font-size 3.2em;
-    line-height: 1em;
-  }
-
-  h2 {
-    font-size: 1.8em;
-
-  }
-
-  h1, h2, h3, h4, h5 {
-    font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
-    font-weight: bold;
-    line-height: normal;
-    margin: 0;
-    padding: 0;
-  }
-
-  small {
-    font-size: 1em;
-    line-height: 1.5em;
-    background-color: inherit;
-    color: #888;
-  }
-
-  h2.pagetitle {
-    background-color: #f0f0f0;
-    color: inherit;
-    padding: 0.5em 0 0.4em 0.2em;
-    margin: 0 0 2em 0;
-  }
-
-  #content {
-    color: #484848;
-  }
-
-  .leftnav {
-    float: left;
-    margin: 0 1em 0;
-  }
-
-  .rightnav {
-    float: right;
-  }
-
-  .snap-to-fit {
-    clear: both;
-    visibility: hidden;
-  }
-
-  .navigation {
-    margin: 0 0 1.6em 0;
-    padding: 0 0 1px 0;
-    font-family: 'Lucida Grande', Arial, Verdana, Sans-Serif;
-    font-size: 1.2em;
-  }
-
-  .post {
-    margin: 0 0 3em;
-  }
-
-  .post+.post h2 {
-      padding: .2em 0 0;
-      border-top: 1px solid #888;
-  }
-
-  .entry {
-    width: 100%;
-    font-size: 1.2em;
-    margin: 1em 0 0;
-    overflow: auto;
-  }
-
-  blockquote {
-    margin: 1.6em 2.8em 0 1.4em;
-    padding: 0 0 0 2em;
-    border-left: .6em solid #ddd;
-  }
-
-  #footer {
-    clear: both;
-    margin: 4em 0 1em;
-    padding: .2em 0 0;
-    border-top: 1px solid #888;
-    font-family: lucida grande,Arial,Verdana,Sans-Serif;
-  }
-
-
-</style>
-
+    
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/bigfoot/dist/bigfoot.js"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/bigfoot/dist/bigfoot-number.css" />
+    <script type="text/javascript">
+        $.bigfoot();
+    </script>
+    
+    
 </head>
 
-<body><div id="navbar-top" class="d-md-none">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a class="navbar-brand" href="/">Posts</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-	  <span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-	  <div class="navbar-nav">
-            
-              <a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
-            
-              <a class="nav-item nav-link" href=/page/about/>About Me</a>
-            
-	  </div>
+    <body class="standard">
+        <header class="main-header">
+	<div class="main-header-content">
+		<h1 class="blog-title">
+			<a href="/">
+				
+           Scott O&#39;Brien
+				
+			</a>
+		</h1>
+		<h2 class="blog-description">Projects, Ramblings and Resources of my (online) life</h2>
 	</div>
-      </nav>
-    </div>
 
+	<div class="nav">
+    
+		
+      <a class="nav- " role="presentation" href="/page/bucketlist/">The Bucket List</a>
+		
+      <a class="nav- " role="presentation" href="/page/about/">About Me</a>
+		
+      <a class="nav- " role="presentation" href="/recipes/">Recipes</a>
+		
+      <a class="nav- " role="presentation" href="/flying/">Flying</a>
+		
+	</div>
+</header>
 
-    <div class="container" id="container">
-      
-      <div class="row">
-        <div class="col-md-9 offset-md-3">
-          <div class="header">
-            <h1><a href="/">Scott O&#39;Brien</a></h1>
-            <small>Ramblings and resources of my online life</small>
-          </div>
-        </div> 
-      </div>
-
-      <div class="row">
         
-        <div id="content" class="col-md-9">
-          
+	<main class="content" role="main">
+    
+    
+      
+    
+    
+    <div class="extra-pagination">
+      
 
-
-
-<div class="navigation">
-  <div class="leftnav">« <a href="/">Later Posts</a></div>
-  <div class="snap-to-fit"></div>
-</div>
-
-
-
-  <div class="post">
-    <h2 class="post__title">
-      <a href="https://www.scottyob.com/2014/07/08/user-accounting-with-netflow/">User Accounting with Netflow</a>
-    </h2>
-    <small>2014-07-08 05:54:52 &#43;0000 &#43;0000</small>
-    <div class="entry">
-      <p>At UOW we had a challenge.  We wanted to allow proxy-free internet, but wanted to keep an eye on how much data was being consumed by what sort of users.  For this we built Project Herbert <a href="http://uowits.github.io/herbert-gui/docs.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://uowits.github.io']);"><a href="http://uowits.github.io/herbert-gui/docs.html">http://uowits.github.io/herbert-gui/docs.html</a></a>.</p>
-<p>It uses netflow from inside our network and some syslog monitoring scripts to match up our private RFC1918 address space to the users who have it at that time, process the flows in near-realtime so we can adjust throttling and firewall policy to be reactive with the environment.</p>
-<p>The idea was to build this as a distributed system and allow it to scale-out to deal with more load</p>
-<p><a href="/img/old/2014/07/f9b7b2fc.screenshot.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter wp-image-405" src="/img/old/2014/07/f9b7b2fc.screenshot.jpg" alt="Project Herbert" width="600" height="406" /></a></p>
+<nav class="pagination" role="navigation">
+    
+        <a class="newer-posts" href="/">&larr; Newer Posts</a>
+    
+    <span class="page-number">Page 2 of 5</span>
+    
+        <a class="older-posts" href="/page/3/">Older Posts &rarr;</a>
+    
+</nav>
 
     </div>
-  </div>
+    
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/2014/10/02/very-basic-mpls-tutorial/">Very basic MPLS Tutorial</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      I made this video a while ago and some people on YouTube seem to like it, so here is my very basic MPLS tutorial. Towards the end of the video there’s a live demonstration showing the concepts with Wireshark
+   &hellip; <a class="read-more" href="/2014/10/02/very-basic-mpls-tutorial/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">October 02, 2014</time>
+	</footer>
+</article>
 
-  <div class="post">
-    <h2 class="post__title">
-      <a href="https://www.scottyob.com/2014/05/08/logging-nat-translations-on-the-cisco-asa/">Logging NAT Translations on the Cisco ASA</a>
-    </h2>
-    <small>2014-05-08 06:14:09 &#43;0000 &#43;0000</small>
-    <div class="entry">
-      <p>It’s often handy when dealing with infringement notices and the like to have NAT translations logged.  Sure a better way would be to record netflow from these devices (and include the translations) but for a quick syslog solution, you can always:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">logging enable
-logging list ToSyslog level critical
-logging list ToSyslog message 305011
-</code></pre></td></tr></table>
-</div>
-</div><p>See <a href="http://www.cisco.com/c/en/us/td/docs/security/pix/pix63/system/message/63syslog/pixemsgs.html#wp1054604" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.cisco.com']);"><a href="http://www.cisco.com/c/en/us/td/docs/security/pix/pix63/system/message/63syslog/pixemsgs.html#wp1054604">http://www.cisco.com/c/en/us/td/docs/security/pix/pix63/system/message/63syslog/pixemsgs.html#wp1054604</a></a></p>
-<p>Messages will look something like:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">May 08 13:01:20 freewifi-asa.net.uow.edu.au %ASA-6-305011: Built dynamic TCP translation from inside:10.64.37.96/53008 to outside:192.131.251.2/49520
-</code></pre></td></tr></table>
-</div>
-</div><p> </p>
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/2014/07/18/compliance-with-cisco-ios-devices-bulk-changes/">Compliance with Cisco IOS Devices &amp; Bulk Changes</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      One of the biggest problems in the environment I work in is that almost all of the deployment of our 300+ devices is that everything has been hand crafted. Usually this isn’t such a big problem, but add that with a design decision to route right to the access layer of our campus network with a multi-VRF network and you can start to see how mistakes, or changes in design along the deployment has meant inconsistencies. &hellip; <a class="read-more" href="/2014/07/18/compliance-with-cisco-ios-devices-bulk-changes/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">July 19, 2014</time>
+	</footer>
+</article>
 
-    </div>
-  </div>
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/2014/07/08/user-accounting-with-netflow/">User Accounting with Netflow</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      At UOW we had a challenge. We wanted to allow proxy-free internet, but wanted to keep an eye on how much data was being consumed by what sort of users. For this we built Project Herbert http://uowits.github.io/herbert-gui/docs.html.
+It uses netflow from inside our network and some syslog monitoring scripts to match up our private RFC1918 address space to the users who have it at that time, process the flows in near-realtime so we can adjust throttling and firewall policy to be reactive with the environment. &hellip; <a class="read-more" href="/2014/07/08/user-accounting-with-netflow/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">July 08, 2014</time>
+	</footer>
+</article>
 
-  <div class="post">
-    <h2 class="post__title">
-      <a href="https://www.scottyob.com/2014/02/24/finding-overlaps-in-address-space/">Finding overlaps in address space</a>
-    </h2>
-    <small>2014-02-24 06:05:36 &#43;0000 &#43;0000</small>
-    <div class="entry">
-      <p>We have an interesting problem at my workplace, we have an MPLS VPN design for separation of security zones (e.g., staff from students.) and we don’t have MPLS support on our edge. With a L3 to the edge design though this means that while every edge switch has its own address space (per VRF), it also has a /30 uplink (once again, per VRF) back to the PE device.</p>
-<p>While this (rightly or wrongly decided) slightly more complicated design in itself isn’t a problem, I’ve been working on programatically putting all of this data into an IPAM (IP Address Management) solution. Doing this from the devices themselves (as apposed to a spreadsheet where it was previously kept) has provided the best way moving forward, so good in fact, that my IPAM started throwing exceptions when duplicate IP addresses and overlapping spaces were attempted to be added in the system.</p>
-<p>The following Python script uses my <a href="https://github.com/scottyob/pyiosdevice" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://github.com']);">Cisco IOS python library</a> to be able to identify IP address overlaps from a bunch of my saved device configs.</p>
-<p>It works by the following:</p>
-<ol>
-<li>Adds all L3 interfaces addresses and secondary addresses to a list</li>
-<li>Sorts list such that larger subnets are at the front, smaller (/32’s and the such) are at the back of the list.</li>
-<li>Walks through each subnet, if the network addresses is not in the routing table, add it in, if it is, add it to a list of colliding subnets.</li>
-<li>With the list of colliding subnets (subnets that have been multiply defined, or are of overlapping size):
-<ol>
-<li>If they are /30’s and there are only two places of definition, skip</li>
-<li>if the subnet values are not equal OR an address appears twice in the subnet.  Print it out as a colliding address (space)</li>
-</ol>
-</li>
-</ol>
-<p>You can find the <a href="https://gist.github.com/scottyob/9182695" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://gist.github.com']);">script as a ghist here</a> (note:  This assumes the devices have been picked and loaded as a Picked list of IOSDevice’s)</p>
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/2014/05/08/logging-nat-translations-on-the-cisco-asa/">Logging NAT Translations on the Cisco ASA</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      It’s often handy when dealing with infringement notices and the like to have NAT translations logged. Sure a better way would be to record netflow from these devices (and include the translations) but for a quick syslog solution, you can always:
+1 2 3  logging enable logging list ToSyslog level critical logging list ToSyslog message 305011   See http://www.cisco.com/c/en/us/td/docs/security/pix/pix63/system/message/63syslog/pixemsgs.html#wp1054604
+Messages will look something like:
+1  May 08 13:01:20 freewifi-asa. &hellip; <a class="read-more" href="/2014/05/08/logging-nat-translations-on-the-cisco-asa/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">May 08, 2014</time>
+	</footer>
+</article>
 
-    </div>
-  </div>
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/2014/02/24/finding-overlaps-in-address-space/">Finding overlaps in address space</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      We have an interesting problem at my workplace, we have an MPLS VPN design for separation of security zones (e.g., staff from students.) and we don’t have MPLS support on our edge. With a L3 to the edge design though this means that while every edge switch has its own address space (per VRF), it also has a /30 uplink (once again, per VRF) back to the PE device.
+While this (rightly or wrongly decided) slightly more complicated design in itself isn’t a problem, I’ve been working on programatically putting all of this data into an IPAM (IP Address Management) solution. &hellip; <a class="read-more" href="/2014/02/24/finding-overlaps-in-address-space/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">February 24, 2014</time>
+	</footer>
+</article>
 
-  <div class="post">
-    <h2 class="post__title">
-      <a href="https://www.scottyob.com/2014/01/29/automating-vlan-changes-for-esxi-switchports-in-cisco-ios/">Automating VLAN changes for ESXi Switchports in Cisco IOS.</a>
-    </h2>
-    <small>2014-01-29 10:51:35 &#43;0000 &#43;0000</small>
-    <div class="entry">
-      <p><a href="/img/old/2014/01/product_bulletin_cisco_catalyst_6509_enhanced_vertical_chassis-1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="size-full wp-image-370 alignleft" alt="6500" src="/img/old/2014/01/product_bulletin_cisco_catalyst_6509_enhanced_vertical_chassis-1.jpg" width="242" height="302" /></a></p>
-<p>At the organisation I’m currently working for, we recently experienced <a href="http://www.vspecialist.co.uk/do-my-esxi-hosts-have-the-same-vlans/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vspecialist.co.uk']);">what appears to be a common issue</a>, VLAN’s trunked down to ESXi nodes were inconsistent.</p>
-<p>In our DC, we’re still running the old school Cisco Catalyst switches.  If we were running a fabric, or Nexus switches <a href="http://blog.alwaysthenetwork.com/tutorials/nexus-port-profiles/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blog.alwaysthenetwork.com']);">we could put port profiles to action</a> or if we lucky enough to have some equipment running Junos &lt;3 we could be <a href="http://packetpushers.net/junos-configuration-groups/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://packetpushers.net']);">using apply-groups for this</a>.</p>
-<p>Being stuck with 6500’s in the DC as our L2 platform (and a VSS for the L3 MPLS PE) this is a quick little hack job to automate configuration changes across switchports in Cisco IOS based on dynamically finding ports that are matching an interface description.</p>
-<p>In our DC, we have a bunch of switches (defined at the top of this script) and all our switchports that go to ESXi switchports that should have this template applied are matched on the interface description containing ‘ESXHOST’</p>
-<p>This relies on the <a href="https://github.com/knipknap/exscript/wiki/Python-API-Tutorial" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://github.com']);">python EXScript module</a></p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">123
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">124
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">125
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">126
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">127
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">128
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">129
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">130
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">131
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">132
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">133
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">134
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">135
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">136
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">137
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">138
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">139
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">140
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">141
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">142
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">143
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">144
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">145
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">146
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">147
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">148
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#008000"># This script is used for updating the VLANs that are trunked down to ESX boxes.</span>
-<span style="color:#008000">#  It works by logging in to each switch in the DC then looking at the interfaces that have &#39;ESXHOST&#39;</span>
-<span style="color:#008000">#  in the description.  For each of those switchports, it will run the &#39;alter&#39; commands</span>
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/2014/01/29/automating-vlan-changes-for-esxi-switchports-in-cisco-ios/">Automating VLAN changes for ESXi Switchports in Cisco IOS.</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      At the organisation I’m currently working for, we recently experienced what appears to be a common issue, VLAN’s trunked down to ESXi nodes were inconsistent.
+In our DC, we’re still running the old school Cisco Catalyst switches. If we were running a fabric, or Nexus switches we could put port profiles to action or if we lucky enough to have some equipment running Junos &lt;3 we could be using apply-groups for this. &hellip; <a class="read-more" href="/2014/01/29/automating-vlan-changes-for-esxi-switchports-in-cisco-ios/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">January 29, 2014</time>
+	</footer>
+</article>
 
-<span style="color:#00f">from</span> Exscript.Account <span style="color:#00f">import</span> Account
-<span style="color:#00f">from</span> Exscript.protocols <span style="color:#00f">import</span> SSH2
-<span style="color:#00f">import</span> argparse
-<span style="color:#00f">import</span> getopt
-<span style="color:#00f">import</span> getpass
-<span style="color:#00f">import</span> sys
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/2013/12/18/throttling-guest-internet-on-apple-airport-extreme/">throttling guest internet on Apple Airport Extreme</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      <p>I’ve been happily running my Apple Airport Extreme as m home router for the past few years (since my debian router died, and I’ve been too lazy to replace it).  One of the cool features was the ability to create a guest network (SSID) to access the internet without being able to access your trusted network.  One feature I wanted was the ability to throttle the speed guests can access the internet at.  While I couldn’t do this with the Airport Extreme alone, Add a Juniper SRX100 into the mix that the awesome <a href="http://cooperlees.com" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://cooperlees.com']);">Cooper Lees</a> gave me into the mix and problem solved.</p>
+<p><a href="/img/old/2013/12/apple-airport-extreme-base-station_1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-362" alt="apple-airport-extreme-base-station_1" src="/img/old/2013/12/apple-airport-extreme-base-station_1.jpg" width="600" height="450" /></a></p> &hellip; <a class="read-more" href="/2013/12/18/throttling-guest-internet-on-apple-airport-extreme/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">December 18, 2013</time>
+	</footer>
+</article>
 
-<span style="color:#008000">#A list of the switches to interigate.  These are the switches that have ESXi hosts in them</span>
-SWITCHES = [
-    <span style="color:#a31515">&#39;10.0.0.2&#39;</span>,
-    <span style="color:#a31515">&#39;10.0.0.3&#39;</span>,
-    <span style="color:#a31515">&#39;10.0.0.4&#39;</span>,
-    <span style="color:#a31515">&#39;10.0.0.5&#39;</span>,
-    <span style="color:#a31515">&#39;10.0.0.7&#39;</span>
-    ]
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/2013/04/09/what-is-anycast/">What is Anycast?</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      I’ve never found a really simple video on what exactly Anycast is with a basic examples when exploring the concepts. I decided to lab it up and figured this might help some of you starting out with the concepts. Any comments feel free to let me know!
+  Config Attached for IOS lab HERE. &hellip; <a class="read-more" href="/2013/04/09/what-is-anycast/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">April 09, 2013</time>
+	</footer>
+</article>
 
-<span style="color:#008000">#Commands to execute for every switchport</span>
-vlan_commands = <span style="color:#a31515">&#34;&#34;&#34;
-</span><span style="color:#a31515">  switchport trunk allowed vlan add 5,10,15,20-25,30,40,50
-</span><span style="color:#a31515">  switchport trunk allowed vlan add 60,69,70,100-1000
-</span><span style="color:#a31515">&#34;&#34;&#34;</span>
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/2012/12/08/my-experiences-of-managing-a-cisco-switch-with-puppet/">My experiences of managing a Cisco switch with Puppet</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      One recent pet gripe of mine has been having to add a new VLAN into our datacenter for our vSphere platform. Not that I trust my DCs switches with puppet just yet, this is a proof of concept post about how we could be using puppet to centrally manage this configuration and push it out across our DC.
+Before We’ve got a pretty basic topology going on in our DC, it’s just a VSS with the other switches pretty much being nothing more but layer 2 for the most part. &hellip; <a class="read-more" href="/2012/12/08/my-experiences-of-managing-a-cisco-switch-with-puppet/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">December 08, 2012</time>
+	</footer>
+</article>
 
-<span style="color:#00f">def</span> query_yes_no(question, default=<span style="color:#a31515">&#34;yes&#34;</span>):
-    <span style="color:#a31515">&#34;&#34;&#34;Ask a yes/no question via raw_input() and return their answer.
-</span><span style="color:#a31515">
-</span><span style="color:#a31515">    &#34;question&#34; is a string that is presented to the user.
-</span><span style="color:#a31515">    &#34;default&#34; is the presumed answer if the user just hits &amp;lt;Enter&amp;gt;.
-</span><span style="color:#a31515">        It must be &#34;yes&#34; (the default), &#34;no&#34; or None (meaning
-</span><span style="color:#a31515">        an answer is required of the user).
-</span><span style="color:#a31515">
-</span><span style="color:#a31515">    The &#34;answer&#34; return value is one of &#34;yes&#34; or &#34;no&#34;.
-</span><span style="color:#a31515">    &#34;&#34;&#34;</span>
-    valid = {<span style="color:#a31515">&#34;yes&#34;</span>:<span style="color:#00f">True</span>,   <span style="color:#a31515">&#34;y&#34;</span>:<span style="color:#00f">True</span>,  <span style="color:#a31515">&#34;ye&#34;</span>:<span style="color:#00f">True</span>,
-             <span style="color:#a31515">&#34;no&#34;</span>:<span style="color:#00f">False</span>,     <span style="color:#a31515">&#34;n&#34;</span>:<span style="color:#00f">False</span>}
-    <span style="color:#00f">if</span> default == <span style="color:#00f">None</span>:
-        prompt = <span style="color:#a31515">&#34; [y/n] &#34;</span>
-    <span style="color:#00f">elif</span> default == <span style="color:#a31515">&#34;yes&#34;</span>:
-        prompt = <span style="color:#a31515">&#34; [Y/n] &#34;</span>
-    <span style="color:#00f">elif</span> default == <span style="color:#a31515">&#34;no&#34;</span>:
-        prompt = <span style="color:#a31515">&#34; [y/N] &#34;</span>
-    <span style="color:#00f">else</span>:
-        <span style="color:#00f">raise</span> ValueError(<span style="color:#a31515">&#34;invalid default answer: &#39;</span><span style="color:#a31515">%s</span><span style="color:#a31515">&#39;&#34;</span> % default)
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/2012/11/08/address-book-for-a-the-blind/">Address Book For the Blind</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      <p>This article is about using the <a href="http://www.asterisk.org" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.asterisk.org']);">Asterisk PBX</a> and exploiting <a href="http://www.google.com/insidesearch/features/voicesearch/index.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.google.com']);">Google’s voice recognition </a>API built for voice search in Chrome to build an address book that technology inept people (my grandmother) can use to place cheap telephone calls over VoIP.</p>
+<p>This tool is built for my grandmother; a lady who has <a href="http://www.mdfoundation.com.au" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.mdfoundation.com.au']);">macular degeneration</a> making her legally blind.  She doesn’t want to invest a great deal of money in this solution or have much of a learning curve, it took long enough to get her using the two button audio book solution on the iPod.  </p> &hellip; <a class="read-more" href="/2012/11/08/address-book-for-a-the-blind/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">November 09, 2012</time>
+	</footer>
+</article>
 
-    <span style="color:#00f">while</span> <span style="color:#00f">True</span>:
-        sys.stdout.write(question + prompt)
-        choice = raw_input().lower()
-        <span style="color:#00f">if</span> default <span style="color:#00f">is</span> <span style="color:#00f">not</span> <span style="color:#00f">None</span> <span style="color:#00f">and</span> choice == <span style="color:#a31515">&#39;&#39;</span>:
-            <span style="color:#00f">return</span> valid[default]
-        <span style="color:#00f">elif</span> choice <span style="color:#00f">in</span> valid:
-            <span style="color:#00f">return</span> valid[choice]
-        <span style="color:#00f">else</span>:
-            sys.stdout.write(<span style="color:#a31515">&#34;Please respond with &#39;yes&#39; or &#39;no&#39; &#34;</span>\
-                             <span style="color:#a31515">&#34;(or &#39;y&#39; or &#39;n&#39;).</span><span style="color:#a31515">\n</span><span style="color:#a31515">&#34;</span>)
+        
+      
+    
+    
 
-<span style="color:#00f">def</span> returnInterfacesFromShowDescription(text):
-    <span style="color:#a31515">&#34;&#34;&#34;
-</span><span style="color:#a31515">    Returns a LIST of interfaces from the output of &#39;show interface desc&#39; from a cisco device
-</span><span style="color:#a31515">    &#34;&#34;&#34;</span>
-    <span style="color:#00f">return</span> [ x.split()[0] <span style="color:#00f">for</span> x <span style="color:#00f">in</span> text.split(<span style="color:#a31515">&#34;</span><span style="color:#a31515">\n</span><span style="color:#a31515">&#34;</span>) ]
+<nav class="pagination" role="navigation">
+    
+        <a class="newer-posts" href="/">&larr; Newer Posts</a>
+    
+    <span class="page-number">Page 2 of 5</span>
+    
+        <a class="older-posts" href="/page/3/">Older Posts &rarr;</a>
+    
+</nav>
 
-<span style="color:#00f">def</span> genUpdateConfigForInterfaces(config, interfaces):
-    <span style="color:#a31515">&#34;&#34;&#34;
-</span><span style="color:#a31515">    Takes in a configuration block to run, a list of interfaces and generates the appropriate int range commands with the
-</span><span style="color:#a31515">    config block after
-</span><span style="color:#a31515">    &#34;&#34;&#34;</span>
-    updateConfig = <span style="color:#a31515">&#34;&#34;</span>
-    <span style="color:#00f">while</span> len(interfaces) &amp;gt; 0:
-        updateConfig += <span style="color:#a31515">&#34;int range &#34;</span> + <span style="color:#a31515">&#34;,&#34;</span>.join(interfaces[:5])
-        interfaces = interfaces[5:]
-        updateConfig += <span style="color:#a31515">&#34;</span><span style="color:#a31515">\n</span><span style="color:#a31515">  </span><span style="color:#a31515">%s</span><span style="color:#a31515">\n</span><span style="color:#a31515">&#34;</span> % config.strip()
-    <span style="color:#00f">return</span> updateConfig
+	</main>
 
-<span style="color:#00f">def</span> updateSwitchportsWithDescription(switch, description, username, password, commands):
-    <span style="color:#a31515">&#34;&#34;&#34;
-</span><span style="color:#a31515">    Function is used to log into a switch, find all switchports that CONTAINS the description
-</span><span style="color:#a31515">    with each of the said switchports, it will then execute the given commands.
-</span><span style="color:#a31515">
-</span><span style="color:#a31515">    switch:  Device to log into
-</span><span style="color:#a31515">    description:  Search string to try and find in the switchport description
-</span><span style="color:#a31515">    username:  Username to log into the switch with
-</span><span style="color:#a31515">    password:  The password to log into the switch with
-</span><span style="color:#a31515">    commands:  A list of commands that should be executed
-</span><span style="color:#a31515">    &#34;&#34;&#34;</span>
-
-    print <span style="color:#a31515">&#34;Working with switch: </span><span style="color:#a31515">%s</span><span style="color:#a31515">&#34;</span> % switch
-
-    <span style="color:#008000">#establish a SSH connection to the host</span>
-    conn = SSH2()
-    account = Account(username, password)
-    conn.connect(switch)
-    conn.login(account)
-
-    <span style="color:#008000">#Do some pre-setup</span>
-    conn.execute(<span style="color:#a31515">&#39;&#39;</span>)
-
-    <span style="color:#008000">#Make sure we&#39;re in super user mode</span>
-    conn.execute(<span style="color:#a31515">&#39;enable&#39;</span>)
-    conn.execute(<span style="color:#a31515">&#39;terminal length 0&#39;</span>)
-
-    <span style="color:#008000">#find all ports that have ESXHOST (or whatever is set in description) in the description</span>
-    conn.execute(<span style="color:#a31515">&#39;show int desc | i </span><span style="color:#a31515">%s</span><span style="color:#a31515">&#39;</span> % description)
-    ports = conn.response.strip()
-
-    print <span style="color:#a31515">&#34;Ports are:&#34;</span>
-    print ports
-    portsList = returnInterfacesFromShowDescription(ports)[1:-1]
-
-    <span style="color:#008000">#go into config mode and get ready to run the update commands</span>
-    <span style="color:#008000">#Generate a list of the update commands that should be ran</span>
-    updateCommands = genUpdateConfigForInterfaces(commands, portsList).split(<span style="color:#a31515">&#34;</span><span style="color:#a31515">\n</span><span style="color:#a31515">&#34;</span>)
-    conn.execute(<span style="color:#a31515">&#39;conf t&#39;</span>)
-    print conn.response.strip()
-    print <span style="color:#a31515">&#34;! About to execute the following commands.&#34;</span>
-    <span style="color:#00f">for</span> line <span style="color:#00f">in</span> updateCommands:
-        print <span style="color:#a31515">&#34;! &#34;</span> + line
-
-    <span style="color:#00f">if</span> query_yes_no(<span style="color:#a31515">&#39;Execute Commands?&#39;</span>, default=<span style="color:#a31515">&#34;no&#34;</span>):
-        <span style="color:#008000">#Run the set of commands given</span>
-        <span style="color:#00f">for</span> command <span style="color:#00f">in</span> updateCommands:
-            conn.execute(command)
-            print conn.response
-
-        <span style="color:#008000">#Exit out of config mode</span>
-        conn.execute(<span style="color:#a31515">&#34;exit&#34;</span>)
-        conn.execute(<span style="color:#a31515">&#34;exit&#34;</span>)
-        print conn.response
-        print
-
-<span style="color:#00f">if</span> __name__ == <span style="color:#a31515">&#39;__main__&#39;</span>:
-    parser = argparse.ArgumentParser(description=<span style="color:#a31515">&#34;DC ESX VLAN Utility&#34;</span>)
-    parser.add_argument(<span style="color:#a31515">&#39;--user&#39;</span>, help=<span style="color:#a31515">&#39;The username that should be used to log into the switches with&#39;</span>)
-
-    args = parser.parse_args()
-    <span style="color:#00f">if</span> args.user:
-        username = args.user
-    <span style="color:#00f">else</span>:
-        username = getpass.getuser()
-
-    password = getpass.getpass()
-
-    <span style="color:#008000"># Generate a list of commands</span>
-    <span style="color:#00f">for</span> switch <span style="color:#00f">in</span> SWITCHES:
-        updateSwitchportsWithDescription(switch, <span style="color:#a31515">&#39;ESXHOST&#39;</span>, username, password, vlan_commands)
-
-</code></pre></td></tr></table>
-</div>
-</div>
-    </div>
-  </div>
+        <footer class="site-footer">
+  <section class="rss"><a class="subscribe-button icon-feed" href="/index.xml"></a></section>
+  
+  
+  <section class="copyright">&copy; 2022 Scott O&#39;Brien</section>
+  <section class="poweredby"><a href="https://github.com/nirocfz/arabica">Arabica</a> theme by Sean Lunsford. Published with <a href="https://gohugo.io">Hugo</a>.</section>
+</footer>
 
 
 
-<div class="navigation">
-  <div class="rightnav"><a href="/page/3/">Earlier Posts</a> »</div>
-  <div class="snap-to-fit"></div>
-</div>
-
-
-<div id="footer">
-  Made with <a href="https://gohugo.io/">Hugo</a>.  Theme half-milk inspired by <a href="http://thortz.com/skimmed-milk/">skimmed-milk</a>
-</div>
-</div>
-        <div id="sidebar" class="col-md-3 order-md-first d-none d-md-block">
-          
-          <h2>Other Pages</h2>
-          <ul>
-            
-              <li><a href=/page/bucketlist/>The Bucket List</a></li>
-            
-              <li><a href=/page/about/>About Me</a></li>
-            
-          </ul>
-        </div> 
-      </div> 
-    </div> 
-  </body>
+    </body>
 </html>

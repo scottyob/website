@@ -6,13 +6,109 @@
     <description>Recent content on Scott O&#39;Brien</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.scottyob.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 Oct 2022 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.scottyob.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Readme</title>
+      <link>https://www.scottyob.com/flying/readme/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/readme/</guid>
+      <description>This directory contains my flying related flightlog.
+The scripts here will setup pages for all the sites I&amp;rsquo;ve flown at, and flight statistics for them.
+To (re)-generate the launches files 1  scott@ScottoDesktop:~/website$ unzip -p content/flying/launches/paraglidingspots_2022_10_22.kmz doc.kml | ~/.local/bin/xq | sed &amp;#39;s/kml\://&amp;#39; | jq &amp;#39;[.. | .Placemark? // empty] | flatten | map((.Point | .coordinates | split(&amp;#34;,&amp;#34;)?) as $c | {name, longitude: ($c[0] | tonumber), latitude: ($c[1] | tonumber) })&amp;#39; &amp;gt; .</description>
+    </item>
+    
+    <item>
+      <title>workflow-orchestration</title>
+      <link>https://www.scottyob.com/post/2022-10-05-workflow-orchestration/</link>
+      <pubDate>Wed, 05 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/post/2022-10-05-workflow-orchestration/</guid>
+      <description>At Meta, we have a few internal workflow orchestration engines. The idea is to allow long-running jobs, or things that can be split into tasks and need to have safe &amp;ldquo;checkpoints&amp;rdquo; behind them be defined in a system that can safely execute them and make sure they&amp;rsquo;re executed in a durable, reliable and scalable way.
+As I stumble upon things that fit paradigms within Facebook externally, this page is to document them.</description>
+    </item>
+    
+    <item>
+      <title>rockwool-stand</title>
+      <link>https://www.scottyob.com/post/2022-09-08-rockwool-stand/</link>
+      <pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/post/2022-09-08-rockwool-stand/</guid>
+      <description>Last time I did hydroponic growing and germinated seeds in the rockwool, I found it annoying that the roots would grow out the bottom of the rockwool, then get squished by the ground, making it harder to have dangling roots to easily transfer to an NFT system.
+I used an Openscad model to solve this :)
+ </description>
+    </item>
+    
+    <item>
+      <title>learning-rust</title>
+      <link>https://www.scottyob.com/post/2022-04-27-learning-rust/</link>
+      <pubDate>Wed, 27 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/post/2022-04-27-learning-rust/</guid>
+      <description>Why learn Rust? In Network Engineering at Facebook Meta, we&amp;rsquo;ve been going through an interesting transformation in which we&amp;rsquo;re starting to be discouraged to write new services in Python, and, instead start writing more in Rust (and sorry Golang, of which we&amp;rsquo;ve already got a bit written in.
+I&amp;rsquo;ve always said that I&amp;rsquo;m not overly a smart person (though am stubborn enough to solve most problems), and don&amp;rsquo;t expect to be able to pick it up quickly, I decided to start learning by challenge tasks, do as much as I can in it, and document some here.</description>
+    </item>
+    
+    <item>
+      <title>ESPChess NewGame Bug</title>
+      <link>https://www.scottyob.com/post/2022-04-05-chess-bug/</link>
+      <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/post/2022-04-05-chess-bug/</guid>
+      <description>Ordering is a little off here, but I wanted to writeup about a bug I&amp;rsquo;m seeing in the ESPChess project (post to come) and how I intend to fix it.
+The chessboard uses AWS IoT Shadow Service (MQTT accessed key-value store) to keep track of your and your opponents chess board state. It has a sequence number that&amp;rsquo;s incremeneted to flag when we should update our current state to match our opponents.</description>
+    </item>
+    
+    <item>
+      <title>NFT Hydroponic System</title>
+      <link>https://www.scottyob.com/post/2022-01-02-nft-hydroponics/</link>
+      <pubDate>Sun, 02 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/post/2022-01-02-nft-hydroponics/</guid>
+      <description>As my hydroponic experiemnt has shown success, I wanted to scale this up. My plan is to build an NFT hydroponic system for the yard, and dutch bucket for tomatoes.
+From my light study I found the fence and some areas that may make some good light.
+I found https://university.upstartfarmers.com/blog/sizing-a-pump-hydroponics-aquaponics that describes NFT Hydroponics is 4-6 GPH required for my pump. I&amp;rsquo;m going to start with one trough, but plan on scaling this up to 3 if it works, so will require 18GPH of total flow.</description>
+    </item>
+    
+    <item>
+      <title>Hydroponic Kratky Lettuce Attempts</title>
+      <link>https://www.scottyob.com/post/2021-12-kratky-lettuce/</link>
+      <pubDate>Sun, 05 Dec 2021 11:01:04 -0800</pubDate>
+      
+      <guid>https://www.scottyob.com/post/2021-12-kratky-lettuce/</guid>
+      <description>This year i&amp;rsquo;ve decided to start playing with Hydroponics as a hobby. I&amp;rsquo;ve been interested in starting with the Kratky Method of gardening. The idea is to grow lettuce in mason jars and see how growing without soil does. I&amp;rsquo;ve previously enjoyed growing my own alfalfa micro-greens, so this is the next obvious step.
+Attempt #1 These didn&amp;rsquo;t go so good. I had planted some seedlings in Rockwool, and left them in a container out in the sun to act as a mini-greenhouse.</description>
+    </item>
+    
+    <item>
+      <title>Custom Study Desk</title>
+      <link>https://www.scottyob.com/posts/custom-desk/</link>
+      <pubDate>Wed, 10 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/posts/custom-desk/</guid>
+      <description>My partner and I recently started renting an old place in Palo Alto. With COVID, we&amp;rsquo;ve been working from home for almost two years now, and sharing a desk at times things felt a little cramped (especially with the occsional electronics project).
+I&amp;rsquo;m no expert in woodwork, so decided to 3D model it before building the desk. This also helped as my father, who&amp;rsquo;s a carpenter, could then give me tips when I shared my computer screen with him (being on other sides of the planet).</description>
+    </item>
+    
+    <item>
+      <title>light-study</title>
+      <link>https://www.scottyob.com/post/2021-10-10-light-study/</link>
+      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/post/2021-10-10-light-study/</guid>
+      <description>When deciding what to attempt to grow where in the unit we&amp;rsquo;re renting, I decided to perform a light study of the backyard. To perform this, first I had used the 3D Scanner App to perform a LiDAR scan of the house. Areas of interest are the fences and the walls of the house. Once a scan is performed, I exported this to obj format, and loaded it into my favourite Blender 3D</description>
+    </item>
+    
     <item>
       <title>Paragliding Tasks Checker</title>
-      <link>https://www.scottyob.com/posts/2021-09-20-para-tasks/</link>
+      <link>https://www.scottyob.com/posts/paratasks/</link>
       <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://www.scottyob.com/posts/2021-09-20-para-tasks/</guid>
+      <guid>https://www.scottyob.com/posts/paratasks/</guid>
       <description>It&amp;rsquo;s so easy to build react apps these days. Over two nights, I knocked up a quick website to be able to upload igc flight files, and an xctask files to locally compute if you managed to hit the targets.
 It&amp;rsquo;s something to play with more later, but I&amp;rsquo;m hoping to start putting these widgets into my logbook app to be able to log flights against tasks when they&amp;rsquo;re done.</description>
     </item>
@@ -32,7 +128,7 @@ It&amp;rsquo;s something to play with more later, but I&amp;rsquo;m hoping to st
       <pubDate>Tue, 26 May 2020 00:46:16 -0700</pubDate>
       
       <guid>https://www.scottyob.com/page/about/</guid>
-      <description> svg { stroke: currentcolor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; margin: 1em; height: 3em; } a { }              </description>
+      <description> a .fa-brands { color: orange; padding: 2px; text-decoration: none !important; } a:link { text-decoration: none !important; } .about-group { text-align: center; margin: 20px; }              </description>
     </item>
     
     <item>
@@ -346,6 +442,63 @@ This has me thinking how much of a shame it would be if I build a wealth of info
       
       <guid>https://www.scottyob.com/2010/10/09/a-new-blog/</guid>
       <description>Hello everyone. Ok, so this is a brand new blog. What happened to all my old content? I&amp;#8217;d like to say I just wanted to start fresh, but truth is, I was lazy and didn&amp;#8217;t back up any data from my hosting company before my term ended with them.. so I lost my database and content. I&amp;#8217;ll re-post the good stuff, hopefully more in-depth on this site though. Stay tuned. This blog is going to be a lot more personal then my last.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/private/2021-nov-virus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/private/2021-nov-virus/</guid>
+      <description>Night of the 16th:
+ Start developing headaches, chills and muscle soreness Lots and lots of sleep as body felt exhausted Cleared up, felt good for the weekend  Tuesday 23:
+ Started with coughs and lots of phlegm in lungs Lots of exhaustion, coughing and sleep right through to 27th. Covid test returned negative result  Saturday 27th:
+ Started throat soreness after coughing a bit, assumed I had torn my throat Noticed it was worse the next morning and has been getting progressively worse since.</description>
+    </item>
+    
+    <item>
+      <title>Butternut carrot soup</title>
+      <link>https://www.scottyob.com/recipes/butternut-carrot-soup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/recipes/butternut-carrot-soup/</guid>
+      <description>Ingredients  1 medium butternut squash sliced in half and seeds scooped out 2 large carrots chopped into large pieces 1 head garlic 1 shallot halved and skin removed 1 tablespoons olive oil 1/2 cup milk or coconut milk 1-2 cups chicken or vegetable stock Light sprinkle of Chili Flakes  Method  Preheat oven to 425 Put halves of squash face down with other vegetables (garlic in it&amp;rsquo;s own foil).</description>
+    </item>
+    
+    <item>
+      <title>Simple Eggplant Curry</title>
+      <link>https://www.scottyob.com/recipes/eggplant-curry/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/recipes/eggplant-curry/</guid>
+      <description>Ingredients  1 eggplant 2 Tbsp olive oil 1 shallot (finely chopped, 1/2 cup) 3 cloves garlic minces 2 tsp garam masala 1 tsp cumin 1 tsp coriander 1 tsp smoked paprika 1 tsp salt 1 can coconut milk (400g, 14oz) 1 can diced tomatoes (400g, 14oz) Service with Rice &amp;amp; Cilantro  Method  Start cooking rice Cut eggplant into bite-sized cubes. Heat oil in a large pan, cook eggplant until begins to brown (~5 minutes) Add shallot and garlic to the pan, cook for 2 minutes Add spices, coat add cans (tomatoes undrained).</description>
+    </item>
+    
+    <item>
+      <title>test</title>
+      <link>https://www.scottyob.com/flying/sites/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/sites/test/</guid>
+      <description>This is a test</description>
+    </item>
+    
+    <item>
+      <title>Toasted Walnut and Honey Sourdough</title>
+      <link>https://www.scottyob.com/recipes/honey-wallnut-bread/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/recipes/honey-wallnut-bread/</guid>
+      <description>Ingredients  100 gram walnuts toasted on stovetop or in oven 1 teaspoon cinnamon 53 grams sourdough starter at its peak 380 grams room temperature water 30 grams raw honey 360 grams bread flour 90 grams all-purpose flour 50 grams whole wheat flour 9 grams sea salt 1 1/2 teaspoons  Method  Put walnuts on cookie sheet for 6 minutes @ 350f, then toss with cinnamon Mix starter, water, honey, flours and salt After first hour standing mixed, wait at least half an hour before mixing in almonds  Notes It&amp;rsquo;s pretty much the same as the basic sourdough but with some differences</description>
+    </item>
+    
+    <item>
+      <title>White Sourdough Bread</title>
+      <link>https://www.scottyob.com/recipes/white-sourdough-bread/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/recipes/white-sourdough-bread/</guid>
+      <description>Ingredients  350g of water 500g of bread flour 50g of sourdough starter, fed near it&amp;rsquo;s peak 6-10g of salt  Direction  Feed starter, have ready for 4pm @ 4pm, place ingredients in a metal bowl, vigerously mix with fork until everything is somewhat combined. Cover (I use plastic bag) and leave on counter @ 5pm, The bread has gone through it&amp;rsquo;s &amp;ldquo;autolyse&amp;rdquo; stage. Start stretching and folding bread into the middle until it feels somewhat firm Every hour or so until bed, keep stretching and folding.</description>
     </item>
     
   </channel>

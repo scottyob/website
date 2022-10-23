@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>plants on Scott O&#39;Brien</title>
+    <link>https://www.scottyob.com/tags/plants/</link>
+    <description>Recent content in plants on Scott O&#39;Brien</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 Oct 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.scottyob.com/tags/plants/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>light-study</title>
+      <link>https://www.scottyob.com/post/2021-10-10-light-study/</link>
+      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/post/2021-10-10-light-study/</guid>
+      <description>When deciding what to attempt to grow where in the unit we&amp;rsquo;re renting, I decided to perform a light study of the backyard. To perform this, first I had used the 3D Scanner App to perform a LiDAR scan of the house. Areas of interest are the fences and the walls of the house. Once a scan is performed, I exported this to obj format, and loaded it into my favourite Blender 3D</description>
+    </item>
+    
+  </channel>
+</rss>

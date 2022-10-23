@@ -6,7 +6,11 @@
     <description>Recent content in Netflow on Scott O&#39;Brien</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 08 Jul 2014 05:54:52 +0000</lastBuildDate><atom:link href="https://www.scottyob.com/tags/netflow/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 08 Jul 2014 05:54:52 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.scottyob.com/tags/netflow/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>User Accounting with Netflow</title>
       <link>https://www.scottyob.com/2014/07/08/user-accounting-with-netflow/</link>

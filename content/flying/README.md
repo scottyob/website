@@ -1,3 +1,8 @@
+---
+date: 2022-10-21
+title: Readme
+---
+
 This directory contains my flying related flightlog.
 
 The scripts here will setup pages for all the sites I've flown at, and flight statistics for them.
@@ -8,4 +13,6 @@ scott@ScottoDesktop:~/website$ unzip -p content/flying/launches/paraglidingspots
 ```
 
 ### To generate the flightlog
+```
 scott@ScottoDesktop:~/website$ ./content/flying/generator/node_modules/.bin/ts-node ./content/flying/generator/index.ts build ./content/flying/tracklogs --launchesFile ./content/flying/launches/launches.json --sitesFile ./content/flying/launches/sites.json | jq > ./data/flightlog.json
+```

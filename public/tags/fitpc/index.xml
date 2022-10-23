@@ -6,7 +6,11 @@
     <description>Recent content in fitpc on Scott O&#39;Brien</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 01 Jan 2011 12:02:53 +0000</lastBuildDate><atom:link href="https://www.scottyob.com/tags/fitpc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Jan 2011 12:02:53 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.scottyob.com/tags/fitpc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Happy New Year – Resolution #1, Network &amp; Data</title>
       <link>https://www.scottyob.com/2011/01/01/happy-new-year-resolution-1-network-data/</link>

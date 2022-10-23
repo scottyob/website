@@ -1,362 +1,339 @@
+
+
 <!DOCTYPE html>
-<html><head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-  <meta name="generator" content="Hugo 0.88.1" />
+<html>
+    <head>
+	<meta name="generator" content="Hugo 0.68.3" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  
+    
+    <title>
+      
+      Scott O&#39;Brien
+      
+		</title>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <link rel="stylesheet" href="/css/code_tango.css">
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="alternate" type="application/rss&#43;xml" href="https://www.scottyob.com/index.xml">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/icons.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Lato:100,100i,300,300i,400,400i,700,700i|Source+Code+Pro:300,400,500,700" rel="stylesheet">
+    
 
-  
-  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
-
-
-  
-  <link rel="apple-touch-icon" sizes="180x180" href="https://www.scottyob.com/apple-touch-icon.png">
-
-  
-  <link rel="icon" type="image/png" sizes="32x32" href="https://www.scottyob.com/favicon-32x32.png">
-
-  
-  <link rel="icon" type="image/png" sizes="16x16" href="https://www.scottyob.com/favicon-16x16.png">
-
-  
-  <link rel="manifest" href="https://www.scottyob.com/site.webmanifest">
-
-  
-  <link rel="mask-icon" href="https://www.scottyob.com/safari-pinned-tab.svg" color="">
-
-  <meta name="msapplication-TileColor" content="">
-
-  <meta name="theme-color" content="">
-
-  
-  <link rel="stylesheet" href="https://www.scottyob.com/css/bootstrap.min.css" />
-
-  
-  
-  
-  <title>Home | Scott O&#39;Brien</title>
-  
-
-  <style>
-
-  @media (min-width: 992px){
-    .container{
-      max-width:850px;
-    }  
-  }
-
-  body {
-    background-color: #fff;
-    background-color: #fff;
-    color: #888;
-    font-size: .66em;
-    font-family: lucida grande,Verdana,Arial,Sans-Serif;
-    line-height: 1.4;
-    margin: 0;
-    padding: 0;
-  }
-
-  .header {
-    margin: 4em 0;
-  }
-
-  @media (min-width: 768px) {
-    #sidebar {
-      text-align: right;
-    }
-  }
-
-  #sidebar {
-    text-transform: lowercase;
-  }
-
-  #sidebar h2 {
-    font-family: lucida grande, Verdana,Arial,Sans-Serif;
-    font-size: 1.2em;
-    text-transform: uppercase;
-    margin: 0;
-    padding: .5em 0 .4em;
-  }
-
-  #sidebar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  #sidebar li:before {
-    content: "\00BB  ";
-  }
-
-  a {
-    color: #ff7010;
-    text-decoration: none;
-  }
-
-  h1 {
-    font-size 3.2em;
-    line-height: 1em;
-  }
-
-  h2 {
-    font-size: 1.8em;
-
-  }
-
-  h1, h2, h3, h4, h5 {
-    font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
-    font-weight: bold;
-    line-height: normal;
-    margin: 0;
-    padding: 0;
-  }
-
-  small {
-    font-size: 1em;
-    line-height: 1.5em;
-    background-color: inherit;
-    color: #888;
-  }
-
-  h2.pagetitle {
-    background-color: #f0f0f0;
-    color: inherit;
-    padding: 0.5em 0 0.4em 0.2em;
-    margin: 0 0 2em 0;
-  }
-
-  #content {
-    color: #484848;
-  }
-
-  .leftnav {
-    float: left;
-    margin: 0 1em 0;
-  }
-
-  .rightnav {
-    float: right;
-  }
-
-  .snap-to-fit {
-    clear: both;
-    visibility: hidden;
-  }
-
-  .navigation {
-    margin: 0 0 1.6em 0;
-    padding: 0 0 1px 0;
-    font-family: 'Lucida Grande', Arial, Verdana, Sans-Serif;
-    font-size: 1.2em;
-  }
-
-  .post {
-    margin: 0 0 3em;
-  }
-
-  .post+.post h2 {
-      padding: .2em 0 0;
-      border-top: 1px solid #888;
-  }
-
-  .entry {
-    width: 100%;
-    font-size: 1.2em;
-    margin: 1em 0 0;
-    overflow: auto;
-  }
-
-  blockquote {
-    margin: 1.6em 2.8em 0 1.4em;
-    padding: 0 0 0 2em;
-    border-left: .6em solid #ddd;
-  }
-
-  #footer {
-    clear: both;
-    margin: 4em 0 1em;
-    padding: .2em 0 0;
-    border-top: 1px solid #888;
-    font-family: lucida grande,Arial,Verdana,Sans-Serif;
-  }
-
-
-</style>
-
+    
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/bigfoot/dist/bigfoot.js"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/bigfoot/dist/bigfoot-number.css" />
+    <script type="text/javascript">
+        $.bigfoot();
+    </script>
+    
+    
 </head>
 
-<body><div id="navbar-top" class="d-md-none">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a class="navbar-brand" href="/">Posts</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-	  <span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-	  <div class="navbar-nav">
-            
-              <a class="nav-item nav-link" href=/page/bucketlist/>The Bucket List</a>
-            
-              <a class="nav-item nav-link" href=/page/about/>About Me</a>
-            
-	  </div>
+    <body class="standard">
+        <header class="main-header">
+	<div class="main-header-content">
+		<h1 class="blog-title">
+			<a href="/">
+				
+           Scott O&#39;Brien
+				
+			</a>
+		</h1>
+		<h2 class="blog-description">Projects, Ramblings and Resources of my (online) life</h2>
 	</div>
-      </nav>
-    </div>
 
+	<div class="nav">
+    
+		
+      <a class="nav- " role="presentation" href="/page/bucketlist/">The Bucket List</a>
+		
+      <a class="nav- " role="presentation" href="/page/about/">About Me</a>
+		
+      <a class="nav- " role="presentation" href="/recipes/">Recipes</a>
+		
+      <a class="nav- " role="presentation" href="/flying/">Flying</a>
+		
+	</div>
+</header>
 
-    <div class="container" id="container">
-      
-      <div class="row">
-        <div class="col-md-9 offset-md-3">
-          <div class="header">
-            <h1><a href="/">Scott O&#39;Brien</a></h1>
-            <small>Ramblings and resources of my online life</small>
-          </div>
-        </div> 
-      </div>
-
-      <div class="row">
         
-        <div id="content" class="col-md-9">
-          
+	<main class="content" role="main">
+    
+    
+      
+    
+    
+    <div class="extra-pagination">
+      
 
-
-
-
-
-  <div class="post">
-    <h2 class="post__title">
-      <a href="https://www.scottyob.com/posts/2021-09-20-para-tasks/">Paragliding Tasks Checker</a>
-    </h2>
-    <small>2021-09-20 00:00:00 &#43;0000 UTC</small>
-    <div class="entry">
-      <p>It&rsquo;s so easy to build react apps these days.  Over two nights, I knocked up a quick website to be able to upload igc flight files, and an xctask files to locally compute if you managed to hit the targets.</p>
-<p>It&rsquo;s something to play with more later, but I&rsquo;m hoping to start putting these widgets into my logbook app to be able to log flights against tasks when they&rsquo;re done.</p>
-<p>App:  <a href="https://scottyob.github.io/paragliding-task-checker/">https://scottyob.github.io/paragliding-task-checker/</a></p>
-<p>Source code:  <a href="https://github.com/scottyob/paragliding-task-checker">https://github.com/scottyob/paragliding-task-checker</a></p>
-<p>I followed <a href="https://dev.to/yuribenjamin/how-to-deploy-react-app-in-github-pages-2a1f">this guide</a> to host on github pages.  It basically entailed:</p>
-<ol>
-<li>Adding <strong>homepage</strong> in <strong>package.json</strong></li>
-<li>Adding in predeploy and deploy scripts <strong>package.json</strong>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&#34;scripts&#34;: {
-//...
-&#34;predeploy&#34;: &#34;npm run build&#34;,
-&#34;deploy&#34;: &#34;gh-pages -d build&#34;
-}
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>running <code>yarn run deploy</code> to deploy it.</li>
-</ol>
+<nav class="pagination" role="navigation">
+    
+    <span class="page-number">Page 1 of 5</span>
+    
+        <a class="older-posts" href="/page/2/">Older Posts &rarr;</a>
+    
+</nav>
 
     </div>
-  </div>
+    
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/post/2022-10-05-workflow-orchestration/">workflow-orchestration</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      At Meta, we have a few internal workflow orchestration engines. The idea is to allow long-running jobs, or things that can be split into tasks and need to have safe &ldquo;checkpoints&rdquo; behind them be defined in a system that can safely execute them and make sure they&rsquo;re executed in a durable, reliable and scalable way.
+As I stumble upon things that fit paradigms within Facebook externally, this page is to document them. &hellip; <a class="read-more" href="/post/2022-10-05-workflow-orchestration/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">October 05, 2022</time>
+	</footer>
+</article>
 
-  <div class="post">
-    <h2 class="post__title">
-      <a href="https://www.scottyob.com/2021/09/11/resuming/">resuming</a>
-    </h2>
-    <small>2021-09-11 00:00:00 &#43;0000 UTC</small>
-    <div class="entry">
-      <p>I&rsquo;ve not been writing or blogging for some time.  Over half a decade.  It has been about 12 years since I started this blog, and a lot has changed since then.  I&rsquo;ve not found the time to document my tinkerings and projects as work has taken most of my time.  I&rsquo;m going to leave work related things on Linkedin, personal posts on Facebook, but I would like to continue using this site as my partner tends to use her diaries, as a way looking back at what I&rsquo;ve been playing with.</p>
-<p>I tend to have more than a few projects going on, and with this being the first of 5 weeks away on recharge from Facebook, my goal throughout is to start using this to document projects I&rsquo;m playing with.  With trying to squeeze as much paragliding as I can during this time though we&rsquo;ll see how it goes.</p>
-<p>I had this intention probably 12 months or so ago, when I moved the content of this page over from Workpress to Hugo, and changed the hosting to Github pages, but with a bit of spare time to kickstart this effort now, let&rsquo;s see what happens :)</p>
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/post/2022-09-08-rockwool-stand/">rockwool-stand</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+      <img src="/post/2022-09-08-rockwool-stand/rockwool.jpg" style="float: right; max-width: 200px; margin: 20px"></img>
+    
+    <p>
+      Last time I did hydroponic growing and germinated seeds in the rockwool, I found it annoying that the roots would grow out the bottom of the rockwool, then get squished by the ground, making it harder to have dangling roots to easily transfer to an NFT system.
+I used an Openscad model to solve this :)
+  &hellip; <a class="read-more" href="/post/2022-09-08-rockwool-stand/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">September 08, 2022</time>
+	</footer>
+</article>
 
-    </div>
-  </div>
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/post/2022-04-27-learning-rust/">learning-rust</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+      <img src="/post/2022-04-27-learning-rust/rustdocs.png" style="float: left; max-width: 200px; margin: 20px"></img>
+    
+    <p>
+      Why learn Rust? In Network Engineering at Facebook Meta, we&rsquo;ve been going through an interesting transformation in which we&rsquo;re starting to be discouraged to write new services in Python, and, instead start writing more in Rust (and sorry Golang, of which we&rsquo;ve already got a bit written in.
+I&rsquo;ve always said that I&rsquo;m not overly a smart person (though am stubborn enough to solve most problems), and don&rsquo;t expect to be able to pick it up quickly, I decided to start learning by challenge tasks, do as much as I can in it, and document some here. &hellip; <a class="read-more" href="/post/2022-04-27-learning-rust/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">April 27, 2022</time>
+	</footer>
+</article>
 
-  <div class="post">
-    <h2 class="post__title">
-      <a href="https://www.scottyob.com/2014/10/02/very-basic-mpls-tutorial/">Very basic MPLS Tutorial</a>
-    </h2>
-    <small>2014-10-02 06:34:14 &#43;0000 &#43;0000</small>
-    <div class="entry">
-      <p>I made this video a while ago and some people on YouTube seem to like it, so here is my very basic MPLS tutorial. Towards the end of the video there’s a live demonstration showing the concepts with Wireshark</p>
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/post/2022-04-05-chess-bug/">ESPChess NewGame Bug</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+      <img src="/post/2022-04-05-chess-bug/logo.pnghugo" style="float: right; max-width: 200px; margin: 20px"></img>
+    
+    <p>
+      Ordering is a little off here, but I wanted to writeup about a bug I&rsquo;m seeing in the ESPChess project (post to come) and how I intend to fix it.
+The chessboard uses AWS IoT Shadow Service (MQTT accessed key-value store) to keep track of your and your opponents chess board state. It has a sequence number that&rsquo;s incremeneted to flag when we should update our current state to match our opponents. &hellip; <a class="read-more" href="/post/2022-04-05-chess-bug/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">April 05, 2022</time>
+	</footer>
+</article>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/4QGRLgIq8iA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/post/2022-01-02-nft-hydroponics/">NFT Hydroponic System</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      As my hydroponic experiemnt has shown success, I wanted to scale this up. My plan is to build an NFT hydroponic system for the yard, and dutch bucket for tomatoes.
+From my light study I found the fence and some areas that may make some good light.
+I found https://university.upstartfarmers.com/blog/sizing-a-pump-hydroponics-aquaponics that describes NFT Hydroponics is 4-6 GPH required for my pump. I&rsquo;m going to start with one trough, but plan on scaling this up to 3 if it works, so will require 18GPH of total flow. &hellip; <a class="read-more" href="/post/2022-01-02-nft-hydroponics/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">January 02, 2022</time>
+	</footer>
+</article>
+
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/post/2021-12-kratky-lettuce/">Hydroponic Kratky Lettuce Attempts</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      This year i&rsquo;ve decided to start playing with Hydroponics as a hobby. I&rsquo;ve been interested in starting with the Kratky Method of gardening. The idea is to grow lettuce in mason jars and see how growing without soil does. I&rsquo;ve previously enjoyed growing my own alfalfa micro-greens, so this is the next obvious step.
+Attempt #1 These didn&rsquo;t go so good. I had planted some seedlings in Rockwool, and left them in a container out in the sun to act as a mini-greenhouse. &hellip; <a class="read-more" href="/post/2021-12-kratky-lettuce/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">December 05, 2021</time>
+	</footer>
+</article>
+
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/posts/custom-desk/">Custom Study Desk</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      My partner and I recently started renting an old place in Palo Alto. With COVID, we&rsquo;ve been working from home for almost two years now, and sharing a desk at times things felt a little cramped (especially with the occsional electronics project).
+I&rsquo;m no expert in woodwork, so decided to 3D model it before building the desk. This also helped as my father, who&rsquo;s a carpenter, could then give me tips when I shared my computer screen with him (being on other sides of the planet). &hellip; <a class="read-more" href="/posts/custom-desk/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">November 10, 2021</time>
+	</footer>
+</article>
+
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/post/2021-10-10-light-study/">light-study</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      When deciding what to attempt to grow where in the unit we&rsquo;re renting, I decided to perform a light study of the backyard. To perform this, first I had used the 3D Scanner App to perform a LiDAR scan of the house. Areas of interest are the fences and the walls of the house. Once a scan is performed, I exported this to obj format, and loaded it into my favourite Blender 3D &hellip; <a class="read-more" href="/post/2021-10-10-light-study/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">October 20, 2021</time>
+	</footer>
+</article>
+
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/posts/paratasks/">Paragliding Tasks Checker</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+      <img src="/posts/paratasks/demo.gif" style="float: left; max-width: 200px; margin: 20px"></img>
+    
+    <p>
+      It&rsquo;s so easy to build react apps these days. Over two nights, I knocked up a quick website to be able to upload igc flight files, and an xctask files to locally compute if you managed to hit the targets.
+It&rsquo;s something to play with more later, but I&rsquo;m hoping to start putting these widgets into my logbook app to be able to log flights against tasks when they&rsquo;re done. &hellip; <a class="read-more" href="/posts/paratasks/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">September 20, 2021</time>
+	</footer>
+</article>
+
+        
+      
+    
+      
+        
+        
+          <article class="post">
+	<header class="post-header">
+		<h2 class="post-title"><a href="/2021/09/11/resuming/">resuming</a></h2>
+	</header>
+	<section class="post-excerpt">
+    
+    <p>
+      I&rsquo;ve not been writing or blogging for some time. Over half a decade. It has been about 12 years since I started this blog, and a lot has changed since then. I&rsquo;ve not found the time to document my tinkerings and projects as work has taken most of my time. I&rsquo;m going to leave work related things on Linkedin, personal posts on Facebook, but I would like to continue using this site as my partner tends to use her diaries, as a way looking back at what I&rsquo;ve been playing with. &hellip; <a class="read-more" href="/2021/09/11/resuming/">&raquo;</a>
+    </p>
+	</section>
+	<footer class="post-meta">
+    <time class="post-date">September 11, 2021</time>
+	</footer>
+</article>
+
+        
+      
+    
+    
+
+<nav class="pagination" role="navigation">
+    
+    <span class="page-number">Page 1 of 5</span>
+    
+        <a class="older-posts" href="/page/2/">Older Posts &rarr;</a>
+    
+</nav>
+
+	</main>
+
+        <footer class="site-footer">
+  <section class="rss"><a class="subscribe-button icon-feed" href="/index.xml"></a></section>
+  
+  
+  <section class="copyright">&copy; 2022 Scott O&#39;Brien</section>
+  <section class="poweredby"><a href="https://github.com/nirocfz/arabica">Arabica</a> theme by Sean Lunsford. Published with <a href="https://gohugo.io">Hugo</a>.</section>
+</footer>
 
 
-    </div>
-  </div>
 
-  <div class="post">
-    <h2 class="post__title">
-      <a href="https://www.scottyob.com/2014/07/18/compliance-with-cisco-ios-devices-bulk-changes/">Compliance with Cisco IOS Devices &amp; Bulk Changes</a>
-    </h2>
-    <small>2014-07-19 00:11:38 &#43;0000 &#43;0000</small>
-    <div class="entry">
-      <p>One of the biggest problems in the environment I work in is that almost all of the deployment of our 300+ devices is that everything has been hand crafted.  Usually this isn’t such a big problem, but add that with a design decision to route right to the access layer of our campus network with a multi-VRF network and you can start to see how mistakes, or changes in design along the deployment has meant inconsistencies.  Not only that, but when it comes time to go and change something, that means going through and altering near 300 devices, a massive pain that is hard to scale.</p>
-<p>Usually this problem is solved with network management solutions.  We have <a href="http://www.cisco.com/c/en/us/products/cloud-systems-management/ciscoworks-network-compliance-manager/index.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.cisco.com']);">Cisco NCM</a> that’s used for this task, but I have to admit, it’s horrible and hard to do anything other than the basics (not to mention end-of-life’d, probably for good reason).</p>
-<p>Now that I’ve got <a href="http://www.shrubbery.net/rancid/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.shrubbery.net']);">Rancid</a> backing up my configs to git, I decided to write a (very simple) compliance manager myself that will allow us to build compliance checks in standard python.  This works by using my <a href="https://github.com/scottyob/pyiosdevice" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://github.com']);">IOSDevice wrapper</a> to load up the configuration files, then dynamically loading a list of classes that subclass the compliance check, and start loading them up to perform the check.</p>
-<p>By over-riding specific methods (like checkRequired), you’re able to determine if the check is required on that device, then give a status of if it’s failed or not.  There’s methods for generating fix config (that will later be able to be executed on the end device) then the ability to run commands to check if it’s succeeded.</p>
-<p>The reason I decided to write this is because we’re soon going to be ripping out and merging VRF’s and making our routing a lot simpler in the campus network (inter-vrf gateway, etc) and there is no way I’m going to be doing this by hand on each device.</p>
-<p>If you’re a python head, <a href="https://github.com/scottyob/ioscompliance" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://github.com']);">check it out</a>!</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Switchport Mode Access ........(211/301)
-  * b123-ba-asw-01
-  * b17-mr-wlc-01
-  * sbs-18a-asw-01
-  * beg-340-asw-01
-...</code></pre></td></tr></table>
-</div>
-</div>
-
-    </div>
-  </div>
-
-
-
-<div class="navigation">
-  <div class="rightnav"><a href="/page/2/">Earlier Posts</a> »</div>
-  <div class="snap-to-fit"></div>
-</div>
-
-
-<div id="footer">
-  Made with <a href="https://gohugo.io/">Hugo</a>.  Theme half-milk inspired by <a href="http://thortz.com/skimmed-milk/">skimmed-milk</a>
-</div>
-</div>
-        <div id="sidebar" class="col-md-3 order-md-first d-none d-md-block">
-          
-          <h2>Other Pages</h2>
-          <ul>
-            
-              <li><a href=/page/bucketlist/>The Bucket List</a></li>
-            
-              <li><a href=/page/about/>About Me</a></li>
-            
-          </ul>
-        </div> 
-      </div> 
-    </div> 
-  </body>
+    </body>
 </html>

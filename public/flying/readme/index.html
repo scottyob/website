@@ -1,0 +1,108 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    <title>
+      
+      Readme - Scott O&#39;Brien
+      
+		</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/icons.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Lato:100,100i,300,300i,400,400i,700,700i|Source+Code+Pro:300,400,500,700" rel="stylesheet">
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/bigfoot/dist/bigfoot.js"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/bigfoot/dist/bigfoot-number.css" />
+    <script type="text/javascript">
+        $.bigfoot();
+    </script>
+    
+    
+</head>
+
+    <body class="page-template">
+        <header class="main-header">
+	<div class="main-header-content">
+		<h1 class="blog-title">
+			<a href="/">
+				
+           Scott O&#39;Brien
+				
+			</a>
+		</h1>
+		<h2 class="blog-description">Projects, Ramblings and Resources of my (online) life</h2>
+	</div>
+
+	<div class="nav">
+    
+		
+      <a class="nav- " role="presentation" href="/page/bucketlist/">The Bucket List</a>
+		
+      <a class="nav- " role="presentation" href="/page/about/">About Me</a>
+		
+      <a class="nav- " role="presentation" href="/recipes/">Recipes</a>
+		
+      <a class="nav- " role="presentation" href="/flying/">Flying</a>
+		
+	</div>
+</header>
+
+        
+<main class="content" role="main">
+  <article class="post page">
+    <header class="post-header">
+      <h2 class="post-title">Readme</h2>
+    </header>
+    <section class="post-content">
+      <p>This directory contains my flying related flightlog.</p>
+<p>The scripts here will setup pages for all the sites I&rsquo;ve flown at, and flight statistics for them.</p>
+<h3 id="to-re-generate-the-launches-files">To (re)-generate the launches files</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">scott@ScottoDesktop:~/website$ unzip -p content/flying/launches/paraglidingspots_2022_10_22.kmz doc.kml |  ~/.local/bin/xq | sed &#39;s/kml\://&#39; | jq &#39;[.. | .Placemark? // empty] | flatten | map((.Point | .coordinates | split(&#34;,&#34;)?) as $c | {name, longitude: ($c[0] | tonumber), latitude: ($c[1] | tonumber) })&#39; &gt; ./content/flying/launches/launches.json
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="to-generate-the-flightlog">To generate the flightlog</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">scott@ScottoDesktop:~/website$ ./content/flying/generator/node_modules/.bin/ts-node ./content/flying/generator/index.ts build ./content/flying/tracklogs --launchesFile ./content/flying/launches/launches.json --sitesFile ./content/flying/launches/sites.json | jq &gt; ./data/flightlog.json
+</code></pre></td></tr></table>
+</div>
+</div>
+    </section>
+  </article>
+</main>
+
+        <footer class="site-footer">
+  <section class="rss"><a class="subscribe-button icon-feed" href="/index.xml"></a></section>
+  
+  
+  <section class="copyright">&copy; 2022 Scott O&#39;Brien</section>
+  <section class="poweredby"><a href="https://github.com/nirocfz/arabica">Arabica</a> theme by Sean Lunsford. Published with <a href="https://gohugo.io">Hugo</a>.</section>
+</footer>
+
+
+
+    </body>
+</html>
