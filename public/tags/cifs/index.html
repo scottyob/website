@@ -90,9 +90,10 @@
 	</header>
 	<section class="post-excerpt">
     <p>
-      Cifs Share  CIFS (Common Internet File System), the protocol windows users for all it’s ‘windows file sharing’ is the method I’ll allow for my desktops and roaming computers to access files on the file server.
+      Cifs Share CIFS (Common Internet File System), the protocol windows users for all it’s ‘windows file sharing’ is the method I’ll allow for my desktops and roaming computers to access files on the file server.
 Before we begin, Make sure we install the CIFS kernal modules
-1  # pkg install SUNWsmbs # pkg install SUNWsmbskr   next we issue this command to make sure it auto starts &hellip; <a class="read-more" href="/2011/04/04/allowing-access-through-nfs-samba/">&raquo;</a>
+1 # pkg install SUNWsmbs # pkg install SUNWsmbskr next we issue this command to make sure it auto starts
+1 # svcadm enable -r smb/server I’ve decided for every day use, I want a data store on the server, so. &hellip; <a class="read-more" href="/2011/04/04/allowing-access-through-nfs-samba/">&raquo;</a>
     </p>
 	</section>
 	<footer class="post-meta">

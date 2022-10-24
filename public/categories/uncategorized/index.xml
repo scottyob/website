@@ -6,19 +6,14 @@
     <description>Recent content in Uncategorized on Scott O&#39;Brien</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Oct 2014 06:34:14 +0000</lastBuildDate>
-    
-	<atom:link href="https://www.scottyob.com/categories/uncategorized/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 02 Oct 2014 06:34:14 +0000</lastBuildDate><atom:link href="https://www.scottyob.com/categories/uncategorized/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Very basic MPLS Tutorial</title>
       <link>https://www.scottyob.com/2014/10/02/very-basic-mpls-tutorial/</link>
       <pubDate>Thu, 02 Oct 2014 06:34:14 +0000</pubDate>
       
       <guid>https://www.scottyob.com/2014/10/02/very-basic-mpls-tutorial/</guid>
-      <description>I made this video a while ago and some people on YouTube seem to like it, so here is my very basic MPLS tutorial. Towards the end of the video there’s a live demonstration showing the concepts with Wireshark
-  </description>
+      <description>I made this video a while ago and some people on YouTube seem to like it, so here is my very basic MPLS tutorial. Towards the end of the video there’s a live demonstration showing the concepts with Wireshark</description>
     </item>
     
     <item>
@@ -37,9 +32,9 @@
       
       <guid>https://www.scottyob.com/2014/05/08/logging-nat-translations-on-the-cisco-asa/</guid>
       <description>It’s often handy when dealing with infringement notices and the like to have NAT translations logged. Sure a better way would be to record netflow from these devices (and include the translations) but for a quick syslog solution, you can always:
-1 2 3  logging enable logging list ToSyslog level critical logging list ToSyslog message 305011   See http://www.cisco.com/c/en/us/td/docs/security/pix/pix63/system/message/63syslog/pixemsgs.html#wp1054604
+1 2 3 logging enable logging list ToSyslog level critical logging list ToSyslog message 305011 See http://www.cisco.com/c/en/us/td/docs/security/pix/pix63/system/message/63syslog/pixemsgs.html#wp1054604
 Messages will look something like:
-1  May 08 13:01:20 freewifi-asa.</description>
+1 May 08 13:01:20 freewifi-asa.net.uow.edu.au %ASA-6-305011: Built dynamic TCP translation from inside:10.</description>
     </item>
     
     <item>

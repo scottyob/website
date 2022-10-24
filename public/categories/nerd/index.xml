@@ -6,11 +6,7 @@
     <description>Recent content in nerd on Scott O&#39;Brien</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 Apr 2022 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://www.scottyob.com/categories/nerd/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 05 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.scottyob.com/categories/nerd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ESPChess NewGame Bug</title>
       <link>https://www.scottyob.com/post/2022-04-05-chess-bug/</link>
@@ -68,7 +64,7 @@ While this (rightly or wrongly decided) slightly more complicated design in itse
       
       <guid>https://www.scottyob.com/2013/04/09/what-is-anycast/</guid>
       <description>I’ve never found a really simple video on what exactly Anycast is with a basic examples when exploring the concepts. I decided to lab it up and figured this might help some of you starting out with the concepts. Any comments feel free to let me know!
-  Config Attached for IOS lab HERE.</description>
+Config Attached for IOS lab HERE.</description>
     </item>
     
     <item>
@@ -154,9 +150,10 @@ On a little side note to the tutorial series I’ve been writing up lately for b
       <pubDate>Mon, 04 Apr 2011 11:53:32 +0000</pubDate>
       
       <guid>https://www.scottyob.com/2011/04/04/allowing-access-through-nfs-samba/</guid>
-      <description>Cifs Share  CIFS (Common Internet File System), the protocol windows users for all it’s ‘windows file sharing’ is the method I’ll allow for my desktops and roaming computers to access files on the file server.
+      <description>Cifs Share CIFS (Common Internet File System), the protocol windows users for all it’s ‘windows file sharing’ is the method I’ll allow for my desktops and roaming computers to access files on the file server.
 Before we begin, Make sure we install the CIFS kernal modules
-1  # pkg install SUNWsmbs # pkg install SUNWsmbskr   next we issue this command to make sure it auto starts</description>
+1 # pkg install SUNWsmbs # pkg install SUNWsmbskr next we issue this command to make sure it auto starts
+1 # svcadm enable -r smb/server I’ve decided for every day use, I want a data store on the server, so.</description>
     </item>
     
     <item>
@@ -168,8 +165,8 @@ Before we begin, Make sure we install the CIFS kernal modules
       <description>I want to write a quick and dirty blog post to tell you a little solution on downloading HTTP files in your off-peak usage using linux.
 The tools I’ll be using for this is my old favourite wget and a new tool, “at”.
 The at daemon is required to be running first, so on debian or ubuntu
- /etc/init.d/atd start
- Then downloading your file at an off-peak time (4am for me) is as simple as</description>
+/etc/init.d/atd start
+Then downloading your file at an off-peak time (4am for me) is as simple as</description>
     </item>
     
     <item>
@@ -187,7 +184,7 @@ The at daemon is required to be running first, so on debian or ubuntu
       <pubDate>Wed, 12 Jan 2011 03:56:47 +0000</pubDate>
       
       <guid>https://www.scottyob.com/2011/01/12/apple-feeling-slow/</guid>
-      <description>Is your Apple Mac feeling slow? p.s. this is a joke, don&amp;#8217;t actually do it </description>
+      <description> Is your Apple Mac feeling slow? p.s. this is a joke, don&amp;#8217;t actually do it </description>
     </item>
     
     <item>
@@ -205,7 +202,7 @@ The at daemon is required to be running first, so on debian or ubuntu
       <pubDate>Sat, 01 Jan 2011 12:02:53 +0000</pubDate>
       
       <guid>https://www.scottyob.com/2011/01/01/happy-new-year-resolution-1-network-data/</guid>
-      <description>It&amp;#8217;s a new year and time to start getting new years resolutions into action. I&amp;#8217;ve moved into my new area in the study so I&amp;#8217;ve started setting it up how I like.  The first step is to get my router set up. The router I&amp;#8217;m using is a little &amp;#8216;fit-pc&amp;#8217; box with two ethernet cables. As you can see, it&amp;#8217;s pretty tiny but doesn&amp;#8217;t pack much in terms of power.</description>
+      <description>It&amp;#8217;s a new year and time to start getting new years resolutions into action. I&amp;#8217;ve moved into my new area in the study so I&amp;#8217;ve started setting it up how I like. The first step is to get my router set up. The router I&amp;#8217;m using is a little &amp;#8216;fit-pc&amp;#8217; box with two ethernet cables. As you can see, it&amp;#8217;s pretty tiny but doesn&amp;#8217;t pack much in terms of power.</description>
     </item>
     
     <item>

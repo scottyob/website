@@ -6,11 +6,7 @@
     <description>Recent content in IOS on Scott O&#39;Brien</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Feb 2014 06:05:36 +0000</lastBuildDate>
-    
-	<atom:link href="https://www.scottyob.com/tags/ios/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 24 Feb 2014 06:05:36 +0000</lastBuildDate><atom:link href="https://www.scottyob.com/tags/ios/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Finding overlaps in address space</title>
       <link>https://www.scottyob.com/2014/02/24/finding-overlaps-in-address-space/</link>
@@ -28,7 +24,7 @@ While this (rightly or wrongly decided) slightly more complicated design in itse
       
       <guid>https://www.scottyob.com/2013/04/09/what-is-anycast/</guid>
       <description>I’ve never found a really simple video on what exactly Anycast is with a basic examples when exploring the concepts. I decided to lab it up and figured this might help some of you starting out with the concepts. Any comments feel free to let me know!
-  Config Attached for IOS lab HERE.</description>
+Config Attached for IOS lab HERE.</description>
     </item>
     
     <item>

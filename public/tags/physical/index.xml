@@ -6,11 +6,7 @@
     <description>Recent content in physical on Scott O&#39;Brien</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Sep 2022 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://www.scottyob.com/tags/physical/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 08 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.scottyob.com/tags/physical/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>rockwool-stand</title>
       <link>https://www.scottyob.com/post/2022-09-08-rockwool-stand/</link>
@@ -18,8 +14,7 @@
       
       <guid>https://www.scottyob.com/post/2022-09-08-rockwool-stand/</guid>
       <description>Last time I did hydroponic growing and germinated seeds in the rockwool, I found it annoying that the roots would grow out the bottom of the rockwool, then get squished by the ground, making it harder to have dangling roots to easily transfer to an NFT system.
-I used an Openscad model to solve this :)
- </description>
+I used an Openscad model to solve this :)</description>
     </item>
     
     <item>

@@ -6,11 +6,7 @@
     <description>Recent content in rust on Scott O&#39;Brien</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Apr 2022 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://www.scottyob.com/tags/rust/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 27 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.scottyob.com/tags/rust/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>learning-rust</title>
       <link>https://www.scottyob.com/post/2022-04-27-learning-rust/</link>

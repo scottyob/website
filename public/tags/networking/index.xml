@@ -6,11 +6,7 @@
     <description>Recent content in Networking on Scott O&#39;Brien</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 09 Apr 2013 12:15:31 +0000</lastBuildDate>
-    
-	<atom:link href="https://www.scottyob.com/tags/networking/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 09 Apr 2013 12:15:31 +0000</lastBuildDate><atom:link href="https://www.scottyob.com/tags/networking/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>What is Anycast?</title>
       <link>https://www.scottyob.com/2013/04/09/what-is-anycast/</link>
@@ -18,7 +14,7 @@
       
       <guid>https://www.scottyob.com/2013/04/09/what-is-anycast/</guid>
       <description>I’ve never found a really simple video on what exactly Anycast is with a basic examples when exploring the concepts. I decided to lab it up and figured this might help some of you starting out with the concepts. Any comments feel free to let me know!
-  Config Attached for IOS lab HERE.</description>
+Config Attached for IOS lab HERE.</description>
     </item>
     
     <item>

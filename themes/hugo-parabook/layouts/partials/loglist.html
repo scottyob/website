@@ -1,0 +1,49 @@
+<script>
+$(window).on('load', function() {
+    // code here
+    $(".time-format").contents().each((_, e) => {
+      e.data = new Date(parseInt(e.data) * 1000).toISOString().substr(11, 8);
+    })
+  });
+</script>
+
+<main class="content" role="main">
+    <article class="post page">
+      <header class="post-header">
+        <h2 class="post-title">{{ .Title }}</h2>
+      </header>
+      <section class="post-content">
+        {{ .Content }}
+
+        <table>
+            <tr>
+              <th>#</th>
+              <th>Location</th>
+              <th>Date</th>
+              <th>Duration</th>
+              <th>Max Altitude</th>
+              <th>Altitude Gain</th>
+              <th>Wing</th>
+              <th>Comments</th>
+            </tr>
+            {{ range .Pages.ByParam "flightNumber" }}
+            <tr>
+                <td><a href="/flying/flights/{{.Params.flightNumber}}">{{.Params.flightNumber}}</a></td>
+                {{ if .Params.location }}
+                <td><a href="{{print (printf "/flying-location/%s" (.Params.location | urlize))}}">{{.Params.location}}</a></td>
+                {{ else }}
+                <td></td>
+                {{ end }}
+                <td>{{if.Params.date}}{{.Params.date.Format "2006-01-02"}}{{end}}</td>
+                <td class="time-format">{{.Params.durationSeconds }}</td>
+                <td>{{.Params.maxAltitudeMeters }}</td>
+                <td>{{.Params.altitudeGainMeters }}</td>
+                <td>{{.Params.wing }}</td>
+                <td>{{.Params.comments }}</td>
+            </tr>
+            {{ end }}
+          </table>
+        
+      </section>
+    </article>
+  </main>

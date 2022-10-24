@@ -74,27 +74,27 @@
     </header>
     <section class="post-content">
       <p>It’s often handy when dealing with infringement notices and the like to have NAT translations logged.  Sure a better way would be to record netflow from these devices (and include the translations) but for a quick syslog solution, you can always:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">logging enable
-logging list ToSyslog level critical
-logging list ToSyslog message 305011
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>logging enable
+</span></span><span style="display:flex;"><span>logging list ToSyslog level critical
+</span></span><span style="display:flex;"><span>logging list ToSyslog message 305011
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>See <a href="http://www.cisco.com/c/en/us/td/docs/security/pix/pix63/system/message/63syslog/pixemsgs.html#wp1054604" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.cisco.com']);"><a href="http://www.cisco.com/c/en/us/td/docs/security/pix/pix63/system/message/63syslog/pixemsgs.html#wp1054604">http://www.cisco.com/c/en/us/td/docs/security/pix/pix63/system/message/63syslog/pixemsgs.html#wp1054604</a></a></p>
 <p>Messages will look something like:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">May 08 13:01:20 freewifi-asa.net.uow.edu.au %ASA-6-305011: Built dynamic TCP translation from inside:10.64.37.96/53008 to outside:192.131.251.2/49520
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>May 08 13:01:20 freewifi-asa.net.uow.edu.au %ASA-6-305011: Built dynamic TCP translation from inside:10.64.37.96/53008 to outside:192.131.251.2/49520
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p> </p>
 

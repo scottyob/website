@@ -6,11 +6,7 @@
     <description>Recent content in Posts on Scott O&#39;Brien</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Oct 2022 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://www.scottyob.com/post/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 05 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.scottyob.com/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>workflow-orchestration</title>
       <link>https://www.scottyob.com/post/2022-10-05-workflow-orchestration/</link>
@@ -28,8 +24,7 @@ As I stumble upon things that fit paradigms within Facebook externally, this pag
       
       <guid>https://www.scottyob.com/post/2022-09-08-rockwool-stand/</guid>
       <description>Last time I did hydroponic growing and germinated seeds in the rockwool, I found it annoying that the roots would grow out the bottom of the rockwool, then get squished by the ground, making it harder to have dangling roots to easily transfer to an NFT system.
-I used an Openscad model to solve this :)
- </description>
+I used an Openscad model to solve this :)</description>
     </item>
     
     <item>
@@ -117,8 +112,7 @@ It&amp;rsquo;s something to play with more later, but I&amp;rsquo;m hoping to st
       <pubDate>Thu, 02 Oct 2014 06:34:14 +0000</pubDate>
       
       <guid>https://www.scottyob.com/2014/10/02/very-basic-mpls-tutorial/</guid>
-      <description>I made this video a while ago and some people on YouTube seem to like it, so here is my very basic MPLS tutorial. Towards the end of the video there’s a live demonstration showing the concepts with Wireshark
-  </description>
+      <description>I made this video a while ago and some people on YouTube seem to like it, so here is my very basic MPLS tutorial. Towards the end of the video there’s a live demonstration showing the concepts with Wireshark</description>
     </item>
     
     <item>
@@ -147,9 +141,9 @@ It uses netflow from inside our network and some syslog monitoring scripts to ma
       
       <guid>https://www.scottyob.com/2014/05/08/logging-nat-translations-on-the-cisco-asa/</guid>
       <description>It’s often handy when dealing with infringement notices and the like to have NAT translations logged. Sure a better way would be to record netflow from these devices (and include the translations) but for a quick syslog solution, you can always:
-1 2 3  logging enable logging list ToSyslog level critical logging list ToSyslog message 305011   See http://www.cisco.com/c/en/us/td/docs/security/pix/pix63/system/message/63syslog/pixemsgs.html#wp1054604
+1 2 3 logging enable logging list ToSyslog level critical logging list ToSyslog message 305011 See http://www.cisco.com/c/en/us/td/docs/security/pix/pix63/system/message/63syslog/pixemsgs.html#wp1054604
 Messages will look something like:
-1  May 08 13:01:20 freewifi-asa.</description>
+1 May 08 13:01:20 freewifi-asa.net.uow.edu.au %ASA-6-305011: Built dynamic TCP translation from inside:10.</description>
     </item>
     
     <item>
@@ -189,7 +183,7 @@ In our DC, we’re still running the old school Cisco Catalyst switches. If we w
       
       <guid>https://www.scottyob.com/2013/04/09/what-is-anycast/</guid>
       <description>I’ve never found a really simple video on what exactly Anycast is with a basic examples when exploring the concepts. I decided to lab it up and figured this might help some of you starting out with the concepts. Any comments feel free to let me know!
-  Config Attached for IOS lab HERE.</description>
+Config Attached for IOS lab HERE.</description>
     </item>
     
     <item>
@@ -275,9 +269,10 @@ On a little side note to the tutorial series I’ve been writing up lately for b
       <pubDate>Mon, 04 Apr 2011 11:53:32 +0000</pubDate>
       
       <guid>https://www.scottyob.com/2011/04/04/allowing-access-through-nfs-samba/</guid>
-      <description>Cifs Share  CIFS (Common Internet File System), the protocol windows users for all it’s ‘windows file sharing’ is the method I’ll allow for my desktops and roaming computers to access files on the file server.
+      <description>Cifs Share CIFS (Common Internet File System), the protocol windows users for all it’s ‘windows file sharing’ is the method I’ll allow for my desktops and roaming computers to access files on the file server.
 Before we begin, Make sure we install the CIFS kernal modules
-1  # pkg install SUNWsmbs # pkg install SUNWsmbskr   next we issue this command to make sure it auto starts</description>
+1 # pkg install SUNWsmbs # pkg install SUNWsmbskr next we issue this command to make sure it auto starts
+1 # svcadm enable -r smb/server I’ve decided for every day use, I want a data store on the server, so.</description>
     </item>
     
     <item>
@@ -319,8 +314,8 @@ Installing OS and setup Network For the following set of posts, I have chosen to
       <description>I want to write a quick and dirty blog post to tell you a little solution on downloading HTTP files in your off-peak usage using linux.
 The tools I’ll be using for this is my old favourite wget and a new tool, “at”.
 The at daemon is required to be running first, so on debian or ubuntu
- /etc/init.d/atd start
- Then downloading your file at an off-peak time (4am for me) is as simple as</description>
+/etc/init.d/atd start
+Then downloading your file at an off-peak time (4am for me) is as simple as</description>
     </item>
     
     <item>
@@ -338,7 +333,7 @@ The at daemon is required to be running first, so on debian or ubuntu
       <pubDate>Wed, 12 Jan 2011 03:56:47 +0000</pubDate>
       
       <guid>https://www.scottyob.com/2011/01/12/apple-feeling-slow/</guid>
-      <description>Is your Apple Mac feeling slow? p.s. this is a joke, don&amp;#8217;t actually do it </description>
+      <description> Is your Apple Mac feeling slow? p.s. this is a joke, don&amp;#8217;t actually do it </description>
     </item>
     
     <item>
@@ -356,7 +351,7 @@ The at daemon is required to be running first, so on debian or ubuntu
       <pubDate>Sat, 01 Jan 2011 12:02:53 +0000</pubDate>
       
       <guid>https://www.scottyob.com/2011/01/01/happy-new-year-resolution-1-network-data/</guid>
-      <description>It&amp;#8217;s a new year and time to start getting new years resolutions into action. I&amp;#8217;ve moved into my new area in the study so I&amp;#8217;ve started setting it up how I like.  The first step is to get my router set up. The router I&amp;#8217;m using is a little &amp;#8216;fit-pc&amp;#8217; box with two ethernet cables. As you can see, it&amp;#8217;s pretty tiny but doesn&amp;#8217;t pack much in terms of power.</description>
+      <description>It&amp;#8217;s a new year and time to start getting new years resolutions into action. I&amp;#8217;ve moved into my new area in the study so I&amp;#8217;ve started setting it up how I like. The first step is to get my router set up. The router I&amp;#8217;m using is a little &amp;#8216;fit-pc&amp;#8217; box with two ethernet cables. As you can see, it&amp;#8217;s pretty tiny but doesn&amp;#8217;t pack much in terms of power.</description>
     </item>
     
     <item>
@@ -411,7 +406,7 @@ This has me thinking how much of a shame it would be if I build a wealth of info
       <pubDate>Sat, 09 Oct 2010 01:30:57 +0000</pubDate>
       
       <guid>https://www.scottyob.com/2010/10/09/a-new-blog/</guid>
-      <description>Hello everyone. Ok, so this is a brand new blog. What happened to all my old content? I&amp;#8217;d like to say I just wanted to start fresh, but truth is, I was lazy and didn&amp;#8217;t back up any data from my hosting company before my term ended with them.. so I lost my database and content. I&amp;#8217;ll re-post the good stuff, hopefully more in-depth on this site though. Stay tuned. This blog is going to be a lot more personal then my last.</description>
+      <description>Hello everyone. Ok, so this is a brand new blog. What happened to all my old content? I&amp;#8217;d like to say I just wanted to start fresh, but truth is, I was lazy and didn&amp;#8217;t back up any data from my hosting company before my term ended with them.. so I lost my database and content. I&amp;#8217;ll re-post the good stuff, hopefully more in-depth on this site though. Stay tuned.</description>
     </item>
     
   </channel>

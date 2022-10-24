@@ -4,6 +4,11 @@ title = "Scott O'Brien"
 theme = ["hugo-parabook", "arabica", "hugo-shortcode-gallery"]
 # paginate = 4
 
+[taxonomies]
+  flying-location = "flying-location"
+  category = 'categories'
+  tag = "tags"
+
 [params]
   description = "Projects, Ramblings and Resources of my (online) life"
   galleryPreviewType = "none"

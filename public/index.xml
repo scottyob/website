@@ -6,22 +6,7 @@
     <description>Recent content on Scott O&#39;Brien</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Oct 2022 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://www.scottyob.com/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Readme</title>
-      <link>https://www.scottyob.com/flying/readme/</link>
-      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.scottyob.com/flying/readme/</guid>
-      <description>This directory contains my flying related flightlog.
-The scripts here will setup pages for all the sites I&amp;rsquo;ve flown at, and flight statistics for them.
-To (re)-generate the launches files 1  scott@ScottoDesktop:~/website$ unzip -p content/flying/launches/paraglidingspots_2022_10_22.kmz doc.kml | ~/.local/bin/xq | sed &amp;#39;s/kml\://&amp;#39; | jq &amp;#39;[.. | .Placemark? // empty] | flatten | map((.Point | .coordinates | split(&amp;#34;,&amp;#34;)?) as $c | {name, longitude: ($c[0] | tonumber), latitude: ($c[1] | tonumber) })&amp;#39; &amp;gt; .</description>
-    </item>
-    
+    <lastBuildDate>Wed, 05 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.scottyob.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>workflow-orchestration</title>
       <link>https://www.scottyob.com/post/2022-10-05-workflow-orchestration/</link>
@@ -39,8 +24,7 @@ As I stumble upon things that fit paradigms within Facebook externally, this pag
       
       <guid>https://www.scottyob.com/post/2022-09-08-rockwool-stand/</guid>
       <description>Last time I did hydroponic growing and germinated seeds in the rockwool, I found it annoying that the roots would grow out the bottom of the rockwool, then get squished by the ground, making it harder to have dangling roots to easily transfer to an NFT system.
-I used an Openscad model to solve this :)
- </description>
+I used an Openscad model to solve this :)</description>
     </item>
     
     <item>
@@ -104,6 +88,159 @@ I&amp;rsquo;m no expert in woodwork, so decided to 3D model it before building t
     </item>
     
     <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/64/</link>
+      <pubDate>Sat, 02 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/64/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/65/</link>
+      <pubDate>Sat, 02 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/65/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/62/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/62/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/63/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/63/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/61/</link>
+      <pubDate>Thu, 30 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/61/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/60/</link>
+      <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/60/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/59/</link>
+      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/59/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/57/</link>
+      <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/57/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/58/</link>
+      <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/58/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/56/</link>
+      <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/56/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/55/</link>
+      <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/55/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/52/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/52/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/53/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/53/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/54/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/54/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/51/</link>
+      <pubDate>Wed, 22 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/51/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/49/</link>
+      <pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/49/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/50/</link>
+      <pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/50/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Paragliding Tasks Checker</title>
       <link>https://www.scottyob.com/posts/paratasks/</link>
       <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
@@ -111,6 +248,51 @@ I&amp;rsquo;m no expert in woodwork, so decided to 3D model it before building t
       <guid>https://www.scottyob.com/posts/paratasks/</guid>
       <description>It&amp;rsquo;s so easy to build react apps these days. Over two nights, I knocked up a quick website to be able to upload igc flight files, and an xctask files to locally compute if you managed to hit the targets.
 It&amp;rsquo;s something to play with more later, but I&amp;rsquo;m hoping to start putting these widgets into my logbook app to be able to log flights against tasks when they&amp;rsquo;re done.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/48/</link>
+      <pubDate>Fri, 17 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/48/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/46/</link>
+      <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/46/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/47/</link>
+      <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/47/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/44/</link>
+      <pubDate>Sat, 11 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/44/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/45/</link>
+      <pubDate>Sat, 11 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/45/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -123,12 +305,291 @@ It&amp;rsquo;s something to play with more later, but I&amp;rsquo;m hoping to st
     </item>
     
     <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/43/</link>
+      <pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/43/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/42/</link>
+      <pubDate>Fri, 11 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/42/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/41/</link>
+      <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/41/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/40/</link>
+      <pubDate>Sat, 05 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/40/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/39/</link>
+      <pubDate>Sun, 23 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/39/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/38/</link>
+      <pubDate>Sat, 22 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/38/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/37/</link>
+      <pubDate>Sat, 15 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/37/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/36/</link>
+      <pubDate>Sat, 24 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/36/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/34/</link>
+      <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/34/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/35/</link>
+      <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/35/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/33/</link>
+      <pubDate>Thu, 11 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/33/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/32/</link>
+      <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/32/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/31/</link>
+      <pubDate>Tue, 09 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/31/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/30/</link>
+      <pubDate>Tue, 24 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/30/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/29/</link>
+      <pubDate>Sun, 22 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/29/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/27/</link>
+      <pubDate>Thu, 12 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/27/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/28/</link>
+      <pubDate>Thu, 12 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/28/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/25/</link>
+      <pubDate>Sat, 24 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/25/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/26/</link>
+      <pubDate>Sat, 24 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/26/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/22/</link>
+      <pubDate>Sat, 17 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/22/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/23/</link>
+      <pubDate>Sat, 17 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/23/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/24/</link>
+      <pubDate>Sat, 17 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/24/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/21/</link>
+      <pubDate>Wed, 23 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/21/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/20/</link>
+      <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/20/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/19/</link>
+      <pubDate>Tue, 01 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/19/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/18/</link>
+      <pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/18/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/16/</link>
+      <pubDate>Fri, 24 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/16/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/17/</link>
+      <pubDate>Fri, 24 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/17/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/15/</link>
+      <pubDate>Sun, 14 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/15/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/13/</link>
+      <pubDate>Sat, 13 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/13/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/14/</link>
+      <pubDate>Sat, 13 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/14/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>About Me</title>
       <link>https://www.scottyob.com/page/about/</link>
       <pubDate>Tue, 26 May 2020 00:46:16 -0700</pubDate>
       
       <guid>https://www.scottyob.com/page/about/</guid>
-      <description> a .fa-brands { color: orange; padding: 2px; text-decoration: none !important; } a:link { text-decoration: none !important; } .about-group { text-align: center; margin: 20px; }              </description>
+      <description> </description>
     </item>
     
     <item>
@@ -142,13 +603,120 @@ This list is public in the hope others will want to help or experience things wi
     </item>
     
     <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/12/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/12/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/10/</link>
+      <pubDate>Sun, 23 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/10/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/11/</link>
+      <pubDate>Sun, 23 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/11/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/7/</link>
+      <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/8/</link>
+      <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/9/</link>
+      <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/9/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/6/</link>
+      <pubDate>Sun, 16 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/5/</link>
+      <pubDate>Sun, 26 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/3/</link>
+      <pubDate>Sat, 04 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/4/</link>
+      <pubDate>Sat, 04 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/1/</link>
+      <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.scottyob.com/flying/flights/2/</link>
+      <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/flying/flights/2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Very basic MPLS Tutorial</title>
       <link>https://www.scottyob.com/2014/10/02/very-basic-mpls-tutorial/</link>
       <pubDate>Thu, 02 Oct 2014 06:34:14 +0000</pubDate>
       
       <guid>https://www.scottyob.com/2014/10/02/very-basic-mpls-tutorial/</guid>
-      <description>I made this video a while ago and some people on YouTube seem to like it, so here is my very basic MPLS tutorial. Towards the end of the video there’s a live demonstration showing the concepts with Wireshark
-  </description>
+      <description>I made this video a while ago and some people on YouTube seem to like it, so here is my very basic MPLS tutorial. Towards the end of the video there’s a live demonstration showing the concepts with Wireshark</description>
     </item>
     
     <item>
@@ -177,9 +745,9 @@ It uses netflow from inside our network and some syslog monitoring scripts to ma
       
       <guid>https://www.scottyob.com/2014/05/08/logging-nat-translations-on-the-cisco-asa/</guid>
       <description>It’s often handy when dealing with infringement notices and the like to have NAT translations logged. Sure a better way would be to record netflow from these devices (and include the translations) but for a quick syslog solution, you can always:
-1 2 3  logging enable logging list ToSyslog level critical logging list ToSyslog message 305011   See http://www.cisco.com/c/en/us/td/docs/security/pix/pix63/system/message/63syslog/pixemsgs.html#wp1054604
+1 2 3 logging enable logging list ToSyslog level critical logging list ToSyslog message 305011 See http://www.cisco.com/c/en/us/td/docs/security/pix/pix63/system/message/63syslog/pixemsgs.html#wp1054604
 Messages will look something like:
-1  May 08 13:01:20 freewifi-asa.</description>
+1 May 08 13:01:20 freewifi-asa.net.uow.edu.au %ASA-6-305011: Built dynamic TCP translation from inside:10.</description>
     </item>
     
     <item>
@@ -219,7 +787,7 @@ In our DC, we’re still running the old school Cisco Catalyst switches. If we w
       
       <guid>https://www.scottyob.com/2013/04/09/what-is-anycast/</guid>
       <description>I’ve never found a really simple video on what exactly Anycast is with a basic examples when exploring the concepts. I decided to lab it up and figured this might help some of you starting out with the concepts. Any comments feel free to let me know!
-  Config Attached for IOS lab HERE.</description>
+Config Attached for IOS lab HERE.</description>
     </item>
     
     <item>
@@ -305,9 +873,10 @@ On a little side note to the tutorial series I’ve been writing up lately for b
       <pubDate>Mon, 04 Apr 2011 11:53:32 +0000</pubDate>
       
       <guid>https://www.scottyob.com/2011/04/04/allowing-access-through-nfs-samba/</guid>
-      <description>Cifs Share  CIFS (Common Internet File System), the protocol windows users for all it’s ‘windows file sharing’ is the method I’ll allow for my desktops and roaming computers to access files on the file server.
+      <description>Cifs Share CIFS (Common Internet File System), the protocol windows users for all it’s ‘windows file sharing’ is the method I’ll allow for my desktops and roaming computers to access files on the file server.
 Before we begin, Make sure we install the CIFS kernal modules
-1  # pkg install SUNWsmbs # pkg install SUNWsmbskr   next we issue this command to make sure it auto starts</description>
+1 # pkg install SUNWsmbs # pkg install SUNWsmbskr next we issue this command to make sure it auto starts
+1 # svcadm enable -r smb/server I’ve decided for every day use, I want a data store on the server, so.</description>
     </item>
     
     <item>
@@ -349,8 +918,8 @@ Installing OS and setup Network For the following set of posts, I have chosen to
       <description>I want to write a quick and dirty blog post to tell you a little solution on downloading HTTP files in your off-peak usage using linux.
 The tools I’ll be using for this is my old favourite wget and a new tool, “at”.
 The at daemon is required to be running first, so on debian or ubuntu
- /etc/init.d/atd start
- Then downloading your file at an off-peak time (4am for me) is as simple as</description>
+/etc/init.d/atd start
+Then downloading your file at an off-peak time (4am for me) is as simple as</description>
     </item>
     
     <item>
@@ -368,7 +937,7 @@ The at daemon is required to be running first, so on debian or ubuntu
       <pubDate>Wed, 12 Jan 2011 03:56:47 +0000</pubDate>
       
       <guid>https://www.scottyob.com/2011/01/12/apple-feeling-slow/</guid>
-      <description>Is your Apple Mac feeling slow? p.s. this is a joke, don&amp;#8217;t actually do it </description>
+      <description> Is your Apple Mac feeling slow? p.s. this is a joke, don&amp;#8217;t actually do it </description>
     </item>
     
     <item>
@@ -386,7 +955,7 @@ The at daemon is required to be running first, so on debian or ubuntu
       <pubDate>Sat, 01 Jan 2011 12:02:53 +0000</pubDate>
       
       <guid>https://www.scottyob.com/2011/01/01/happy-new-year-resolution-1-network-data/</guid>
-      <description>It&amp;#8217;s a new year and time to start getting new years resolutions into action. I&amp;#8217;ve moved into my new area in the study so I&amp;#8217;ve started setting it up how I like.  The first step is to get my router set up. The router I&amp;#8217;m using is a little &amp;#8216;fit-pc&amp;#8217; box with two ethernet cables. As you can see, it&amp;#8217;s pretty tiny but doesn&amp;#8217;t pack much in terms of power.</description>
+      <description>It&amp;#8217;s a new year and time to start getting new years resolutions into action. I&amp;#8217;ve moved into my new area in the study so I&amp;#8217;ve started setting it up how I like. The first step is to get my router set up. The router I&amp;#8217;m using is a little &amp;#8216;fit-pc&amp;#8217; box with two ethernet cables. As you can see, it&amp;#8217;s pretty tiny but doesn&amp;#8217;t pack much in terms of power.</description>
     </item>
     
     <item>
@@ -441,7 +1010,7 @@ This has me thinking how much of a shame it would be if I build a wealth of info
       <pubDate>Sat, 09 Oct 2010 01:30:57 +0000</pubDate>
       
       <guid>https://www.scottyob.com/2010/10/09/a-new-blog/</guid>
-      <description>Hello everyone. Ok, so this is a brand new blog. What happened to all my old content? I&amp;#8217;d like to say I just wanted to start fresh, but truth is, I was lazy and didn&amp;#8217;t back up any data from my hosting company before my term ended with them.. so I lost my database and content. I&amp;#8217;ll re-post the good stuff, hopefully more in-depth on this site though. Stay tuned. This blog is going to be a lot more personal then my last.</description>
+      <description>Hello everyone. Ok, so this is a brand new blog. What happened to all my old content? I&amp;#8217;d like to say I just wanted to start fresh, but truth is, I was lazy and didn&amp;#8217;t back up any data from my hosting company before my term ended with them.. so I lost my database and content. I&amp;#8217;ll re-post the good stuff, hopefully more in-depth on this site though. Stay tuned.</description>
     </item>
     
     <item>
@@ -451,9 +1020,9 @@ This has me thinking how much of a shame it would be if I build a wealth of info
       
       <guid>https://www.scottyob.com/private/2021-nov-virus/</guid>
       <description>Night of the 16th:
- Start developing headaches, chills and muscle soreness Lots and lots of sleep as body felt exhausted Cleared up, felt good for the weekend  Tuesday 23:
- Started with coughs and lots of phlegm in lungs Lots of exhaustion, coughing and sleep right through to 27th. Covid test returned negative result  Saturday 27th:
- Started throat soreness after coughing a bit, assumed I had torn my throat Noticed it was worse the next morning and has been getting progressively worse since.</description>
+Start developing headaches, chills and muscle soreness Lots and lots of sleep as body felt exhausted Cleared up, felt good for the weekend Tuesday 23:
+Started with coughs and lots of phlegm in lungs Lots of exhaustion, coughing and sleep right through to 27th. Covid test returned negative result Saturday 27th:
+Started throat soreness after coughing a bit, assumed I had torn my throat Noticed it was worse the next morning and has been getting progressively worse since.</description>
     </item>
     
     <item>
@@ -462,7 +1031,7 @@ This has me thinking how much of a shame it would be if I build a wealth of info
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.scottyob.com/recipes/butternut-carrot-soup/</guid>
-      <description>Ingredients  1 medium butternut squash sliced in half and seeds scooped out 2 large carrots chopped into large pieces 1 head garlic 1 shallot halved and skin removed 1 tablespoons olive oil 1/2 cup milk or coconut milk 1-2 cups chicken or vegetable stock Light sprinkle of Chili Flakes  Method  Preheat oven to 425 Put halves of squash face down with other vegetables (garlic in it&amp;rsquo;s own foil).</description>
+      <description>Ingredients 1 medium butternut squash sliced in half and seeds scooped out 2 large carrots chopped into large pieces 1 head garlic 1 shallot halved and skin removed 1 tablespoons olive oil 1/2 cup milk or coconut milk 1-2 cups chicken or vegetable stock Light sprinkle of Chili Flakes Method Preheat oven to 425 Put halves of squash face down with other vegetables (garlic in it&amp;rsquo;s own foil). Make for 50-60 minutes until tender Remove from oven, put into blender with remaining ingredients and Brrrrr.</description>
     </item>
     
     <item>
@@ -471,16 +1040,7 @@ This has me thinking how much of a shame it would be if I build a wealth of info
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.scottyob.com/recipes/eggplant-curry/</guid>
-      <description>Ingredients  1 eggplant 2 Tbsp olive oil 1 shallot (finely chopped, 1/2 cup) 3 cloves garlic minces 2 tsp garam masala 1 tsp cumin 1 tsp coriander 1 tsp smoked paprika 1 tsp salt 1 can coconut milk (400g, 14oz) 1 can diced tomatoes (400g, 14oz) Service with Rice &amp;amp; Cilantro  Method  Start cooking rice Cut eggplant into bite-sized cubes. Heat oil in a large pan, cook eggplant until begins to brown (~5 minutes) Add shallot and garlic to the pan, cook for 2 minutes Add spices, coat add cans (tomatoes undrained).</description>
-    </item>
-    
-    <item>
-      <title>test</title>
-      <link>https://www.scottyob.com/flying/sites/test/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.scottyob.com/flying/sites/test/</guid>
-      <description>This is a test</description>
+      <description>Ingredients 1 eggplant 2 Tbsp olive oil 1 shallot (finely chopped, 1/2 cup) 3 cloves garlic minces 2 tsp garam masala 1 tsp cumin 1 tsp coriander 1 tsp smoked paprika 1 tsp salt 1 can coconut milk (400g, 14oz) 1 can diced tomatoes (400g, 14oz) Service with Rice &amp;amp; Cilantro Method Start cooking rice Cut eggplant into bite-sized cubes. Heat oil in a large pan, cook eggplant until begins to brown (~5 minutes) Add shallot and garlic to the pan, cook for 2 minutes Add spices, coat add cans (tomatoes undrained).</description>
     </item>
     
     <item>
@@ -489,7 +1049,7 @@ This has me thinking how much of a shame it would be if I build a wealth of info
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.scottyob.com/recipes/honey-wallnut-bread/</guid>
-      <description>Ingredients  100 gram walnuts toasted on stovetop or in oven 1 teaspoon cinnamon 53 grams sourdough starter at its peak 380 grams room temperature water 30 grams raw honey 360 grams bread flour 90 grams all-purpose flour 50 grams whole wheat flour 9 grams sea salt 1 1/2 teaspoons  Method  Put walnuts on cookie sheet for 6 minutes @ 350f, then toss with cinnamon Mix starter, water, honey, flours and salt After first hour standing mixed, wait at least half an hour before mixing in almonds  Notes It&amp;rsquo;s pretty much the same as the basic sourdough but with some differences</description>
+      <description>Ingredients 100 gram walnuts toasted on stovetop or in oven 1 teaspoon cinnamon 53 grams sourdough starter at its peak 380 grams room temperature water 30 grams raw honey 360 grams bread flour 90 grams all-purpose flour 50 grams whole wheat flour 9 grams sea salt 1 1/2 teaspoons Method Put walnuts on cookie sheet for 6 minutes @ 350f, then toss with cinnamon Mix starter, water, honey, flours and salt After first hour standing mixed, wait at least half an hour before mixing in almonds Notes It&amp;rsquo;s pretty much the same as the basic sourdough but with some differences</description>
     </item>
     
     <item>
@@ -498,7 +1058,7 @@ This has me thinking how much of a shame it would be if I build a wealth of info
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.scottyob.com/recipes/white-sourdough-bread/</guid>
-      <description>Ingredients  350g of water 500g of bread flour 50g of sourdough starter, fed near it&amp;rsquo;s peak 6-10g of salt  Direction  Feed starter, have ready for 4pm @ 4pm, place ingredients in a metal bowl, vigerously mix with fork until everything is somewhat combined. Cover (I use plastic bag) and leave on counter @ 5pm, The bread has gone through it&amp;rsquo;s &amp;ldquo;autolyse&amp;rdquo; stage. Start stretching and folding bread into the middle until it feels somewhat firm Every hour or so until bed, keep stretching and folding.</description>
+      <description>Ingredients 350g of water 500g of bread flour 50g of sourdough starter, fed near it&amp;rsquo;s peak 6-10g of salt Direction Feed starter, have ready for 4pm @ 4pm, place ingredients in a metal bowl, vigerously mix with fork until everything is somewhat combined. Cover (I use plastic bag) and leave on counter @ 5pm, The bread has gone through it&amp;rsquo;s &amp;ldquo;autolyse&amp;rdquo; stage. Start stretching and folding bread into the middle until it feels somewhat firm Every hour or so until bed, keep stretching and folding.</description>
     </item>
     
   </channel>

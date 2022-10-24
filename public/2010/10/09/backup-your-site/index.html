@@ -93,23 +93,23 @@
 <p>Now test to make sure you can log into the <em>backupserver</em> without requiring a password.</p>
 <p><strong>Step 2. Creating the backup script</strong><br />I made a backup script (backup.sh, me sure to ‘chmod u+x backup.sh’ once it’s been created) to run through these few backup procedures. The first step is to do a dump of the database to file. You could very well host an SQL server on the other side and mirror the database to get things up and running faster, but that was overkill for my needs.. Besides, always remember there are many ways to skin a cat and this one seemed to work nice for all intents and purposes.</p>
 <p>The backup script has two parts in it, basically do a dump of the database, then copy that over to the server as well as all the public_html or htdocs or where you put your public hosted files.</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#a31515">&#34;Running backup script&#34;</span>
-echo <span style="color:#a31515">&#34;Running a dump of the database..&#34;</span>
-mysqldump user=scottyob password=somePassword all-databases &gt; /var/www/scottyob.com/backup/database.dump <span style="color:#008000">#backup of database</span>
-echo <span style="color:#a31515">&#34;Syncing the backup directory..&#34;</span>
-rsync -a -e ssh /var/www/scottyob.com/backup/ backups@backuphost.com:backups/&lt;br /&gt;rsync -a -e ssh /var/www/scottyob.com/htdocs/ backups@backuphost.com:htdocs/
-echo <span style="color:#a31515">&#34;Backup made on &#34;</span> <span style="color:#a31515">`</span>date<span style="color:#a31515">`</span> &gt;&gt; /var/www/scottyob.com/backuplog.txt
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#a31515">&#34;Running backup script&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#a31515">&#34;Running a dump of the database..&#34;</span>
+</span></span><span style="display:flex;"><span>mysqldump user=scottyob password=somePassword all-databases &gt; /var/www/scottyob.com/backup/database.dump <span style="color:#008000">#backup of database</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#a31515">&#34;Syncing the backup directory..&#34;</span>
+</span></span><span style="display:flex;"><span>rsync -a -e ssh /var/www/scottyob.com/backup/ backups@backuphost.com:backups/&lt;br /&gt;rsync -a -e ssh /var/www/scottyob.com/htdocs/ backups@backuphost.com:htdocs/
+</span></span><span style="display:flex;"><span>echo <span style="color:#a31515">&#34;Backup made on &#34;</span> <span style="color:#a31515">`</span>date<span style="color:#a31515">`</span> &gt;&gt; /var/www/scottyob.com/backuplog.txt
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>And there you have it, a script to backup your website to a user ‘backups’ on the server ‘backuphost.com’</p>
 <p><strong>Step 3. Automated..ness</strong></p>
@@ -123,7 +123,7 @@ echo <span style="color:#a31515">&#34;Backup made on &#34;</span> <span style="c
 <p>1 0 * * * /var/www/scottyob.com/backup.sh</p>
 </blockquote>
 <p>And there we have it folks, my backup procedure now so my site will never have to be started from scratch again.</p>
-<p><br class="final-break" style="clear: both" /></p>
+<br class="final-break" style="clear: both" />
 
     </section>
     <footer class="post-footer">

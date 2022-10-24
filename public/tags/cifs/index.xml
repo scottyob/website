@@ -6,20 +6,17 @@
     <description>Recent content in CIFS on Scott O&#39;Brien</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Apr 2011 11:53:32 +0000</lastBuildDate>
-    
-	<atom:link href="https://www.scottyob.com/tags/cifs/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 04 Apr 2011 11:53:32 +0000</lastBuildDate><atom:link href="https://www.scottyob.com/tags/cifs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Allowing access through NFS &amp; SAMBA</title>
       <link>https://www.scottyob.com/2011/04/04/allowing-access-through-nfs-samba/</link>
       <pubDate>Mon, 04 Apr 2011 11:53:32 +0000</pubDate>
       
       <guid>https://www.scottyob.com/2011/04/04/allowing-access-through-nfs-samba/</guid>
-      <description>Cifs Share  CIFS (Common Internet File System), the protocol windows users for all it’s ‘windows file sharing’ is the method I’ll allow for my desktops and roaming computers to access files on the file server.
+      <description>Cifs Share CIFS (Common Internet File System), the protocol windows users for all it’s ‘windows file sharing’ is the method I’ll allow for my desktops and roaming computers to access files on the file server.
 Before we begin, Make sure we install the CIFS kernal modules
-1  # pkg install SUNWsmbs # pkg install SUNWsmbskr   next we issue this command to make sure it auto starts</description>
+1 # pkg install SUNWsmbs # pkg install SUNWsmbskr next we issue this command to make sure it auto starts
+1 # svcadm enable -r smb/server I’ve decided for every day use, I want a data store on the server, so.</description>
     </item>
     
   </channel>

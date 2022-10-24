@@ -2,14 +2,14 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     
     <title>
       
-      Readme - Scott O&#39;Brien
+       - Scott O&#39;Brien
       
 		</title>
 
@@ -66,28 +66,28 @@
 <main class="content" role="main">
   <article class="post page">
     <header class="post-header">
-      <h2 class="post-title">Readme</h2>
+      <h2 class="post-title"></h2>
     </header>
     <section class="post-content">
       <p>This directory contains my flying related flightlog.</p>
 <p>The scripts here will setup pages for all the sites I&rsquo;ve flown at, and flight statistics for them.</p>
 <h3 id="to-re-generate-the-launches-files">To (re)-generate the launches files</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">scott@ScottoDesktop:~/website$ unzip -p content/flying/launches/paraglidingspots_2022_10_22.kmz doc.kml |  ~/.local/bin/xq | sed &#39;s/kml\://&#39; | jq &#39;[.. | .Placemark? // empty] | flatten | map((.Point | .coordinates | split(&#34;,&#34;)?) as $c | {name, longitude: ($c[0] | tonumber), latitude: ($c[1] | tonumber) })&#39; &gt; ./content/flying/launches/launches.json
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>scott@ScottoDesktop:~/website$ unzip -p content/flying/launches/paraglidingspots_2022_10_22.kmz doc.kml |  ~/.local/bin/xq | sed &#39;s/kml\://&#39; | jq &#39;[.. | .Placemark? // empty] | flatten | map((.Point | .coordinates | split(&#34;,&#34;)?) as $c | {name, longitude: ($c[0] | tonumber), latitude: ($c[1] | tonumber) })&#39; &gt; ./content/flying/launches/launches.json
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="to-generate-the-flightlog">To generate the flightlog</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">scott@ScottoDesktop:~/website$ ./content/flying/generator/node_modules/.bin/ts-node ./content/flying/generator/index.ts build ./content/flying/tracklogs --launchesFile ./content/flying/launches/launches.json --sitesFile ./content/flying/launches/sites.json | jq &gt; ./data/flightlog.json
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>scott@ScottoDesktop:~/website$ ./content/flying/generator/node_modules/.bin/ts-node ./content/flying/generator/index.ts build ./content/flying/tracklogs --launchesFile ./content/flying/launches/launches.json --sitesFile ./content/flying/launches/sites.json | jq &gt; ./data/flightlog.json
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </section>

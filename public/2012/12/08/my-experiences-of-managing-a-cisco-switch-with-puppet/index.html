@@ -82,221 +82,221 @@
 <p><a href="/img/old/2012/12/IOU-Web-Interface-Laboratories.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.scottyob.com']);"><img class="aligncenter size-full wp-image-221" title="IOU Web Interface - Laboratories" alt="" src="/img/old/2012/12/IOU-Web-Interface-Laboratories.jpg" width="507" height="319" /></a></p>
 <h4 id="setting-up-the-devices">Setting up the Devices</h4>
 <p>Ideally, you would have a few puppet nodes that manage a few devices each to spread out the load, for the purposes of this exercise, I created a single vm running Centos6 with both puppet-server and puppet installed.  For this machine to manage the switches, I added the following into the device.conf file</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">[dc_sw1]
-  type cisco
-  url telnet://puppet:cisco@10.0.1.131/
-[dc_sw2]
-  type cisco
-  url telnet://puppet:cisco@10.0.1.132/
-[dc_sw3]
-  type cisco
-  url telnet://puppet:cisco@10.0.1.133/
-[dc_sw4]
-  type cisco
-  url telnet://puppet:cisco@10.0.1.134/
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>[dc_sw1]
+</span></span><span style="display:flex;"><span>  type cisco
+</span></span><span style="display:flex;"><span>  url telnet://puppet:cisco@10.0.1.131/
+</span></span><span style="display:flex;"><span>[dc_sw2]
+</span></span><span style="display:flex;"><span>  type cisco
+</span></span><span style="display:flex;"><span>  url telnet://puppet:cisco@10.0.1.132/
+</span></span><span style="display:flex;"><span>[dc_sw3]
+</span></span><span style="display:flex;"><span>  type cisco
+</span></span><span style="display:flex;"><span>  url telnet://puppet:cisco@10.0.1.133/
+</span></span><span style="display:flex;"><span>[dc_sw4]
+</span></span><span style="display:flex;"><span>  type cisco
+</span></span><span style="display:flex;"><span>  url telnet://puppet:cisco@10.0.1.134/
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="signing-the-devices">Signing the devices</h3>
 <p>To update the devices, you have to run <strong>puppet device</strong>.  The first time you run it, a certificate will be created that needs to be signed on the puppet master.</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">info: starting applying configuration to dc_sw4 at telnet://puppet:cisco@10.0.1.134/
-info: Creating a new SSL key for dc_sw4
-warning: peer certificate won&#39;t be verified in this SSL session
-info: Caching certificate for ca
-warning: peer certificate won&#39;t be verified in this SSL session
-warning: peer certificate won&#39;t be verified in this SSL session
-info: Creating a new SSL certificate request for dc_sw4
-info: Certificate Request fingerprint (md5): E8:A6:35:9D:BF:CE:3D:BC:E0:E4:C2:5B:00:CE:9F:DB
-warning: peer certificate won&#39;t be verified in this SSL session
-warning: peer certificate won&#39;t be verified in this SSL session
-warning: peer certificate won&#39;t be verified in this SSL session
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>info: starting applying configuration to dc_sw4 at telnet://puppet:cisco@10.0.1.134/
+</span></span><span style="display:flex;"><span>info: Creating a new SSL key for dc_sw4
+</span></span><span style="display:flex;"><span>warning: peer certificate won&#39;t be verified in this SSL session
+</span></span><span style="display:flex;"><span>info: Caching certificate for ca
+</span></span><span style="display:flex;"><span>warning: peer certificate won&#39;t be verified in this SSL session
+</span></span><span style="display:flex;"><span>warning: peer certificate won&#39;t be verified in this SSL session
+</span></span><span style="display:flex;"><span>info: Creating a new SSL certificate request for dc_sw4
+</span></span><span style="display:flex;"><span>info: Certificate Request fingerprint (md5): E8:A6:35:9D:BF:CE:3D:BC:E0:E4:C2:5B:00:CE:9F:DB
+</span></span><span style="display:flex;"><span>warning: peer certificate won&#39;t be verified in this SSL session
+</span></span><span style="display:flex;"><span>warning: peer certificate won&#39;t be verified in this SSL session
+</span></span><span style="display:flex;"><span>warning: peer certificate won&#39;t be verified in this SSL session
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>so we’ll need to sign our devices</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">notice: Signed certificate request for dc_sw4
-notice: Removing file Puppet::SSL::CertificateRequest dc_sw4 at &#39;/var/lib/puppet/ssl/ca/requests/dc_sw4.pem&#39;
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>notice: Signed certificate request for dc_sw4
+</span></span><span style="display:flex;"><span>notice: Removing file Puppet::SSL::CertificateRequest dc_sw4 at &#39;/var/lib/puppet/ssl/ca/requests/dc_sw4.pem&#39;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="setting-up-the-switches-for-puppet">Setting up the switches for Puppet</h3>
 <p>If you look up to the device configuration file, we need to create a local user for puppet to log into the switch (remember, it acts much like an expect script)</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">line vty 0 4
- privilege level 15
- password cisco
- login local
- transport input all
-!
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>line vty 0 4
+</span></span><span style="display:flex;"><span> privilege level 15
+</span></span><span style="display:flex;"><span> password cisco
+</span></span><span style="display:flex;"><span> login local
+</span></span><span style="display:flex;"><span> transport input all
+</span></span><span style="display:flex;"><span>!
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="the-configuration">The Configuration</h3>
 <p>so with no more ado, we can easily simply abstract the behaviour of these ports using puppet syntax 🙂</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">
-        interface {
-                &#34;${port}&#34;:
-                        mode =&amp;gt; trunk,
-                        duplex =&amp;gt; full,
-                        description =&amp;gt; &#34;ESX Host&#34;,
-                        allowed_trunk_vlans =&amp;gt; &#34;3,4,5,8,9&#34;
-        }
-
-}
-
-node &#34;dc_sw1&#34; {
-
-        esxport { &#39;e0/2&#39;: port =&amp;gt; &#39;Ethernet0/2&#39; }
-        esxport { &#39;e0/3&#39;: port =&amp;gt; &#39;Ethernet0/3&#39; }
-
-}
-
-node &#34;dc_sw2&#34; {
-
-        esxport { &#39;e1/0&#39;: port =&amp;gt; &#39;Ethernet1/0&#39; }
-        esxport { &#39;e1/1&#39;: port =&amp;gt; &#39;Ethernet1/1&#39; }
-        esxport { &#39;e1/2&#39;: port =&amp;gt; &#39;Ethernet1/2&#39; }
-        esxport { &#39;e1/3&#39;: port =&amp;gt; &#39;Ethernet1/3&#39; }
-
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        interface {
+</span></span><span style="display:flex;"><span>                &#34;${port}&#34;:
+</span></span><span style="display:flex;"><span>                        mode =&amp;gt; trunk,
+</span></span><span style="display:flex;"><span>                        duplex =&amp;gt; full,
+</span></span><span style="display:flex;"><span>                        description =&amp;gt; &#34;ESX Host&#34;,
+</span></span><span style="display:flex;"><span>                        allowed_trunk_vlans =&amp;gt; &#34;3,4,5,8,9&#34;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>node &#34;dc_sw1&#34; {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        esxport { &#39;e0/2&#39;: port =&amp;gt; &#39;Ethernet0/2&#39; }
+</span></span><span style="display:flex;"><span>        esxport { &#39;e0/3&#39;: port =&amp;gt; &#39;Ethernet0/3&#39; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>node &#34;dc_sw2&#34; {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        esxport { &#39;e1/0&#39;: port =&amp;gt; &#39;Ethernet1/0&#39; }
+</span></span><span style="display:flex;"><span>        esxport { &#39;e1/1&#39;: port =&amp;gt; &#39;Ethernet1/1&#39; }
+</span></span><span style="display:flex;"><span>        esxport { &#39;e1/2&#39;: port =&amp;gt; &#39;Ethernet1/2&#39; }
+</span></span><span style="display:flex;"><span>        esxport { &#39;e1/3&#39;: port =&amp;gt; &#39;Ethernet1/3&#39; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="the-ugly">The Ugly</h4>
 <p>A lot of the states don’t yet seem to be supported by this module.  This means even the default trunk mode of dynamic desirable will cause issues when Puppet is pulling device information and you’ll have to manually specify “switchport trunk encapsulation dot1q” and “switchport mode access” before setting puppet free on the devices.</p>
 <h4 id="results">Results</h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">info: starting applying configuration to dc_sw4 at telnet://puppet:cisco@10.0.1.134/
-info: Caching catalog for dc_sw4
-info: Applying configuration version &#39;1355007108&#39;
-notice: Finished catalog run in 0.20 seconds
-info: starting applying configuration to dc_sw3 at telnet://puppet:cisco@10.0.1.133/
-info: Caching catalog for dc_sw3
-info: Applying configuration version &#39;1355007108&#39;
-notice: Finished catalog run in 0.21 seconds
-info: starting applying configuration to dc_sw2 at telnet://puppet:cisco@10.0.1.132/
-info: Caching catalog for dc_sw2
-info: Applying configuration version &#39;1355007108&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/1]/Interface[Ethernet1/1]/description: defined &#39;description&#39; as &#39;ESX Host&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/1]/Interface[Ethernet1/1]/duplex: duplex changed &#39;auto&#39; to &#39;full&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/1]/Interface[Ethernet1/1]/mode: mode changed &#39;access&#39; to &#39;trunk&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/1]/Interface[Ethernet1/1]/allowed_trunk_vlans: defined &#39;allowed_trunk_vlans&#39; as &#39;3,4,5,8,9&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/3]/Interface[Ethernet1/3]/description: defined &#39;description&#39; as &#39;ESX Host&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/3]/Interface[Ethernet1/3]/duplex: duplex changed &#39;auto&#39; to &#39;full&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/3]/Interface[Ethernet1/3]/mode: mode changed &#39;access&#39; to &#39;trunk&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/3]/Interface[Ethernet1/3]/allowed_trunk_vlans: defined &#39;allowed_trunk_vlans&#39; as &#39;3,4,5,8,9&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/2]/Interface[Ethernet1/2]/description: defined &#39;description&#39; as &#39;ESX Host&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/2]/Interface[Ethernet1/2]/duplex: duplex changed &#39;auto&#39; to &#39;full&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/2]/Interface[Ethernet1/2]/mode: mode changed &#39;access&#39; to &#39;trunk&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/2]/Interface[Ethernet1/2]/allowed_trunk_vlans: defined &#39;allowed_trunk_vlans&#39; as &#39;3,4,5,8,9&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/0]/Interface[Ethernet1/0]/description: defined &#39;description&#39; as &#39;ESX Host&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/0]/Interface[Ethernet1/0]/duplex: duplex changed &#39;auto&#39; to &#39;full&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/0]/Interface[Ethernet1/0]/mode: mode changed &#39;access&#39; to &#39;trunk&#39;
-notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/0]/Interface[Ethernet1/0]/allowed_trunk_vlans: defined &#39;allowed_trunk_vlans&#39; as &#39;3,4,5,8,9&#39;
-notice: Finished catalog run in 14.22 seconds
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>info: starting applying configuration to dc_sw4 at telnet://puppet:cisco@10.0.1.134/
+</span></span><span style="display:flex;"><span>info: Caching catalog for dc_sw4
+</span></span><span style="display:flex;"><span>info: Applying configuration version &#39;1355007108&#39;
+</span></span><span style="display:flex;"><span>notice: Finished catalog run in 0.20 seconds
+</span></span><span style="display:flex;"><span>info: starting applying configuration to dc_sw3 at telnet://puppet:cisco@10.0.1.133/
+</span></span><span style="display:flex;"><span>info: Caching catalog for dc_sw3
+</span></span><span style="display:flex;"><span>info: Applying configuration version &#39;1355007108&#39;
+</span></span><span style="display:flex;"><span>notice: Finished catalog run in 0.21 seconds
+</span></span><span style="display:flex;"><span>info: starting applying configuration to dc_sw2 at telnet://puppet:cisco@10.0.1.132/
+</span></span><span style="display:flex;"><span>info: Caching catalog for dc_sw2
+</span></span><span style="display:flex;"><span>info: Applying configuration version &#39;1355007108&#39;
+</span></span><span style="display:flex;"><span>notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/1]/Interface[Ethernet1/1]/description: defined &#39;description&#39; as &#39;ESX Host&#39;
+</span></span><span style="display:flex;"><span>notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/1]/Interface[Ethernet1/1]/duplex: duplex changed &#39;auto&#39; to &#39;full&#39;
+</span></span><span style="display:flex;"><span>notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/1]/Interface[Ethernet1/1]/mode: mode changed &#39;access&#39; to &#39;trunk&#39;
+</span></span><span style="display:flex;"><span>notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/1]/Interface[Ethernet1/1]/allowed_trunk_vlans: defined &#39;allowed_trunk_vlans&#39; as &#39;3,4,5,8,9&#39;
+</span></span><span style="display:flex;"><span>notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/3]/Interface[Ethernet1/3]/description: defined &#39;description&#39; as &#39;ESX Host&#39;
+</span></span><span style="display:flex;"><span>notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/3]/Interface[Ethernet1/3]/duplex: duplex changed &#39;auto&#39; to &#39;full&#39;
+</span></span><span style="display:flex;"><span>notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/3]/Interface[Ethernet1/3]/mode: mode changed &#39;access&#39; to &#39;trunk&#39;
+</span></span><span style="display:flex;"><span>notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/3]/Interface[Ethernet1/3]/allowed_trunk_vlans: defined &#39;allowed_trunk_vlans&#39; as &#39;3,4,5,8,9&#39;
+</span></span><span style="display:flex;"><span>notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/2]/Interface[Ethernet1/2]/description: defined &#39;description&#39; as &#39;ESX Host&#39;
+</span></span><span style="display:flex;"><span>notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/2]/Interface[Ethernet1/2]/duplex: duplex changed &#39;auto&#39; to &#39;full&#39;
+</span></span><span style="display:flex;"><span>notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/2]/Interface[Ethernet1/2]/mode: mode changed &#39;access&#39; to &#39;trunk&#39;
+</span></span><span style="display:flex;"><span>notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/2]/Interface[Ethernet1/2]/allowed_trunk_vlans: defined &#39;allowed_trunk_vlans&#39; as &#39;3,4,5,8,9&#39;
+</span></span><span style="display:flex;"><span>notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/0]/Interface[Ethernet1/0]/description: defined &#39;description&#39; as &#39;ESX Host&#39;
+</span></span><span style="display:flex;"><span>notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/0]/Interface[Ethernet1/0]/duplex: duplex changed &#39;auto&#39; to &#39;full&#39;
+</span></span><span style="display:flex;"><span>notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/0]/Interface[Ethernet1/0]/mode: mode changed &#39;access&#39; to &#39;trunk&#39;
+</span></span><span style="display:flex;"><span>notice: /Stage[main]//Node[dc_sw2]/Esxport[e1/0]/Interface[Ethernet1/0]/allowed_trunk_vlans: defined &#39;allowed_trunk_vlans&#39; as &#39;3,4,5,8,9&#39;
+</span></span><span style="display:flex;"><span>notice: Finished catalog run in 14.22 seconds
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="my-002">my $0.02</h3>
 <p>I must say, I’m very disappointed in this module so far.  It shows great promise and makes a once tedious task relatively effortless to manage, however with the time invested to find out what is and what is not supported, I think it’s far too early to invest in such a solution.  The idea of setting something like an expect script loose on my kit also worries me.  It’s much better to have an API or a promise that the input/output the expect script uses won’t change in a future release then do something unexpected (pun intended there.)</p>

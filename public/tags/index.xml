@@ -6,11 +6,7 @@
     <description>Recent content in Tags on Scott O&#39;Brien</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Sep 2022 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://www.scottyob.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 08 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.scottyob.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>3d-printing</title>
       <link>https://www.scottyob.com/tags/3d-printing/</link>
@@ -143,15 +139,6 @@
       <pubDate>Mon, 24 Feb 2014 06:05:36 +0000</pubDate>
       
       <guid>https://www.scottyob.com/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>network</title>
-      <link>https://www.scottyob.com/tags/network/</link>
-      <pubDate>Tue, 09 Apr 2013 12:15:31 +0000</pubDate>
-      
-      <guid>https://www.scottyob.com/tags/network/</guid>
       <description></description>
     </item>
     
@@ -422,6 +409,15 @@
       <pubDate>Sat, 01 Jan 2011 12:02:53 +0000</pubDate>
       
       <guid>https://www.scottyob.com/tags/fitpc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>network</title>
+      <link>https://www.scottyob.com/tags/network/</link>
+      <pubDate>Sat, 01 Jan 2011 12:02:53 +0000</pubDate>
+      
+      <guid>https://www.scottyob.com/tags/network/</guid>
       <description></description>
     </item>
     
