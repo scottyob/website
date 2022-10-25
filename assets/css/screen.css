@@ -45,6 +45,10 @@ body {
     color: #3A4145;
 }
 
+body.big {
+    max-width: 100%;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: "Bree Serif", serif;
 	font-weight: 500;
