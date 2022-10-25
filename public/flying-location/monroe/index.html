@@ -1,0 +1,583 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    <title>
+      
+      Monroe - Scott O&#39;Brien
+      
+		</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="alternate" type="application/rss&#43;xml" href="https://www.scottyob.com/flying-location/monroe/index.xml">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/icons.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Lato:100,100i,300,300i,400,400i,700,700i|Source+Code+Pro:300,400,500,700" rel="stylesheet">
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/bigfoot/dist/bigfoot.js"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/bigfoot/dist/bigfoot-number.css" />
+    <script type="text/javascript">
+        $.bigfoot();
+    </script>
+    
+    
+</head>
+
+    <body class="big">
+        <header class="main-header">
+	<div class="main-header-content">
+		<h1 class="blog-title">
+			<a href="/">
+				
+           Scott O&#39;Brien
+				
+			</a>
+		</h1>
+		<h2 class="blog-description">Projects, Ramblings and Resources of my (online) life</h2>
+	</div>
+
+	<div class="nav">
+    
+		
+      <a class="nav- " role="presentation" href="/page/bucketlist/">The Bucket List</a>
+		
+      <a class="nav- " role="presentation" href="/page/about/">About Me</a>
+		
+      <a class="nav- " role="presentation" href="/recipes/">Recipes</a>
+		
+      <a class="nav- " role="presentation" href="/flying/">Flying</a>
+		
+	</div>
+</header>
+
+        
+<script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
+
+<script>
+const flights = [
+
+  {"altitudegainmeters":386,"date":"2021-10-02T00:00:00Z","draft":false,"durationseconds":1206,"filename":"2021-10-02-XAH-bqz-19.igc","flightnumber":64,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-10-02T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1633202046000,"location":"Monroe","maxaltitudemeters":2661,"maxdistancemeters":5677.950904798052,"publishdate":"2021-10-02T00:00:00Z","tracklengthmeters":10641.251800513133,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":1928,"date":"2021-10-02T00:00:00Z","draft":false,"durationseconds":3807,"filename":"2021-10-02-XAH-bqz-20.igc","flightnumber":65,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-10-02T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1633215538000,"location":"Monroe","maxaltitudemeters":3617,"maxdistancemeters":5879.388063197037,"publishdate":"2021-10-02T00:00:00Z","tracklengthmeters":31887.36913751722,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":903,"date":"2021-10-01T00:00:00Z","draft":false,"durationseconds":2501,"filename":"2021-10-01-XAH-bqz-17.igc","flightnumber":62,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-10-01T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1633119988000,"location":"Monroe","maxaltitudemeters":3271,"maxdistancemeters":7488.002013823523,"publishdate":"2021-10-01T00:00:00Z","tracklengthmeters":15342.282431772317,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":789,"date":"2021-10-01T00:00:00Z","draft":false,"durationseconds":1809,"filename":"2021-10-01-XAH-bqz-18.igc","flightnumber":63,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-10-01T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1633129042000,"location":"Monroe","maxaltitudemeters":2935,"maxdistancemeters":5676.13482489443,"publishdate":"2021-10-01T00:00:00Z","tracklengthmeters":16143.725006730332,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":1468,"date":"2021-09-30T00:00:00Z","draft":false,"durationseconds":3660,"filename":"2021-09-30-XAH-bqz-16.igc","flightnumber":61,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-30T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1633030958000,"location":"Monroe","maxaltitudemeters":2872,"maxdistancemeters":5482.115969767157,"publishdate":"2021-09-30T00:00:00Z","tracklengthmeters":24323.315490496752,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":207,"date":"2021-09-29T00:00:00Z","draft":false,"durationseconds":1054,"filename":"2021-09-29-XAH-bqz-15.igc","flightnumber":60,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-29T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1632952841000,"location":"Monroe","maxaltitudemeters":2646,"maxdistancemeters":5419.46272767097,"publishdate":"2021-09-29T00:00:00Z","tracklengthmeters":9243.405441147483,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":174,"date":"2021-09-27T00:00:00Z","draft":false,"durationseconds":743,"filename":"2021-09-27-XAH-bqz-14.igc","flightnumber":59,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-27T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1632772615000,"location":"Monroe","maxaltitudemeters":2651,"maxdistancemeters":5585.8227095283855,"publishdate":"2021-09-27T00:00:00Z","tracklengthmeters":7787.619570605636,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":724,"date":"2021-09-26T00:00:00Z","draft":false,"durationseconds":2748,"filename":"2021-09-26-XAH-bqz-12.igc","flightnumber":57,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-26T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1632615146000,"location":"Monroe","maxaltitudemeters":2944,"maxdistancemeters":5344.603496593093,"publishdate":"2021-09-26T00:00:00Z","tracklengthmeters":22690.054275110153,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":97,"date":"2021-09-26T00:00:00Z","draft":false,"durationseconds":825,"filename":"2021-09-26-XAH-bqz-13.igc","flightnumber":58,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-26T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1632682383000,"location":"Monroe","maxaltitudemeters":2664,"maxdistancemeters":5400.067379259942,"publishdate":"2021-09-26T00:00:00Z","tracklengthmeters":8095.014995543649,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":2299,"date":"2021-09-25T00:00:00Z","draft":false,"durationseconds":4227,"filename":"2021-09-25-XAH-bqz-11.igc","flightnumber":56,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-25T00:00:00Z","launchname":"TO (W) Monroe Peak (Richfield)","launchtime":1632593372000,"location":"Monroe","maxaltitudemeters":4189,"maxdistancemeters":10669.011918314849,"publishdate":"2021-09-25T00:00:00Z","tracklengthmeters":39741.79727965632,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":1245,"date":"2021-09-24T00:00:00Z","draft":false,"durationseconds":2470,"filename":"2021-09-24-XAH-bqz-10.igc","flightnumber":55,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-24T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1632513677000,"location":"Monroe","maxaltitudemeters":3647,"maxdistancemeters":5744.215326809732,"publishdate":"2021-09-24T00:00:00Z","tracklengthmeters":21249.967068895014,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":1517,"date":"2021-09-23T00:00:00Z","draft":false,"durationseconds":3918,"filename":"2021-09-23-XAH-bqz-07.igc","flightnumber":52,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-23T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1632356717000,"location":"Monroe","maxaltitudemeters":3143,"maxdistancemeters":5430.169294736774,"publishdate":"2021-09-23T00:00:00Z","tracklengthmeters":29020.672680523745,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":1809,"date":"2021-09-23T00:00:00Z","draft":false,"durationseconds":3528,"filename":"2021-09-23-XAH-bqz-08.igc","flightnumber":53,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-23T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1632418671000,"location":"Monroe","maxaltitudemeters":3587,"maxdistancemeters":5480.983747665783,"publishdate":"2021-09-23T00:00:00Z","tracklengthmeters":32549.225535516853,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":569,"date":"2021-09-23T00:00:00Z","draft":false,"durationseconds":942,"filename":"2021-09-23-XAH-bqz-09.igc","flightnumber":54,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-23T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1632431720000,"location":"Monroe","maxaltitudemeters":3128,"maxdistancemeters":5294.2277087546045,"publishdate":"2021-09-23T00:00:00Z","tracklengthmeters":7525.584032036917,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":133,"date":"2021-09-22T00:00:00Z","draft":false,"durationseconds":1499,"filename":"2021-09-22-XAH-bqz-06.igc","flightnumber":51,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-22T00:00:00Z","launchname":"TO (W) Monroe Peak (Richfield)","launchtime":1632333203000,"location":"Monroe","maxaltitudemeters":3382,"maxdistancemeters":9746.707137620702,"publishdate":"2021-09-22T00:00:00Z","tracklengthmeters":14208.751733637304,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":160,"date":"2021-09-21T00:00:00Z","draft":false,"durationseconds":1810,"filename":"2021-09-21-XAH-bqz-04.igc","flightnumber":49,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-21T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1632183385000,"location":"Monroe","maxaltitudemeters":2656,"maxdistancemeters":5332.591511407743,"publishdate":"2021-09-21T00:00:00Z","tracklengthmeters":6147.286775020969,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":49,"date":"2021-09-21T00:00:00Z","draft":false,"durationseconds":833,"filename":"2021-09-21-XAH-bqz-05.igc","flightnumber":50,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-21T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1632265868000,"location":"Monroe","maxaltitudemeters":2646,"maxdistancemeters":5495.834397048703,"publishdate":"2021-09-21T00:00:00Z","tracklengthmeters":7683.093014795969,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+];
+
+$(window).on('load', function() {
+  
+  $(".time-format").contents().each((_, e) => {
+    e.data = new Date(parseInt(e.data) * 1000).toISOString().substr(11, 8);
+  });
+
+  $(".human-duration").contents().each((_, e) => {
+    const humanTime = "(~" + moment.duration(e.data, "seconds").humanize() + ")"
+    e.data = Math.round(e.data / 3600) + " hours, " + humanTime;
+  });
+
+  
+  const durations = flights.map(f => f.durationseconds / 60);
+	Plotly.newPlot( document.getElementById('scatter'), {data: [
+    {
+	    x: flights.map(f => f.date),
+	    y: durations,
+      text: flights.map(f => 
+        `<b>${moment.duration(f.durationseconds, "seconds").humanize()}</b><br />` + 
+        `Flight: ${f.flightnumber}<br />` + 
+        `${f.location} <br />` +
+        `<i>${f.launchname}</i>`
+      ),
+      hovertemplate: "%{text}",
+      marker: {size: durations, sizeRef: 180, sizemode: "area" },
+      transforms: [{
+        type: "groupby", groups: flights.map(f => f.location)
+      }],
+      type: 'scatter',
+      mode: 'markers' 
+    }],
+    layout: {
+      // title: 'Flight Duration (minutes)',
+      yaxis: {
+        title: "Flight Duration (minutes)",
+        rangemode: 'tozero'
+      },
+      legend: {
+        orientation: 'h'
+      }
+	    
+    },
+    config: {response: false }
+  });
+
+  
+  
+  const  locations = [...new Set(flights.map(f => f.location))];
+  const locationDurations = locations.reduce((a, location) => ([
+    ...a,
+    [location, flights.filter(f => f.location == location).map(f => f.durationseconds).reduce((p, c) => p + c, 0)]
+  ]), []).sort((a, b) => (a[1] - b[1]));
+  if(locations.length > 1) {
+    Plotly.newPlot(document.getElementById('timeBySite'), {
+    data: [
+      {
+        x: locationDurations.map(x => x[0]),
+        y: locationDurations.map(x => x[1] / 60 / 60),  
+        title: 'Time by site',
+        type: 'bar'
+      },
+    ],
+    layout: {
+        yaxis: {
+          title: "Hours"
+        }
+      }
+    });
+  }
+
+  
+  let flightsByYear = {};
+  flights.forEach(f => {
+    existingVal = flightsByYear[moment(f.date).year()] ?? 0;
+    flightsByYear[moment(f.date).year()] = existingVal + f.durationseconds
+  });
+  byYear = Object.keys(flightsByYear).sort().map(year => [year, flightsByYear[year]]);
+
+  console.log([
+      {
+        x: byYear.map(x => x[0] + "."),
+        y: byYear.map(x => x[1] / 60 / 60),  
+        title: 'Time by year',
+        type: 'bar'
+      },
+    ]);
+  Plotly.newPlot(document.getElementById('timeByYear'), {
+    data: [
+      {
+        x: byYear.map(x => x[0] + ".."),
+        y: byYear.map(x => x[1] / 60 / 60),  
+        title: 'Time by year',
+        type: 'bar'
+      },
+    ],
+    layout: {
+      yaxis: {
+        title: "Hours"
+      },
+    }
+  });
+
+});
+
+</script>
+
+
+<style>
+    #content-group {
+        display: flex;
+    }
+
+    #content-right {
+      width: 100%;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    #smallerStats {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .chart-small {
+      flex-grow: 1;
+      min-width: 300px;
+    }
+</style>
+
+
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+
+<main class="content" role="main">
+    <article class="post page">
+      <header class="post-header">
+        <h2 class="post-title">Monroe</h2>
+      </header>
+      <section class="post-content">
+        <div id="content-left">
+            
+        </div>
+        <div id="content-right">
+          <div><strong>Duration: </strong><span class="human-duration">37580</span></div>
+          <div><strong>Recorded Flights: </strong>17</div>
+          <div id="scatter"></div>
+          <div id="smallerStats">
+            <div id="timeBySite" class="chart-small"></div>
+            <div id="timeByYear" class="chart-small"></div>
+          </div>
+        </div>
+
+        <table>
+            <tr>
+              <th>#</th>
+              <th>Location</th>
+              <th>Date</th>
+              <th>Duration</th>
+              <th>Max Altitude</th>
+              <th>Altitude Gain</th>
+              <th>Wing</th>
+              <th>Comments</th>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/49">49</a></td>
+                
+                <td><a href="/flying-location/monroe">Monroe</a></td>
+                
+                <td>2021-09-21</td>
+                <td class="time-format">1810</td>
+                <td>2656</td>
+                <td>160</td>
+                <td>BGD Winter, EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/50">50</a></td>
+                
+                <td><a href="/flying-location/monroe">Monroe</a></td>
+                
+                <td>2021-09-21</td>
+                <td class="time-format">833</td>
+                <td>2646</td>
+                <td>49</td>
+                <td>BGD Winter, EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/51">51</a></td>
+                
+                <td><a href="/flying-location/monroe">Monroe</a></td>
+                
+                <td>2021-09-22</td>
+                <td class="time-format">1499</td>
+                <td>3382</td>
+                <td>133</td>
+                <td>BGD Winter, EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/52">52</a></td>
+                
+                <td><a href="/flying-location/monroe">Monroe</a></td>
+                
+                <td>2021-09-23</td>
+                <td class="time-format">3918</td>
+                <td>3143</td>
+                <td>1517</td>
+                <td>BGD Winter, EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/53">53</a></td>
+                
+                <td><a href="/flying-location/monroe">Monroe</a></td>
+                
+                <td>2021-09-23</td>
+                <td class="time-format">3528</td>
+                <td>3587</td>
+                <td>1809</td>
+                <td>BGD Winter, EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/54">54</a></td>
+                
+                <td><a href="/flying-location/monroe">Monroe</a></td>
+                
+                <td>2021-09-23</td>
+                <td class="time-format">942</td>
+                <td>3128</td>
+                <td>569</td>
+                <td>BGD Winter, EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/55">55</a></td>
+                
+                <td><a href="/flying-location/monroe">Monroe</a></td>
+                
+                <td>2021-09-24</td>
+                <td class="time-format">2470</td>
+                <td>3647</td>
+                <td>1245</td>
+                <td>BGD Winter, EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/56">56</a></td>
+                
+                <td><a href="/flying-location/monroe">Monroe</a></td>
+                
+                <td>2021-09-25</td>
+                <td class="time-format">4227</td>
+                <td>4189</td>
+                <td>2299</td>
+                <td>BGD Winter, EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/57">57</a></td>
+                
+                <td><a href="/flying-location/monroe">Monroe</a></td>
+                
+                <td>2021-09-26</td>
+                <td class="time-format">2748</td>
+                <td>2944</td>
+                <td>724</td>
+                <td>BGD Winter, EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/58">58</a></td>
+                
+                <td><a href="/flying-location/monroe">Monroe</a></td>
+                
+                <td>2021-09-26</td>
+                <td class="time-format">825</td>
+                <td>2664</td>
+                <td>97</td>
+                <td>BGD Winter, EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/59">59</a></td>
+                
+                <td><a href="/flying-location/monroe">Monroe</a></td>
+                
+                <td>2021-09-27</td>
+                <td class="time-format">743</td>
+                <td>2651</td>
+                <td>174</td>
+                <td>BGD Winter, EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/60">60</a></td>
+                
+                <td><a href="/flying-location/monroe">Monroe</a></td>
+                
+                <td>2021-09-29</td>
+                <td class="time-format">1054</td>
+                <td>2646</td>
+                <td>207</td>
+                <td>BGD Winter, EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/61">61</a></td>
+                
+                <td><a href="/flying-location/monroe">Monroe</a></td>
+                
+                <td>2021-09-30</td>
+                <td class="time-format">3660</td>
+                <td>2872</td>
+                <td>1468</td>
+                <td>BGD Winter, EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/62">62</a></td>
+                
+                <td><a href="/flying-location/monroe">Monroe</a></td>
+                
+                <td>2021-10-01</td>
+                <td class="time-format">2501</td>
+                <td>3271</td>
+                <td>903</td>
+                <td>BGD Winter, EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/63">63</a></td>
+                
+                <td><a href="/flying-location/monroe">Monroe</a></td>
+                
+                <td>2021-10-01</td>
+                <td class="time-format">1809</td>
+                <td>2935</td>
+                <td>789</td>
+                <td>BGD Winter, EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/64">64</a></td>
+                
+                <td><a href="/flying-location/monroe">Monroe</a></td>
+                
+                <td>2021-10-02</td>
+                <td class="time-format">1206</td>
+                <td>2661</td>
+                <td>386</td>
+                <td>BGD Winter, EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/65">65</a></td>
+                
+                <td><a href="/flying-location/monroe">Monroe</a></td>
+                
+                <td>2021-10-02</td>
+                <td class="time-format">3807</td>
+                <td>3617</td>
+                <td>1928</td>
+                <td>BGD Winter, EN-B</td>
+                <td></td>
+            </tr>
+            
+          </table>
+        
+      </section>
+    </article>
+  </main>
+
+
+        <footer class="site-footer">
+  <section class="rss"><a class="subscribe-button icon-feed" href="/index.xml"></a></section>
+  
+  
+  <section class="copyright">&copy; 2022 Scott O&#39;Brien</section>
+  <section class="poweredby"><a href="https://github.com/nirocfz/arabica">Arabica</a> theme by Sean Lunsford. Published with <a href="https://gohugo.io">Hugo</a>.</section>
+</footer>
+
+
+
+    </body>
+</html>

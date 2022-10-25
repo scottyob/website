@@ -13,7 +13,7 @@ theme = ["hugo-parabook", "arabica", "hugo-shortcode-gallery"]
   description = "Projects, Ramblings and Resources of my (online) life"
   galleryPreviewType = "none"
   smallPictures = true
-
+  mainsections = ["post"]
 
 [markup]
   defaultMarkdownHandler = "goldmark"

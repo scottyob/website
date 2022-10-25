@@ -1,0 +1,469 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    <title>
+      
+      Sand City - Scott O&#39;Brien
+      
+		</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="alternate" type="application/rss&#43;xml" href="https://www.scottyob.com/flying-location/sand-city/index.xml">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/icons.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Lato:100,100i,300,300i,400,400i,700,700i|Source+Code+Pro:300,400,500,700" rel="stylesheet">
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/bigfoot/dist/bigfoot.js"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/bigfoot/dist/bigfoot-number.css" />
+    <script type="text/javascript">
+        $.bigfoot();
+    </script>
+    
+    
+</head>
+
+    <body class="big">
+        <header class="main-header">
+	<div class="main-header-content">
+		<h1 class="blog-title">
+			<a href="/">
+				
+           Scott O&#39;Brien
+				
+			</a>
+		</h1>
+		<h2 class="blog-description">Projects, Ramblings and Resources of my (online) life</h2>
+	</div>
+
+	<div class="nav">
+    
+		
+      <a class="nav- " role="presentation" href="/page/bucketlist/">The Bucket List</a>
+		
+      <a class="nav- " role="presentation" href="/page/about/">About Me</a>
+		
+      <a class="nav- " role="presentation" href="/recipes/">Recipes</a>
+		
+      <a class="nav- " role="presentation" href="/flying/">Flying</a>
+		
+	</div>
+</header>
+
+        
+<script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
+
+<script>
+const flights = [
+
+  {"altitudegainmeters":929,"date":"2020-08-05T00:00:00Z","draft":false,"durationseconds":7735,"filename":"2020-08-05-XAH-bqz-57.igc","flightnumber":18,"flying-location":"Sand City","iscjklanguage":false,"lastmod":"2020-08-05T00:00:00Z","launchname":"TOC (W-WNW) North Lake Dune","launchtime":1596656398000,"location":"Sand City","maxaltitudemeters":-8,"maxdistancemeters":94.80854937054868,"publishdate":"2020-08-05T00:00:00Z","tracklengthmeters":5356.730224092556,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":472,"date":"2020-07-24T00:00:00Z","draft":false,"durationseconds":2930,"filename":"2020-07-24-XAH-bqz-55.igc","flightnumber":16,"flying-location":"Sand City","iscjklanguage":false,"lastmod":"2020-07-24T00:00:00Z","launchname":"TOC (W-WNW) North Lake Dune","launchtime":1595619871000,"location":"Sand City","maxaltitudemeters":15,"maxdistancemeters":1329.9317653398466,"publishdate":"2020-07-24T00:00:00Z","tracklengthmeters":11874.409264818853,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":1189,"date":"2020-07-24T00:00:00Z","draft":false,"durationseconds":5008,"filename":"2020-07-24-XAH-bqz-56.igc","flightnumber":17,"flying-location":"Sand City","iscjklanguage":false,"lastmod":"2020-07-24T00:00:00Z","launchname":"TOC (W-WNW) North Lake Dune","launchtime":1595624747000,"location":"Sand City","maxaltitudemeters":44,"maxdistancemeters":5202.801378082316,"publishdate":"2020-07-24T00:00:00Z","tracklengthmeters":21286.769399932196,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":1272,"date":"2020-06-14T00:00:00Z","draft":false,"durationseconds":10828,"filename":"2020-06-14-XAH-bqz-54.igc","flightnumber":15,"flying-location":"Sand City","iscjklanguage":false,"lastmod":"2020-06-14T00:00:00Z","launchname":"TOC (NW) Sand City","launchtime":1592165370000,"location":"Sand City","maxaltitudemeters":11,"maxdistancemeters":1116.1840741352896,"publishdate":"2020-06-14T00:00:00Z","tracklengthmeters":16174.448502586789,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":240,"date":"2020-02-23T00:00:00Z","draft":false,"durationseconds":2630,"filename":"2020-02-23-XAH-bqz-49.igc","flightnumber":10,"flying-location":"Sand City","iscjklanguage":false,"lastmod":"2020-02-23T00:00:00Z","launchname":"TOC (NW) Sand City","launchtime":1582480521000,"location":"Sand City","maxaltitudemeters":9,"maxdistancemeters":287.00875349011346,"publishdate":"2020-02-23T00:00:00Z","tracklengthmeters":3319.449294677006,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":542,"date":"2020-02-23T00:00:00Z","draft":false,"durationseconds":2974,"filename":"2020-02-23-XAH-bqz-50.igc","flightnumber":11,"flying-location":"Sand City","iscjklanguage":false,"lastmod":"2020-02-23T00:00:00Z","launchname":"TOC (NW) Sand City","launchtime":1582484765000,"location":"Sand City","maxaltitudemeters":42,"maxdistancemeters":4727.375350475719,"publishdate":"2020-02-23T00:00:00Z","tracklengthmeters":11820.487614370386,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":242,"date":"2020-02-22T00:00:00Z","draft":false,"durationseconds":1405,"filename":"2020-02-22-XAH-bqz-46.igc","flightnumber":7,"flying-location":"Sand City","iscjklanguage":false,"lastmod":"2020-02-22T00:00:00Z","launchname":"TOC (NW) Sand City","launchtime":1582403793000,"location":"Sand City","maxaltitudemeters":48,"maxdistancemeters":1471.8703135839562,"publishdate":"2020-02-22T00:00:00Z","tracklengthmeters":3876.6229048208847,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":781,"date":"2020-02-22T00:00:00Z","draft":false,"durationseconds":4004,"filename":"2020-02-22-XAH-bqz-47.igc","flightnumber":8,"flying-location":"Sand City","iscjklanguage":false,"lastmod":"2020-02-22T00:00:00Z","launchname":"TOC (NW) Sand City","launchtime":1582406339000,"location":"Sand City","maxaltitudemeters":31,"maxdistancemeters":7635.526054678667,"publishdate":"2020-02-22T00:00:00Z","tracklengthmeters":19804.976164207965,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":721,"date":"2020-02-22T00:00:00Z","draft":false,"durationseconds":3630,"filename":"2020-02-22-XAH-bqz-48.igc","flightnumber":9,"flying-location":"Sand City","iscjklanguage":false,"lastmod":"2020-02-22T00:00:00Z","launchname":"TOC (NW) Sand City","launchtime":1582411883000,"location":"Sand City","maxaltitudemeters":43,"maxdistancemeters":645.2999174192636,"publishdate":"2020-02-22T00:00:00Z","tracklengthmeters":10038.081989361917,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":696,"date":"2020-02-16T00:00:00Z","draft":false,"durationseconds":3925,"filename":"2020-02-16-XAH-bqz-45.igc","flightnumber":6,"flying-location":"Sand City","iscjklanguage":false,"lastmod":"2020-02-16T00:00:00Z","launchname":"TOC (NW) Sand City","launchtime":1581886664000,"location":"Sand City","maxaltitudemeters":42,"maxdistancemeters":7906.550097388052,"publishdate":"2020-02-16T00:00:00Z","tracklengthmeters":18132.12711613119,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":272,"date":"2020-01-26T00:00:00Z","draft":false,"durationseconds":4703,"filename":"2020-01-26-XAH-bqz-44.igc","flightnumber":5,"flying-location":"Sand City","iscjklanguage":false,"lastmod":"2020-01-26T00:00:00Z","launchname":"TOC (NW) Sand City","launchtime":1580074067000,"location":"Sand City","maxaltitudemeters":8,"maxdistancemeters":190.64950660470117,"publishdate":"2020-01-26T00:00:00Z","tracklengthmeters":2325.328044580195,"type":"flightlog","wing":"BDG EN-B"},
+
+];
+
+$(window).on('load', function() {
+  
+  $(".time-format").contents().each((_, e) => {
+    e.data = new Date(parseInt(e.data) * 1000).toISOString().substr(11, 8);
+  });
+
+  $(".human-duration").contents().each((_, e) => {
+    const humanTime = "(~" + moment.duration(e.data, "seconds").humanize() + ")"
+    e.data = Math.round(e.data / 3600) + " hours, " + humanTime;
+  });
+
+  
+  const durations = flights.map(f => f.durationseconds / 60);
+	Plotly.newPlot( document.getElementById('scatter'), {data: [
+    {
+	    x: flights.map(f => f.date),
+	    y: durations,
+      text: flights.map(f => 
+        `<b>${moment.duration(f.durationseconds, "seconds").humanize()}</b><br />` + 
+        `Flight: ${f.flightnumber}<br />` + 
+        `${f.location} <br />` +
+        `<i>${f.launchname}</i>`
+      ),
+      hovertemplate: "%{text}",
+      marker: {size: durations, sizeRef: 180, sizemode: "area" },
+      transforms: [{
+        type: "groupby", groups: flights.map(f => f.location)
+      }],
+      type: 'scatter',
+      mode: 'markers' 
+    }],
+    layout: {
+      // title: 'Flight Duration (minutes)',
+      yaxis: {
+        title: "Flight Duration (minutes)",
+        rangemode: 'tozero'
+      },
+      legend: {
+        orientation: 'h'
+      }
+	    
+    },
+    config: {response: false }
+  });
+
+  
+  
+  const  locations = [...new Set(flights.map(f => f.location))];
+  const locationDurations = locations.reduce((a, location) => ([
+    ...a,
+    [location, flights.filter(f => f.location == location).map(f => f.durationseconds).reduce((p, c) => p + c, 0)]
+  ]), []).sort((a, b) => (a[1] - b[1]));
+  if(locations.length > 1) {
+    Plotly.newPlot(document.getElementById('timeBySite'), {
+    data: [
+      {
+        x: locationDurations.map(x => x[0]),
+        y: locationDurations.map(x => x[1] / 60 / 60),  
+        title: 'Time by site',
+        type: 'bar'
+      },
+    ],
+    layout: {
+        yaxis: {
+          title: "Hours"
+        }
+      }
+    });
+  }
+
+  
+  let flightsByYear = {};
+  flights.forEach(f => {
+    existingVal = flightsByYear[moment(f.date).year()] ?? 0;
+    flightsByYear[moment(f.date).year()] = existingVal + f.durationseconds
+  });
+  byYear = Object.keys(flightsByYear).sort().map(year => [year, flightsByYear[year]]);
+
+  console.log([
+      {
+        x: byYear.map(x => x[0] + "."),
+        y: byYear.map(x => x[1] / 60 / 60),  
+        title: 'Time by year',
+        type: 'bar'
+      },
+    ]);
+  Plotly.newPlot(document.getElementById('timeByYear'), {
+    data: [
+      {
+        x: byYear.map(x => x[0] + ".."),
+        y: byYear.map(x => x[1] / 60 / 60),  
+        title: 'Time by year',
+        type: 'bar'
+      },
+    ],
+    layout: {
+      yaxis: {
+        title: "Hours"
+      },
+    }
+  });
+
+});
+
+</script>
+
+
+<style>
+    #content-group {
+        display: flex;
+    }
+
+    #content-right {
+      width: 100%;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    #smallerStats {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .chart-small {
+      flex-grow: 1;
+      min-width: 300px;
+    }
+</style>
+
+
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+
+<main class="content" role="main">
+    <article class="post page">
+      <header class="post-header">
+        <h2 class="post-title">Sand City</h2>
+      </header>
+      <section class="post-content">
+        <div id="content-left">
+            
+        </div>
+        <div id="content-right">
+          <div><strong>Duration: </strong><span class="human-duration">49772</span></div>
+          <div><strong>Recorded Flights: </strong>11</div>
+          <div id="scatter"></div>
+          <div id="smallerStats">
+            <div id="timeBySite" class="chart-small"></div>
+            <div id="timeByYear" class="chart-small"></div>
+          </div>
+        </div>
+
+        <table>
+            <tr>
+              <th>#</th>
+              <th>Location</th>
+              <th>Date</th>
+              <th>Duration</th>
+              <th>Max Altitude</th>
+              <th>Altitude Gain</th>
+              <th>Wing</th>
+              <th>Comments</th>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/5">5</a></td>
+                
+                <td><a href="/flying-location/sand-city">Sand City</a></td>
+                
+                <td>2020-01-26</td>
+                <td class="time-format">4703</td>
+                <td>8</td>
+                <td>272</td>
+                <td>BDG EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/6">6</a></td>
+                
+                <td><a href="/flying-location/sand-city">Sand City</a></td>
+                
+                <td>2020-02-16</td>
+                <td class="time-format">3925</td>
+                <td>42</td>
+                <td>696</td>
+                <td>BDG EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/7">7</a></td>
+                
+                <td><a href="/flying-location/sand-city">Sand City</a></td>
+                
+                <td>2020-02-22</td>
+                <td class="time-format">1405</td>
+                <td>48</td>
+                <td>242</td>
+                <td>BDG EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/8">8</a></td>
+                
+                <td><a href="/flying-location/sand-city">Sand City</a></td>
+                
+                <td>2020-02-22</td>
+                <td class="time-format">4004</td>
+                <td>31</td>
+                <td>781</td>
+                <td>BDG EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/9">9</a></td>
+                
+                <td><a href="/flying-location/sand-city">Sand City</a></td>
+                
+                <td>2020-02-22</td>
+                <td class="time-format">3630</td>
+                <td>43</td>
+                <td>721</td>
+                <td>BDG EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/10">10</a></td>
+                
+                <td><a href="/flying-location/sand-city">Sand City</a></td>
+                
+                <td>2020-02-23</td>
+                <td class="time-format">2630</td>
+                <td>9</td>
+                <td>240</td>
+                <td>BDG EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/11">11</a></td>
+                
+                <td><a href="/flying-location/sand-city">Sand City</a></td>
+                
+                <td>2020-02-23</td>
+                <td class="time-format">2974</td>
+                <td>42</td>
+                <td>542</td>
+                <td>BDG EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/15">15</a></td>
+                
+                <td><a href="/flying-location/sand-city">Sand City</a></td>
+                
+                <td>2020-06-14</td>
+                <td class="time-format">10828</td>
+                <td>11</td>
+                <td>1272</td>
+                <td>BDG EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/16">16</a></td>
+                
+                <td><a href="/flying-location/sand-city">Sand City</a></td>
+                
+                <td>2020-07-24</td>
+                <td class="time-format">2930</td>
+                <td>15</td>
+                <td>472</td>
+                <td>BDG EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/17">17</a></td>
+                
+                <td><a href="/flying-location/sand-city">Sand City</a></td>
+                
+                <td>2020-07-24</td>
+                <td class="time-format">5008</td>
+                <td>44</td>
+                <td>1189</td>
+                <td>BDG EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/18">18</a></td>
+                
+                <td><a href="/flying-location/sand-city">Sand City</a></td>
+                
+                <td>2020-08-05</td>
+                <td class="time-format">7735</td>
+                <td>-8</td>
+                <td>929</td>
+                <td>BDG EN-B</td>
+                <td></td>
+            </tr>
+            
+          </table>
+        
+      </section>
+    </article>
+  </main>
+
+
+        <footer class="site-footer">
+  <section class="rss"><a class="subscribe-button icon-feed" href="/index.xml"></a></section>
+  
+  
+  <section class="copyright">&copy; 2022 Scott O&#39;Brien</section>
+  <section class="poweredby"><a href="https://github.com/nirocfz/arabica">Arabica</a> theme by Sean Lunsford. Published with <a href="https://gohugo.io">Hugo</a>.</section>
+</footer>
+
+
+
+    </body>
+</html>

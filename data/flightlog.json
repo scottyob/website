@@ -52,6 +52,7 @@
     "launchTime": 1578176021000,
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2020-01-04-XAH-bqz-43.igc",
+    "location": "Mussel Rock",
     "flightNumber": 4
   },
   {
@@ -65,6 +66,7 @@
     "launchTime": 1580074067000,
     "launchName": "TOC (NW) Sand City",
     "fileName": "2020-01-26-XAH-bqz-44.igc",
+    "location": "Sand City",
     "flightNumber": 5
   },
   {
@@ -78,6 +80,7 @@
     "launchTime": 1581886664000,
     "launchName": "TOC (NW) Sand City",
     "fileName": "2020-02-16-XAH-bqz-45.igc",
+    "location": "Sand City",
     "flightNumber": 6
   },
   {
@@ -91,6 +94,7 @@
     "launchTime": 1582403793000,
     "launchName": "TOC (NW) Sand City",
     "fileName": "2020-02-22-XAH-bqz-46.igc",
+    "location": "Sand City",
     "flightNumber": 7
   },
   {
@@ -104,6 +108,7 @@
     "launchTime": 1582406339000,
     "launchName": "TOC (NW) Sand City",
     "fileName": "2020-02-22-XAH-bqz-47.igc",
+    "location": "Sand City",
     "flightNumber": 8
   },
   {
@@ -117,6 +122,7 @@
     "launchTime": 1582411883000,
     "launchName": "TOC (NW) Sand City",
     "fileName": "2020-02-22-XAH-bqz-48.igc",
+    "location": "Sand City",
     "flightNumber": 9
   },
   {
@@ -130,6 +136,7 @@
     "launchTime": 1582480521000,
     "launchName": "TOC (NW) Sand City",
     "fileName": "2020-02-23-XAH-bqz-49.igc",
+    "location": "Sand City",
     "flightNumber": 10
   },
   {
@@ -143,6 +150,7 @@
     "launchTime": 1582484765000,
     "launchName": "TOC (NW) Sand City",
     "fileName": "2020-02-23-XAH-bqz-50.igc",
+    "location": "Sand City",
     "flightNumber": 11
   },
   {
@@ -156,6 +164,7 @@
     "launchTime": 1589845601000,
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2020-05-18-XAH-bqz-51.igc",
+    "location": "Mussel Rock",
     "flightNumber": 12
   },
   {
@@ -169,6 +178,7 @@
     "launchTime": 1592067949000,
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2020-06-13-XAH-bqz-52.igc",
+    "location": "Mussel Rock",
     "flightNumber": 13
   },
   {
@@ -182,6 +192,7 @@
     "launchTime": 1592079840000,
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2020-06-13-XAH-bqz-53.igc",
+    "location": "Mussel Rock",
     "flightNumber": 14
   },
   {
@@ -195,6 +206,7 @@
     "launchTime": 1592165370000,
     "launchName": "TOC (NW) Sand City",
     "fileName": "2020-06-14-XAH-bqz-54.igc",
+    "location": "Sand City",
     "flightNumber": 15
   },
   {
@@ -208,6 +220,7 @@
     "launchTime": 1595619871000,
     "launchName": "TOC (W-WNW) North Lake Dune",
     "fileName": "2020-07-24-XAH-bqz-55.igc",
+    "location": "Sand City",
     "flightNumber": 16
   },
   {
@@ -221,6 +234,7 @@
     "launchTime": 1595624747000,
     "launchName": "TOC (W-WNW) North Lake Dune",
     "fileName": "2020-07-24-XAH-bqz-56.igc",
+    "location": "Sand City",
     "flightNumber": 17
   },
   {
@@ -234,6 +248,7 @@
     "launchTime": 1596656398000,
     "launchName": "TOC (W-WNW) North Lake Dune",
     "fileName": "2020-08-05-XAH-bqz-57.igc",
+    "location": "Sand City",
     "flightNumber": 18
   },
   {
@@ -247,6 +262,7 @@
     "launchTime": 1598919180000,
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2020-09-01-XAH-bqz-58.igc",
+    "location": "Mussel Rock",
     "flightNumber": 19
   },
   {
@@ -260,6 +276,7 @@
     "launchTime": 1599095696000,
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2020-09-03-XAH-bqz-59.igc",
+    "location": "Mussel Rock",
     "flightNumber": 20
   },
   {
@@ -385,6 +402,7 @@
     "launchTime": 1606077287000,
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2020-11-22-XAH-bqz-68.igc",
+    "location": "Mussel Rock",
     "flightNumber": 29
   },
   {
@@ -412,6 +430,7 @@
     "launchTime": 1612911269000,
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2021-02-09-XAH-bqz-70.igc",
+    "location": "Mussel Rock",
     "flightNumber": 31
   },
   {
@@ -425,6 +444,7 @@
     "launchTime": 1612920270000,
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2021-02-10-XAH-bqz-71.igc",
+    "location": "Mussel Rock",
     "flightNumber": 32
   },
   {
@@ -438,6 +458,7 @@
     "launchTime": 1613003926000,
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2021-02-11-XAH-bqz-72.igc",
+    "location": "Mussel Rock",
     "flightNumber": 33
   },
   {
@@ -451,6 +472,7 @@
     "launchTime": 1617476835000,
     "launchName": "TOC (W-SW) Dumps - Jungle",
     "fileName": "2021-04-03-XAH-bqz-73.igc",
+    "location": "Mussel Rock",
     "flightNumber": 34
   },
   {
@@ -464,6 +486,7 @@
     "launchTime": 1617485758000,
     "launchName": "TOC (W-SW) Dumps - Jungle",
     "fileName": "2021-04-03-XAH-bqz-74.igc",
+    "location": "Mussel Rock",
     "flightNumber": 35
   },
   {
@@ -505,6 +528,7 @@
     "launchTime": 1621710883000,
     "launchName": "TO (SW-W) Dunlap",
     "fileName": "2021-05-22-XAH-bqz-77.igc",
+    "location": "Dunlap",
     "flightNumber": 38
   },
   {
@@ -518,6 +542,7 @@
     "launchTime": 1621793996000,
     "launchName": "TO (SW-W) Dunlap",
     "fileName": "2021-05-23-XAH-bqz-78.igc",
+    "location": "Dunlap",
     "flightNumber": 39
   },
   {
@@ -531,6 +556,7 @@
     "launchTime": 1622926115000,
     "launchName": "TOC (W-SW) Dumps - Jungle",
     "fileName": "2021-06-05-XAH-bqz-79.igc",
+    "location": "Mussel Rock",
     "flightNumber": 40
   },
   {
@@ -544,6 +570,7 @@
     "launchTime": 1623366323000,
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2021-06-10-XAH-bqz-80.igc",
+    "location": "Mussel Rock",
     "flightNumber": 41
   },
   {
@@ -557,6 +584,7 @@
     "launchTime": 1623372715000,
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2021-06-11-XAH-bqz-81.igc",
+    "location": "Mussel Rock",
     "flightNumber": 42
   },
   {
@@ -612,6 +640,7 @@
     "launchTime": 1631804401000,
     "launchName": "TO (SE-SSE) Point of the Mountain (South)",
     "fileName": "2021-09-16-XAH-bqz-01.igc",
+    "location": "Point of the Mountain",
     "flightNumber": 46
   },
   {
@@ -625,6 +654,7 @@
     "launchTime": 1631806052000,
     "launchName": "TO (SE-SSE) Point of the Mountain (South)",
     "fileName": "2021-09-16-XAH-bqz-02.igc",
+    "location": "Point of the Mountain",
     "flightNumber": 47
   },
   {
@@ -638,6 +668,7 @@
     "launchTime": 1631840127000,
     "launchName": "NEW: SP (NW) Point of the Mountain (North)",
     "fileName": "2021-09-17-XAH-bqz-03.igc",
+    "location": "Point of the Mountain",
     "flightNumber": 48
   },
   {
@@ -651,6 +682,7 @@
     "launchTime": 1632183385000,
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-09-21-XAH-bqz-04.igc",
+    "location": "Monroe",
     "flightNumber": 49
   },
   {
@@ -664,6 +696,7 @@
     "launchTime": 1632265868000,
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-09-21-XAH-bqz-05.igc",
+    "location": "Monroe",
     "flightNumber": 50
   },
   {
@@ -677,6 +710,7 @@
     "launchTime": 1632333203000,
     "launchName": "TO (W) Monroe Peak (Richfield)",
     "fileName": "2021-09-22-XAH-bqz-06.igc",
+    "location": "Monroe",
     "flightNumber": 51
   },
   {
@@ -690,6 +724,7 @@
     "launchTime": 1632356717000,
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-09-23-XAH-bqz-07.igc",
+    "location": "Monroe",
     "flightNumber": 52
   },
   {
@@ -703,6 +738,7 @@
     "launchTime": 1632418671000,
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-09-23-XAH-bqz-08.igc",
+    "location": "Monroe",
     "flightNumber": 53
   },
   {
@@ -716,6 +752,7 @@
     "launchTime": 1632431720000,
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-09-23-XAH-bqz-09.igc",
+    "location": "Monroe",
     "flightNumber": 54
   },
   {
@@ -729,6 +766,7 @@
     "launchTime": 1632513677000,
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-09-24-XAH-bqz-10.igc",
+    "location": "Monroe",
     "flightNumber": 55
   },
   {
@@ -742,6 +780,7 @@
     "launchTime": 1632593372000,
     "launchName": "TO (W) Monroe Peak (Richfield)",
     "fileName": "2021-09-25-XAH-bqz-11.igc",
+    "location": "Monroe",
     "flightNumber": 56
   },
   {
@@ -755,6 +794,7 @@
     "launchTime": 1632615146000,
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-09-26-XAH-bqz-12.igc",
+    "location": "Monroe",
     "flightNumber": 57
   },
   {
@@ -768,6 +808,7 @@
     "launchTime": 1632682383000,
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-09-26-XAH-bqz-13.igc",
+    "location": "Monroe",
     "flightNumber": 58
   },
   {
@@ -781,6 +822,7 @@
     "launchTime": 1632772615000,
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-09-27-XAH-bqz-14.igc",
+    "location": "Monroe",
     "flightNumber": 59
   },
   {
@@ -794,6 +836,7 @@
     "launchTime": 1632952841000,
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-09-29-XAH-bqz-15.igc",
+    "location": "Monroe",
     "flightNumber": 60
   },
   {
@@ -807,6 +850,7 @@
     "launchTime": 1633030958000,
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-09-30-XAH-bqz-16.igc",
+    "location": "Monroe",
     "flightNumber": 61
   },
   {
@@ -820,6 +864,7 @@
     "launchTime": 1633119988000,
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-10-01-XAH-bqz-17.igc",
+    "location": "Monroe",
     "flightNumber": 62
   },
   {
@@ -833,6 +878,7 @@
     "launchTime": 1633129042000,
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-10-01-XAH-bqz-18.igc",
+    "location": "Monroe",
     "flightNumber": 63
   },
   {
@@ -846,6 +892,7 @@
     "launchTime": 1633202046000,
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-10-02-XAH-bqz-19.igc",
+    "location": "Monroe",
     "flightNumber": 64
   },
   {
@@ -859,6 +906,7 @@
     "launchTime": 1633215538000,
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-10-02-XAH-bqz-20.igc",
+    "location": "Monroe",
     "flightNumber": 65
   }
 ]

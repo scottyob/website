@@ -26,6 +26,7 @@
     
 
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <script type="text/javascript" src="/assets/bigfoot/dist/bigfoot.js"></script>
     <link rel="stylesheet" type="text/css" href="/assets/bigfoot/dist/bigfoot-number.css" />
@@ -64,14 +65,160 @@
 </header>
 
         
+<script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
+
 <script>
+const flights = [
+
+  {"altitudegainmeters":1183,"date":"2021-09-11T00:00:00Z","draft":false,"durationseconds":3008,"filename":"2021-09-11-XAH-bqz-84.igc","flightnumber":45,"flying-location":"Mission","iscjklanguage":false,"lastmod":"2021-09-11T00:00:00Z","launchname":"TO (SW) Mission","launchtime":1631400607000,"location":"Mission","maxaltitudemeters":619,"maxdistancemeters":1716.5365922940987,"publishdate":"2021-09-11T00:00:00Z","tracklengthmeters":22699.233218495272,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":367,"date":"2020-09-23T00:00:00Z","draft":false,"durationseconds":1565,"filename":"2020-09-23-XAH-bqz-60.igc","flightnumber":21,"flying-location":"Mission","iscjklanguage":false,"lastmod":"2020-09-23T00:00:00Z","launchname":"TO (SW) Mission","launchtime":1600821927000,"location":"Mission","maxaltitudemeters":554,"maxdistancemeters":1718.7774308353985,"publishdate":"2020-09-23T00:00:00Z","tracklengthmeters":10021.830755857985,"type":"flightlog","wing":"BDG EN-B"},
+
+];
+
 $(window).on('load', function() {
-    
-    $(".time-format").contents().each((_, e) => {
-      e.data = new Date(parseInt(e.data) * 1000).toISOString().substr(11, 8);
-    })
+  
+  $(".time-format").contents().each((_, e) => {
+    e.data = new Date(parseInt(e.data) * 1000).toISOString().substr(11, 8);
   });
+
+  $(".human-duration").contents().each((_, e) => {
+    const humanTime = "(~" + moment.duration(e.data, "seconds").humanize() + ")"
+    e.data = Math.round(e.data / 3600) + " hours, " + humanTime;
+  });
+
+  
+  const durations = flights.map(f => f.durationseconds / 60);
+	Plotly.newPlot( document.getElementById('scatter'), {data: [
+    {
+	    x: flights.map(f => f.date),
+	    y: durations,
+      text: flights.map(f => 
+        `<b>${moment.duration(f.durationseconds, "seconds").humanize()}</b><br />` + 
+        `Flight: ${f.flightnumber}<br />` + 
+        `${f.location} <br />` +
+        `<i>${f.launchname}</i>`
+      ),
+      hovertemplate: "%{text}",
+      marker: {size: durations, sizeRef: 180, sizemode: "area" },
+      transforms: [{
+        type: "groupby", groups: flights.map(f => f.location)
+      }],
+      type: 'scatter',
+      mode: 'markers' 
+    }],
+    layout: {
+      // title: 'Flight Duration (minutes)',
+      yaxis: {
+        title: "Flight Duration (minutes)",
+        rangemode: 'tozero'
+      },
+      legend: {
+        orientation: 'h'
+      }
+	    
+    },
+    config: {response: false }
+  });
+
+  
+  
+  const  locations = [...new Set(flights.map(f => f.location))];
+  const locationDurations = locations.reduce((a, location) => ([
+    ...a,
+    [location, flights.filter(f => f.location == location).map(f => f.durationseconds).reduce((p, c) => p + c, 0)]
+  ]), []).sort((a, b) => (a[1] - b[1]));
+  if(locations.length > 1) {
+    Plotly.newPlot(document.getElementById('timeBySite'), {
+    data: [
+      {
+        x: locationDurations.map(x => x[0]),
+        y: locationDurations.map(x => x[1] / 60 / 60),  
+        title: 'Time by site',
+        type: 'bar'
+      },
+    ],
+    layout: {
+        yaxis: {
+          title: "Hours"
+        }
+      }
+    });
+  }
+
+  
+  let flightsByYear = {};
+  flights.forEach(f => {
+    existingVal = flightsByYear[moment(f.date).year()] ?? 0;
+    flightsByYear[moment(f.date).year()] = existingVal + f.durationseconds
+  });
+  byYear = Object.keys(flightsByYear).sort().map(year => [year, flightsByYear[year]]);
+
+  console.log([
+      {
+        x: byYear.map(x => x[0] + "."),
+        y: byYear.map(x => x[1] / 60 / 60),  
+        title: 'Time by year',
+        type: 'bar'
+      },
+    ]);
+  Plotly.newPlot(document.getElementById('timeByYear'), {
+    data: [
+      {
+        x: byYear.map(x => x[0] + ".."),
+        y: byYear.map(x => x[1] / 60 / 60),  
+        title: 'Time by year',
+        type: 'bar'
+      },
+    ],
+    layout: {
+      yaxis: {
+        title: "Hours"
+      },
+    }
+  });
+
+});
+
 </script>
+
+
+<style>
+    #content-group {
+        display: flex;
+    }
+
+    #content-right {
+      width: 100%;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    #smallerStats {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .chart-small {
+      flex-grow: 1;
+      min-width: 300px;
+    }
+</style>
+
+
+
+  
+  
+  
+
+  
+  
+  
+
 
 <main class="content" role="main">
     <article class="post page">
@@ -79,7 +226,18 @@ $(window).on('load', function() {
         <h2 class="post-title">Mission</h2>
       </header>
       <section class="post-content">
-        
+        <div id="content-left">
+            
+        </div>
+        <div id="content-right">
+          <div><strong>Duration: </strong><span class="human-duration">4573</span></div>
+          <div><strong>Recorded Flights: </strong>2</div>
+          <div id="scatter"></div>
+          <div id="smallerStats">
+            <div id="timeBySite" class="chart-small"></div>
+            <div id="timeByYear" class="chart-small"></div>
+          </div>
+        </div>
 
         <table>
             <tr>
@@ -94,7 +252,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/21">21</a></td>
+                <td class="bold"><a href="/flying/flights/21">21</a></td>
                 
                 <td><a href="/flying-location/mission">Mission</a></td>
                 
@@ -107,7 +265,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/45">45</a></td>
+                <td class="bold"><a href="/flying/flights/45">45</a></td>
                 
                 <td><a href="/flying-location/mission">Mission</a></td>
                 

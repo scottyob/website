@@ -1,11 +1,151 @@
+<script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
+
 <script>
+const flights = [
+{{range .Pages }}
+  {{.Params}},
+{{ end }}
+];
+
 $(window).on('load', function() {
-    // code here
-    $(".time-format").contents().each((_, e) => {
-      e.data = new Date(parseInt(e.data) * 1000).toISOString().substr(11, 8);
-    })
+  // code here
+  $(".time-format").contents().each((_, e) => {
+    e.data = new Date(parseInt(e.data) * 1000).toISOString().substr(11, 8);
   });
+
+  $(".human-duration").contents().each((_, e) => {
+    const humanTime = "(~" + moment.duration(e.data, "seconds").humanize() + ")"
+    e.data = Math.round(e.data / 3600) + " hours, " + humanTime;
+  });
+
+  // Work out the cumulative flights
+  const durations = flights.map(f => f.durationseconds / 60);
+	Plotly.newPlot( document.getElementById('scatter'), {data: [
+    {
+	    x: flights.map(f => f.date),
+	    y: durations,
+      text: flights.map(f => 
+        `<b>${moment.duration(f.durationseconds, "seconds").humanize()}</b><br />` + 
+        `Flight: ${f.flightnumber}<br />` + 
+        `${f.location} <br />` +
+        `<i>${f.launchname}</i>`
+      ),
+      hovertemplate: "%{text}",
+      marker: {size: durations, sizeRef: 180, sizemode: "area" },
+      transforms: [{
+        type: "groupby", groups: flights.map(f => f.location)
+      }],
+      type: 'scatter',
+      mode: 'markers' 
+    }],
+    layout: {
+      // title: 'Flight Duration (minutes)',
+      yaxis: {
+        title: "Flight Duration (minutes)",
+        rangemode: 'tozero'
+      },
+      legend: {
+        orientation: 'h'
+      }
+	    // margin: { t: 1 } 
+    },
+    config: {response: false }
+  });
+
+  // Time by site
+  // Get locations
+  const  locations = [...new Set(flights.map(f => f.location))];
+  const locationDurations = locations.reduce((a, location) => ([
+    ...a,
+    [location, flights.filter(f => f.location == location).map(f => f.durationseconds).reduce((p, c) => p + c, 0)]
+  ]), []).sort((a, b) => (a[1] - b[1]));
+  if(locations.length > 1) {
+    Plotly.newPlot(document.getElementById('timeBySite'), {
+    data: [
+      {
+        x: locationDurations.map(x => x[0]),
+        y: locationDurations.map(x => x[1] / 60 / 60),  // in hours
+        title: 'Time by site',
+        type: 'bar'
+      },
+    ],
+    layout: {
+        yaxis: {
+          title: "Hours"
+        }
+      }
+    });
+  }
+
+  // Time by year
+  let flightsByYear = {};
+  flights.forEach(f => {
+    existingVal = flightsByYear[moment(f.date).year()] ?? 0;
+    flightsByYear[moment(f.date).year()] = existingVal + f.durationseconds
+  });
+  byYear = Object.keys(flightsByYear).sort().map(year => [year, flightsByYear[year]]);
+
+  console.log([
+      {
+        x: byYear.map(x => x[0] + "."),
+        y: byYear.map(x => x[1] / 60 / 60),  // in hours
+        title: 'Time by year',
+        type: 'bar'
+      },
+    ]);
+  Plotly.newPlot(document.getElementById('timeByYear'), {
+    data: [
+      {
+        x: byYear.map(x => x[0] + ".."),
+        y: byYear.map(x => x[1] / 60 / 60),  // in hours
+        title: 'Time by year',
+        type: 'bar'
+      },
+    ],
+    layout: {
+      yaxis: {
+        title: "Hours"
+      },
+    }
+  });
+
+});
+
 </script>
+
+
+<style>
+    #content-group {
+        display: flex;
+    }
+
+    #content-right {
+      width: 100%;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    #smallerStats {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .chart-small {
+      flex-grow: 1;
+      min-width: 300px;
+    }
+</style>
+
+{{ $totalTime := 0}}
+{{range .Pages }}
+  {{ if .Params.durationSeconds }}
+  {{ $totalTime = add $totalTime .Params.durationSeconds }}
+  {{ end }}
+{{ end }}
 
 <main class="content" role="main">
     <article class="post page">
@@ -13,7 +153,18 @@ $(window).on('load', function() {
         <h2 class="post-title">{{ .Title }}</h2>
       </header>
       <section class="post-content">
-        {{ .Content }}
+        <div id="content-left">
+            {{ .Content }}
+        </div>
+        <div id="content-right">
+          <div><strong>Duration: </strong><span class="human-duration">{{$totalTime}}</span></div>
+          <div><strong>Recorded Flights: </strong>{{ .Pages | len }}</div>
+          <div id="scatter"></div>
+          <div id="smallerStats">
+            <div id="timeBySite" class="chart-small"></div>
+            <div id="timeByYear" class="chart-small"></div>
+          </div>
+        </div>
 
         <table>
             <tr>
@@ -28,7 +179,7 @@ $(window).on('load', function() {
             </tr>
             {{ range .Pages.ByParam "flightNumber" }}
             <tr>
-                <td><a href="/flying/flights/{{.Params.flightNumber}}">{{.Params.flightNumber}}</a></td>
+                <td class="bold"><a href="/flying/flights/{{.Params.flightNumber}}">{{.Params.flightNumber}}</a></td>
                 {{ if .Params.location }}
                 <td><a href="{{print (printf "/flying-location/%s" (.Params.location | urlize))}}">{{.Params.location}}</a></td>
                 {{ else }}

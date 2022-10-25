@@ -26,6 +26,7 @@
     
 
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <script type="text/javascript" src="/assets/bigfoot/dist/bigfoot.js"></script>
     <link rel="stylesheet" type="text/css" href="/assets/bigfoot/dist/bigfoot-number.css" />
@@ -64,14 +65,538 @@
 </header>
 
         
+<script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
+
 <script>
+const flights = [
+
+  {"altitudegainmeters":386,"date":"2021-10-02T00:00:00Z","draft":false,"durationseconds":1206,"filename":"2021-10-02-XAH-bqz-19.igc","flightnumber":64,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-10-02T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1633202046000,"location":"Monroe","maxaltitudemeters":2661,"maxdistancemeters":5677.950904798052,"publishdate":"2021-10-02T00:00:00Z","tracklengthmeters":10641.251800513133,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":1928,"date":"2021-10-02T00:00:00Z","draft":false,"durationseconds":3807,"filename":"2021-10-02-XAH-bqz-20.igc","flightnumber":65,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-10-02T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1633215538000,"location":"Monroe","maxaltitudemeters":3617,"maxdistancemeters":5879.388063197037,"publishdate":"2021-10-02T00:00:00Z","tracklengthmeters":31887.36913751722,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":903,"date":"2021-10-01T00:00:00Z","draft":false,"durationseconds":2501,"filename":"2021-10-01-XAH-bqz-17.igc","flightnumber":62,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-10-01T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1633119988000,"location":"Monroe","maxaltitudemeters":3271,"maxdistancemeters":7488.002013823523,"publishdate":"2021-10-01T00:00:00Z","tracklengthmeters":15342.282431772317,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":789,"date":"2021-10-01T00:00:00Z","draft":false,"durationseconds":1809,"filename":"2021-10-01-XAH-bqz-18.igc","flightnumber":63,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-10-01T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1633129042000,"location":"Monroe","maxaltitudemeters":2935,"maxdistancemeters":5676.13482489443,"publishdate":"2021-10-01T00:00:00Z","tracklengthmeters":16143.725006730332,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":1468,"date":"2021-09-30T00:00:00Z","draft":false,"durationseconds":3660,"filename":"2021-09-30-XAH-bqz-16.igc","flightnumber":61,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-30T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1633030958000,"location":"Monroe","maxaltitudemeters":2872,"maxdistancemeters":5482.115969767157,"publishdate":"2021-09-30T00:00:00Z","tracklengthmeters":24323.315490496752,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":207,"date":"2021-09-29T00:00:00Z","draft":false,"durationseconds":1054,"filename":"2021-09-29-XAH-bqz-15.igc","flightnumber":60,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-29T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1632952841000,"location":"Monroe","maxaltitudemeters":2646,"maxdistancemeters":5419.46272767097,"publishdate":"2021-09-29T00:00:00Z","tracklengthmeters":9243.405441147483,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":174,"date":"2021-09-27T00:00:00Z","draft":false,"durationseconds":743,"filename":"2021-09-27-XAH-bqz-14.igc","flightnumber":59,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-27T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1632772615000,"location":"Monroe","maxaltitudemeters":2651,"maxdistancemeters":5585.8227095283855,"publishdate":"2021-09-27T00:00:00Z","tracklengthmeters":7787.619570605636,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":724,"date":"2021-09-26T00:00:00Z","draft":false,"durationseconds":2748,"filename":"2021-09-26-XAH-bqz-12.igc","flightnumber":57,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-26T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1632615146000,"location":"Monroe","maxaltitudemeters":2944,"maxdistancemeters":5344.603496593093,"publishdate":"2021-09-26T00:00:00Z","tracklengthmeters":22690.054275110153,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":97,"date":"2021-09-26T00:00:00Z","draft":false,"durationseconds":825,"filename":"2021-09-26-XAH-bqz-13.igc","flightnumber":58,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-26T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1632682383000,"location":"Monroe","maxaltitudemeters":2664,"maxdistancemeters":5400.067379259942,"publishdate":"2021-09-26T00:00:00Z","tracklengthmeters":8095.014995543649,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":2299,"date":"2021-09-25T00:00:00Z","draft":false,"durationseconds":4227,"filename":"2021-09-25-XAH-bqz-11.igc","flightnumber":56,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-25T00:00:00Z","launchname":"TO (W) Monroe Peak (Richfield)","launchtime":1632593372000,"location":"Monroe","maxaltitudemeters":4189,"maxdistancemeters":10669.011918314849,"publishdate":"2021-09-25T00:00:00Z","tracklengthmeters":39741.79727965632,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":1245,"date":"2021-09-24T00:00:00Z","draft":false,"durationseconds":2470,"filename":"2021-09-24-XAH-bqz-10.igc","flightnumber":55,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-24T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1632513677000,"location":"Monroe","maxaltitudemeters":3647,"maxdistancemeters":5744.215326809732,"publishdate":"2021-09-24T00:00:00Z","tracklengthmeters":21249.967068895014,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":1517,"date":"2021-09-23T00:00:00Z","draft":false,"durationseconds":3918,"filename":"2021-09-23-XAH-bqz-07.igc","flightnumber":52,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-23T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1632356717000,"location":"Monroe","maxaltitudemeters":3143,"maxdistancemeters":5430.169294736774,"publishdate":"2021-09-23T00:00:00Z","tracklengthmeters":29020.672680523745,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":1809,"date":"2021-09-23T00:00:00Z","draft":false,"durationseconds":3528,"filename":"2021-09-23-XAH-bqz-08.igc","flightnumber":53,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-23T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1632418671000,"location":"Monroe","maxaltitudemeters":3587,"maxdistancemeters":5480.983747665783,"publishdate":"2021-09-23T00:00:00Z","tracklengthmeters":32549.225535516853,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":569,"date":"2021-09-23T00:00:00Z","draft":false,"durationseconds":942,"filename":"2021-09-23-XAH-bqz-09.igc","flightnumber":54,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-23T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1632431720000,"location":"Monroe","maxaltitudemeters":3128,"maxdistancemeters":5294.2277087546045,"publishdate":"2021-09-23T00:00:00Z","tracklengthmeters":7525.584032036917,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":133,"date":"2021-09-22T00:00:00Z","draft":false,"durationseconds":1499,"filename":"2021-09-22-XAH-bqz-06.igc","flightnumber":51,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-22T00:00:00Z","launchname":"TO (W) Monroe Peak (Richfield)","launchtime":1632333203000,"location":"Monroe","maxaltitudemeters":3382,"maxdistancemeters":9746.707137620702,"publishdate":"2021-09-22T00:00:00Z","tracklengthmeters":14208.751733637304,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":160,"date":"2021-09-21T00:00:00Z","draft":false,"durationseconds":1810,"filename":"2021-09-21-XAH-bqz-04.igc","flightnumber":49,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-21T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1632183385000,"location":"Monroe","maxaltitudemeters":2656,"maxdistancemeters":5332.591511407743,"publishdate":"2021-09-21T00:00:00Z","tracklengthmeters":6147.286775020969,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":49,"date":"2021-09-21T00:00:00Z","draft":false,"durationseconds":833,"filename":"2021-09-21-XAH-bqz-05.igc","flightnumber":50,"flying-location":"Monroe","iscjklanguage":false,"lastmod":"2021-09-21T00:00:00Z","launchname":"TO (N, W, S) Cove_Richfield_Monroe","launchtime":1632265868000,"location":"Monroe","maxaltitudemeters":2646,"maxdistancemeters":5495.834397048703,"publishdate":"2021-09-21T00:00:00Z","tracklengthmeters":7683.093014795969,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":208,"date":"2021-09-17T00:00:00Z","draft":false,"durationseconds":948,"filename":"2021-09-17-XAH-bqz-03.igc","flightnumber":48,"flying-location":"Point of the Mountain","iscjklanguage":false,"lastmod":"2021-09-17T00:00:00Z","launchname":"NEW: SP (NW) Point of the Mountain (North)","launchtime":1631840127000,"location":"Point of the Mountain","maxaltitudemeters":1591,"maxdistancemeters":600.8409730001853,"publishdate":"2021-09-17T00:00:00Z","tracklengthmeters":5571.270701858725,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":32,"date":"2021-09-16T00:00:00Z","draft":false,"durationseconds":169,"filename":"2021-09-16-XAH-bqz-01.igc","flightnumber":46,"flying-location":"Point of the Mountain","iscjklanguage":false,"lastmod":"2021-09-16T00:00:00Z","launchname":"TO (SE-SSE) Point of the Mountain (South)","launchtime":1631804401000,"location":"Point of the Mountain","maxaltitudemeters":1516,"maxdistancemeters":238.26399184054816,"publishdate":"2021-09-16T00:00:00Z","tracklengthmeters":1123.3114399875783,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":13,"date":"2021-09-16T00:00:00Z","draft":false,"durationseconds":112,"filename":"2021-09-16-XAH-bqz-02.igc","flightnumber":47,"flying-location":"Point of the Mountain","iscjklanguage":false,"lastmod":"2021-09-16T00:00:00Z","launchname":"TO (SE-SSE) Point of the Mountain (South)","launchtime":1631806052000,"location":"Point of the Mountain","maxaltitudemeters":1499,"maxdistancemeters":207.18519995111086,"publishdate":"2021-09-16T00:00:00Z","tracklengthmeters":448.99520437178734,"type":"flightlog","wing":"BGD Winter, EN-B"},
+
+  {"altitudegainmeters":28,"date":"2021-09-11T00:00:00Z","draft":false,"durationseconds":507,"filename":"2021-09-11-XAH-bqz-83.igc","flightnumber":44,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2021-09-11T00:00:00Z","launchname":"TO (SW) Ed Levin_1","launchtime":1631383697000,"location":"Ed Levin","maxaltitudemeters":667,"maxdistancemeters":2056.7757354206115,"publishdate":"2021-09-11T00:00:00Z","tracklengthmeters":4288.613541156054,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":1183,"date":"2021-09-11T00:00:00Z","draft":false,"durationseconds":3008,"filename":"2021-09-11-XAH-bqz-84.igc","flightnumber":45,"flying-location":"Mission","iscjklanguage":false,"lastmod":"2021-09-11T00:00:00Z","launchname":"TO (SW) Mission","launchtime":1631400607000,"location":"Mission","maxaltitudemeters":619,"maxdistancemeters":1716.5365922940987,"publishdate":"2021-09-11T00:00:00Z","tracklengthmeters":22699.233218495272,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":160,"date":"2021-07-10T00:00:00Z","draft":false,"durationseconds":2652,"filename":"2021-07-10-XAH-bqz-82.igc","flightnumber":43,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2021-07-10T00:00:00Z","launchname":"TO (WNW-SW) Ed Levin_2","launchtime":1625941283000,"location":"Ed Levin","maxaltitudemeters":323,"maxdistancemeters":693.4674087982011,"publishdate":"2021-07-10T00:00:00Z","tracklengthmeters":1979.6299042473702,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":283,"date":"2021-06-11T00:00:00Z","draft":false,"durationseconds":3017,"filename":"2021-06-11-XAH-bqz-81.igc","flightnumber":42,"flying-location":"Mussel Rock","iscjklanguage":false,"lastmod":"2021-06-11T00:00:00Z","launchname":"TOC Dumps - Walker's","launchtime":1623372715000,"location":"Mussel Rock","maxaltitudemeters":114,"maxdistancemeters":717.8505797128233,"publishdate":"2021-06-11T00:00:00Z","tracklengthmeters":5217.254182172452,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":897,"date":"2021-06-10T00:00:00Z","draft":false,"durationseconds":3245,"filename":"2021-06-10-XAH-bqz-80.igc","flightnumber":41,"flying-location":"Mussel Rock","iscjklanguage":false,"lastmod":"2021-06-10T00:00:00Z","launchname":"TOC Dumps - Walker's","launchtime":1623366323000,"location":"Mussel Rock","maxaltitudemeters":159,"maxdistancemeters":877.9656260080664,"publishdate":"2021-06-10T00:00:00Z","tracklengthmeters":18998.43558249629,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":1983,"date":"2021-06-05T00:00:00Z","draft":false,"durationseconds":6513,"filename":"2021-06-05-XAH-bqz-79.igc","flightnumber":40,"flying-location":"Mussel Rock","iscjklanguage":false,"lastmod":"2021-06-05T00:00:00Z","launchname":"TOC (W-SW) Dumps - Jungle","launchtime":1622926115000,"location":"Mussel Rock","maxaltitudemeters":157,"maxdistancemeters":876.398185780453,"publishdate":"2021-06-05T00:00:00Z","tracklengthmeters":36452.20718798186,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":1793,"date":"2021-05-23T00:00:00Z","draft":false,"durationseconds":2911,"filename":"2021-05-23-XAH-bqz-78.igc","flightnumber":39,"flying-location":"Dunlap","iscjklanguage":false,"lastmod":"2021-05-23T00:00:00Z","launchname":"TO (SW-W) Dunlap","launchtime":1621793996000,"location":"Dunlap","maxaltitudemeters":2021,"maxdistancemeters":4485.274912419343,"publishdate":"2021-05-23T00:00:00Z","tracklengthmeters":21999.690521596378,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":2269,"date":"2021-05-22T00:00:00Z","draft":false,"durationseconds":3725,"filename":"2021-05-22-XAH-bqz-77.igc","flightnumber":38,"flying-location":"Dunlap","iscjklanguage":false,"lastmod":"2021-05-22T00:00:00Z","launchname":"TO (SW-W) Dunlap","launchtime":1621710883000,"location":"Dunlap","maxaltitudemeters":1914,"maxdistancemeters":4485.309621753358,"publishdate":"2021-05-22T00:00:00Z","tracklengthmeters":26776.671597037035,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":518,"date":"2021-05-15T00:00:00Z","draft":false,"durationseconds":1672,"filename":"2021-05-15-XAH-bqz-76.igc","flightnumber":37,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2021-05-15T00:00:00Z","launchname":"TO (SW) Ed Levin_1","launchtime":1621104162000,"location":"Ed Levin","maxaltitudemeters":790,"maxdistancemeters":2086.258718567534,"publishdate":"2021-05-15T00:00:00Z","tracklengthmeters":9480.260394879768,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":1191,"date":"2021-04-24T00:00:00Z","draft":false,"durationseconds":2733,"filename":"2021-04-24-XAH-bqz-75.igc","flightnumber":36,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2021-04-24T00:00:00Z","launchname":"TO (SW) Ed Levin_1","launchtime":1619287386000,"location":"Ed Levin","maxaltitudemeters":799,"maxdistancemeters":1986.2450691421304,"publishdate":"2021-04-24T00:00:00Z","tracklengthmeters":19743.969262671864,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":974,"date":"2021-04-03T00:00:00Z","draft":false,"durationseconds":4425,"filename":"2021-04-03-XAH-bqz-73.igc","flightnumber":34,"flying-location":"Mussel Rock","iscjklanguage":false,"lastmod":"2021-04-03T00:00:00Z","launchname":"TOC (W-SW) Dumps - Jungle","launchtime":1617476835000,"location":"Mussel Rock","maxaltitudemeters":193,"maxdistancemeters":2658.586759425269,"publishdate":"2021-04-03T00:00:00Z","tracklengthmeters":29025.08941750101,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":1146,"date":"2021-04-03T00:00:00Z","draft":false,"durationseconds":4525,"filename":"2021-04-03-XAH-bqz-74.igc","flightnumber":35,"flying-location":"Mussel Rock","iscjklanguage":false,"lastmod":"2021-04-03T00:00:00Z","launchname":"TOC (W-SW) Dumps - Jungle","launchtime":1617485758000,"location":"Mussel Rock","maxaltitudemeters":252,"maxdistancemeters":3642.991153692419,"publishdate":"2021-04-03T00:00:00Z","tracklengthmeters":26238.7312069017,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":1186,"date":"2021-02-11T00:00:00Z","draft":false,"durationseconds":5142,"filename":"2021-02-11-XAH-bqz-72.igc","flightnumber":33,"flying-location":"Mussel Rock","iscjklanguage":false,"lastmod":"2021-02-11T00:00:00Z","launchname":"TOC Dumps - Walker's","launchtime":1613003926000,"location":"Mussel Rock","maxaltitudemeters":225,"maxdistancemeters":3205.5570876731103,"publishdate":"2021-02-11T00:00:00Z","tracklengthmeters":31346.419211085577,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":543,"date":"2021-02-10T00:00:00Z","draft":false,"durationseconds":2367,"filename":"2021-02-10-XAH-bqz-71.igc","flightnumber":32,"flying-location":"Mussel Rock","iscjklanguage":false,"lastmod":"2021-02-10T00:00:00Z","launchname":"TOC Dumps - Walker's","launchtime":1612920270000,"location":"Mussel Rock","maxaltitudemeters":221,"maxdistancemeters":1348.0570491079568,"publishdate":"2021-02-10T00:00:00Z","tracklengthmeters":14781.875004585363,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":916,"date":"2021-02-09T00:00:00Z","draft":false,"durationseconds":4275,"filename":"2021-02-09-XAH-bqz-70.igc","flightnumber":31,"flying-location":"Mussel Rock","iscjklanguage":false,"lastmod":"2021-02-09T00:00:00Z","launchname":"TOC Dumps - Walker's","launchtime":1612911269000,"location":"Mussel Rock","maxaltitudemeters":219,"maxdistancemeters":2598.8568027417623,"publishdate":"2021-02-09T00:00:00Z","tracklengthmeters":27145.524473846635,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":194,"date":"2020-11-24T00:00:00Z","draft":false,"durationseconds":936,"filename":"2020-11-24-XAH-bqz-69.igc","flightnumber":30,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2020-11-24T00:00:00Z","launchname":"TO (SW) Ed Levin_1","launchtime":1606252054000,"location":"Ed Levin","maxaltitudemeters":719,"maxdistancemeters":2072.2428383517695,"publishdate":"2020-11-24T00:00:00Z","tracklengthmeters":5374.949845408401,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":804,"date":"2020-11-22T00:00:00Z","draft":false,"durationseconds":3691,"filename":"2020-11-22-XAH-bqz-68.igc","flightnumber":29,"flying-location":"Mussel Rock","iscjklanguage":false,"lastmod":"2020-11-22T00:00:00Z","launchname":"TOC Dumps - Walker's","launchtime":1606077287000,"location":"Mussel Rock","maxaltitudemeters":261,"maxdistancemeters":2636.478264750289,"publishdate":"2020-11-22T00:00:00Z","tracklengthmeters":22138.122318364447,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":12,"date":"2020-11-12T00:00:00Z","draft":false,"durationseconds":127,"filename":"2020-11-12-XAH-bqz-66.igc","flightnumber":27,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2020-11-12T00:00:00Z","launchname":"TO (W-SE) Ed Levin_3","launchtime":1605210618000,"location":"Ed Levin","maxaltitudemeters":267,"maxdistancemeters":555.4062977376143,"publishdate":"2020-11-12T00:00:00Z","tracklengthmeters":730.2933584207082,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":88,"date":"2020-11-12T00:00:00Z","draft":false,"durationseconds":375,"filename":"2020-11-12-XAH-bqz-67.igc","flightnumber":28,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2020-11-12T00:00:00Z","launchname":"TO (WNW-SW) Ed Levin_2","launchtime":1605213202000,"location":"Ed Levin","maxaltitudemeters":329,"maxdistancemeters":672.1278064515856,"publishdate":"2020-11-12T00:00:00Z","tracklengthmeters":2259.5262310924454,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":29,"date":"2020-10-24T00:00:00Z","draft":false,"durationseconds":232,"filename":"2020-10-24-XAH-bqz-64.igc","flightnumber":25,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2020-10-24T00:00:00Z","launchname":"TO (WNW-SW) Ed Levin_2","launchtime":1603562489000,"location":"Ed Levin","maxaltitudemeters":321,"maxdistancemeters":661.7251926653502,"publishdate":"2020-10-24T00:00:00Z","tracklengthmeters":1201.1289859142885,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":23,"date":"2020-10-24T00:00:00Z","draft":false,"durationseconds":344,"filename":"2020-10-24-XAH-bqz-65.igc","flightnumber":26,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2020-10-24T00:00:00Z","launchname":"TO (WNW-SW) Ed Levin_2","launchtime":1603565811000,"location":"Ed Levin","maxaltitudemeters":320,"maxdistancemeters":662.1061742551849,"publishdate":"2020-10-24T00:00:00Z","tracklengthmeters":1001.2008852548296,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":37,"date":"2020-10-17T00:00:00Z","draft":false,"durationseconds":388,"filename":"2020-10-17-XAH-bqz-61.igc","flightnumber":22,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2020-10-17T00:00:00Z","launchname":"TO (WNW-SW) Ed Levin_2","launchtime":1602953558000,"location":"Ed Levin","maxaltitudemeters":329,"maxdistancemeters":935.5268365028867,"publishdate":"2020-10-17T00:00:00Z","tracklengthmeters":1501.087214311954,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":29,"date":"2020-10-17T00:00:00Z","draft":false,"durationseconds":249,"filename":"2020-10-17-XAH-bqz-62.igc","flightnumber":23,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2020-10-17T00:00:00Z","launchname":"TO (WNW-SW) Ed Levin_2","launchtime":1602958960000,"location":"Ed Levin","maxaltitudemeters":319,"maxdistancemeters":685.8674559364158,"publishdate":"2020-10-17T00:00:00Z","tracklengthmeters":1387.0790744930096,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":47,"date":"2020-10-17T00:00:00Z","draft":false,"durationseconds":245,"filename":"2020-10-17-XAH-bqz-63.igc","flightnumber":24,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2020-10-17T00:00:00Z","launchname":"TO (WNW-SW) Ed Levin_2","launchtime":1602961900000,"location":"Ed Levin","maxaltitudemeters":319,"maxdistancemeters":664.1304514497763,"publishdate":"2020-10-17T00:00:00Z","tracklengthmeters":1778.3937397649588,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":367,"date":"2020-09-23T00:00:00Z","draft":false,"durationseconds":1565,"filename":"2020-09-23-XAH-bqz-60.igc","flightnumber":21,"flying-location":"Mission","iscjklanguage":false,"lastmod":"2020-09-23T00:00:00Z","launchname":"TO (SW) Mission","launchtime":1600821927000,"location":"Mission","maxaltitudemeters":554,"maxdistancemeters":1718.7774308353985,"publishdate":"2020-09-23T00:00:00Z","tracklengthmeters":10021.830755857985,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":1218,"date":"2020-09-03T00:00:00Z","draft":false,"durationseconds":4880,"filename":"2020-09-03-XAH-bqz-59.igc","flightnumber":20,"flying-location":"Mussel Rock","iscjklanguage":false,"lastmod":"2020-09-03T00:00:00Z","launchname":"TOC Dumps - Walker's","launchtime":1599095696000,"location":"Mussel Rock","maxaltitudemeters":206,"maxdistancemeters":922.0402562187151,"publishdate":"2020-09-03T00:00:00Z","tracklengthmeters":27130.292150466106,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":813,"date":"2020-09-01T00:00:00Z","draft":false,"durationseconds":3691,"filename":"2020-09-01-XAH-bqz-58.igc","flightnumber":19,"flying-location":"Mussel Rock","iscjklanguage":false,"lastmod":"2020-09-01T00:00:00Z","launchname":"TOC Dumps - Walker's","launchtime":1598919180000,"location":"Mussel Rock","maxaltitudemeters":183,"maxdistancemeters":2992.866779726514,"publishdate":"2020-09-01T00:00:00Z","tracklengthmeters":18159.007168760094,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":929,"date":"2020-08-05T00:00:00Z","draft":false,"durationseconds":7735,"filename":"2020-08-05-XAH-bqz-57.igc","flightnumber":18,"flying-location":"Sand City","iscjklanguage":false,"lastmod":"2020-08-05T00:00:00Z","launchname":"TOC (W-WNW) North Lake Dune","launchtime":1596656398000,"location":"Sand City","maxaltitudemeters":-8,"maxdistancemeters":94.80854937054868,"publishdate":"2020-08-05T00:00:00Z","tracklengthmeters":5356.730224092556,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":472,"date":"2020-07-24T00:00:00Z","draft":false,"durationseconds":2930,"filename":"2020-07-24-XAH-bqz-55.igc","flightnumber":16,"flying-location":"Sand City","iscjklanguage":false,"lastmod":"2020-07-24T00:00:00Z","launchname":"TOC (W-WNW) North Lake Dune","launchtime":1595619871000,"location":"Sand City","maxaltitudemeters":15,"maxdistancemeters":1329.9317653398466,"publishdate":"2020-07-24T00:00:00Z","tracklengthmeters":11874.409264818853,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":1189,"date":"2020-07-24T00:00:00Z","draft":false,"durationseconds":5008,"filename":"2020-07-24-XAH-bqz-56.igc","flightnumber":17,"flying-location":"Sand City","iscjklanguage":false,"lastmod":"2020-07-24T00:00:00Z","launchname":"TOC (W-WNW) North Lake Dune","launchtime":1595624747000,"location":"Sand City","maxaltitudemeters":44,"maxdistancemeters":5202.801378082316,"publishdate":"2020-07-24T00:00:00Z","tracklengthmeters":21286.769399932196,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":1272,"date":"2020-06-14T00:00:00Z","draft":false,"durationseconds":10828,"filename":"2020-06-14-XAH-bqz-54.igc","flightnumber":15,"flying-location":"Sand City","iscjklanguage":false,"lastmod":"2020-06-14T00:00:00Z","launchname":"TOC (NW) Sand City","launchtime":1592165370000,"location":"Sand City","maxaltitudemeters":11,"maxdistancemeters":1116.1840741352896,"publishdate":"2020-06-14T00:00:00Z","tracklengthmeters":16174.448502586789,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":891,"date":"2020-06-13T00:00:00Z","draft":false,"durationseconds":5728,"filename":"2020-06-13-XAH-bqz-52.igc","flightnumber":13,"flying-location":"Mussel Rock","iscjklanguage":false,"lastmod":"2020-06-13T00:00:00Z","launchname":"TOC Dumps - Walker's","launchtime":1592067949000,"location":"Mussel Rock","maxaltitudemeters":277,"maxdistancemeters":2502.1445000058948,"publishdate":"2020-06-13T00:00:00Z","tracklengthmeters":30057.174784772524,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":23,"date":"2020-06-13T00:00:00Z","draft":false,"durationseconds":253,"filename":"2020-06-13-XAH-bqz-53.igc","flightnumber":14,"flying-location":"Mussel Rock","iscjklanguage":false,"lastmod":"2020-06-13T00:00:00Z","launchname":"TOC Dumps - Walker's","launchtime":1592079840000,"location":"Mussel Rock","maxaltitudemeters":31,"maxdistancemeters":165.86768912342197,"publishdate":"2020-06-13T00:00:00Z","tracklengthmeters":479.27628655516963,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":946,"date":"2020-05-18T00:00:00Z","draft":false,"durationseconds":5620,"filename":"2020-05-18-XAH-bqz-51.igc","flightnumber":12,"flying-location":"Mussel Rock","iscjklanguage":false,"lastmod":"2020-05-18T00:00:00Z","launchname":"TOC Dumps - Walker's","launchtime":1589845601000,"location":"Mussel Rock","maxaltitudemeters":238,"maxdistancemeters":2656.85234239523,"publishdate":"2020-05-18T00:00:00Z","tracklengthmeters":28171.975595091684,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":240,"date":"2020-02-23T00:00:00Z","draft":false,"durationseconds":2630,"filename":"2020-02-23-XAH-bqz-49.igc","flightnumber":10,"flying-location":"Sand City","iscjklanguage":false,"lastmod":"2020-02-23T00:00:00Z","launchname":"TOC (NW) Sand City","launchtime":1582480521000,"location":"Sand City","maxaltitudemeters":9,"maxdistancemeters":287.00875349011346,"publishdate":"2020-02-23T00:00:00Z","tracklengthmeters":3319.449294677006,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":542,"date":"2020-02-23T00:00:00Z","draft":false,"durationseconds":2974,"filename":"2020-02-23-XAH-bqz-50.igc","flightnumber":11,"flying-location":"Sand City","iscjklanguage":false,"lastmod":"2020-02-23T00:00:00Z","launchname":"TOC (NW) Sand City","launchtime":1582484765000,"location":"Sand City","maxaltitudemeters":42,"maxdistancemeters":4727.375350475719,"publishdate":"2020-02-23T00:00:00Z","tracklengthmeters":11820.487614370386,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":242,"date":"2020-02-22T00:00:00Z","draft":false,"durationseconds":1405,"filename":"2020-02-22-XAH-bqz-46.igc","flightnumber":7,"flying-location":"Sand City","iscjklanguage":false,"lastmod":"2020-02-22T00:00:00Z","launchname":"TOC (NW) Sand City","launchtime":1582403793000,"location":"Sand City","maxaltitudemeters":48,"maxdistancemeters":1471.8703135839562,"publishdate":"2020-02-22T00:00:00Z","tracklengthmeters":3876.6229048208847,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":781,"date":"2020-02-22T00:00:00Z","draft":false,"durationseconds":4004,"filename":"2020-02-22-XAH-bqz-47.igc","flightnumber":8,"flying-location":"Sand City","iscjklanguage":false,"lastmod":"2020-02-22T00:00:00Z","launchname":"TOC (NW) Sand City","launchtime":1582406339000,"location":"Sand City","maxaltitudemeters":31,"maxdistancemeters":7635.526054678667,"publishdate":"2020-02-22T00:00:00Z","tracklengthmeters":19804.976164207965,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":721,"date":"2020-02-22T00:00:00Z","draft":false,"durationseconds":3630,"filename":"2020-02-22-XAH-bqz-48.igc","flightnumber":9,"flying-location":"Sand City","iscjklanguage":false,"lastmod":"2020-02-22T00:00:00Z","launchname":"TOC (NW) Sand City","launchtime":1582411883000,"location":"Sand City","maxaltitudemeters":43,"maxdistancemeters":645.2999174192636,"publishdate":"2020-02-22T00:00:00Z","tracklengthmeters":10038.081989361917,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":696,"date":"2020-02-16T00:00:00Z","draft":false,"durationseconds":3925,"filename":"2020-02-16-XAH-bqz-45.igc","flightnumber":6,"flying-location":"Sand City","iscjklanguage":false,"lastmod":"2020-02-16T00:00:00Z","launchname":"TOC (NW) Sand City","launchtime":1581886664000,"location":"Sand City","maxaltitudemeters":42,"maxdistancemeters":7906.550097388052,"publishdate":"2020-02-16T00:00:00Z","tracklengthmeters":18132.12711613119,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":272,"date":"2020-01-26T00:00:00Z","draft":false,"durationseconds":4703,"filename":"2020-01-26-XAH-bqz-44.igc","flightnumber":5,"flying-location":"Sand City","iscjklanguage":false,"lastmod":"2020-01-26T00:00:00Z","launchname":"TOC (NW) Sand City","launchtime":1580074067000,"location":"Sand City","maxaltitudemeters":8,"maxdistancemeters":190.64950660470117,"publishdate":"2020-01-26T00:00:00Z","tracklengthmeters":2325.328044580195,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":18,"date":"2020-01-04T00:00:00Z","draft":false,"durationseconds":528,"filename":"2020-01-04-XAH-bqz-42.igc","flightnumber":3,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2020-01-04T00:00:00Z","launchname":"TO (SW) Ed Levin_1","launchtime":1578164828000,"location":"Ed Levin","maxaltitudemeters":672,"maxdistancemeters":2087.7758955945037,"publishdate":"2020-01-04T00:00:00Z","tracklengthmeters":3747.1853504233177,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":426,"date":"2020-01-04T00:00:00Z","draft":false,"durationseconds":1917,"filename":"2020-01-04-XAH-bqz-43.igc","flightnumber":4,"flying-location":"Mussel Rock","iscjklanguage":false,"lastmod":"2020-01-04T00:00:00Z","launchname":"TOC Dumps - Walker's","launchtime":1578176021000,"location":"Mussel Rock","maxaltitudemeters":209,"maxdistancemeters":1538.4391479813862,"publishdate":"2020-01-04T00:00:00Z","tracklengthmeters":9501.986048387706,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":52,"date":"2019-11-24T00:00:00Z","draft":false,"durationseconds":385,"filename":"2019-11-24-XAH-bqz-40.igc","flightnumber":1,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2019-11-24T00:00:00Z","launchname":"TO (WNW-SW) Ed Levin_2","launchtime":1574622378000,"location":"Ed Levin","maxaltitudemeters":315,"maxdistancemeters":715.9699322959818,"publishdate":"2019-11-24T00:00:00Z","tracklengthmeters":1705.3267274671882,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":61,"date":"2019-11-24T00:00:00Z","draft":false,"durationseconds":778,"filename":"2019-11-24-XAH-bqz-41.igc","flightnumber":2,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2019-11-24T00:00:00Z","launchname":"TO (SW) Ed Levin_1","launchtime":1574628863000,"location":"Ed Levin","maxaltitudemeters":665,"maxdistancemeters":2094.6483280225207,"publishdate":"2019-11-24T00:00:00Z","tracklengthmeters":4583.3305275068615,"type":"flightlog","wing":"BDG EN-B"},
+
+];
+
 $(window).on('load', function() {
-    
-    $(".time-format").contents().each((_, e) => {
-      e.data = new Date(parseInt(e.data) * 1000).toISOString().substr(11, 8);
-    })
+  
+  $(".time-format").contents().each((_, e) => {
+    e.data = new Date(parseInt(e.data) * 1000).toISOString().substr(11, 8);
   });
+
+  $(".human-duration").contents().each((_, e) => {
+    const humanTime = "(~" + moment.duration(e.data, "seconds").humanize() + ")"
+    e.data = Math.round(e.data / 3600) + " hours, " + humanTime;
+  });
+
+  
+  const durations = flights.map(f => f.durationseconds / 60);
+	Plotly.newPlot( document.getElementById('scatter'), {data: [
+    {
+	    x: flights.map(f => f.date),
+	    y: durations,
+      text: flights.map(f => 
+        `<b>${moment.duration(f.durationseconds, "seconds").humanize()}</b><br />` + 
+        `Flight: ${f.flightnumber}<br />` + 
+        `${f.location} <br />` +
+        `<i>${f.launchname}</i>`
+      ),
+      hovertemplate: "%{text}",
+      marker: {size: durations, sizeRef: 180, sizemode: "area" },
+      transforms: [{
+        type: "groupby", groups: flights.map(f => f.location)
+      }],
+      type: 'scatter',
+      mode: 'markers' 
+    }],
+    layout: {
+      // title: 'Flight Duration (minutes)',
+      yaxis: {
+        title: "Flight Duration (minutes)",
+        rangemode: 'tozero'
+      },
+      legend: {
+        orientation: 'h'
+      }
+	    
+    },
+    config: {response: false }
+  });
+
+  
+  
+  const  locations = [...new Set(flights.map(f => f.location))];
+  const locationDurations = locations.reduce((a, location) => ([
+    ...a,
+    [location, flights.filter(f => f.location == location).map(f => f.durationseconds).reduce((p, c) => p + c, 0)]
+  ]), []).sort((a, b) => (a[1] - b[1]));
+  if(locations.length > 1) {
+    Plotly.newPlot(document.getElementById('timeBySite'), {
+    data: [
+      {
+        x: locationDurations.map(x => x[0]),
+        y: locationDurations.map(x => x[1] / 60 / 60),  
+        title: 'Time by site',
+        type: 'bar'
+      },
+    ],
+    layout: {
+        yaxis: {
+          title: "Hours"
+        }
+      }
+    });
+  }
+
+  
+  let flightsByYear = {};
+  flights.forEach(f => {
+    existingVal = flightsByYear[moment(f.date).year()] ?? 0;
+    flightsByYear[moment(f.date).year()] = existingVal + f.durationseconds
+  });
+  byYear = Object.keys(flightsByYear).sort().map(year => [year, flightsByYear[year]]);
+
+  console.log([
+      {
+        x: byYear.map(x => x[0] + "."),
+        y: byYear.map(x => x[1] / 60 / 60),  
+        title: 'Time by year',
+        type: 'bar'
+      },
+    ]);
+  Plotly.newPlot(document.getElementById('timeByYear'), {
+    data: [
+      {
+        x: byYear.map(x => x[0] + ".."),
+        y: byYear.map(x => x[1] / 60 / 60),  
+        title: 'Time by year',
+        type: 'bar'
+      },
+    ],
+    layout: {
+      yaxis: {
+        title: "Hours"
+      },
+    }
+  });
+
+});
+
 </script>
+
+
+<style>
+    #content-group {
+        display: flex;
+    }
+
+    #content-right {
+      width: 100%;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    #smallerStats {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .chart-small {
+      flex-grow: 1;
+      min-width: 300px;
+    }
+</style>
+
+
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
 
 <main class="content" role="main">
     <article class="post page">
@@ -79,8 +604,19 @@ $(window).on('load', function() {
         <h2 class="post-title">Flying</h2>
       </header>
       <section class="post-content">
-        <p>I started learning to paraglide in Janurary of 2018.  Late 2022 I decided to start a page to contains a record of all of my flights, flight statistics and some updated site descriptions for the sites that I&rsquo;ve flown.  I&rsquo;m not been overly diligent in keeping this updated, so by doing this I&rsquo;m hoping this will change.</p>
+        <div id="content-left">
+            <p>I started learning to paraglide in Janurary of 2018.  Late 2022 I decided to start a page to contains a record of all of my flights, flight statistics and some updated site descriptions for the sites that I&rsquo;ve flown.  I&rsquo;m not been overly diligent in keeping this updated, so by doing this I&rsquo;m hoping this will change.</p>
 
+        </div>
+        <div id="content-right">
+          <div><strong>Duration: </strong><span class="human-duration">171230</span></div>
+          <div><strong>Recorded Flights: </strong>65</div>
+          <div id="scatter"></div>
+          <div id="smallerStats">
+            <div id="timeBySite" class="chart-small"></div>
+            <div id="timeByYear" class="chart-small"></div>
+          </div>
+        </div>
 
         <table>
             <tr>
@@ -95,7 +631,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/1">1</a></td>
+                <td class="bold"><a href="/flying/flights/1">1</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -108,7 +644,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/2">2</a></td>
+                <td class="bold"><a href="/flying/flights/2">2</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -121,7 +657,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/3">3</a></td>
+                <td class="bold"><a href="/flying/flights/3">3</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -134,9 +670,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/4">4</a></td>
+                <td class="bold"><a href="/flying/flights/4">4</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/mussel-rock">Mussel Rock</a></td>
                 
                 <td>2020-01-04</td>
                 <td class="time-format">1917</td>
@@ -147,9 +683,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/5">5</a></td>
+                <td class="bold"><a href="/flying/flights/5">5</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/sand-city">Sand City</a></td>
                 
                 <td>2020-01-26</td>
                 <td class="time-format">4703</td>
@@ -160,9 +696,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/6">6</a></td>
+                <td class="bold"><a href="/flying/flights/6">6</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/sand-city">Sand City</a></td>
                 
                 <td>2020-02-16</td>
                 <td class="time-format">3925</td>
@@ -173,9 +709,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/7">7</a></td>
+                <td class="bold"><a href="/flying/flights/7">7</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/sand-city">Sand City</a></td>
                 
                 <td>2020-02-22</td>
                 <td class="time-format">1405</td>
@@ -186,9 +722,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/8">8</a></td>
+                <td class="bold"><a href="/flying/flights/8">8</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/sand-city">Sand City</a></td>
                 
                 <td>2020-02-22</td>
                 <td class="time-format">4004</td>
@@ -199,9 +735,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/9">9</a></td>
+                <td class="bold"><a href="/flying/flights/9">9</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/sand-city">Sand City</a></td>
                 
                 <td>2020-02-22</td>
                 <td class="time-format">3630</td>
@@ -212,9 +748,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/10">10</a></td>
+                <td class="bold"><a href="/flying/flights/10">10</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/sand-city">Sand City</a></td>
                 
                 <td>2020-02-23</td>
                 <td class="time-format">2630</td>
@@ -225,9 +761,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/11">11</a></td>
+                <td class="bold"><a href="/flying/flights/11">11</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/sand-city">Sand City</a></td>
                 
                 <td>2020-02-23</td>
                 <td class="time-format">2974</td>
@@ -238,9 +774,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/12">12</a></td>
+                <td class="bold"><a href="/flying/flights/12">12</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/mussel-rock">Mussel Rock</a></td>
                 
                 <td>2020-05-18</td>
                 <td class="time-format">5620</td>
@@ -251,9 +787,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/13">13</a></td>
+                <td class="bold"><a href="/flying/flights/13">13</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/mussel-rock">Mussel Rock</a></td>
                 
                 <td>2020-06-13</td>
                 <td class="time-format">5728</td>
@@ -264,9 +800,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/14">14</a></td>
+                <td class="bold"><a href="/flying/flights/14">14</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/mussel-rock">Mussel Rock</a></td>
                 
                 <td>2020-06-13</td>
                 <td class="time-format">253</td>
@@ -277,9 +813,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/15">15</a></td>
+                <td class="bold"><a href="/flying/flights/15">15</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/sand-city">Sand City</a></td>
                 
                 <td>2020-06-14</td>
                 <td class="time-format">10828</td>
@@ -290,9 +826,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/16">16</a></td>
+                <td class="bold"><a href="/flying/flights/16">16</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/sand-city">Sand City</a></td>
                 
                 <td>2020-07-24</td>
                 <td class="time-format">2930</td>
@@ -303,9 +839,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/17">17</a></td>
+                <td class="bold"><a href="/flying/flights/17">17</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/sand-city">Sand City</a></td>
                 
                 <td>2020-07-24</td>
                 <td class="time-format">5008</td>
@@ -316,9 +852,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/18">18</a></td>
+                <td class="bold"><a href="/flying/flights/18">18</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/sand-city">Sand City</a></td>
                 
                 <td>2020-08-05</td>
                 <td class="time-format">7735</td>
@@ -329,9 +865,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/19">19</a></td>
+                <td class="bold"><a href="/flying/flights/19">19</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/mussel-rock">Mussel Rock</a></td>
                 
                 <td>2020-09-01</td>
                 <td class="time-format">3691</td>
@@ -342,9 +878,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/20">20</a></td>
+                <td class="bold"><a href="/flying/flights/20">20</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/mussel-rock">Mussel Rock</a></td>
                 
                 <td>2020-09-03</td>
                 <td class="time-format">4880</td>
@@ -355,7 +891,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/21">21</a></td>
+                <td class="bold"><a href="/flying/flights/21">21</a></td>
                 
                 <td><a href="/flying-location/mission">Mission</a></td>
                 
@@ -368,7 +904,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/22">22</a></td>
+                <td class="bold"><a href="/flying/flights/22">22</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -381,7 +917,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/23">23</a></td>
+                <td class="bold"><a href="/flying/flights/23">23</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -394,7 +930,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/24">24</a></td>
+                <td class="bold"><a href="/flying/flights/24">24</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -407,7 +943,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/25">25</a></td>
+                <td class="bold"><a href="/flying/flights/25">25</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -420,7 +956,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/26">26</a></td>
+                <td class="bold"><a href="/flying/flights/26">26</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -433,7 +969,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/27">27</a></td>
+                <td class="bold"><a href="/flying/flights/27">27</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -446,7 +982,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/28">28</a></td>
+                <td class="bold"><a href="/flying/flights/28">28</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -459,9 +995,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/29">29</a></td>
+                <td class="bold"><a href="/flying/flights/29">29</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/mussel-rock">Mussel Rock</a></td>
                 
                 <td>2020-11-22</td>
                 <td class="time-format">3691</td>
@@ -472,7 +1008,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/30">30</a></td>
+                <td class="bold"><a href="/flying/flights/30">30</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -485,9 +1021,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/31">31</a></td>
+                <td class="bold"><a href="/flying/flights/31">31</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/mussel-rock">Mussel Rock</a></td>
                 
                 <td>2021-02-09</td>
                 <td class="time-format">4275</td>
@@ -498,9 +1034,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/32">32</a></td>
+                <td class="bold"><a href="/flying/flights/32">32</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/mussel-rock">Mussel Rock</a></td>
                 
                 <td>2021-02-10</td>
                 <td class="time-format">2367</td>
@@ -511,9 +1047,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/33">33</a></td>
+                <td class="bold"><a href="/flying/flights/33">33</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/mussel-rock">Mussel Rock</a></td>
                 
                 <td>2021-02-11</td>
                 <td class="time-format">5142</td>
@@ -524,9 +1060,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/34">34</a></td>
+                <td class="bold"><a href="/flying/flights/34">34</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/mussel-rock">Mussel Rock</a></td>
                 
                 <td>2021-04-03</td>
                 <td class="time-format">4425</td>
@@ -537,9 +1073,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/35">35</a></td>
+                <td class="bold"><a href="/flying/flights/35">35</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/mussel-rock">Mussel Rock</a></td>
                 
                 <td>2021-04-03</td>
                 <td class="time-format">4525</td>
@@ -550,7 +1086,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/36">36</a></td>
+                <td class="bold"><a href="/flying/flights/36">36</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -563,7 +1099,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/37">37</a></td>
+                <td class="bold"><a href="/flying/flights/37">37</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -576,9 +1112,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/38">38</a></td>
+                <td class="bold"><a href="/flying/flights/38">38</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/dunlap">Dunlap</a></td>
                 
                 <td>2021-05-22</td>
                 <td class="time-format">3725</td>
@@ -589,9 +1125,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/39">39</a></td>
+                <td class="bold"><a href="/flying/flights/39">39</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/dunlap">Dunlap</a></td>
                 
                 <td>2021-05-23</td>
                 <td class="time-format">2911</td>
@@ -602,9 +1138,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/40">40</a></td>
+                <td class="bold"><a href="/flying/flights/40">40</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/mussel-rock">Mussel Rock</a></td>
                 
                 <td>2021-06-05</td>
                 <td class="time-format">6513</td>
@@ -615,9 +1151,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/41">41</a></td>
+                <td class="bold"><a href="/flying/flights/41">41</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/mussel-rock">Mussel Rock</a></td>
                 
                 <td>2021-06-10</td>
                 <td class="time-format">3245</td>
@@ -628,9 +1164,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/42">42</a></td>
+                <td class="bold"><a href="/flying/flights/42">42</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/mussel-rock">Mussel Rock</a></td>
                 
                 <td>2021-06-11</td>
                 <td class="time-format">3017</td>
@@ -641,7 +1177,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/43">43</a></td>
+                <td class="bold"><a href="/flying/flights/43">43</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -654,7 +1190,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/44">44</a></td>
+                <td class="bold"><a href="/flying/flights/44">44</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -667,7 +1203,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/45">45</a></td>
+                <td class="bold"><a href="/flying/flights/45">45</a></td>
                 
                 <td><a href="/flying-location/mission">Mission</a></td>
                 
@@ -680,9 +1216,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/46">46</a></td>
+                <td class="bold"><a href="/flying/flights/46">46</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/point-of-the-mountain">Point of the Mountain</a></td>
                 
                 <td>2021-09-16</td>
                 <td class="time-format">169</td>
@@ -693,9 +1229,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/47">47</a></td>
+                <td class="bold"><a href="/flying/flights/47">47</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/point-of-the-mountain">Point of the Mountain</a></td>
                 
                 <td>2021-09-16</td>
                 <td class="time-format">112</td>
@@ -706,9 +1242,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/48">48</a></td>
+                <td class="bold"><a href="/flying/flights/48">48</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/point-of-the-mountain">Point of the Mountain</a></td>
                 
                 <td>2021-09-17</td>
                 <td class="time-format">948</td>
@@ -719,9 +1255,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/49">49</a></td>
+                <td class="bold"><a href="/flying/flights/49">49</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/monroe">Monroe</a></td>
                 
                 <td>2021-09-21</td>
                 <td class="time-format">1810</td>
@@ -732,9 +1268,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/50">50</a></td>
+                <td class="bold"><a href="/flying/flights/50">50</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/monroe">Monroe</a></td>
                 
                 <td>2021-09-21</td>
                 <td class="time-format">833</td>
@@ -745,9 +1281,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/51">51</a></td>
+                <td class="bold"><a href="/flying/flights/51">51</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/monroe">Monroe</a></td>
                 
                 <td>2021-09-22</td>
                 <td class="time-format">1499</td>
@@ -758,9 +1294,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/52">52</a></td>
+                <td class="bold"><a href="/flying/flights/52">52</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/monroe">Monroe</a></td>
                 
                 <td>2021-09-23</td>
                 <td class="time-format">3918</td>
@@ -771,9 +1307,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/53">53</a></td>
+                <td class="bold"><a href="/flying/flights/53">53</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/monroe">Monroe</a></td>
                 
                 <td>2021-09-23</td>
                 <td class="time-format">3528</td>
@@ -784,9 +1320,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/54">54</a></td>
+                <td class="bold"><a href="/flying/flights/54">54</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/monroe">Monroe</a></td>
                 
                 <td>2021-09-23</td>
                 <td class="time-format">942</td>
@@ -797,9 +1333,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/55">55</a></td>
+                <td class="bold"><a href="/flying/flights/55">55</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/monroe">Monroe</a></td>
                 
                 <td>2021-09-24</td>
                 <td class="time-format">2470</td>
@@ -810,9 +1346,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/56">56</a></td>
+                <td class="bold"><a href="/flying/flights/56">56</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/monroe">Monroe</a></td>
                 
                 <td>2021-09-25</td>
                 <td class="time-format">4227</td>
@@ -823,9 +1359,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/57">57</a></td>
+                <td class="bold"><a href="/flying/flights/57">57</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/monroe">Monroe</a></td>
                 
                 <td>2021-09-26</td>
                 <td class="time-format">2748</td>
@@ -836,9 +1372,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/58">58</a></td>
+                <td class="bold"><a href="/flying/flights/58">58</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/monroe">Monroe</a></td>
                 
                 <td>2021-09-26</td>
                 <td class="time-format">825</td>
@@ -849,9 +1385,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/59">59</a></td>
+                <td class="bold"><a href="/flying/flights/59">59</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/monroe">Monroe</a></td>
                 
                 <td>2021-09-27</td>
                 <td class="time-format">743</td>
@@ -862,9 +1398,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/60">60</a></td>
+                <td class="bold"><a href="/flying/flights/60">60</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/monroe">Monroe</a></td>
                 
                 <td>2021-09-29</td>
                 <td class="time-format">1054</td>
@@ -875,9 +1411,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/61">61</a></td>
+                <td class="bold"><a href="/flying/flights/61">61</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/monroe">Monroe</a></td>
                 
                 <td>2021-09-30</td>
                 <td class="time-format">3660</td>
@@ -888,9 +1424,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/62">62</a></td>
+                <td class="bold"><a href="/flying/flights/62">62</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/monroe">Monroe</a></td>
                 
                 <td>2021-10-01</td>
                 <td class="time-format">2501</td>
@@ -901,9 +1437,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/63">63</a></td>
+                <td class="bold"><a href="/flying/flights/63">63</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/monroe">Monroe</a></td>
                 
                 <td>2021-10-01</td>
                 <td class="time-format">1809</td>
@@ -914,9 +1450,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/64">64</a></td>
+                <td class="bold"><a href="/flying/flights/64">64</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/monroe">Monroe</a></td>
                 
                 <td>2021-10-02</td>
                 <td class="time-format">1206</td>
@@ -927,9 +1463,9 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/65">65</a></td>
+                <td class="bold"><a href="/flying/flights/65">65</a></td>
                 
-                <td></td>
+                <td><a href="/flying-location/monroe">Monroe</a></td>
                 
                 <td>2021-10-02</td>
                 <td class="time-format">3807</td>

@@ -26,6 +26,7 @@
     
 
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <script type="text/javascript" src="/assets/bigfoot/dist/bigfoot.js"></script>
     <link rel="stylesheet" type="text/css" href="/assets/bigfoot/dist/bigfoot-number.css" />
@@ -64,14 +65,238 @@
 </header>
 
         
+<script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
+
 <script>
+const flights = [
+
+  {"altitudegainmeters":28,"date":"2021-09-11T00:00:00Z","draft":false,"durationseconds":507,"filename":"2021-09-11-XAH-bqz-83.igc","flightnumber":44,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2021-09-11T00:00:00Z","launchname":"TO (SW) Ed Levin_1","launchtime":1631383697000,"location":"Ed Levin","maxaltitudemeters":667,"maxdistancemeters":2056.7757354206115,"publishdate":"2021-09-11T00:00:00Z","tracklengthmeters":4288.613541156054,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":160,"date":"2021-07-10T00:00:00Z","draft":false,"durationseconds":2652,"filename":"2021-07-10-XAH-bqz-82.igc","flightnumber":43,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2021-07-10T00:00:00Z","launchname":"TO (WNW-SW) Ed Levin_2","launchtime":1625941283000,"location":"Ed Levin","maxaltitudemeters":323,"maxdistancemeters":693.4674087982011,"publishdate":"2021-07-10T00:00:00Z","tracklengthmeters":1979.6299042473702,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":518,"date":"2021-05-15T00:00:00Z","draft":false,"durationseconds":1672,"filename":"2021-05-15-XAH-bqz-76.igc","flightnumber":37,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2021-05-15T00:00:00Z","launchname":"TO (SW) Ed Levin_1","launchtime":1621104162000,"location":"Ed Levin","maxaltitudemeters":790,"maxdistancemeters":2086.258718567534,"publishdate":"2021-05-15T00:00:00Z","tracklengthmeters":9480.260394879768,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":1191,"date":"2021-04-24T00:00:00Z","draft":false,"durationseconds":2733,"filename":"2021-04-24-XAH-bqz-75.igc","flightnumber":36,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2021-04-24T00:00:00Z","launchname":"TO (SW) Ed Levin_1","launchtime":1619287386000,"location":"Ed Levin","maxaltitudemeters":799,"maxdistancemeters":1986.2450691421304,"publishdate":"2021-04-24T00:00:00Z","tracklengthmeters":19743.969262671864,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":194,"date":"2020-11-24T00:00:00Z","draft":false,"durationseconds":936,"filename":"2020-11-24-XAH-bqz-69.igc","flightnumber":30,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2020-11-24T00:00:00Z","launchname":"TO (SW) Ed Levin_1","launchtime":1606252054000,"location":"Ed Levin","maxaltitudemeters":719,"maxdistancemeters":2072.2428383517695,"publishdate":"2020-11-24T00:00:00Z","tracklengthmeters":5374.949845408401,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":12,"date":"2020-11-12T00:00:00Z","draft":false,"durationseconds":127,"filename":"2020-11-12-XAH-bqz-66.igc","flightnumber":27,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2020-11-12T00:00:00Z","launchname":"TO (W-SE) Ed Levin_3","launchtime":1605210618000,"location":"Ed Levin","maxaltitudemeters":267,"maxdistancemeters":555.4062977376143,"publishdate":"2020-11-12T00:00:00Z","tracklengthmeters":730.2933584207082,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":88,"date":"2020-11-12T00:00:00Z","draft":false,"durationseconds":375,"filename":"2020-11-12-XAH-bqz-67.igc","flightnumber":28,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2020-11-12T00:00:00Z","launchname":"TO (WNW-SW) Ed Levin_2","launchtime":1605213202000,"location":"Ed Levin","maxaltitudemeters":329,"maxdistancemeters":672.1278064515856,"publishdate":"2020-11-12T00:00:00Z","tracklengthmeters":2259.5262310924454,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":29,"date":"2020-10-24T00:00:00Z","draft":false,"durationseconds":232,"filename":"2020-10-24-XAH-bqz-64.igc","flightnumber":25,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2020-10-24T00:00:00Z","launchname":"TO (WNW-SW) Ed Levin_2","launchtime":1603562489000,"location":"Ed Levin","maxaltitudemeters":321,"maxdistancemeters":661.7251926653502,"publishdate":"2020-10-24T00:00:00Z","tracklengthmeters":1201.1289859142885,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":23,"date":"2020-10-24T00:00:00Z","draft":false,"durationseconds":344,"filename":"2020-10-24-XAH-bqz-65.igc","flightnumber":26,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2020-10-24T00:00:00Z","launchname":"TO (WNW-SW) Ed Levin_2","launchtime":1603565811000,"location":"Ed Levin","maxaltitudemeters":320,"maxdistancemeters":662.1061742551849,"publishdate":"2020-10-24T00:00:00Z","tracklengthmeters":1001.2008852548296,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":37,"date":"2020-10-17T00:00:00Z","draft":false,"durationseconds":388,"filename":"2020-10-17-XAH-bqz-61.igc","flightnumber":22,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2020-10-17T00:00:00Z","launchname":"TO (WNW-SW) Ed Levin_2","launchtime":1602953558000,"location":"Ed Levin","maxaltitudemeters":329,"maxdistancemeters":935.5268365028867,"publishdate":"2020-10-17T00:00:00Z","tracklengthmeters":1501.087214311954,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":29,"date":"2020-10-17T00:00:00Z","draft":false,"durationseconds":249,"filename":"2020-10-17-XAH-bqz-62.igc","flightnumber":23,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2020-10-17T00:00:00Z","launchname":"TO (WNW-SW) Ed Levin_2","launchtime":1602958960000,"location":"Ed Levin","maxaltitudemeters":319,"maxdistancemeters":685.8674559364158,"publishdate":"2020-10-17T00:00:00Z","tracklengthmeters":1387.0790744930096,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":47,"date":"2020-10-17T00:00:00Z","draft":false,"durationseconds":245,"filename":"2020-10-17-XAH-bqz-63.igc","flightnumber":24,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2020-10-17T00:00:00Z","launchname":"TO (WNW-SW) Ed Levin_2","launchtime":1602961900000,"location":"Ed Levin","maxaltitudemeters":319,"maxdistancemeters":664.1304514497763,"publishdate":"2020-10-17T00:00:00Z","tracklengthmeters":1778.3937397649588,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":18,"date":"2020-01-04T00:00:00Z","draft":false,"durationseconds":528,"filename":"2020-01-04-XAH-bqz-42.igc","flightnumber":3,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2020-01-04T00:00:00Z","launchname":"TO (SW) Ed Levin_1","launchtime":1578164828000,"location":"Ed Levin","maxaltitudemeters":672,"maxdistancemeters":2087.7758955945037,"publishdate":"2020-01-04T00:00:00Z","tracklengthmeters":3747.1853504233177,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":52,"date":"2019-11-24T00:00:00Z","draft":false,"durationseconds":385,"filename":"2019-11-24-XAH-bqz-40.igc","flightnumber":1,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2019-11-24T00:00:00Z","launchname":"TO (WNW-SW) Ed Levin_2","launchtime":1574622378000,"location":"Ed Levin","maxaltitudemeters":315,"maxdistancemeters":715.9699322959818,"publishdate":"2019-11-24T00:00:00Z","tracklengthmeters":1705.3267274671882,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":61,"date":"2019-11-24T00:00:00Z","draft":false,"durationseconds":778,"filename":"2019-11-24-XAH-bqz-41.igc","flightnumber":2,"flying-location":"Ed Levin","iscjklanguage":false,"lastmod":"2019-11-24T00:00:00Z","launchname":"TO (SW) Ed Levin_1","launchtime":1574628863000,"location":"Ed Levin","maxaltitudemeters":665,"maxdistancemeters":2094.6483280225207,"publishdate":"2019-11-24T00:00:00Z","tracklengthmeters":4583.3305275068615,"type":"flightlog","wing":"BDG EN-B"},
+
+];
+
 $(window).on('load', function() {
-    
-    $(".time-format").contents().each((_, e) => {
-      e.data = new Date(parseInt(e.data) * 1000).toISOString().substr(11, 8);
-    })
+  
+  $(".time-format").contents().each((_, e) => {
+    e.data = new Date(parseInt(e.data) * 1000).toISOString().substr(11, 8);
   });
+
+  $(".human-duration").contents().each((_, e) => {
+    const humanTime = "(~" + moment.duration(e.data, "seconds").humanize() + ")"
+    e.data = Math.round(e.data / 3600) + " hours, " + humanTime;
+  });
+
+  
+  const durations = flights.map(f => f.durationseconds / 60);
+	Plotly.newPlot( document.getElementById('scatter'), {data: [
+    {
+	    x: flights.map(f => f.date),
+	    y: durations,
+      text: flights.map(f => 
+        `<b>${moment.duration(f.durationseconds, "seconds").humanize()}</b><br />` + 
+        `Flight: ${f.flightnumber}<br />` + 
+        `${f.location} <br />` +
+        `<i>${f.launchname}</i>`
+      ),
+      hovertemplate: "%{text}",
+      marker: {size: durations, sizeRef: 180, sizemode: "area" },
+      transforms: [{
+        type: "groupby", groups: flights.map(f => f.location)
+      }],
+      type: 'scatter',
+      mode: 'markers' 
+    }],
+    layout: {
+      // title: 'Flight Duration (minutes)',
+      yaxis: {
+        title: "Flight Duration (minutes)",
+        rangemode: 'tozero'
+      },
+      legend: {
+        orientation: 'h'
+      }
+	    
+    },
+    config: {response: false }
+  });
+
+  
+  
+  const  locations = [...new Set(flights.map(f => f.location))];
+  const locationDurations = locations.reduce((a, location) => ([
+    ...a,
+    [location, flights.filter(f => f.location == location).map(f => f.durationseconds).reduce((p, c) => p + c, 0)]
+  ]), []).sort((a, b) => (a[1] - b[1]));
+  if(locations.length > 1) {
+    Plotly.newPlot(document.getElementById('timeBySite'), {
+    data: [
+      {
+        x: locationDurations.map(x => x[0]),
+        y: locationDurations.map(x => x[1] / 60 / 60),  
+        title: 'Time by site',
+        type: 'bar'
+      },
+    ],
+    layout: {
+        yaxis: {
+          title: "Hours"
+        }
+      }
+    });
+  }
+
+  
+  let flightsByYear = {};
+  flights.forEach(f => {
+    existingVal = flightsByYear[moment(f.date).year()] ?? 0;
+    flightsByYear[moment(f.date).year()] = existingVal + f.durationseconds
+  });
+  byYear = Object.keys(flightsByYear).sort().map(year => [year, flightsByYear[year]]);
+
+  console.log([
+      {
+        x: byYear.map(x => x[0] + "."),
+        y: byYear.map(x => x[1] / 60 / 60),  
+        title: 'Time by year',
+        type: 'bar'
+      },
+    ]);
+  Plotly.newPlot(document.getElementById('timeByYear'), {
+    data: [
+      {
+        x: byYear.map(x => x[0] + ".."),
+        y: byYear.map(x => x[1] / 60 / 60),  
+        title: 'Time by year',
+        type: 'bar'
+      },
+    ],
+    layout: {
+      yaxis: {
+        title: "Hours"
+      },
+    }
+  });
+
+});
+
 </script>
+
+
+<style>
+    #content-group {
+        display: flex;
+    }
+
+    #content-right {
+      width: 100%;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    #smallerStats {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .chart-small {
+      flex-grow: 1;
+      min-width: 300px;
+    }
+</style>
+
+
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
 
 <main class="content" role="main">
     <article class="post page">
@@ -79,7 +304,18 @@ $(window).on('load', function() {
         <h2 class="post-title">Ed Levin</h2>
       </header>
       <section class="post-content">
-        
+        <div id="content-left">
+            
+        </div>
+        <div id="content-right">
+          <div><strong>Duration: </strong><span class="human-duration">12151</span></div>
+          <div><strong>Recorded Flights: </strong>15</div>
+          <div id="scatter"></div>
+          <div id="smallerStats">
+            <div id="timeBySite" class="chart-small"></div>
+            <div id="timeByYear" class="chart-small"></div>
+          </div>
+        </div>
 
         <table>
             <tr>
@@ -94,7 +330,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/1">1</a></td>
+                <td class="bold"><a href="/flying/flights/1">1</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -107,7 +343,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/2">2</a></td>
+                <td class="bold"><a href="/flying/flights/2">2</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -120,7 +356,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/3">3</a></td>
+                <td class="bold"><a href="/flying/flights/3">3</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -133,7 +369,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/22">22</a></td>
+                <td class="bold"><a href="/flying/flights/22">22</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -146,7 +382,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/23">23</a></td>
+                <td class="bold"><a href="/flying/flights/23">23</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -159,7 +395,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/24">24</a></td>
+                <td class="bold"><a href="/flying/flights/24">24</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -172,7 +408,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/25">25</a></td>
+                <td class="bold"><a href="/flying/flights/25">25</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -185,7 +421,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/26">26</a></td>
+                <td class="bold"><a href="/flying/flights/26">26</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -198,7 +434,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/27">27</a></td>
+                <td class="bold"><a href="/flying/flights/27">27</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -211,7 +447,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/28">28</a></td>
+                <td class="bold"><a href="/flying/flights/28">28</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -224,7 +460,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/30">30</a></td>
+                <td class="bold"><a href="/flying/flights/30">30</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -237,7 +473,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/36">36</a></td>
+                <td class="bold"><a href="/flying/flights/36">36</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -250,7 +486,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/37">37</a></td>
+                <td class="bold"><a href="/flying/flights/37">37</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -263,7 +499,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/43">43</a></td>
+                <td class="bold"><a href="/flying/flights/43">43</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 
@@ -276,7 +512,7 @@ $(window).on('load', function() {
             </tr>
             
             <tr>
-                <td><a href="/flying/flights/44">44</a></td>
+                <td class="bold"><a href="/flying/flights/44">44</a></td>
                 
                 <td><a href="/flying-location/ed-levin">Ed Levin</a></td>
                 

@@ -1,0 +1,298 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    <title>
+      
+      Dunlap - Scott O&#39;Brien
+      
+		</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="alternate" type="application/rss&#43;xml" href="https://www.scottyob.com/flying-location/dunlap/index.xml">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/icons.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Lato:100,100i,300,300i,400,400i,700,700i|Source+Code+Pro:300,400,500,700" rel="stylesheet">
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/bigfoot/dist/bigfoot.js"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/bigfoot/dist/bigfoot-number.css" />
+    <script type="text/javascript">
+        $.bigfoot();
+    </script>
+    
+    
+</head>
+
+    <body class="big">
+        <header class="main-header">
+	<div class="main-header-content">
+		<h1 class="blog-title">
+			<a href="/">
+				
+           Scott O&#39;Brien
+				
+			</a>
+		</h1>
+		<h2 class="blog-description">Projects, Ramblings and Resources of my (online) life</h2>
+	</div>
+
+	<div class="nav">
+    
+		
+      <a class="nav- " role="presentation" href="/page/bucketlist/">The Bucket List</a>
+		
+      <a class="nav- " role="presentation" href="/page/about/">About Me</a>
+		
+      <a class="nav- " role="presentation" href="/recipes/">Recipes</a>
+		
+      <a class="nav- " role="presentation" href="/flying/">Flying</a>
+		
+	</div>
+</header>
+
+        
+<script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
+
+<script>
+const flights = [
+
+  {"altitudegainmeters":1793,"date":"2021-05-23T00:00:00Z","draft":false,"durationseconds":2911,"filename":"2021-05-23-XAH-bqz-78.igc","flightnumber":39,"flying-location":"Dunlap","iscjklanguage":false,"lastmod":"2021-05-23T00:00:00Z","launchname":"TO (SW-W) Dunlap","launchtime":1621793996000,"location":"Dunlap","maxaltitudemeters":2021,"maxdistancemeters":4485.274912419343,"publishdate":"2021-05-23T00:00:00Z","tracklengthmeters":21999.690521596378,"type":"flightlog","wing":"BDG EN-B"},
+
+  {"altitudegainmeters":2269,"date":"2021-05-22T00:00:00Z","draft":false,"durationseconds":3725,"filename":"2021-05-22-XAH-bqz-77.igc","flightnumber":38,"flying-location":"Dunlap","iscjklanguage":false,"lastmod":"2021-05-22T00:00:00Z","launchname":"TO (SW-W) Dunlap","launchtime":1621710883000,"location":"Dunlap","maxaltitudemeters":1914,"maxdistancemeters":4485.309621753358,"publishdate":"2021-05-22T00:00:00Z","tracklengthmeters":26776.671597037035,"type":"flightlog","wing":"BDG EN-B"},
+
+];
+
+$(window).on('load', function() {
+  
+  $(".time-format").contents().each((_, e) => {
+    e.data = new Date(parseInt(e.data) * 1000).toISOString().substr(11, 8);
+  });
+
+  $(".human-duration").contents().each((_, e) => {
+    const humanTime = "(~" + moment.duration(e.data, "seconds").humanize() + ")"
+    e.data = Math.round(e.data / 3600) + " hours, " + humanTime;
+  });
+
+  
+  const durations = flights.map(f => f.durationseconds / 60);
+	Plotly.newPlot( document.getElementById('scatter'), {data: [
+    {
+	    x: flights.map(f => f.date),
+	    y: durations,
+      text: flights.map(f => 
+        `<b>${moment.duration(f.durationseconds, "seconds").humanize()}</b><br />` + 
+        `Flight: ${f.flightnumber}<br />` + 
+        `${f.location} <br />` +
+        `<i>${f.launchname}</i>`
+      ),
+      hovertemplate: "%{text}",
+      marker: {size: durations, sizeRef: 180, sizemode: "area" },
+      transforms: [{
+        type: "groupby", groups: flights.map(f => f.location)
+      }],
+      type: 'scatter',
+      mode: 'markers' 
+    }],
+    layout: {
+      // title: 'Flight Duration (minutes)',
+      yaxis: {
+        title: "Flight Duration (minutes)",
+        rangemode: 'tozero'
+      },
+      legend: {
+        orientation: 'h'
+      }
+	    
+    },
+    config: {response: false }
+  });
+
+  
+  
+  const  locations = [...new Set(flights.map(f => f.location))];
+  const locationDurations = locations.reduce((a, location) => ([
+    ...a,
+    [location, flights.filter(f => f.location == location).map(f => f.durationseconds).reduce((p, c) => p + c, 0)]
+  ]), []).sort((a, b) => (a[1] - b[1]));
+  if(locations.length > 1) {
+    Plotly.newPlot(document.getElementById('timeBySite'), {
+    data: [
+      {
+        x: locationDurations.map(x => x[0]),
+        y: locationDurations.map(x => x[1] / 60 / 60),  
+        title: 'Time by site',
+        type: 'bar'
+      },
+    ],
+    layout: {
+        yaxis: {
+          title: "Hours"
+        }
+      }
+    });
+  }
+
+  
+  let flightsByYear = {};
+  flights.forEach(f => {
+    existingVal = flightsByYear[moment(f.date).year()] ?? 0;
+    flightsByYear[moment(f.date).year()] = existingVal + f.durationseconds
+  });
+  byYear = Object.keys(flightsByYear).sort().map(year => [year, flightsByYear[year]]);
+
+  console.log([
+      {
+        x: byYear.map(x => x[0] + "."),
+        y: byYear.map(x => x[1] / 60 / 60),  
+        title: 'Time by year',
+        type: 'bar'
+      },
+    ]);
+  Plotly.newPlot(document.getElementById('timeByYear'), {
+    data: [
+      {
+        x: byYear.map(x => x[0] + ".."),
+        y: byYear.map(x => x[1] / 60 / 60),  
+        title: 'Time by year',
+        type: 'bar'
+      },
+    ],
+    layout: {
+      yaxis: {
+        title: "Hours"
+      },
+    }
+  });
+
+});
+
+</script>
+
+
+<style>
+    #content-group {
+        display: flex;
+    }
+
+    #content-right {
+      width: 100%;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    #smallerStats {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .chart-small {
+      flex-grow: 1;
+      min-width: 300px;
+    }
+</style>
+
+
+
+  
+  
+  
+
+  
+  
+  
+
+
+<main class="content" role="main">
+    <article class="post page">
+      <header class="post-header">
+        <h2 class="post-title">Dunlap</h2>
+      </header>
+      <section class="post-content">
+        <div id="content-left">
+            
+        </div>
+        <div id="content-right">
+          <div><strong>Duration: </strong><span class="human-duration">6636</span></div>
+          <div><strong>Recorded Flights: </strong>2</div>
+          <div id="scatter"></div>
+          <div id="smallerStats">
+            <div id="timeBySite" class="chart-small"></div>
+            <div id="timeByYear" class="chart-small"></div>
+          </div>
+        </div>
+
+        <table>
+            <tr>
+              <th>#</th>
+              <th>Location</th>
+              <th>Date</th>
+              <th>Duration</th>
+              <th>Max Altitude</th>
+              <th>Altitude Gain</th>
+              <th>Wing</th>
+              <th>Comments</th>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/38">38</a></td>
+                
+                <td><a href="/flying-location/dunlap">Dunlap</a></td>
+                
+                <td>2021-05-22</td>
+                <td class="time-format">3725</td>
+                <td>1914</td>
+                <td>2269</td>
+                <td>BDG EN-B</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td class="bold"><a href="/flying/flights/39">39</a></td>
+                
+                <td><a href="/flying-location/dunlap">Dunlap</a></td>
+                
+                <td>2021-05-23</td>
+                <td class="time-format">2911</td>
+                <td>2021</td>
+                <td>1793</td>
+                <td>BDG EN-B</td>
+                <td></td>
+            </tr>
+            
+          </table>
+        
+      </section>
+    </article>
+  </main>
+
+
+        <footer class="site-footer">
+  <section class="rss"><a class="subscribe-button icon-feed" href="/index.xml"></a></section>
+  
+  
+  <section class="copyright">&copy; 2022 Scott O&#39;Brien</section>
+  <section class="poweredby"><a href="https://github.com/nirocfz/arabica">Arabica</a> theme by Sean Lunsford. Published with <a href="https://gohugo.io">Hugo</a>.</section>
+</footer>
+
+
+
+    </body>
+</html>
