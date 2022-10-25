@@ -7,7 +7,7 @@ categories:
 
 ## Ingredients
 Wet:
-* 1 cup of 100% sourdough discard (~ 270g)
+* 1 cup of sourdough discard (~ 270g)
 * 1/2 cup warm milk (~123g)
 * 1/4 cup plain greek yogurt (~61g, I used honey vanilla, was yum)
 
