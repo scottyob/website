@@ -37,7 +37,7 @@
     
 </head>
 
-    <body class="standard">
+    <body class="big">
         <header class="main-header">
 	<div class="main-header-content">
 		<h1 class="blog-title">
@@ -70,22 +70,33 @@
     
     .media-container {
         display: flex;
-        flex-wrap: wrap;
+        flex-flow: row wrap;
+        justify-content: center;
     }
 
     .media-entry {
         border: 1px solid #dfe1e1;
         margin: 0.5rem;
+        width: 250px;
     }
 
     .media-entry a {
         font-weight: 700;
         font-size: 1rem;
-        line-height: 1.25;;
+        line-height: 1.25;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        min-height: 300px;
     }
 
     .media-title {
         padding: 10px;
+    }
+
+    .image-container {
+        flex-grow: 1;
     }
 
 </style>
@@ -102,12 +113,12 @@
         
         <div class="media-entry">
             <a href="/recipes/white-sourdough-bread/">
-            <div>
-                
-                <img src="/recipes/white-sourdough-bread/img_hu0916e3565c51443d61b40510380585d1_1076097_250x0_resize_q75_box.jpg" />
-                
-            </div>
-            <div class="media-title">White Sourdough Bread</div>
+                <div class="image-container">
+                    
+                    <img src="/recipes/white-sourdough-bread/img_hu0916e3565c51443d61b40510380585d1_1076097_250x250_fill_q75_box_smart1.jpg" />
+                    
+                </div>
+                <div class="media-title">White Sourdough Bread</div>
             </a>
         </div>
 
@@ -117,10 +128,27 @@
         
         <div class="media-entry">
             <a href="/recipes/honey-wallnut-bread/">
-            <div>
-                
-            </div>
-            <div class="media-title">Toasted Walnut and Honey Sourdough</div>
+                <div class="image-container">
+                    
+                </div>
+                <div class="media-title">Toasted Walnut and Honey Sourdough</div>
+            </a>
+        </div>
+
+        
+        
+        
+        
+            
+        
+        <div class="media-entry">
+            <a href="/recipes/sourdough-naan/">
+                <div class="image-container">
+                    
+                    <img src="/recipes/sourdough-naan/img_hu24070169ae76e4c10c0d74b08cb831ea_381026_250x250_fill_q75_box_smart1.jpg" />
+                    
+                </div>
+                <div class="media-title">Sourdough Naan</div>
             </a>
         </div>
 
@@ -130,10 +158,10 @@
         
         <div class="media-entry">
             <a href="/recipes/eggplant-curry/">
-            <div>
-                
-            </div>
-            <div class="media-title">Simple Eggplant Curry</div>
+                <div class="image-container">
+                    
+                </div>
+                <div class="media-title">Simple Eggplant Curry</div>
             </a>
         </div>
 
@@ -145,12 +173,12 @@
         
         <div class="media-entry">
             <a href="/recipes/butternut-carrot-soup/">
-            <div>
-                
-                <img src="/recipes/butternut-carrot-soup/img_hu5d4d4af13a53f9dee6df2227e73445ae_121440_250x0_resize_q75_box.jpg" />
-                
-            </div>
-            <div class="media-title">Butternut carrot soup</div>
+                <div class="image-container">
+                    
+                    <img src="/recipes/butternut-carrot-soup/img_hu559c7597e3bc19d0817e6e03fdb66a25_335792_250x250_fill_q75_box_smart1.jpg" />
+                    
+                </div>
+                <div class="media-title">Butternut carrot soup</div>
             </a>
         </div>
 

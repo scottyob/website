@@ -17,7 +17,7 @@ categories:
 
 ## Method
 1. Preheat oven to 425
-2. Put halves of squash face down with other vegetables (garlic in it's own foil).  Make for 50-60 minutes until tender
+2. Put halves of squash face down with other vegetables (garlic in it's own foil).  Bake for 50-60 minutes until tender
 3. Remove from oven, put into blender with remaining ingredients and Brrrrr.  Dinner is done :)
 
 ## Notes
