@@ -3,7 +3,7 @@
 	url = https://github.com/mfg92/hugo-shortcode-gallery.git
 [submodule "themes/arabica"]
 	path = themes/arabica
-	url = https://github.com/nirocfz/arabica
+	url = https://github.com/scottyob/arabica-scottyob.git
 [submodule "content/flying/generator"]
 	path = content/flying/generator
 	url = git@github.com:scottyob/igc-logbook-generator.git
