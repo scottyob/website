@@ -1,5 +1,1402 @@
 [
   {
+    "date": "2018-01-23",
+    "location": "Ed Levin",
+    "durationSeconds": 60,
+    "wing": "Training",
+    "comment": "First Takeoffs",
+    "launchTime": 1516665600000,
+    "flightNumber": 1
+  },
+  {
+    "date": "2018-01-23",
+    "location": "Ed Levin",
+    "durationSeconds": 60,
+    "wing": "Training",
+    "launchTime": 1516665600001,
+    "flightNumber": 2
+  },
+  {
+    "date": "2018-01-23",
+    "location": "Ed Levin",
+    "durationSeconds": 60,
+    "wing": "Training",
+    "launchTime": 1516665600002,
+    "flightNumber": 3
+  },
+  {
+    "date": "2018-01-23",
+    "location": "Ed Levin",
+    "durationSeconds": 60,
+    "wing": "Training",
+    "launchTime": 1516665600003,
+    "flightNumber": 4
+  },
+  {
+    "date": "2018-01-23",
+    "location": "Ed Levin",
+    "durationSeconds": 60,
+    "wing": "Training",
+    "launchTime": 1516665600004,
+    "flightNumber": 5
+  },
+  {
+    "date": "2018-01-23",
+    "location": "Ed Levin",
+    "durationSeconds": 60,
+    "wing": "Training",
+    "launchTime": 1516665600005,
+    "flightNumber": 6
+  },
+  {
+    "date": "2018-01-27",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "comment": "Start learning about weight shift turns, got better at looking on outside of riser while turning",
+    "launchTime": 1517011200006,
+    "flightNumber": 7
+  },
+  {
+    "date": "2018-01-27",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "launchTime": 1517011200007,
+    "flightNumber": 8
+  },
+  {
+    "date": "2018-01-27",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "launchTime": 1517011200008,
+    "flightNumber": 9
+  },
+  {
+    "date": "2018-01-31",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "comment": "Stabilo, One handed flight, Big ears, Reverse launches.",
+    "launchTime": 1517356800009,
+    "flightNumber": 10
+  },
+  {
+    "date": "2018-01-31",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "launchTime": 1517356800010,
+    "flightNumber": 11
+  },
+  {
+    "date": "2018-01-31",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "launchTime": 1517356800011,
+    "flightNumber": 12
+  },
+  {
+    "date": "2018-01-31",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "launchTime": 1517356800012,
+    "flightNumber": 13
+  },
+  {
+    "date": "2018-01-31",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "launchTime": 1517356800013,
+    "flightNumber": 14
+  },
+  {
+    "date": "2018-01-31",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "launchTime": 1517356800014,
+    "flightNumber": 15
+  },
+  {
+    "date": "2018-02-03",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "comment": "Reverse Launches",
+    "launchTime": 1517616000015,
+    "flightNumber": 16
+  },
+  {
+    "date": "2018-02-03",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "comment": "Spot Landing",
+    "launchTime": 1517616000016,
+    "flightNumber": 17
+  },
+  {
+    "date": "2018-02-03",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "launchTime": 1517616000017,
+    "flightNumber": 18
+  },
+  {
+    "date": "2018-02-03",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "launchTime": 1517616000018,
+    "flightNumber": 19
+  },
+  {
+    "date": "2018-02-03",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "launchTime": 1517616000019,
+    "flightNumber": 20
+  },
+  {
+    "date": "2018-02-03",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "launchTime": 1517616000020,
+    "flightNumber": 21
+  },
+  {
+    "date": "2018-02-04",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "comment": "Spot Landing Yay! (x2) \"I hope you're writing these down\"",
+    "launchTime": 1517702400021,
+    "flightNumber": 22
+  },
+  {
+    "date": "2018-02-04",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "comment": "Big ears",
+    "launchTime": 1517702400022,
+    "flightNumber": 23
+  },
+  {
+    "date": "2018-02-04",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "comment": "Stabilo Tug",
+    "launchTime": 1517702400023,
+    "flightNumber": 24
+  },
+  {
+    "date": "2018-02-04",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "comment": "Rear riser turns",
+    "launchTime": 1517702400024,
+    "flightNumber": 25
+  },
+  {
+    "date": "2018-02-04",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "launchTime": 1517702400025,
+    "flightNumber": 26
+  },
+  {
+    "date": "2018-02-04",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "launchTime": 1517702400026,
+    "flightNumber": 27
+  },
+  {
+    "date": "2018-02-04",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "launchTime": 1517702400027,
+    "flightNumber": 28
+  },
+  {
+    "date": "2018-02-04",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "launchTime": 1517702400028,
+    "flightNumber": 29
+  },
+  {
+    "date": "2018-03-07",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "comment": "More tips on kiting practice, wind too strong.  Elbows in, don't just watch the kite.  Make decisions to kill it.  Hands to the side.  Don't kill it when inflating",
+    "launchTime": 1520380800029,
+    "flightNumber": 30
+  },
+  {
+    "date": "2018-03-07",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "launchTime": 1520380800030,
+    "flightNumber": 31
+  },
+  {
+    "date": "2018-03-12",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "launchTime": 1520812800031,
+    "flightNumber": 32
+  },
+  {
+    "date": "2018-03-30",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "launchTime": 1522368000032,
+    "flightNumber": 33
+  },
+  {
+    "date": "2018-03-31",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "launchTime": 1522454400033,
+    "flightNumber": 34
+  },
+  {
+    "date": "2018-03-31",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "launchTime": 1522454400034,
+    "flightNumber": 35
+  },
+  {
+    "date": "2018-03-31",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "launchTime": 1522454400035,
+    "flightNumber": 36
+  },
+  {
+    "date": "2018-03-31",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "launchTime": 1522454400036,
+    "flightNumber": 37
+  },
+  {
+    "date": "2018-04-21",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "Training",
+    "launchTime": 1524268800037,
+    "flightNumber": 38
+  },
+  {
+    "date": "2018-04-21",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "BGD Epic M",
+    "comment": "Speed bar",
+    "launchTime": 1524268800038,
+    "flightNumber": 39
+  },
+  {
+    "date": "2018-04-21",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "BGD Epic M",
+    "launchTime": 1524268800039,
+    "flightNumber": 40
+  },
+  {
+    "date": "2018-04-21",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "BGD Epic M",
+    "launchTime": 1524268800040,
+    "flightNumber": 41
+  },
+  {
+    "date": "2018-04-22",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "BGD Epic M",
+    "launchTime": 1524355200041,
+    "flightNumber": 42
+  },
+  {
+    "date": "2018-04-22",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "BGD Epic M",
+    "launchTime": 1524355200042,
+    "flightNumber": 43
+  },
+  {
+    "date": "2018-04-22",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "BGD Epic M",
+    "launchTime": 1524355200043,
+    "flightNumber": 44
+  },
+  {
+    "date": "2018-04-22",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "BGD Epic M",
+    "launchTime": 1524355200044,
+    "flightNumber": 45
+  },
+  {
+    "date": "2018-04-28",
+    "location": "Mussel Rock",
+    "durationSeconds": 1200,
+    "wing": "BGD Epic M",
+    "launchTime": 1524873600045,
+    "flightNumber": 46
+  },
+  {
+    "date": "2018-05-08",
+    "location": "Mussel Rock",
+    "durationSeconds": 90,
+    "wing": "BGD Epic M",
+    "comment": "Too liught to fly, Just did little launches and landings",
+    "launchTime": 1525737600046,
+    "flightNumber": 47
+  },
+  {
+    "date": "2018-05-08",
+    "location": "Mussel Rock",
+    "durationSeconds": 90,
+    "wing": "BGD Epic M",
+    "launchTime": 1525737600047,
+    "flightNumber": 48
+  },
+  {
+    "date": "2018-05-08",
+    "location": "Mussel Rock",
+    "durationSeconds": 90,
+    "wing": "BGD Epic M",
+    "launchTime": 1525737600048,
+    "flightNumber": 49
+  },
+  {
+    "date": "2018-05-08",
+    "location": "Mussel Rock",
+    "durationSeconds": 90,
+    "wing": "BGD Epic M",
+    "launchTime": 1525737600049,
+    "flightNumber": 50
+  },
+  {
+    "date": "2018-05-08",
+    "location": "Mussel Rock",
+    "durationSeconds": 90,
+    "wing": "BGD Epic M",
+    "launchTime": 1525737600050,
+    "flightNumber": 51
+  },
+  {
+    "date": "2018-05-08",
+    "location": "Mussel Rock",
+    "durationSeconds": 90,
+    "wing": "BGD Epic M",
+    "launchTime": 1525737600051,
+    "flightNumber": 52
+  },
+  {
+    "date": "2018-05-08",
+    "location": "Mussel Rock",
+    "durationSeconds": 90,
+    "wing": "BGD Epic M",
+    "launchTime": 1525737600052,
+    "flightNumber": 53
+  },
+  {
+    "date": "2018-06-10",
+    "location": "Ed Levin",
+    "durationSeconds": 240,
+    "wing": "BGD Epic M",
+    "comment": "600 intro.  Crabbing in for a spot landing, so close",
+    "launchTime": 1528588800053,
+    "flightNumber": 54
+  },
+  {
+    "date": "2018-06-16",
+    "location": "Ed Levin",
+    "durationSeconds": 240,
+    "wing": "BGD Epic M",
+    "comment": "Keep an eye out for Rotor on landing, in trees, etc",
+    "launchTime": 1529107200054,
+    "flightNumber": 55
+  },
+  {
+    "date": "2018-06-22",
+    "location": "Mussel Rock",
+    "durationSeconds": 90,
+    "wing": "BGD Epic M",
+    "comment": "Sled",
+    "launchTime": 1529625600055,
+    "flightNumber": 56
+  },
+  {
+    "date": "2018-06-22",
+    "location": "Mussel Rock",
+    "durationSeconds": 600,
+    "wing": "BGD Epic M",
+    "comment": "Bit of lift",
+    "launchTime": 1529625600056,
+    "flightNumber": 57
+  },
+  {
+    "date": "2018-07-08",
+    "location": "Mussel Rock",
+    "durationSeconds": 4200,
+    "wing": "BGD Epic M",
+    "comment": "Ridge Soaring",
+    "launchTime": 1531008000057,
+    "flightNumber": 58
+  },
+  {
+    "date": "2018-07-08",
+    "location": "Mussel Rock",
+    "durationSeconds": 3300,
+    "wing": "BGD Epic M",
+    "comment": "Launch from Coyote",
+    "launchTime": 1531008000058,
+    "flightNumber": 59
+  },
+  {
+    "date": "2018-07-14",
+    "location": "Ed Levin",
+    "durationSeconds": 180,
+    "wing": "BGD Epic M",
+    "comment": "Light with pops",
+    "launchTime": 1531526400059,
+    "flightNumber": 60
+  },
+  {
+    "date": "2018-07-15",
+    "location": "Ed Levin",
+    "durationSeconds": 120,
+    "wing": "BGD Epic M",
+    "launchTime": 1531612800060,
+    "flightNumber": 61
+  },
+  {
+    "date": "2018-07-15",
+    "location": "Ed Levin",
+    "durationSeconds": 120,
+    "wing": "BGD Epic M",
+    "comment": "Worst launch ever!!  Too much break",
+    "launchTime": 1531612800061,
+    "flightNumber": 62
+  },
+  {
+    "date": "2018-07-22",
+    "location": "Ed Levin",
+    "durationSeconds": 230,
+    "wing": "BGD Epic M",
+    "comment": "3 failed launches meant I didn't fly 2nd round",
+    "launchTime": 1532217600062,
+    "flightNumber": 63
+  },
+  {
+    "date": "2018-07-28",
+    "location": "Ed Levin",
+    "durationSeconds": 230,
+    "wing": "BGD Epic M",
+    "launchTime": 1532736000063,
+    "flightNumber": 64
+  },
+  {
+    "date": "2018-07-28",
+    "location": "Ed Levin",
+    "durationSeconds": 230,
+    "wing": "BGD Epic M",
+    "launchTime": 1532736000064,
+    "flightNumber": 65
+  },
+  {
+    "date": "2018-09-08",
+    "location": "Sand City",
+    "durationSeconds": 300,
+    "wing": "BGD Epic M",
+    "comment": "First time flying Sand City.  Lots of kiting, walking up",
+    "launchTime": 1536364800065,
+    "flightNumber": 66
+  },
+  {
+    "date": "2018-09-08",
+    "location": "Sand City",
+    "durationSeconds": 300,
+    "wing": "BGD Epic M",
+    "launchTime": 1536364800066,
+    "flightNumber": 67
+  },
+  {
+    "date": "2018-09-08",
+    "location": "Sand City",
+    "durationSeconds": 300,
+    "wing": "BGD Epic M",
+    "launchTime": 1536364800067,
+    "flightNumber": 68
+  },
+  {
+    "date": "2018-09-08",
+    "location": "Sand City",
+    "durationSeconds": 300,
+    "wing": "BGD Epic M",
+    "launchTime": 1536364800068,
+    "flightNumber": 69
+  },
+  {
+    "date": "2018-09-15",
+    "location": "Mussel Rock",
+    "durationSeconds": 6000,
+    "wing": "BGD Epic M",
+    "comment": "Had the entire place to myself.  Smooth",
+    "launchTime": 1536969600069,
+    "flightNumber": 70
+  },
+  {
+    "date": "2018-10-21",
+    "location": "Ed Levin",
+    "durationSeconds": 240,
+    "wing": "BGD Epic M",
+    "launchTime": 1540080000070,
+    "flightNumber": 71
+  },
+  {
+    "date": "2018-10-21",
+    "location": "Mussel Rock",
+    "durationSeconds": 6300,
+    "wing": "BGD Epic M",
+    "launchTime": 1540080000071,
+    "flightNumber": 72
+  },
+  {
+    "date": "2018-10-21",
+    "location": "Mussel Rock",
+    "durationSeconds": 3120,
+    "wing": "BGD Epic M",
+    "comment": "Too strong.  Should have landed earlier",
+    "launchTime": 1540080000072,
+    "flightNumber": 73
+  },
+  {
+    "date": "2018-12-09",
+    "location": "Ed Levin",
+    "durationSeconds": 420,
+    "wing": "BGD Epic M",
+    "comment": "1750!!!!  https://ayvri.com/scene/gdkz419l5z/cjphndpno00023r5h12g9qsoe",
+    "launchTime": 1544313600073,
+    "flightNumber": 74
+  },
+  {
+    "date": "2018-12-09",
+    "location": "Ed Levin",
+    "durationSeconds": 240,
+    "wing": "BGD Epic M",
+    "launchTime": 1544313600074,
+    "flightNumber": 75
+  },
+  {
+    "date": "2018-12-23",
+    "location": "Stanwell Park, Sydney",
+    "durationSeconds": 2700,
+    "wing": "BGD Epic M",
+    "comment": "First AU Flight!! https://ayvri.com/scene/gdkz419l5z/cjq0xe0nz00013r5bexcj2awg",
+    "launchTime": 1545523200075,
+    "flightNumber": 76
+  },
+  {
+    "date": "2019-01-02",
+    "location": "Stanwell Park, Sydney",
+    "durationSeconds": 180,
+    "wing": "BGD Epic M",
+    "launchTime": 1546387200076,
+    "flightNumber": 77
+  },
+  {
+    "date": "2019-01-26",
+    "location": "Ed Levin",
+    "durationSeconds": 180,
+    "wing": "BGD Epic M",
+    "launchTime": 1548460800077,
+    "flightNumber": 78
+  },
+  {
+    "date": "2019-01-26",
+    "location": "Ed Levin",
+    "durationSeconds": 180,
+    "wing": "BGD Epic M",
+    "launchTime": 1548460800078,
+    "flightNumber": 79
+  },
+  {
+    "date": "2019-01-27",
+    "location": "Ed Levin",
+    "durationSeconds": 180,
+    "wing": "BGD Epic M",
+    "launchTime": 1548547200079,
+    "flightNumber": 80
+  },
+  {
+    "date": "2019-01-27",
+    "location": "Ed Levin",
+    "durationSeconds": 180,
+    "wing": "BGD Epic M",
+    "launchTime": 1548547200080,
+    "flightNumber": 81
+  },
+  {
+    "date": "2019-01-27",
+    "location": "Ed Levin",
+    "durationSeconds": 180,
+    "wing": "BGD Epic M",
+    "launchTime": 1548547200081,
+    "flightNumber": 82
+  },
+  {
+    "date": "2019-01-27",
+    "location": "Ed Levin",
+    "durationSeconds": 180,
+    "wing": "BGD Epic M",
+    "launchTime": 1548547200082,
+    "flightNumber": 83
+  },
+  {
+    "date": "2019-01-27",
+    "location": "Ed Levin",
+    "durationSeconds": 180,
+    "wing": "BGD Epic M",
+    "launchTime": 1548547200083,
+    "flightNumber": 84
+  },
+  {
+    "date": "2019-01-27",
+    "location": "Ed Levin",
+    "durationSeconds": 180,
+    "wing": "BGD Epic M",
+    "launchTime": 1548547200084,
+    "flightNumber": 85
+  },
+  {
+    "date": "2019-02-17",
+    "location": "Tapalpa",
+    "durationSeconds": 720,
+    "wing": "BGD Epic M",
+    "comment": "First Mexico Flight!!  More height needed to be comfortable around those power lines",
+    "launchTime": 1550361600085,
+    "flightNumber": 86
+  },
+  {
+    "date": "2019-02-18",
+    "location": "Tapalpa",
+    "durationSeconds": 2940,
+    "wing": "BGD Epic M",
+    "launchTime": 1550448000086,
+    "flightNumber": 87
+  },
+  {
+    "date": "2019-02-18",
+    "location": "Tapalpa",
+    "durationSeconds": 3900,
+    "wing": "BGD Epic M",
+    "launchTime": 1550448000087,
+    "flightNumber": 88
+  },
+  {
+    "date": "2019-02-19",
+    "location": "Tapalpa",
+    "durationSeconds": 3540,
+    "wing": "BGD Epic M",
+    "launchTime": 1550534400088,
+    "flightNumber": 89
+  },
+  {
+    "date": "2019-02-20",
+    "location": "Tapalpa",
+    "durationSeconds": 2640,
+    "wing": "BGD Epic M",
+    "launchTime": 1550620800089,
+    "flightNumber": 90
+  },
+  {
+    "date": "2019-02-20",
+    "location": "Tapalpa",
+    "durationSeconds": 3960,
+    "wing": "BGD Epic M",
+    "launchTime": 1550620800090,
+    "flightNumber": 91
+  },
+  {
+    "date": "2019-02-22",
+    "location": "Colima",
+    "durationSeconds": 4020,
+    "wing": "BGD Epic M",
+    "launchTime": 1550793600091,
+    "flightNumber": 92
+  },
+  {
+    "date": "2019-03-03",
+    "location": "Mussel Rock",
+    "durationSeconds": 4260,
+    "wing": "BGD Epic M",
+    "comment": "Started to play with wing unders.  https://ayvri.com/scene/gdkz419l5z/cjsttbjo100013h6480o29xa5",
+    "launchTime": 1551571200092,
+    "flightNumber": 93
+  },
+  {
+    "date": "2019-03-16",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "BGD Epic M",
+    "launchTime": 1552694400093,
+    "flightNumber": 94
+  },
+  {
+    "date": "2019-03-16",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "BGD Epic M",
+    "comment": "P3 Spot",
+    "launchTime": 1552694400094,
+    "flightNumber": 95
+  },
+  {
+    "date": "2019-03-16",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "BGD Epic M",
+    "comment": "P3 Spot",
+    "launchTime": 1552694400095,
+    "flightNumber": 96
+  },
+  {
+    "date": "2019-03-17",
+    "location": "Ed Levin",
+    "durationSeconds": 90,
+    "wing": "BGD Epic M",
+    "comment": "P3 Spot.  Holy crap.  3 in a row",
+    "launchTime": 1552780800096,
+    "flightNumber": 97
+  },
+  {
+    "date": "2019-03-21",
+    "location": "Mussel Rock",
+    "durationSeconds": 7320,
+    "wing": "BGD Epic M",
+    "launchTime": 1553126400097,
+    "flightNumber": 98
+  },
+  {
+    "date": "2019-04-28",
+    "location": "Ed Levin",
+    "durationSeconds": 1200,
+    "wing": "BGD Epic M",
+    "comment": "Jesse Meyer - 1750 sign off USHPA 83606",
+    "launchTime": 1556409600098,
+    "flightNumber": 99
+  },
+  {
+    "date": "2019-04-30",
+    "location": "Mussel Rock",
+    "durationSeconds": 6000,
+    "wing": "BGD Epic M",
+    "launchTime": 1556582400099,
+    "flightNumber": 100
+  },
+  {
+    "date": "2019-05-02",
+    "location": "Mussel Rock",
+    "durationSeconds": 7320,
+    "wing": "BGD Epic M",
+    "launchTime": 1556755200100,
+    "flightNumber": 101
+  },
+  {
+    "date": "2019-07-07",
+    "wing": "BDG EN-B",
+    "durationSeconds": 340,
+    "maxDistanceMeters": 854.6971301425799,
+    "maxAltitudeMeters": 322,
+    "trackLengthMeters": 1666.777197716081,
+    "altitudeGainMeters": 44,
+    "launchTime": 1562517877000,
+    "launchName": "TO (WNW-SW) Ed Levin_2",
+    "fileName": "2019-07-07-XAH-bqz-01.igc",
+    "location": "Ed Levin",
+    "flightNumber": 102
+  },
+  {
+    "date": "2019-07-07",
+    "wing": "BDG EN-B",
+    "durationSeconds": 249,
+    "maxDistanceMeters": 693.870081007721,
+    "maxAltitudeMeters": 322,
+    "trackLengthMeters": 1660.3787199962885,
+    "altitudeGainMeters": 43,
+    "launchTime": 1562523753000,
+    "launchName": "TO (WNW-SW) Ed Levin_2",
+    "fileName": "2019-07-07-XAH-bqz-02.igc",
+    "location": "Ed Levin",
+    "flightNumber": 103
+  },
+  {
+    "date": "2019-07-21",
+    "wing": "BDG EN-B",
+    "durationSeconds": 710,
+    "maxDistanceMeters": 1977.665113400361,
+    "maxAltitudeMeters": 679,
+    "trackLengthMeters": 4151.345068121396,
+    "altitudeGainMeters": 59,
+    "launchTime": 1563727110000,
+    "launchName": "TO (SW) Ed Levin_1",
+    "fileName": "2019-07-21-XAH-bqz-03.igc",
+    "location": "Ed Levin",
+    "flightNumber": 104
+  },
+  {
+    "date": "2019-07-21",
+    "wing": "BDG EN-B",
+    "durationSeconds": 574,
+    "maxDistanceMeters": 1971.6337672605318,
+    "maxAltitudeMeters": 673,
+    "trackLengthMeters": 4071.579278034167,
+    "altitudeGainMeters": 43,
+    "launchTime": 1563730950000,
+    "launchName": "TO (SW) Ed Levin_1",
+    "fileName": "2019-07-21-XAH-bqz-04.igc",
+    "comment": "Vika's Wing",
+    "location": "Ed Levin",
+    "flightNumber": 105
+  },
+  {
+    "date": "2019-07-28",
+    "wing": "BDG EN-B",
+    "durationSeconds": 638,
+    "maxDistanceMeters": 2079.799571010869,
+    "maxAltitudeMeters": 676,
+    "trackLengthMeters": 4094.4384530893653,
+    "altitudeGainMeters": 48,
+    "launchTime": 1564342414000,
+    "launchName": "TO (SW) Ed Levin_1",
+    "fileName": "2019-07-28-XAH-bqz-05.igc",
+    "location": "Ed Levin",
+    "flightNumber": 106
+  },
+  {
+    "date": "2019-08-04",
+    "wing": "BDG EN-B",
+    "durationSeconds": 629,
+    "maxDistanceMeters": 2022.0772888521285,
+    "maxAltitudeMeters": 670,
+    "trackLengthMeters": 4294.361529507019,
+    "altitudeGainMeters": 68,
+    "launchTime": 1564943772000,
+    "launchName": "TO (SW) Ed Levin_1",
+    "fileName": "2019-08-04-XAH-bqz-06.igc",
+    "location": "Ed Levin",
+    "flightNumber": 107
+  },
+  {
+    "date": "2019-08-31",
+    "wing": "BDG EN-B",
+    "durationSeconds": 2385,
+    "maxDistanceMeters": 9836.018629513475,
+    "maxAltitudeMeters": 3383,
+    "trackLengthMeters": 12431.0924823812,
+    "altitudeGainMeters": 89,
+    "launchTime": 1567261530000,
+    "launchName": "TO (W) Monroe Peak (Richfield)",
+    "fileName": "2019-08-31-XAH-bqz-07.igc",
+    "comment": "Awwsome high mountain",
+    "location": "Monroe",
+    "flightNumber": 108
+  },
+  {
+    "date": "2019-08-31",
+    "wing": "BDG EN-B",
+    "durationSeconds": 2432,
+    "maxDistanceMeters": 9726.175357129552,
+    "maxAltitudeMeters": 3393,
+    "trackLengthMeters": 12169.267879546096,
+    "altitudeGainMeters": 195,
+    "launchTime": 1567270144000,
+    "launchName": "TO (W) Monroe Peak (Richfield)",
+    "fileName": "2019-08-31-XAH-bqz-08.igc",
+    "location": "Monroe",
+    "flightNumber": 109
+  },
+  {
+    "date": "2019-09-01",
+    "wing": "BDG EN-B",
+    "durationSeconds": 4340,
+    "maxDistanceMeters": 5594.089644704172,
+    "maxAltitudeMeters": 3188,
+    "trackLengthMeters": 32646.679843969927,
+    "altitudeGainMeters": 1426,
+    "launchTime": 1567299863000,
+    "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
+    "fileName": "2019-09-01-XAH-bqz-09.igc",
+    "comment": "Had to land due to sunset, working my way up the hill.",
+    "location": "Monroe",
+    "flightNumber": 110
+  },
+  {
+    "date": "2019-09-02",
+    "wing": "BDG EN-B",
+    "durationSeconds": 766,
+    "maxDistanceMeters": 5431.712478847933,
+    "maxAltitudeMeters": 2657,
+    "trackLengthMeters": 7126.702976097011,
+    "altitudeGainMeters": 12,
+    "launchTime": 1567434657000,
+    "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
+    "fileName": "2019-09-02-XAH-bqz-10.igc",
+    "location": "Monroe",
+    "flightNumber": 111
+  },
+  {
+    "date": "2019-09-02",
+    "wing": "BDG EN-B",
+    "durationSeconds": 1211,
+    "maxDistanceMeters": 8772.691403384273,
+    "maxAltitudeMeters": 3380,
+    "trackLengthMeters": 10889.88359241661,
+    "altitudeGainMeters": 34,
+    "launchTime": 1567441318000,
+    "launchName": "TO (W) Monroe Peak (Richfield)",
+    "fileName": "2019-09-02-XAH-bqz-11.igc",
+    "comment": "Landed short, wanted to play it safe and landed before the power lines",
+    "location": "Monroe",
+    "flightNumber": 112
+  },
+  {
+    "date": "2019-09-29",
+    "wing": "BDG EN-B",
+    "durationSeconds": 2125,
+    "maxDistanceMeters": 2053.1306094496504,
+    "maxAltitudeMeters": 885,
+    "trackLengthMeters": 12309.903373950627,
+    "altitudeGainMeters": 923,
+    "launchTime": 1569781837000,
+    "launchName": "TO (SW) Ed Levin_1",
+    "fileName": "2019-09-29-XAH-bqz-12.igc",
+    "location": "Ed Levin",
+    "flightNumber": 113
+  },
+  {
+    "date": "2019-10-13",
+    "wing": "BDG EN-B",
+    "durationSeconds": 1919,
+    "maxDistanceMeters": 24.2115789164863,
+    "maxAltitudeMeters": 327,
+    "trackLengthMeters": 813.6413158017593,
+    "altitudeGainMeters": 248,
+    "launchTime": 1570989486000,
+    "launchName": "TO (WNW-SW) Ed Levin_2",
+    "fileName": "2019-10-13-XAH-bqz-13.igc",
+    "location": "Ed Levin",
+    "flightNumber": 114
+  },
+  {
+    "date": "2019-10-13",
+    "wing": "BDG EN-B",
+    "durationSeconds": 690,
+    "maxDistanceMeters": 1768.3601663963059,
+    "maxAltitudeMeters": 636,
+    "trackLengthMeters": 3869.6454975609854,
+    "altitudeGainMeters": 84,
+    "launchTime": 1571000005000,
+    "launchName": "TO (SW) Ed Levin_1",
+    "fileName": "2019-10-13-XAH-bqz-14.igc",
+    "location": "Ed Levin",
+    "flightNumber": 115
+  },
+  {
+    "date": "2019-10-19",
+    "wing": "BDG EN-B",
+    "durationSeconds": 881,
+    "maxDistanceMeters": 2076.8969218884013,
+    "maxAltitudeMeters": 677,
+    "trackLengthMeters": 6161.692835323072,
+    "altitudeGainMeters": 233,
+    "launchTime": 1571510038000,
+    "launchName": "TO (SW) Ed Levin_1",
+    "fileName": "2019-10-19-XAH-bqz-15.igc",
+    "location": "Ed Levin",
+    "flightNumber": 116
+  },
+  {
+    "date": "2019-10-26",
+    "wing": "BDG EN-B",
+    "durationSeconds": 516,
+    "maxDistanceMeters": 710.5058217116202,
+    "maxAltitudeMeters": 314,
+    "trackLengthMeters": 1285.0085400316573,
+    "altitudeGainMeters": 58,
+    "launchTime": 1572107634000,
+    "launchName": "TO (WNW-SW) Ed Levin_2",
+    "fileName": "2019-10-26-XAH-bqz-16.igc",
+    "location": "Ed Levin",
+    "flightNumber": 117
+  },
+  {
+    "date": "2019-10-26",
+    "wing": "BDG EN-B",
+    "durationSeconds": 160,
+    "maxDistanceMeters": 697.1836413369,
+    "maxAltitudeMeters": 318,
+    "trackLengthMeters": 1113.4916106680432,
+    "altitudeGainMeters": 4,
+    "launchTime": 1572110053000,
+    "launchName": "TO (WNW-SW) Ed Levin_2",
+    "fileName": "2019-10-26-XAH-bqz-17.igc",
+    "location": "Ed Levin",
+    "flightNumber": 118
+  },
+  {
+    "date": "2019-10-26",
+    "wing": "BDG EN-B",
+    "durationSeconds": 278,
+    "maxDistanceMeters": 710.2575647995747,
+    "maxAltitudeMeters": 319,
+    "trackLengthMeters": 1445.796366701528,
+    "altitudeGainMeters": 26,
+    "launchTime": 1572114434000,
+    "launchName": "TO (WNW-SW) Ed Levin_2",
+    "fileName": "2019-10-26-XAH-bqz-18.igc",
+    "location": "Ed Levin",
+    "flightNumber": 119
+  },
+  {
+    "date": "2019-11-03",
+    "wing": "BDG EN-B",
+    "durationSeconds": 698,
+    "maxDistanceMeters": 1394.5641608594897,
+    "maxAltitudeMeters": 571,
+    "trackLengthMeters": 3726.160541381005,
+    "altitudeGainMeters": 73,
+    "launchTime": 1572789410000,
+    "launchName": "TOC (W) Iquique_Alto Hospicio",
+    "fileName": "2019-11-03-XAH-bqz-19.igc",
+    "comment": "First day flying here.  Landed well before the beach at the basketball court",
+    "location": "Iquique",
+    "flightNumber": 120
+  },
+  {
+    "date": "2019-11-03",
+    "wing": "BDG EN-B",
+    "durationSeconds": 9873,
+    "maxDistanceMeters": 4333.609538467446,
+    "maxAltitudeMeters": 673,
+    "trackLengthMeters": 63268.43163747966,
+    "altitudeGainMeters": 3280,
+    "launchTime": 1572811222000,
+    "launchName": "TOC (WSW-SW) Iquique_Palo Buque_lower start",
+    "fileName": "2019-11-03-XAH-bqz-20.igc",
+    "comment": "First time flying Palo.  Epic long flight :)",
+    "location": "Palo Buque",
+    "flightNumber": 121
+  },
+  {
+    "date": "2019-11-04",
+    "wing": "BDG EN-B",
+    "durationSeconds": 1376,
+    "maxDistanceMeters": 5332.762151836008,
+    "maxAltitudeMeters": 772,
+    "trackLengthMeters": 11078.396183559118,
+    "altitudeGainMeters": 478,
+    "launchTime": 1572874455000,
+    "launchName": "TOC (W) Iquique_Alto Hospicio",
+    "fileName": "2019-11-04-XAH-bqz-21.igc",
+    "comment": "First day flying in and around clouds.  Spent my most of my flight around the jail away from the group.  Some time above clouds, but I found the most lift on the edges of the cloud",
+    "location": "Iquique",
+    "flightNumber": 122
+  },
+  {
+    "date": "2019-11-04",
+    "wing": "BDG EN-B",
+    "durationSeconds": 1679,
+    "maxDistanceMeters": 1883.584585858294,
+    "maxAltitudeMeters": 568,
+    "trackLengthMeters": 10081.853462331394,
+    "altitudeGainMeters": 669,
+    "launchTime": 1572896937000,
+    "launchName": "TOC (WSW-SW) Iquique_Palo Buque_lower start",
+    "fileName": "2019-11-04-XAH-bqz-22.igc",
+    "comment": "Pushed my bump tollarance.  Way too windy, felt like it was \"chucking me around\".  Only carried 2L of water this flight as it started light, quickly picked up.",
+    "location": "Palo Buque",
+    "flightNumber": 123
+  },
+  {
+    "date": "2019-11-04",
+    "wing": "BDG EN-B",
+    "durationSeconds": 5621,
+    "maxDistanceMeters": 8118.445017005068,
+    "maxAltitudeMeters": 830,
+    "trackLengthMeters": 35372.55795006767,
+    "altitudeGainMeters": 2077,
+    "launchTime": 1572903420000,
+    "launchName": "TOC (WSW-SW) Iquique_Palo Buque_lower start",
+    "fileName": "2019-11-04-XAH-bqz-23.igc",
+    "comment": "Totalling 4L of water on this flight.  Felt much smoother.  Was pushing hard out, was being very careful with the wind to not get any rotor from the hills.",
+    "location": "Palo Buque",
+    "flightNumber": 124
+  },
+  {
+    "date": "2019-11-05",
+    "wing": "BDG EN-B",
+    "durationSeconds": 4048,
+    "maxDistanceMeters": 1913.525755183504,
+    "maxAltitudeMeters": 816,
+    "trackLengthMeters": 29422.507243708722,
+    "altitudeGainMeters": 1829,
+    "launchTime": 1572961091000,
+    "launchName": "TOC (W) Iquique_Alto Hospicio",
+    "fileName": "2019-11-05-XAH-bqz-24.igc",
+    "comment": "Had a good flight, couldn't keep up with Julie though, so ended up bailing when not finding height on the flags.",
+    "location": "Iquique",
+    "flightNumber": 125
+  },
+  {
+    "date": "2019-11-05",
+    "wing": "BDG EN-B",
+    "durationSeconds": 6441,
+    "maxDistanceMeters": 10612.004294859706,
+    "maxAltitudeMeters": 795,
+    "trackLengthMeters": 48304.359874422626,
+    "altitudeGainMeters": 2658,
+    "launchTime": 1572988308000,
+    "launchName": "TOC (WSW-SW) Iquique_Palo Buque_lower start",
+    "fileName": "2019-11-05-XAH-bqz-25.igc",
+    "comment": "Flew with Dustin, went out over some of the ridges, had a great time.",
+    "location": "Palo Buque",
+    "flightNumber": 126
+  },
+  {
+    "date": "2019-11-06",
+    "wing": "BDG EN-B",
+    "durationSeconds": 2130,
+    "maxDistanceMeters": 5506.423507539908,
+    "maxAltitudeMeters": 791,
+    "trackLengthMeters": 14668.890434640824,
+    "altitudeGainMeters": 755,
+    "launchTime": 1573046842000,
+    "launchName": "TOC (W) Iquique_Alto Hospicio",
+    "fileName": "2019-11-06-XAH-bqz-26.igc",
+    "location": "Iquique",
+    "flightNumber": 127
+  },
+  {
+    "date": "2019-11-06",
+    "wing": "BDG EN-B",
+    "durationSeconds": 2595,
+    "maxDistanceMeters": 1430.7276412180115,
+    "maxAltitudeMeters": 822,
+    "trackLengthMeters": 14619.482499985148,
+    "altitudeGainMeters": 1204,
+    "launchTime": 1573071153000,
+    "launchName": "TOC (WSW-SW) Iquique_Palo Buque_lower start",
+    "fileName": "2019-11-06-XAH-bqz-27.igc",
+    "location": "Palo Buque",
+    "flightNumber": 128
+  },
+  {
+    "date": "2019-11-07",
+    "wing": "BDG EN-B",
+    "durationSeconds": 3680,
+    "maxDistanceMeters": 2213.823847133278,
+    "maxAltitudeMeters": 838,
+    "trackLengthMeters": 27956.81002053487,
+    "altitudeGainMeters": 1463,
+    "launchTime": 1573136017000,
+    "launchName": "TOC (W) Iquique_Alto Hospicio",
+    "fileName": "2019-11-07-XAH-bqz-28.igc",
+    "location": "Iquique",
+    "flightNumber": 129
+  },
+  {
+    "date": "2019-11-07",
+    "wing": "BDG EN-B",
+    "durationSeconds": 7138,
+    "maxDistanceMeters": 4006.860155064619,
+    "maxAltitudeMeters": 737,
+    "trackLengthMeters": 52505.704475498875,
+    "altitudeGainMeters": 3156,
+    "launchTime": 1573155982000,
+    "launchName": "TOC (W) Iquique_Alto Hospicio",
+    "fileName": "2019-11-07-XAH-bqz-29.igc",
+    "location": "Iquique",
+    "flightNumber": 130
+  },
+  {
+    "date": "2019-11-08",
+    "wing": "BDG EN-B",
+    "durationSeconds": 3122,
+    "maxDistanceMeters": 4780.37642115651,
+    "maxAltitudeMeters": 820,
+    "trackLengthMeters": 24353.319650626916,
+    "altitudeGainMeters": 1413,
+    "launchTime": 1573221715000,
+    "launchName": "TOC (W) Iquique_Alto Hospicio",
+    "fileName": "2019-11-08-XAH-bqz-30.igc",
+    "location": "Iquique",
+    "flightNumber": 131
+  },
+  {
+    "date": "2019-11-10",
+    "wing": "BDG EN-B",
+    "durationSeconds": 382,
+    "maxDistanceMeters": 564.231454788244,
+    "maxAltitudeMeters": 316,
+    "trackLengthMeters": 2595.9777486297344,
+    "altitudeGainMeters": 58,
+    "launchTime": 1573422890000,
+    "launchName": "TOC (WSW-SW) Iquique_Palo Buque_lower start",
+    "fileName": "2019-11-10-XAH-bqz-31.igc",
+    "location": "Palo Buque",
+    "flightNumber": 132
+  },
+  {
+    "date": "2019-11-11",
+    "wing": "BDG EN-B",
+    "durationSeconds": 821,
+    "maxDistanceMeters": 2217.3420388460268,
+    "maxAltitudeMeters": 570,
+    "trackLengthMeters": 4981.930086015641,
+    "altitudeGainMeters": 35,
+    "launchTime": 1573490060000,
+    "launchName": "TOC (W) Iquique_Alto Hospicio",
+    "fileName": "2019-11-11-XAH-bqz-32.igc",
+    "location": "Iquique",
+    "flightNumber": 133
+  },
+  {
+    "date": "2019-11-11",
+    "wing": "BDG EN-B",
+    "durationSeconds": 3040,
+    "maxDistanceMeters": 1418.5218809951948,
+    "maxAltitudeMeters": 733,
+    "trackLengthMeters": 21441.69287043701,
+    "altitudeGainMeters": 1104,
+    "launchTime": 1573502574000,
+    "launchName": "TOC (WSW-SW) Iquique_Palo Buque_lower start",
+    "fileName": "2019-11-11-XAH-bqz-33.igc",
+    "location": "Palo Buque",
+    "flightNumber": 134
+  },
+  {
+    "date": "2019-11-13",
+    "wing": "BDG EN-B",
+    "durationSeconds": 4951,
+    "maxDistanceMeters": 5517.740796876879,
+    "maxAltitudeMeters": 771,
+    "trackLengthMeters": 36098.26475416771,
+    "altitudeGainMeters": 1876,
+    "launchTime": 1573651000000,
+    "launchName": "TOC (W) Iquique_Alto Hospicio",
+    "fileName": "2019-11-13-XAH-bqz-34.igc",
+    "location": "Iquique",
+    "flightNumber": 135
+  },
+  {
+    "date": "2019-11-13",
+    "wing": "BDG EN-B",
+    "durationSeconds": 5674,
+    "maxDistanceMeters": 1623.7898413231726,
+    "maxAltitudeMeters": 889,
+    "trackLengthMeters": 38744.00586004541,
+    "altitudeGainMeters": 1982,
+    "launchTime": 1573678200000,
+    "launchName": "TOC (WSW-SW) Iquique_Palo Buque_lower start",
+    "fileName": "2019-11-13-XAH-bqz-35.igc",
+    "location": "Palo Buque",
+    "flightNumber": 136
+  },
+  {
+    "date": "2019-11-14",
+    "wing": "BDG EN-B",
+    "durationSeconds": 3246,
+    "maxDistanceMeters": 5475.879640396223,
+    "maxAltitudeMeters": 898,
+    "trackLengthMeters": 25120.601071115037,
+    "altitudeGainMeters": 1508,
+    "launchTime": 1573739303000,
+    "launchName": "TOC (W) Iquique_Alto Hospicio",
+    "fileName": "2019-11-14-XAH-bqz-36.igc",
+    "location": "Iquique",
+    "flightNumber": 137
+  },
+  {
+    "date": "2019-11-14",
+    "wing": "BDG EN-B",
+    "durationSeconds": 4059,
+    "maxDistanceMeters": 1385.0068992581855,
+    "maxAltitudeMeters": 596,
+    "trackLengthMeters": 27993.430405248633,
+    "altitudeGainMeters": 1163,
+    "launchTime": 1573762087000,
+    "launchName": "TOC (WSW-SW) Iquique_Palo Buque_lower start",
+    "fileName": "2019-11-14-XAH-bqz-37.igc",
+    "location": "Palo Buque",
+    "flightNumber": 138
+  },
+  {
+    "date": "2019-11-15",
+    "wing": "BDG EN-B",
+    "durationSeconds": 1059,
+    "maxDistanceMeters": 5429.031207801453,
+    "maxAltitudeMeters": 710,
+    "trackLengthMeters": 7854.162852361232,
+    "altitudeGainMeters": 300,
+    "launchTime": 1573829512000,
+    "launchName": "TOC (W) Iquique_Alto Hospicio",
+    "fileName": "2019-11-15-XAH-bqz-38.igc",
+    "location": "Iquique",
+    "flightNumber": 139
+  },
+  {
+    "date": "2019-11-15",
+    "wing": "BDG EN-B",
+    "durationSeconds": 5716,
+    "maxDistanceMeters": 3180.68050054144,
+    "maxAltitudeMeters": 677,
+    "trackLengthMeters": 30463.44227341067,
+    "altitudeGainMeters": 1871,
+    "launchTime": 1573848944000,
+    "launchName": "TOC (WSW-SW) Iquique_Palo Buque_lower start",
+    "fileName": "2019-11-15-XAH-bqz-39.igc",
+    "location": "Palo Buque",
+    "flightNumber": 140
+  },
+  {
     "date": "2019-11-24",
     "wing": "BDG EN-B",
     "durationSeconds": 385,
@@ -11,7 +1408,7 @@
     "launchName": "TO (WNW-SW) Ed Levin_2",
     "fileName": "2019-11-24-XAH-bqz-40.igc",
     "location": "Ed Levin",
-    "flightNumber": 1
+    "flightNumber": 141
   },
   {
     "date": "2019-11-24",
@@ -25,7 +1422,7 @@
     "launchName": "TO (SW) Ed Levin_1",
     "fileName": "2019-11-24-XAH-bqz-41.igc",
     "location": "Ed Levin",
-    "flightNumber": 2
+    "flightNumber": 142
   },
   {
     "date": "2020-01-04",
@@ -39,7 +1436,7 @@
     "launchName": "TO (SW) Ed Levin_1",
     "fileName": "2020-01-04-XAH-bqz-42.igc",
     "location": "Ed Levin",
-    "flightNumber": 3
+    "flightNumber": 143
   },
   {
     "date": "2020-01-04",
@@ -53,7 +1450,16 @@
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2020-01-04-XAH-bqz-43.igc",
     "location": "Mussel Rock",
-    "flightNumber": 4
+    "flightNumber": 144
+  },
+  {
+    "date": "2020-01-26",
+    "launchName": "SPK (NW) Sand City",
+    "durationSeconds": 0,
+    "comment": "REMOVED.  Junk data from leaving vario on",
+    "launchTime": 1579996800144,
+    "location": "Sand City",
+    "flightNumber": 145
   },
   {
     "date": "2020-01-26",
@@ -67,7 +1473,7 @@
     "launchName": "TOC (NW) Sand City",
     "fileName": "2020-01-26-XAH-bqz-44.igc",
     "location": "Sand City",
-    "flightNumber": 5
+    "flightNumber": 146
   },
   {
     "date": "2020-02-16",
@@ -80,8 +1486,9 @@
     "launchTime": 1581886664000,
     "launchName": "TOC (NW) Sand City",
     "fileName": "2020-02-16-XAH-bqz-45.igc",
+    "comment": "Finally a great Sand City Flight!! :-D  Got to jump the gap and keep heading for a solid 8km from launch",
     "location": "Sand City",
-    "flightNumber": 6
+    "flightNumber": 147
   },
   {
     "date": "2020-02-22",
@@ -95,7 +1502,7 @@
     "launchName": "TOC (NW) Sand City",
     "fileName": "2020-02-22-XAH-bqz-46.igc",
     "location": "Sand City",
-    "flightNumber": 7
+    "flightNumber": 148
   },
   {
     "date": "2020-02-22",
@@ -109,7 +1516,7 @@
     "launchName": "TOC (NW) Sand City",
     "fileName": "2020-02-22-XAH-bqz-47.igc",
     "location": "Sand City",
-    "flightNumber": 8
+    "flightNumber": 149
   },
   {
     "date": "2020-02-22",
@@ -123,7 +1530,7 @@
     "launchName": "TOC (NW) Sand City",
     "fileName": "2020-02-22-XAH-bqz-48.igc",
     "location": "Sand City",
-    "flightNumber": 9
+    "flightNumber": 150
   },
   {
     "date": "2020-02-23",
@@ -137,7 +1544,7 @@
     "launchName": "TOC (NW) Sand City",
     "fileName": "2020-02-23-XAH-bqz-49.igc",
     "location": "Sand City",
-    "flightNumber": 10
+    "flightNumber": 151
   },
   {
     "date": "2020-02-23",
@@ -151,7 +1558,7 @@
     "launchName": "TOC (NW) Sand City",
     "fileName": "2020-02-23-XAH-bqz-50.igc",
     "location": "Sand City",
-    "flightNumber": 11
+    "flightNumber": 152
   },
   {
     "date": "2020-05-18",
@@ -165,7 +1572,7 @@
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2020-05-18-XAH-bqz-51.igc",
     "location": "Mussel Rock",
-    "flightNumber": 12
+    "flightNumber": 153
   },
   {
     "date": "2020-06-13",
@@ -179,7 +1586,7 @@
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2020-06-13-XAH-bqz-52.igc",
     "location": "Mussel Rock",
-    "flightNumber": 13
+    "flightNumber": 154
   },
   {
     "date": "2020-06-13",
@@ -193,7 +1600,7 @@
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2020-06-13-XAH-bqz-53.igc",
     "location": "Mussel Rock",
-    "flightNumber": 14
+    "flightNumber": 155
   },
   {
     "date": "2020-06-14",
@@ -207,7 +1614,7 @@
     "launchName": "TOC (NW) Sand City",
     "fileName": "2020-06-14-XAH-bqz-54.igc",
     "location": "Sand City",
-    "flightNumber": 15
+    "flightNumber": 156
   },
   {
     "date": "2020-07-24",
@@ -221,7 +1628,7 @@
     "launchName": "TOC (W-WNW) North Lake Dune",
     "fileName": "2020-07-24-XAH-bqz-55.igc",
     "location": "Sand City",
-    "flightNumber": 16
+    "flightNumber": 157
   },
   {
     "date": "2020-07-24",
@@ -235,7 +1642,7 @@
     "launchName": "TOC (W-WNW) North Lake Dune",
     "fileName": "2020-07-24-XAH-bqz-56.igc",
     "location": "Sand City",
-    "flightNumber": 17
+    "flightNumber": 158
   },
   {
     "date": "2020-08-05",
@@ -249,7 +1656,7 @@
     "launchName": "TOC (W-WNW) North Lake Dune",
     "fileName": "2020-08-05-XAH-bqz-57.igc",
     "location": "Sand City",
-    "flightNumber": 18
+    "flightNumber": 159
   },
   {
     "date": "2020-09-01",
@@ -263,7 +1670,7 @@
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2020-09-01-XAH-bqz-58.igc",
     "location": "Mussel Rock",
-    "flightNumber": 19
+    "flightNumber": 160
   },
   {
     "date": "2020-09-03",
@@ -277,7 +1684,7 @@
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2020-09-03-XAH-bqz-59.igc",
     "location": "Mussel Rock",
-    "flightNumber": 20
+    "flightNumber": 161
   },
   {
     "date": "2020-09-23",
@@ -291,7 +1698,7 @@
     "launchName": "TO (SW) Mission",
     "fileName": "2020-09-23-XAH-bqz-60.igc",
     "location": "Mission",
-    "flightNumber": 21
+    "flightNumber": 162
   },
   {
     "date": "2020-10-17",
@@ -305,7 +1712,7 @@
     "launchName": "TO (WNW-SW) Ed Levin_2",
     "fileName": "2020-10-17-XAH-bqz-61.igc",
     "location": "Ed Levin",
-    "flightNumber": 22
+    "flightNumber": 163
   },
   {
     "date": "2020-10-17",
@@ -319,7 +1726,7 @@
     "launchName": "TO (WNW-SW) Ed Levin_2",
     "fileName": "2020-10-17-XAH-bqz-62.igc",
     "location": "Ed Levin",
-    "flightNumber": 23
+    "flightNumber": 164
   },
   {
     "date": "2020-10-17",
@@ -333,7 +1740,7 @@
     "launchName": "TO (WNW-SW) Ed Levin_2",
     "fileName": "2020-10-17-XAH-bqz-63.igc",
     "location": "Ed Levin",
-    "flightNumber": 24
+    "flightNumber": 165
   },
   {
     "date": "2020-10-24",
@@ -347,7 +1754,7 @@
     "launchName": "TO (WNW-SW) Ed Levin_2",
     "fileName": "2020-10-24-XAH-bqz-64.igc",
     "location": "Ed Levin",
-    "flightNumber": 25
+    "flightNumber": 166
   },
   {
     "date": "2020-10-24",
@@ -361,7 +1768,7 @@
     "launchName": "TO (WNW-SW) Ed Levin_2",
     "fileName": "2020-10-24-XAH-bqz-65.igc",
     "location": "Ed Levin",
-    "flightNumber": 26
+    "flightNumber": 167
   },
   {
     "date": "2020-11-12",
@@ -375,7 +1782,7 @@
     "launchName": "TO (W-SE) Ed Levin_3",
     "fileName": "2020-11-12-XAH-bqz-66.igc",
     "location": "Ed Levin",
-    "flightNumber": 27
+    "flightNumber": 168
   },
   {
     "date": "2020-11-12",
@@ -389,7 +1796,7 @@
     "launchName": "TO (WNW-SW) Ed Levin_2",
     "fileName": "2020-11-12-XAH-bqz-67.igc",
     "location": "Ed Levin",
-    "flightNumber": 28
+    "flightNumber": 169
   },
   {
     "date": "2020-11-22",
@@ -403,7 +1810,7 @@
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2020-11-22-XAH-bqz-68.igc",
     "location": "Mussel Rock",
-    "flightNumber": 29
+    "flightNumber": 170
   },
   {
     "date": "2020-11-24",
@@ -417,7 +1824,7 @@
     "launchName": "TO (SW) Ed Levin_1",
     "fileName": "2020-11-24-XAH-bqz-69.igc",
     "location": "Ed Levin",
-    "flightNumber": 30
+    "flightNumber": 171
   },
   {
     "date": "2021-02-09",
@@ -431,7 +1838,7 @@
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2021-02-09-XAH-bqz-70.igc",
     "location": "Mussel Rock",
-    "flightNumber": 31
+    "flightNumber": 172
   },
   {
     "date": "2021-02-10",
@@ -445,7 +1852,7 @@
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2021-02-10-XAH-bqz-71.igc",
     "location": "Mussel Rock",
-    "flightNumber": 32
+    "flightNumber": 173
   },
   {
     "date": "2021-02-11",
@@ -459,7 +1866,7 @@
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2021-02-11-XAH-bqz-72.igc",
     "location": "Mussel Rock",
-    "flightNumber": 33
+    "flightNumber": 174
   },
   {
     "date": "2021-04-03",
@@ -472,8 +1879,9 @@
     "launchTime": 1617476835000,
     "launchName": "TOC (W-SW) Dumps - Jungle",
     "fileName": "2021-04-03-XAH-bqz-73.igc",
+    "comment": "Incredible memorable flight.  Red tail hawks were just hovering around and I was a little rude and edged so, so close to them I felt so very close.  They are graceful",
     "location": "Mussel Rock",
-    "flightNumber": 34
+    "flightNumber": 175
   },
   {
     "date": "2021-04-03",
@@ -486,8 +1894,9 @@
     "launchTime": 1617485758000,
     "launchName": "TOC (W-SW) Dumps - Jungle",
     "fileName": "2021-04-03-XAH-bqz-74.igc",
+    "comment": "However, the crows are halarious in that they go on their back and fly inverted and chase one another around just for fun as far as I can tell.",
     "location": "Mussel Rock",
-    "flightNumber": 35
+    "flightNumber": 176
   },
   {
     "date": "2021-04-24",
@@ -500,8 +1909,9 @@
     "launchTime": 1619287386000,
     "launchName": "TO (SW) Ed Levin_1",
     "fileName": "2021-04-24-XAH-bqz-75.igc",
+    "comment": "I believe one of my personal best flights at Ed.",
     "location": "Ed Levin",
-    "flightNumber": 36
+    "flightNumber": 177
   },
   {
     "date": "2021-05-15",
@@ -515,7 +1925,22 @@
     "launchName": "TO (SW) Ed Levin_1",
     "fileName": "2021-05-15-XAH-bqz-76.igc",
     "location": "Ed Levin",
-    "flightNumber": 37
+    "flightNumber": 178
+  },
+  {
+    "date": "2021-05-22",
+    "wing": "BGD Epic",
+    "durationSeconds": 3721,
+    "maxDistanceMeters": 4495.388550275605,
+    "maxAltitudeMeters": 1938,
+    "trackLengthMeters": 27374.56920191484,
+    "altitudeGainMeters": 2080,
+    "launchTime": 1621710879000,
+    "comment": "TASK",
+    "launchName": "TO (SW-W) Dunlap",
+    "fileName": "2021-05-22-XFH-000-01.IGC",
+    "location": "Dunlap",
+    "flightNumber": 179
   },
   {
     "date": "2021-05-22",
@@ -528,8 +1953,37 @@
     "launchTime": 1621710883000,
     "launchName": "TO (SW-W) Dunlap",
     "fileName": "2021-05-22-XAH-bqz-77.igc",
+    "comment": "Stress level 8/10.  Writeup https://www.facebook.com/sob/posts/10161167229473761",
     "location": "Dunlap",
-    "flightNumber": 38
+    "flightNumber": 180
+  },
+  {
+    "date": "2021-05-23",
+    "wing": "BGD Epic",
+    "durationSeconds": 1848,
+    "maxDistanceMeters": 4654.7337544944485,
+    "maxAltitudeMeters": 1460,
+    "trackLengthMeters": 15446.456025382036,
+    "altitudeGainMeters": 1107,
+    "launchTime": 1621786313000,
+    "comment": "TASK",
+    "fileName": "2021-05-23-XFH-000-01.IGC",
+    "flightNumber": 181
+  },
+  {
+    "date": "2021-05-23",
+    "wing": "BGD Epic",
+    "durationSeconds": 2756,
+    "maxDistanceMeters": 4498.971141931784,
+    "maxAltitudeMeters": 2044,
+    "trackLengthMeters": 22271.28809872149,
+    "altitudeGainMeters": 1674,
+    "launchTime": 1621793977000,
+    "comment": "TASK",
+    "launchName": "TO (SW-W) Dunlap",
+    "fileName": "2021-05-23-XFH-000-02.IGC",
+    "location": "Dunlap",
+    "flightNumber": 182
   },
   {
     "date": "2021-05-23",
@@ -543,7 +1997,16 @@
     "launchName": "TO (SW-W) Dunlap",
     "fileName": "2021-05-23-XAH-bqz-78.igc",
     "location": "Dunlap",
-    "flightNumber": 39
+    "flightNumber": 183
+  },
+  {
+    "date": "2021-05-30",
+    "location": "Sand city ",
+    "durationSeconds": 1800,
+    "wing": "BDG EN-B",
+    "comment": "forgot vario ",
+    "launchTime": 1622332800179,
+    "flightNumber": 184
   },
   {
     "date": "2021-06-05",
@@ -557,7 +2020,7 @@
     "launchName": "TOC (W-SW) Dumps - Jungle",
     "fileName": "2021-06-05-XAH-bqz-79.igc",
     "location": "Mussel Rock",
-    "flightNumber": 40
+    "flightNumber": 185
   },
   {
     "date": "2021-06-10",
@@ -571,7 +2034,7 @@
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2021-06-10-XAH-bqz-80.igc",
     "location": "Mussel Rock",
-    "flightNumber": 41
+    "flightNumber": 186
   },
   {
     "date": "2021-06-11",
@@ -585,7 +2048,25 @@
     "launchName": "TOC Dumps - Walker's",
     "fileName": "2021-06-11-XAH-bqz-81.igc",
     "location": "Mussel Rock",
-    "flightNumber": 42
+    "flightNumber": 187
+  },
+  {
+    "date": "2021-07-05",
+    "location": "Ed Levin",
+    "durationSeconds": 360,
+    "wing": "BDG EN-B",
+    "comment": "Forgot Vario ",
+    "launchTime": 1625443200180,
+    "flightNumber": 188
+  },
+  {
+    "date": "2021-07-05",
+    "location": "Ed Levin",
+    "durationSeconds": 360,
+    "wing": "BDG EN-B",
+    "comment": "Forgot Vario ",
+    "launchTime": 1625443200181,
+    "flightNumber": 189
   },
   {
     "date": "2021-07-10",
@@ -599,7 +2080,34 @@
     "launchName": "TO (WNW-SW) Ed Levin_2",
     "fileName": "2021-07-10-XAH-bqz-82.igc",
     "location": "Ed Levin",
-    "flightNumber": 43
+    "flightNumber": 190
+  },
+  {
+    "date": "2021-08-03",
+    "location": "Mussel Rock",
+    "durationSeconds": 900,
+    "wing": "BDG EN-B",
+    "comment": "Forgot Vario ",
+    "launchTime": 1627948800182,
+    "flightNumber": 191
+  },
+  {
+    "date": "2021-08-03",
+    "location": "Mussel Rock",
+    "durationSeconds": 900,
+    "wing": "BDG EN-B",
+    "comment": "Forgot Vario ",
+    "launchTime": 1627948800183,
+    "flightNumber": 192
+  },
+  {
+    "date": "2021-08-03",
+    "location": "Mussel Rock",
+    "durationSeconds": 240,
+    "wing": "BDG EN-B",
+    "comment": "Forgot Vario ",
+    "launchTime": 1627948800184,
+    "flightNumber": 193
   },
   {
     "date": "2021-09-11",
@@ -612,8 +2120,9 @@
     "launchTime": 1631383697000,
     "launchName": "TO (SW) Ed Levin_1",
     "fileName": "2021-09-11-XAH-bqz-83.igc",
+    "comment": "Hike and fly, needed more water.  Uneventful, tried to get a spot landing but managed to sink out a little bit at the very end and just missed it.",
     "location": "Ed Levin",
-    "flightNumber": 44
+    "flightNumber": 194
   },
   {
     "date": "2021-09-11",
@@ -626,8 +2135,9 @@
     "launchTime": 1631400607000,
     "launchName": "TO (SW) Mission",
     "fileName": "2021-09-11-XAH-bqz-84.igc",
+    "comment": "2nd time flying.  Dave Oddy was sponsor.  Fantastic 50 minute flight, Dave mentioned that if we punch out and down a bit, the ridges near the horses trail (trail switching back) are good for some lift.  I found a tiny bit there before landing and managed to sustain my flight for a fair bit.  I'm fairly proud of this.  I feel I may have flown when others landed due to having more of a risk tollerance when ridge soaring.  This may be a dangerous thing though that I'll need to keep evaluating.",
     "location": "Mission",
-    "flightNumber": 45
+    "flightNumber": 195
   },
   {
     "date": "2021-09-16",
@@ -641,7 +2151,7 @@
     "launchName": "TO (SE-SSE) Point of the Mountain (South)",
     "fileName": "2021-09-16-XAH-bqz-01.igc",
     "location": "Point of the Mountain",
-    "flightNumber": 46
+    "flightNumber": 196
   },
   {
     "date": "2021-09-16",
@@ -654,8 +2164,9 @@
     "launchTime": 1631806052000,
     "launchName": "TO (SE-SSE) Point of the Mountain (South)",
     "fileName": "2021-09-16-XAH-bqz-02.igc",
+    "comment": "First time flying point of the mountain.  What's interesting here is that I had plenty of height and probably could have pushed out the back.  Was talking to harry who mentioned he likes to push back if he has the height towards the end of the parking lot and move to the far side to make it easy to bail out and land if need be.  Would have liked to do this.  Short flight as I was losing light and wanted to wait for the wind to calm down a little bit.  There was an event where someone died this flight which put me on edge.  A speed wing pilot who was doing barrel rolls.",
     "location": "Point of the Mountain",
-    "flightNumber": 47
+    "flightNumber": 197
   },
   {
     "date": "2021-09-17",
@@ -669,7 +2180,7 @@
     "launchName": "NEW: SP (NW) Point of the Mountain (North)",
     "fileName": "2021-09-17-XAH-bqz-03.igc",
     "location": "Point of the Mountain",
-    "flightNumber": 48
+    "flightNumber": 198
   },
   {
     "date": "2021-09-21",
@@ -682,8 +2193,24 @@
     "launchTime": 1632183385000,
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-09-21-XAH-bqz-04.igc",
+    "comment": "First cove flight after I got here.  Not far above launch.  Sled run.  6:30pm",
     "location": "Monroe",
-    "flightNumber": 49
+    "flightNumber": 199
+  },
+  {
+    "date": "2021-09-21",
+    "wing": "BGD Epic",
+    "durationSeconds": 843,
+    "maxDistanceMeters": 5509.289035772909,
+    "maxAltitudeMeters": 2658,
+    "trackLengthMeters": 7724.524508151601,
+    "altitudeGainMeters": 31,
+    "launchTime": 1632265849000,
+    "comment": "TASK",
+    "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
+    "fileName": "2021-09-21-XFH-000-01.IGC",
+    "location": "Monroe",
+    "flightNumber": 200
   },
   {
     "date": "2021-09-21",
@@ -696,8 +2223,9 @@
     "launchTime": 1632265868000,
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-09-21-XAH-bqz-05.igc",
+    "comment": "5:11pm flight.  Went up early afternoon to help setup, then had an afternoon flight.  Just got below ridge and decided to head back instead of trying to save it.  Interesting very short flight",
     "location": "Monroe",
-    "flightNumber": 50
+    "flightNumber": 201
   },
   {
     "date": "2021-09-22",
@@ -710,8 +2238,9 @@
     "launchTime": 1632333203000,
     "launchName": "TO (W) Monroe Peak (Richfield)",
     "fileName": "2021-09-22-XAH-bqz-06.igc",
+    "comment": "Some thermals, morning flight though, just before midday, not strong enough or didn't manage to find the lift the others did.  Looking at track log, I had some lift I flew right through that I could have worked more.",
     "location": "Monroe",
-    "flightNumber": 51
+    "flightNumber": 202
   },
   {
     "date": "2021-09-23",
@@ -724,8 +2253,24 @@
     "launchTime": 1632356717000,
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-09-23-XAH-bqz-07.igc",
+    "comment": "6:30pm, great long flight.  Much like a previous trip flying cove where I could have benched back if I had the time.  Alex decided to head back as we were losing light, so this ended up being a good call.  Finished packing up at night fall.  Loved this flight, easy lift, amazing.  until the end, lift seemed more ridge lift",
     "location": "Monroe",
-    "flightNumber": 52
+    "flightNumber": 203
+  },
+  {
+    "date": "2021-09-23",
+    "wing": "BGD Epic",
+    "durationSeconds": 3621,
+    "maxDistanceMeters": 5267.905447648424,
+    "maxAltitudeMeters": 3157,
+    "trackLengthMeters": 27725.70078148889,
+    "altitudeGainMeters": 1236,
+    "launchTime": 1632357018000,
+    "comment": "TASK",
+    "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
+    "fileName": "2021-09-23-XFH-000-01.IGC",
+    "location": "Monroe",
+    "flightNumber": 204
   },
   {
     "date": "2021-09-23",
@@ -738,8 +2283,24 @@
     "launchTime": 1632418671000,
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-09-23-XAH-bqz-08.igc",
+    "comment": "11:30am.  FANTASTIC!  It seemed very mellow, even on the way down it was all very mellow.  Got to ride up the ridge right up to 11,700 feet but got a little bit concerned with the strength at this point, so decided to push out and land in the LZ.  I had plenty of height on ground",
     "location": "Monroe",
-    "flightNumber": 53
+    "flightNumber": 205
+  },
+  {
+    "date": "2021-09-23",
+    "wing": "BGD Epic",
+    "durationSeconds": 1097,
+    "maxDistanceMeters": 5301.67845627612,
+    "maxAltitudeMeters": 3140,
+    "trackLengthMeters": 7713.611743848305,
+    "altitudeGainMeters": 584,
+    "launchTime": 1632431701000,
+    "comment": "TASK",
+    "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
+    "fileName": "2021-09-23-XFH-000-02.IGC",
+    "location": "Monroe",
+    "flightNumber": 206
   },
   {
     "date": "2021-09-23",
@@ -752,8 +2313,24 @@
     "launchTime": 1632431720000,
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-09-23-XAH-bqz-09.igc",
+    "comment": "> 2,000 feet per minute alti change! Went up for an afternoon flight.  This was some very, very punchy thermals that I didn't love, so decided to go out and land.  Made a call to do a 360 to loose some height in sink, that ended up being the wrong one, as there was tons of sink heading to the LZ.  Probably would not fly this in a hurry and would work up to this active air",
     "location": "Monroe",
-    "flightNumber": 54
+    "flightNumber": 207
+  },
+  {
+    "date": "2021-09-24",
+    "wing": "BGD Epic",
+    "durationSeconds": 2455,
+    "maxDistanceMeters": 5745.584697725173,
+    "maxAltitudeMeters": 3669,
+    "trackLengthMeters": 21852.051128506573,
+    "altitudeGainMeters": 1175,
+    "launchTime": 1632513666000,
+    "comment": "TASK",
+    "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
+    "fileName": "2021-09-24-XFH-000-01.IGC",
+    "location": "Monroe",
+    "flightNumber": 208
   },
   {
     "date": "2021-09-24",
@@ -766,8 +2343,9 @@
     "launchTime": 1632513677000,
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-09-24-XAH-bqz-10.igc",
+    "comment": "Great conditions, went above launch and the peak, decided not to head back.  Came down after I wasn't sure about height, oxygen or how bumpy it'd be.  This is the first time I've felt really comfortable in active air, where I was happy with the active piloting and little bumps and dives.  Just practice I guess.  Learned that to make cove club I need to be up behind the ridge.   Interesting moment was on my way down, being eye to eye with a sail plane after having passed them a few thousand feet above.",
     "location": "Monroe",
-    "flightNumber": 55
+    "flightNumber": 209
   },
   {
     "date": "2021-09-25",
@@ -780,8 +2358,9 @@
     "launchTime": 1632593372000,
     "launchName": "TO (W) Monroe Peak (Richfield)",
     "fileName": "2021-09-25-XAH-bqz-11.igc",
+    "comment": "WHAT A FLIGHT!  Made it from Monroe peak, to Cove mountain.  Had a bit of a low save off Monroe, not finding lift off the bat.  I couldn't seem to work Cove back up to the mountain and took a 40% colapse during flight, which made me want to land.  Looking at the track logs, I feel I may have left a thermal to go searching for stronger lift when I should have stuck with it more.  Fantastic flight",
     "location": "Monroe",
-    "flightNumber": 56
+    "flightNumber": 210
   },
   {
     "date": "2021-09-26",
@@ -794,8 +2373,24 @@
     "launchTime": 1632615146000,
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-09-26-XAH-bqz-12.igc",
+    "comment": "200th logged flight!  Having pulled a stick out of my wing and ruined my packing method, I was slow off launch and it had turned off by the time I got in the air.",
     "location": "Monroe",
-    "flightNumber": 57
+    "flightNumber": 211
+  },
+  {
+    "date": "2021-09-26",
+    "wing": "BGD Epic",
+    "durationSeconds": 1458,
+    "maxDistanceMeters": 5615.037636386364,
+    "maxAltitudeMeters": 2953,
+    "trackLengthMeters": 12504.08214170018,
+    "altitudeGainMeters": 92,
+    "launchTime": 1632616450000,
+    "comment": "TASK",
+    "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
+    "fileName": "2021-09-26-XFH-000-01.IGC",
+    "location": "Monroe",
+    "flightNumber": 212
   },
   {
     "date": "2021-09-26",
@@ -809,7 +2404,22 @@
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-09-26-XAH-bqz-13.igc",
     "location": "Monroe",
-    "flightNumber": 58
+    "flightNumber": 213
+  },
+  {
+    "date": "2021-09-27",
+    "wing": "BGD Epic",
+    "durationSeconds": 787,
+    "maxDistanceMeters": 5574.379899832291,
+    "maxAltitudeMeters": 2656,
+    "trackLengthMeters": 7482.733412175266,
+    "altitudeGainMeters": 106,
+    "launchTime": 1632772596000,
+    "comment": "TASK",
+    "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
+    "fileName": "2021-09-27-XFH-000-01.IGC",
+    "location": "Monroe",
+    "flightNumber": 214
   },
   {
     "date": "2021-09-27",
@@ -823,7 +2433,22 @@
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-09-27-XAH-bqz-14.igc",
     "location": "Monroe",
-    "flightNumber": 59
+    "flightNumber": 215
+  },
+  {
+    "date": "2021-09-29",
+    "wing": "BGD Epic",
+    "durationSeconds": 1018,
+    "maxDistanceMeters": 5405.320678058152,
+    "maxAltitudeMeters": 2665,
+    "trackLengthMeters": 9340.309064736353,
+    "altitudeGainMeters": 158,
+    "launchTime": 1632952833000,
+    "comment": "TASK",
+    "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
+    "fileName": "2021-09-29-XFH-000-01.IGC",
+    "location": "Monroe",
+    "flightNumber": 216
   },
   {
     "date": "2021-09-29",
@@ -837,7 +2462,7 @@
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-09-29-XAH-bqz-15.igc",
     "location": "Monroe",
-    "flightNumber": 60
+    "flightNumber": 217
   },
   {
     "date": "2021-09-30",
@@ -851,7 +2476,21 @@
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-09-30-XAH-bqz-16.igc",
     "location": "Monroe",
-    "flightNumber": 61
+    "flightNumber": 218
+  },
+  {
+    "date": "2021-10-01",
+    "wing": "BGD Epic",
+    "durationSeconds": 1648,
+    "maxDistanceMeters": 7493.743191977218,
+    "maxAltitudeMeters": 3276,
+    "trackLengthMeters": 15021.869780489877,
+    "altitudeGainMeters": 752,
+    "launchTime": 1633119968000,
+    "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
+    "fileName": "2021-10-01-XFH-000-01.IGC",
+    "location": "Monroe",
+    "flightNumber": 219
   },
   {
     "date": "2021-10-01",
@@ -865,7 +2504,21 @@
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-10-01-XAH-bqz-17.igc",
     "location": "Monroe",
-    "flightNumber": 62
+    "flightNumber": 220
+  },
+  {
+    "date": "2021-10-01",
+    "wing": "BGD Epic",
+    "durationSeconds": 1831,
+    "maxDistanceMeters": 5687.255306881187,
+    "maxAltitudeMeters": 2937,
+    "trackLengthMeters": 16043.970056797558,
+    "altitudeGainMeters": 564,
+    "launchTime": 1633129034000,
+    "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
+    "fileName": "2021-10-01-XFH-000-02.IGC",
+    "location": "Monroe",
+    "flightNumber": 221
   },
   {
     "date": "2021-10-01",
@@ -879,7 +2532,21 @@
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-10-01-XAH-bqz-18.igc",
     "location": "Monroe",
-    "flightNumber": 63
+    "flightNumber": 222
+  },
+  {
+    "date": "2021-10-02",
+    "wing": "BGD Epic",
+    "durationSeconds": 1240,
+    "maxDistanceMeters": 5683.222608228327,
+    "maxAltitudeMeters": 2679,
+    "trackLengthMeters": 10846.061798114499,
+    "altitudeGainMeters": 339,
+    "launchTime": 1633202028000,
+    "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
+    "fileName": "2021-10-02-XFH-000-01.IGC",
+    "location": "Monroe",
+    "flightNumber": 223
   },
   {
     "date": "2021-10-02",
@@ -893,7 +2560,21 @@
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-10-02-XAH-bqz-19.igc",
     "location": "Monroe",
-    "flightNumber": 64
+    "flightNumber": 224
+  },
+  {
+    "date": "2021-10-02",
+    "wing": "BGD Epic",
+    "durationSeconds": 3850,
+    "maxDistanceMeters": 5889.933357966078,
+    "maxAltitudeMeters": 3635,
+    "trackLengthMeters": 32365.679149875807,
+    "altitudeGainMeters": 1854,
+    "launchTime": 1633215518000,
+    "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
+    "fileName": "2021-10-02-XFH-000-02.IGC",
+    "location": "Monroe",
+    "flightNumber": 225
   },
   {
     "date": "2021-10-02",
@@ -907,6 +2588,212 @@
     "launchName": "TO (N, W, S) Cove_Richfield_Monroe",
     "fileName": "2021-10-02-XAH-bqz-20.igc",
     "location": "Monroe",
-    "flightNumber": 65
+    "flightNumber": 226
+  },
+  {
+    "date": "2021-10-08",
+    "wing": "BGD Epic",
+    "durationSeconds": 1572,
+    "maxDistanceMeters": 750.5915187153277,
+    "maxAltitudeMeters": 1615,
+    "trackLengthMeters": 9333.382098977667,
+    "altitudeGainMeters": 590,
+    "launchTime": 1633651706000,
+    "launchName": "TO (SE-SSE) Point of the Mountain (South)",
+    "fileName": "2021-10-08-XFH-000-01.IGC",
+    "location": "Point of the Mountain",
+    "flightNumber": 227
+  },
+  {
+    "date": "2022-03-11",
+    "wing": "BGD Epic",
+    "durationSeconds": 1779,
+    "maxDistanceMeters": 575.8554360846982,
+    "maxAltitudeMeters": 260,
+    "trackLengthMeters": 10547.385003738204,
+    "altitudeGainMeters": 483,
+    "launchTime": 1646962578000,
+    "launchName": "TOC (ESE-SSW) Stanwell Park-Bald Hil-The Point",
+    "fileName": "2022-03-11-XFH-000-01.IGC",
+    "flightNumber": 228
+  },
+  {
+    "date": "2022-04-17",
+    "wing": "BGD Epic",
+    "durationSeconds": 2696,
+    "maxDistanceMeters": 1685.4948368231471,
+    "maxAltitudeMeters": 779,
+    "trackLengthMeters": 18836.662261850528,
+    "altitudeGainMeters": 1356,
+    "launchTime": 1650223328000,
+    "launchName": "TO (SW) Mission",
+    "fileName": "2022-04-17-XFH-000-01.IGC",
+    "location": "Mission",
+    "flightNumber": 229
+  },
+  {
+    "date": "2022-04-23",
+    "wing": "BGD Epic",
+    "durationSeconds": 5027,
+    "maxDistanceMeters": 4523.182187893962,
+    "maxAltitudeMeters": 1772,
+    "trackLengthMeters": 40736.38370678622,
+    "altitudeGainMeters": 2952,
+    "launchTime": 1650741893000,
+    "comment": "TASK",
+    "launchName": "TO (SW-W) Dunlap",
+    "fileName": "2022-04-23-XFH-000-01.IGC",
+    "location": "Dunlap",
+    "flightNumber": 230
+  },
+  {
+    "date": "2022-06-04",
+    "wing": "BGD Epic",
+    "durationSeconds": 728,
+    "maxDistanceMeters": 2071.54562585622,
+    "maxAltitudeMeters": 708,
+    "trackLengthMeters": 4962.4904979968005,
+    "altitudeGainMeters": 104,
+    "launchTime": 1654368820000,
+    "comment": "TASK",
+    "launchName": "TO (SW) Ed Levin_1",
+    "fileName": "2022-06-04-XFH-000-01.IGC",
+    "location": "Ed Levin",
+    "flightNumber": 231
+  },
+  {
+    "date": "2022-09-03",
+    "wing": "BGD Epic",
+    "durationSeconds": 574,
+    "maxDistanceMeters": 1734.7642500157983,
+    "maxAltitudeMeters": 582,
+    "trackLengthMeters": 4193.146243799539,
+    "altitudeGainMeters": 101,
+    "launchTime": 1662231246000,
+    "comment": "TASK",
+    "launchName": "TO (SW) Mission",
+    "fileName": "2022-09-03-XFH-000-01.IGC",
+    "location": "Mission",
+    "flightNumber": 232
+  },
+  {
+    "date": "2022-09-20",
+    "wing": "BGD Epic",
+    "durationSeconds": 1652,
+    "maxDistanceMeters": 1980.7324466878283,
+    "maxAltitudeMeters": 758,
+    "trackLengthMeters": 10723.572165841639,
+    "altitudeGainMeters": 633,
+    "launchTime": 1663700585000,
+    "comment": "TASK",
+    "launchName": "TO (SW) Ed Levin_1",
+    "fileName": "2022-09-20-XFH-000-01.IGC",
+    "location": "Ed Levin",
+    "flightNumber": 233
+  },
+  {
+    "date": "2022-09-20",
+    "wing": "BGD Epic",
+    "durationSeconds": 435,
+    "maxDistanceMeters": 729.4541757143345,
+    "maxAltitudeMeters": 374,
+    "trackLengthMeters": 2709.6193362689523,
+    "altitudeGainMeters": 123,
+    "launchTime": 1663707794000,
+    "comment": "TASK",
+    "launchName": "TO (WNW-SW) Ed Levin_2",
+    "fileName": "2022-09-20-XFH-000-02.IGC",
+    "location": "Ed Levin",
+    "flightNumber": 234
+  },
+  {
+    "date": "2022-09-24",
+    "wing": "BGD Epic",
+    "durationSeconds": 755,
+    "maxDistanceMeters": 1711.7667825214016,
+    "maxAltitudeMeters": 580,
+    "trackLengthMeters": 5478.066476991073,
+    "altitudeGainMeters": 230,
+    "launchTime": 1664053518000,
+    "comment": "TASK",
+    "launchName": "TO (SW) Mission",
+    "fileName": "2022-09-24-XFH-000-01.IGC",
+    "location": "Mission",
+    "flightNumber": 235
+  },
+  {
+    "date": "2022-10-02",
+    "wing": "BGD Epic",
+    "durationSeconds": 1458,
+    "maxDistanceMeters": 2647.2387414678574,
+    "maxAltitudeMeters": 939,
+    "trackLengthMeters": 10963.111023456788,
+    "altitudeGainMeters": 718,
+    "launchTime": 1664740876000,
+    "comment": "TASK",
+    "launchName": "TOC (SW-SSW)  Mt Tam - B Launch",
+    "fileName": "2022-10-02-XFH-000-01.IGC",
+    "location": "Mt Tam",
+    "flightNumber": 236
+  },
+  {
+    "date": "2022-10-02",
+    "wing": "BGD Epic",
+    "durationSeconds": 82,
+    "maxDistanceMeters": 723.8019432940027,
+    "maxAltitudeMeters": 3,
+    "trackLengthMeters": 737.0660474578701,
+    "altitudeGainMeters": 19,
+    "launchTime": 1664745605000,
+    "comment": "TASK",
+    "launchName": "LZ Mt Tam",
+    "fileName": "2022-10-02-XFH-000-02.IGC",
+    "location": "Mt Tam",
+    "flightNumber": 237
+  },
+  {
+    "date": "2022-10-08",
+    "wing": "BGD Epic",
+    "durationSeconds": 3369,
+    "maxDistanceMeters": 2942.1233255343172,
+    "maxAltitudeMeters": 1497,
+    "trackLengthMeters": 28675.711666622672,
+    "altitudeGainMeters": 1567,
+    "launchTime": 1665260511000,
+    "comment": "TASK",
+    "launchName": "TO Tollhouse",
+    "fileName": "2022-10-08-XFH-000-01.IGC",
+    "location": "Tollhouse",
+    "flightNumber": 238
+  },
+  {
+    "date": "2022-10-08",
+    "wing": "BGD Epic",
+    "durationSeconds": 3831,
+    "maxDistanceMeters": 2597.1794848133804,
+    "maxAltitudeMeters": 1483,
+    "trackLengthMeters": 32609.161129680295,
+    "altitudeGainMeters": 1299,
+    "launchTime": 1665272632000,
+    "comment": "TASK",
+    "launchName": "TO Tollhouse",
+    "fileName": "2022-10-08-XFH-000-02.IGC",
+    "location": "Tollhouse",
+    "flightNumber": 239
+  },
+  {
+    "date": "2022-10-09",
+    "wing": "BGD Epic",
+    "durationSeconds": 4849,
+    "maxDistanceMeters": 3773.072529329883,
+    "maxAltitudeMeters": 1554,
+    "trackLengthMeters": 40769.82722407774,
+    "altitudeGainMeters": 2558,
+    "launchTime": 1665343473000,
+    "comment": "TASK",
+    "launchName": "TO Tollhouse",
+    "fileName": "2022-10-09-XFH-000-01.IGC",
+    "location": "Tollhouse",
+    "flightNumber": 240
   }
 ]

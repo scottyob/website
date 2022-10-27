@@ -177,7 +177,7 @@ $(window).on('load', function() {
               <th>Wing</th>
               <th>Comments</th>
             </tr>
-            {{ range .Pages.ByParam "flightNumber" }}
+            {{ range (.Pages.ByParam "flightNumber").Reverse }}
             <tr>
                 <td class="bold"><a href="/flying/flights/{{.Params.flightNumber}}">{{.Params.flightNumber}}</a></td>
                 {{ if .Params.location }}
@@ -190,7 +190,7 @@ $(window).on('load', function() {
                 <td>{{.Params.maxAltitudeMeters }}</td>
                 <td>{{.Params.altitudeGainMeters }}</td>
                 <td>{{.Params.wing }}</td>
-                <td>{{.Params.comments }}</td>
+                <td title="{{.Params.comment}}">{{truncate 10 .Params.comment }}</td>
             </tr>
             {{ end }}
           </table>
