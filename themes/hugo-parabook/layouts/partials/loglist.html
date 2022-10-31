@@ -47,9 +47,8 @@ $(window).on('load', function() {
       legend: {
         orientation: 'h'
       }
-	    // margin: { t: 1 } 
     },
-    config: {response: false }
+    config: {responsive: true }
   });
 
   // Time by site
@@ -73,7 +72,8 @@ $(window).on('load', function() {
         yaxis: {
           title: "Hours"
         }
-      }
+      },
+    config: {responsive: true }
     });
   }
 
@@ -106,9 +106,9 @@ $(window).on('load', function() {
       yaxis: {
         title: "Hours"
       },
-    }
+    },
+    config: {responsive: true },
   });
-
 });
 
 </script>
@@ -127,6 +127,10 @@ $(window).on('load', function() {
       font-weight: bold;
     }
 
+    #scatter {
+      width: 100%;
+    }
+
     #smallerStats {
       display: flex;
       flex-wrap: wrap;
@@ -137,6 +141,74 @@ $(window).on('load', function() {
     .chart-small {
       flex-grow: 1;
       min-width: 300px;
+    }
+    @import "https://fonts.googleapis.com/css?family=Montserrat:300,400,700";
+    .rwd-table {
+      /* margin: 1em 0; */
+      min-width: 300px;
+    }
+    .rwd-table tr {
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+    }
+    .rwd-table th {
+      display: none;
+    }
+    .rwd-table td {
+      display: block;
+    }
+    .rwd-table td:first-child {
+      padding-top: .5em;
+    }
+    .rwd-table td:last-child {
+      padding-bottom: .5em;
+    }
+    .rwd-table td:before {
+      content: attr(data-th) ": ";
+      font-weight: bold;
+      width: 6.5em;
+      display: inline-block;
+    }
+    @media (min-width: 550px) {
+      .rwd-table td:before {
+        display: none;
+      }
+    }
+    .rwd-table th, .rwd-table td {
+      text-align: left;
+    }
+    @media (min-width: 550px) {
+      .rwd-table th, .rwd-table td {
+        display: table-cell;
+        /* padding: .25em .5em; */
+      }
+      .rwd-table th:first-child, .rwd-table td:first-child {
+        padding-left: 0;
+      }
+      .rwd-table th:last-child, .rwd-table td:last-child {
+        padding-right: 0;
+      }
+    }
+
+    .rwd-table {
+      /* background: #34495E; */
+      /* color: #fff; */
+      border-radius: .4em;
+      overflow: hidden;
+    }
+    .rwd-table tr {
+      border-color: #46637f;
+    }
+    .rwd-table th, .rwd-table td {
+      /* margin: .5em 1em; */
+    }
+    @media (min-width: 550px) {
+      .rwd-table th, .rwd-table td {
+        /* padding: 1em !important; */
+      }
+    }
+    .rwd-table th, .rwd-table td:before {
+      /* color: #dd5; */
     }
 </style>
 
@@ -166,7 +238,7 @@ $(window).on('load', function() {
           </div>
         </div>
 
-        <table>
+        <table class="rwd-table">
             <tr>
               <th>#</th>
               <th>Location</th>
@@ -179,18 +251,18 @@ $(window).on('load', function() {
             </tr>
             {{ range (.Pages.ByParam "flightNumber").Reverse }}
             <tr>
-                <td class="bold"><a href="/flying/flights/{{.Params.flightNumber}}">{{.Params.flightNumber}}</a></td>
+                <td class="bold" data-th="#" style="white-space: nowrap"><a href="/flying/flights/{{.Params.flightNumber}}">{{.Params.flightNumber}}</a></td>
                 {{ if .Params.location }}
-                <td><a href="{{print (printf "/flying-location/%s" (.Params.location | urlize))}}">{{.Params.location}}</a></td>
+                <td data-th="Location"><a href="{{print (printf "/flying-location/%s" (.Params.location | urlize))}}">{{.Params.location}}</a></td>
                 {{ else }}
-                <td></td>
+                <td data-th="Location"></td>
                 {{ end }}
-                <td>{{if.Params.date}}{{.Params.date.Format "2006-01-02"}}{{end}}</td>
-                <td class="time-format">{{.Params.durationSeconds }}</td>
-                <td>{{.Params.maxAltitudeMeters }}</td>
-                <td>{{.Params.altitudeGainMeters }}</td>
-                <td>{{.Params.wing }}</td>
-                <td title="{{.Params.comment}}">{{truncate 10 .Params.comment }}</td>
+                <td data-th="Date">{{if.Params.date}}{{.Params.date.Format "2006-01-02"}}{{end}}</td>
+                <td data-th="Duration" class="time-format">{{.Params.durationSeconds }}</td>
+                <td data-th="Max Altitude">{{.Params.maxAltitudeMeters }}</td>
+                <td data-th="Altitude Gain">{{.Params.altitudeGainMeters }}</td>
+                <td data-th="Wing">{{.Params.wing }}</td>
+                <td data-th="Comments" title="{{.Params.comment}}">{{truncate 10 .Params.comment }}</td>
             </tr>
             {{ end }}
           </table>
