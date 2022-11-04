@@ -5,9 +5,9 @@
 
 It's rather special to see how the site changes over the year, from a luscious green site over the rainy season, to a golden yellow throughout the rest of the year.
 
-The site is often known as "Sled Heaven".  It is only recently that I'm feeling comfortable with later launches to work on increasing my flight time, and then the site doesn't work with too much of a north component in it.
+The site is often referred to as "Sled Heaven".  It is only recently that I'm feeling comfortable with later launches to work on increasing my flight time, and then the site doesn't work with too much of a north component in the wind.
 
-The site is ran by [Wings of Rogallo](https://wingsofrogallo.org/ed-levin/), and provides a few different launches:
+The site is run by [Wings of Rogallo](https://wingsofrogallo.org/ed-levin/), and provides a few different launches:
 - Bunnny slope 50' training hill
 - 300' launch
 - 600' launch
