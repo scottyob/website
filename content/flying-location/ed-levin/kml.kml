@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Ed Levin</name>
+	<gx:CascadingStyle kml:id="__managed_style_2D803FA403257617FE55">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_1F52785FB3257617FE55">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_060513F8B8257617FE55">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_1F52785FB3257617FE55</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_2D803FA403257617FE55</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark id="079011415E257617FE54">
+		<name>50&apos; Bunny Hill</name>
+		<LookAt>
+			<longitude>-121.8638213594582</longitude>
+			<latitude>37.46098658921751</latitude>
+			<altitude>278.5639373421562</altitude>
+			<heading>13.53674787619222</heading>
+			<tilt>73.55868748295339</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>1498.779833441076</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_060513F8B8257617FE55</styleUrl>
+		<Point>
+			<coordinates>-121.8654947432964,37.45909510425873,188.5823261897117</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0118CC1C41257618801E">
+		<name>Landing Area</name>
+		<LookAt>
+			<longitude>-121.8638213588164</longitude>
+			<latitude>37.46098659192246</latitude>
+			<altitude>278.5638996120688</altitude>
+			<heading>13.53674787654192</heading>
+			<tilt>73.55868748570245</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>1498.780111572269</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_060513F8B8257617FE55</styleUrl>
+		<Point>
+			<coordinates>-121.8670604527499,37.45776702783818,178.40390549831</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0AC941911F25761926EC">
+		<name>300&apos; Launch</name>
+		<LookAt>
+			<longitude>-121.8637626339639</longitude>
+			<latitude>37.46213761269333</latitude>
+			<altitude>298.3937178923725</altitude>
+			<heading>14.28786268020115</heading>
+			<tilt>76.50653801553408</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>1589.379771392851</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_060513F8B8257617FE55</styleUrl>
+		<Point>
+			<coordinates>-121.8645508924562,37.46108153990552,279.7209700571226</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0665D087292576197959">
+		<name>600&apos; Launch</name>
+		<LookAt>
+			<longitude>-121.8637626341778</longitude>
+			<latitude>37.46213761269333</latitude>
+			<altitude>298.3937178923725</altitude>
+			<heading>14.28786268003151</heading>
+			<tilt>76.50653801549218</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>1589.379771392851</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_060513F8B8257617FE55</styleUrl>
+		<Point>
+			<coordinates>-121.8599787001155,37.46133623210548,362.2967149363641</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0ED6F673A525761E26CD">
+		<name>1750&apos; Launch</name>
+		<LookAt>
+			<longitude>-121.8646075927474</longitude>
+			<latitude>37.46038518647962</latitude>
+			<altitude>247.6865477039199</altitude>
+			<heading>8.481957502080228</heading>
+			<tilt>86.3520318304098</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>823.187207661249</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_060513F8B8257617FE55</styleUrl>
+		<Point>
+			<coordinates>-121.8613225888206,37.4755081263253,704.0191754646638</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>
