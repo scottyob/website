@@ -37,7 +37,7 @@ just before the 2018 eruptions, so got lucky with our timing.  Due to there not 
 flowing lava at the time, we only saw this from afar.  I would very much like to keep
 this on the bucket list in hope of one day seeing it free-flowing up close.
 {{< /slide >}}
-* Visit the Maldives
+* Visit the Maldives (Nathan Hu:  I'd recommend Tahiti than Maldives)
 * Bungee Jumping
 * maintain a bee hive.
 * [Snow mobile](https://laketahoesnowmobile.com/book-your-tour-now/)
