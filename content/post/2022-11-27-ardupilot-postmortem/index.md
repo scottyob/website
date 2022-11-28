@@ -49,7 +49,7 @@ The altitude readings are super interesting here.  You can tell even before I la
 More concerning, the Barometer altitude is between -10 and -70m in the ~1 minute before launch on the ground.  The calculated AHRS (Attitude Heading Reference System) altitude at somewhat similar, -9 and -80  🫤
 
 The maiden launch itself in manual mode however was nominal.  You can hear me saying "Good luck little plane".  It needed more than luck it seems
-<iframe width="560" height="315" src="https://www.youtube.com/embed/D03_c0LWJhM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe height="315" style="width: 100%; max-width: 560px; display: block; margin: auto" src="https://www.youtube.com/embed/D03_c0LWJhM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 #### 2. Fly-By-Wire Test
 
