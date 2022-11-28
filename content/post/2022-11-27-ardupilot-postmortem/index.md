@@ -57,12 +57,14 @@ At ~1 minute 22 seconds into the flight, I turned the flight mode from manual to
 
 ![FBW](/post/ardupilot-postmortem/fbw.jpg)
 
-#### Theory 1 Reversed Elevator?
+#### (BAD) Theory 1 Reversed Elevator?
 ![nosedive](/post/ardupilot-postmortem/Nosedive1.jpg)
 12:24 is interesting here, If we take the time we engage the autopilot, we can see the pitch heading down into the ground, before our roll even begins to change.  It ends up to a point where it's almost completely nose down before we save it with manual flight mode.
 
 What's interesting, is that the pitch continues to fall, and the AETR Elevator gets more and more positive.  Is it possible that we're trying to correct the nose down and instead making it worse?  Could the elevator be reversed?
 
+I think this can however be **disproven** due to the Radio Sticks playback showing the correct elevator inputs during my climb out and general flying (as you can see below on my launch)
+![Disproven](/post/ardupilot-postmortem/disproven.jpg)
 
 ### Event 3.  Crash (elevator failure?)
 
