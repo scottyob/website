@@ -60,13 +60,13 @@ $(window).on('load', function() {
             </table>
             <table border="0" cellspacing="0">
                 <tr>
-                    <td>Max Distance:</td><td>{{math.Round (float $flight.maxDistanceMeters)}}m</td>
+                    <td>Max Distance:</td><td>{{math.Round (float ($flight.maxDistanceMeters | default 0))}}m</td>
                 </tr>
                 <tr>
                     <td>Max Altitude:</td><td>{{$flight.maxAltitudeMeters}}m</td>
                 </tr>
                 <tr>
-                    <td>Track Length:</td><td>{{math.Round (float $flight.trackLengthMeters)}}m</td>
+                    <td>Track Length:</td><td>{{math.Round (float ($flight.trackLengthMeters | default 0))}}m</td>
                 </tr>
                 <tr>
                     <td>Wing:</td><td>{{$flight.wing}}</td>
