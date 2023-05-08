@@ -5,23 +5,23 @@
 <a class=nav- role=presentation href=/page/about/>About Me</a>
 <a class=nav- role=presentation href=/recipes/>Recipes</a>
 <a class=nav- role=presentation href=/flying/>Flying</a></div></header><main class=content role=main><article class=post><header class=post-header><h2 class=post-title>What’s the harm in Google DNS?Performance!</h2><section class=post-meta><time class=post-date>July 02, 2011</time></section></header><section class=post-content><p><strong>EDIT:  </strong>It looks like Google has recently starting peering in more places in AU with an anycast solution that fixes these issues.</p><p>On a little side note to the tutorial series I’ve been writing up lately for building a ZFS fileserver. This one is about Why Google DNS is bad for your performance (well, depending on where you live)
-A real quick run down, we all know what DNS does yeah? It translates domains like <a href=https://www.scottyob.com>www.scottyob.com</a> into IP addresses like 112.140.183.97. A DNS server has a job of translating these domain names to the IP addresses we can use.</p><p>Now, when it comes to Google DNS, if you believe in the propaganda <a href=http://code.google.com/speed/public-dns/ onclick='_gaq.push(["_trackEvent","outbound-article","http://code.google.com"])'><a href=http://code.google.com/speed/public-dns/>http://code.google.com/speed/public-dns/</a></a> where Google DNS is said to</p><ul><li><a href=http://code.google.com/speed/public-dns/docs/performance.html onclick='_gaq.push(["_trackEvent","outbound-article","http://code.google.com"])'>Speed up your browsing experience</a></li><li><a href=http://code.google.com/speed/public-dns/docs/security.html onclick='_gaq.push(["_trackEvent","outbound-article","http://code.google.com"])'>Improve your Security.</a></li></ul><p>What google doesn’t tell you is that it interferes with DNS servers that might try and give you a server that’s close to your home. I’ve been using Google DNS for months here at home, but only just have I decided against using it, and I’ll run through exactly what causes some performance issues.</p><p>I was trying to watch a program on iView on TPG’s internet connection. Now, TPG don’t have the best international links on peak times, so I first started getting frustrated at them for not letting me watch my iView program with buffer lags on my 8Mbit plan. I checked my Signal to Noise ratio and dropped packets, etc.. it was fine. I checked the bandwith going out on my ppp interface on the router to see if I was maxing out the net connection at home, but nope, that was fine too, so the problem must have been with TPG.</p><p>Looking at what was going on, I did a little traceroute to <a href=https://www.abc.net.au>www.abc.net.au</a></p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+A real quick run down, we all know what DNS does yeah? It translates domains like <a href=https://www.scottyob.com>www.scottyob.com</a> into IP addresses like 112.140.183.97. A DNS server has a job of translating these domain names to the IP addresses we can use.</p><p>Now, when it comes to Google DNS, if you believe in the propaganda <a href=http://code.google.com/speed/public-dns/ onclick='_gaq.push(["_trackEvent","outbound-article","http://code.google.com"])'><a href=http://code.google.com/speed/public-dns/>http://code.google.com/speed/public-dns/</a></a> where Google DNS is said to</p><ul><li><a href=http://code.google.com/speed/public-dns/docs/performance.html onclick='_gaq.push(["_trackEvent","outbound-article","http://code.google.com"])'>Speed up your browsing experience</a></li><li><a href=http://code.google.com/speed/public-dns/docs/security.html onclick='_gaq.push(["_trackEvent","outbound-article","http://code.google.com"])'>Improve your Security.</a></li></ul><p>What google doesn’t tell you is that it interferes with DNS servers that might try and give you a server that’s close to your home. I’ve been using Google DNS for months here at home, but only just have I decided against using it, and I’ll run through exactly what causes some performance issues.</p><p>I was trying to watch a program on iView on TPG’s internet connection. Now, TPG don’t have the best international links on peak times, so I first started getting frustrated at them for not letting me watch my iView program with buffer lags on my 8Mbit plan. I checked my Signal to Noise ratio and dropped packets, etc.. it was fine. I checked the bandwith going out on my ppp interface on the router to see if I was maxing out the net connection at home, but nope, that was fine too, so the problem must have been with TPG.</p><p>Looking at what was going on, I did a little traceroute to <a href=https://www.abc.net.au>www.abc.net.au</a></p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
 </span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>traceroute: Warning: www.abc.net.au has multiple addresses; using 125.252.224.73
 </span></span><span style=display:flex><span> traceroute to a1632.g.akamai.net (125.252.224.73), 64 hops max, 52 byte packets
 </span></span><span style=display:flex><span> 1 10.1.1.254 (10.1.1.254) 1.919 ms 1.260 ms 1.202 ms
@@ -40,22 +40,22 @@ A real quick run down, we all know what DNS does yeah? It translates domains lik
 </span></span><span style=display:flex><span> 10 80.156.224.6 (80.156.224.6) 358.402 ms 320.029 ms 349.133 ms
 </span></span><span style=display:flex><span> 11 a125-252-224-73.deploy.akamaitechnologies.com (125.252.224.73) 332.188 ms 331.008 ms 314.833 ms
 </span></span></code></pre></td></tr></table></div></div><p>Looking at this traceroute, the first thing I thought was “Why on earth is ABC hosting it’s website in hongkong (or so the traffic has to go via hongkong.)? Immediately reject ABC would do this and I blame TPG’s stupid routing decisions.
-Looking at the IP address further <a href="http://www.dnsstuff.com/tools/ipall/?tool_id=67&token=&toolhandler_redirect=0&ip=125.252.224.73" onclick='_gaq.push(["_trackEvent","outbound-article","http://www.dnsstuff.com"])'><a href="http://www.dnsstuff.com/tools/ipall/?tool_id=67&token=&toolhandler_redirect=0&ip=125.252.224.73">http://www.dnsstuff.com/tools/ipall/?tool_id=67&token=&toolhandler_redirect=0&ip=125.252.224.73</a></a> It looks like it’s hosted in Singapore, and some googling shows akamaitechnologies is the web host for ABC.. ok, so what is going on here?</p><p>then I did a little DIGging around on the ABC domain and check this out.</p><p>Using Google DNS (8.8.8.8, hosted in America):</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+Looking at the IP address further <a href="http://www.dnsstuff.com/tools/ipall/?tool_id=67&token=&toolhandler_redirect=0&ip=125.252.224.73" onclick='_gaq.push(["_trackEvent","outbound-article","http://www.dnsstuff.com"])'><a href="http://www.dnsstuff.com/tools/ipall/?tool_id=67&amp;token=&amp;toolhandler_redirect=0&amp;ip=125.252.224.73">http://www.dnsstuff.com/tools/ipall/?tool_id=67&amp;token=&amp;toolhandler_redirect=0&amp;ip=125.252.224.73</a></a> It looks like it’s hosted in Singapore, and some googling shows akamaitechnologies is the web host for ABC.. ok, so what is going on here?</p><p>then I did a little DIGging around on the ABC domain and check this out.</p><p>Using Google DNS (8.8.8.8, hosted in America):</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
 </span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>; &lt;&lt;&gt;&gt; DiG 9.6.0-APPLE-P2 &lt;&lt;&gt;&gt; www.abc.net.au @8.8.8.8
 </span></span><span style=display:flex><span>;; global options: +cmd
 </span></span><span style=display:flex><span>;; Got answer:
@@ -72,22 +72,22 @@ Looking at the IP address further <a href="http://www.dnsstuff.com/tools/ipall/?
 </span></span><span style=display:flex><span>;; SERVER: 8.8.8.8#53(8.8.8.8)
 </span></span><span style=display:flex><span>;; WHEN: Sun Jul 3 00:37:00 2011
 </span></span><span style=display:flex><span>;; MSG SIZE rcvd: 135
-</span></span></code></pre></td></tr></table></div></div><p>And using TPG’s DNS servers (203.12.160.35)</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span></span></code></pre></td></tr></table></div></div><p>And using TPG’s DNS servers (203.12.160.35)</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
 </span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>; &lt;&lt;&gt;&gt; DiG 9.6.0-APPLE-P2 &lt;&lt;&gt;&gt; www.abc.net.au @203.12.160.35
 </span></span><span style=display:flex><span>;; global options: +cmd
 </span></span><span style=display:flex><span>;; Got answer:
@@ -104,13 +104,13 @@ Looking at the IP address further <a href="http://www.dnsstuff.com/tools/ipall/?
 </span></span><span style=display:flex><span>;; SERVER: 203.12.160.35#53(203.12.160.35)
 </span></span><span style=display:flex><span>;; WHEN: Sun Jul  3 00:38:20 2011
 </span></span><span style=display:flex><span>;; MSG SIZE  rcvd: 135
-</span></span></code></pre></td></tr></table></div></div><p>So there we go, hosted in Sydney Australia.. So how does the traceroute compare?</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
-</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></span></code></pre></td></tr></table></div></div><p>So there we go, hosted in Sydney Australia.. So how does the traceroute compare?</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
 </span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>macshell:~ scott$ traceroute www.abc.net.au
 </span></span><span style=display:flex><span>traceroute: Warning: www.abc.net.au has multiple addresses; using 202.7.177.83
 </span></span><span style=display:flex><span>traceroute to a1632.g.akamai.net (202.7.177.83), 64 hops max, 52 byte packets
