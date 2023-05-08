@@ -4,7 +4,7 @@ categories:
  - recipe
 ---
 <img src="img.jpg" height="300px" />
-{{% img img Resize "300x" %}}
+{{% img img Resize "300x" %}}{{% /img %}}
 
 ## Ingredients
 * 1 medium butternut squash sliced in half and seeds scooped out
