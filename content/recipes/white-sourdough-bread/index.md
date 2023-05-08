@@ -4,7 +4,7 @@ categories:
  - recipe
 ---
 
-{{% img img Resize "300x" %}}
+{{% img img Resize "300x" %}}{{% /img %}}
 
 ## Ingredients
 * 350g of water
@@ -23,8 +23,6 @@ categories:
 8. Bake for 50 minutes with lid on
 9. Further 5 minutes with lid off to brown top.
 10. Remove from oven, let sit for an hour before carving
-
-{{% /img %}}
 
 ## Notes
 I like to mix up some whole wheat flour in at times.  We've had good success up to 20% of the bread flour substituded for others

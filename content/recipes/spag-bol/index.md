@@ -3,7 +3,7 @@ Title: Spag Bol
 categories:
  - recipe
 ---
-{{% img img Resize "600x" %}}
+{{% img img Resize "600x" %}}{{% /img %}}
 
 ## Ingredients
 - 1 1/2 tbsp olive oil

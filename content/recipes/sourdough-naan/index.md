@@ -3,7 +3,7 @@ Title: Sourdough Naan
 categories:
  - recipe
 ---
-{{% img img Resize "300x" %}}
+{{% img img Resize "300x" %}}{{% /img %}}
 
 ## Ingredients
 Wet:

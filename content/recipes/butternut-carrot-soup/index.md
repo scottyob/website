@@ -3,6 +3,7 @@ Title: Butternut carrot soup
 categories:
  - recipe
 ---
+<img src="img.jpg" height="300px" />
 {{% img img Resize "300x" %}}
 
 ## Ingredients
