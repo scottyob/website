@@ -1,3 +1,6 @@
+> :warning: **ARCHIVED**: This is now abandoned, website is now moved to [https://github.com/scottyob/nextjs-website](https://github.com/scottyob/nextjs-website)
+
+
 Just my website https://www.scottyob.com/
 
 ## Flightlogs
